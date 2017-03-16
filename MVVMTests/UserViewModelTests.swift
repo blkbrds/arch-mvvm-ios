@@ -9,7 +9,7 @@
 import XCTest
 @testable import MVVM
 
-extension UserVM {
+extension UserViewModel {
     static var standard: UserVM {
         let user = UserVM()
         user.name = "Do Nam Trung"
