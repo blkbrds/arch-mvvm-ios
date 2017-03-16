@@ -1,5 +1,5 @@
 //
-//  UserVMTests.swift
+//  UserViewModelTests.swift
 //  MVVMTests
 //
 //  Created by DaoNV on 3/16/17.
@@ -10,8 +10,8 @@ import XCTest
 @testable import MVVM
 
 extension UserViewModel {
-    static var standard: UserVM {
-        let user = UserVM()
+    static var standard: UserViewModel {
+        let user = UserViewModel()
         user.name = "Do Nam Trung"
         user.mail = "trungdn@gmail.com"
         user.pass = "Secret@123"
@@ -19,7 +19,7 @@ extension UserViewModel {
     }
 }
 
-class UserVMTests: XCTestCase {
+class UserViewModelTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -32,7 +32,7 @@ class UserVMTests: XCTestCase {
     }
 
     func test_validate_success() {
-        let user = UserVM.standard
+        let user = UserViewModel.standard
         let validation = user.validate()
         switch validation {
         case .success: break
@@ -42,7 +42,7 @@ class UserVMTests: XCTestCase {
     }
 
     func test_validate_failure_name() {
-        let user = UserVM.standard
+        let user = UserViewModel.standard
         user.name = "Trung"
         let validation = user.validate()
         switch validation {
@@ -55,7 +55,7 @@ class UserVMTests: XCTestCase {
     }
 
     func test_validate_failure_mail() {
-        let user = UserVM.standard
+        let user = UserViewModel.standard
         user.mail = "trung@co.uk"
         let validation = user.validate()
         switch validation {
@@ -68,7 +68,7 @@ class UserVMTests: XCTestCase {
     }
     
     func test_validate_failure_pass() {
-        let user = UserVM.standard
+        let user = UserViewModel.standard
         user.pass = "1234"
         let validation = user.validate()
         switch validation {
@@ -82,7 +82,7 @@ class UserVMTests: XCTestCase {
 
     func test_login_success() {
         let ex = expectation(description: "login")
-        let user = UserVM.standard
+        let user = UserViewModel.standard
         user.login { (result) in
             switch result {
             case .success: break

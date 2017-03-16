@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserVM {
+class UserViewModel {
     enum Validation {
         case success
         case failure(key: String, msg: String)

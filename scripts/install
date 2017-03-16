@@ -16,27 +16,16 @@ fi
 
 brew update
 
-# rbenv
-if ! which rbenv > /dev/null; then
-    echo 'install rbenv'
-    brew install rbenv
-    eval "$(rbenv init -)"
-    echo 'which rbenv > /dev/null && eval "$(rbenv init -)"' >> ~/.bashrc
-fi
-brew update
-brew link pkg-config || true
-brew outdated ruby-build || brew upgrade ruby-build
-
-# compile ruby via clang
-export RBENV=/usr/local/var/rbenv
-ln -sf ~/.rbenv $RBENV
-export RUBY_VER="$(cat .ruby-version)"
-if ! cat $RBENV/clang | grep $RUBY_VER; then
-    export CC=clang
-    export CONFIGURE_OPTS="--with-gcc=clang --enable-shared"
-    echo 'n' | rbenv install $RUBY_VER
+# rbenv if need
+if [[ "$CI" != 'true' ]]; then
+    if ! which rbenv > /dev/null; then
+        echo 'install rbenv'
+        brew install rbenv
+        eval "$(rbenv init -)"
+        echo 'which rbenv > /dev/null && eval "$(rbenv init -)"' >> ~/.bashrc
+    fi
+    echo 'n' | rbenv install || true
     rbenv rehash
-    echo "$RUBY_VER" >> $RBENV/clang
 fi
 
 gem install bundler
@@ -54,5 +43,3 @@ if ! bundle exec pod install; then
     bundle exec pod repo update --silent
     bundle exec pod install
 fi
-
-# cd OpenAssets && bundle exec pod install

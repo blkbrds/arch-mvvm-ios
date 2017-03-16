@@ -10,6 +10,8 @@ import UIKit
 
 class FriendListViewController: UIViewController {
 
+    var dataProvider: UserProviderProtocol?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
