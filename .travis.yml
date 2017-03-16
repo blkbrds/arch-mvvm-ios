@@ -1,0 +1,33 @@
+language: objective-c
+osx_image: xcode8.2
+cache:
+  bundler: true
+  cocoapods: true
+  directories:
+    - ~/.rbenv
+    - ~/.cocoapods
+    - .bundle
+    - vendor
+env:
+  global:
+    - SDK="iphonesimulator10.2"
+    - SCHEME='RideShare'
+    - WORKSPACE='RideShare.xcworkspace'
+    - DESTINATION="platform=iOS Simulator,OS=10.2,id=22FA2149-1241-469C-BF6D-462D3837DB72"
+    - CONFIGURATION='Debug'
+install:
+  - set -o pipefail
+  - ./scripts/install
+script:
+  # export custom environment variables
+  - export REPO_SLUG="$TRAVIS_REPO_SLUG"
+  - export SRC_BRANCH="$(./scripts/ci/src_branch)"
+  - export PR_NUMBER="$(./scripts/ci/pr_number)"
+  # execute tests
+  - ./scripts/tests/branch
+  - ./scripts/tests/lint
+  - ./scripts/tests/app
+  # temporary disable open-assets testing
+  # - ./scripts/tests/pod
+notifications:
+  email: false

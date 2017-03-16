@@ -1,0 +1,124 @@
+# Swift 3, SwiftLint 0.16.1
+reporter: xcode
+opt_in_rules:
+  - force_unwrapping
+  - vertical_whitespace
+  - empty_count
+disabled_rules:
+  - todo
+  - trailing_whitespace
+  - class_delegate_protocol
+excluded:
+  - Carthage
+  - Pods
+  - vendor
+  - OpenAssets
+cyclomatic_complexity:
+  warning: 15
+line_length: 200
+file_length: 1000
+force_unwrapping: error
+function_parameter_count:
+  - 6
+  - 8
+function_body_length:
+  - 80
+  - 100
+type_body_length:
+  - 300
+  - 500
+type_name:
+  min_length:
+    warning: 2
+  max_length:
+    warning: 40
+    error: 60
+variable_name:
+  min_length:
+    warning: 1
+  max_length:
+    warning: 40
+    error: 60
+custom_rules:
+  disable:
+    name: "Disable Rule In Code"
+    regex: "(swiftlint:disable)"
+    message: "Please do not disable rule in code. "
+    severity: error
+    match_kinds: comment
+  outlet:
+    name: "outlet"
+    regex: "(@IBOutlet\s*(?!private(set)*\s*weak)\w*\s+var)"
+    message: "IBOutlet must be private(set) weak. "
+    severity: error
+  outlet_collection:
+    name: "outlet_collection"
+    regex: "(@IBOutletCollection)"
+    message: "IBOutletCollection is not permitted. "
+    severity: error
+  delegate:
+    name: "delegate"
+    regex: "(\s{2,}var\s+delegate)"
+    message: "Please use `weak` for `delegate`. "
+    severity: error
+  comments_space:
+    name: "Space After Comment"
+    regex: "(^\s*//\w+)"
+    message: "There should be a space after //"
+    severity: warning
+    match_kinds: comment
+  multiple_empty_lines:
+    name: "Multiple Empty Lines"
+    regex: "((?:\s*\n){3,})"
+    message: "There are too many line breaks"
+    severity: warning
+  empty_line:
+    name: "Empty Line"
+    regex: "(\}\n[ \t]*([ \t]|class|static|dynamic|@objc|@IBAction|override|private|public|internal)*func)"
+    message: "Must have an empty line between functions. "
+    severity: warning
+  switch_enum:
+    name: "Switch Enum"
+    regex: "(case\s\w+\.+rawValue:)"
+    message: "Don't use enum.rawValue in switch-case. Please convert value to enum first. "
+    severity: warning
+  compile_lookup:
+    name: "Compile Lookup"
+    regex: "((var|let)\s+\w+\s*=\s*\[)"
+    message: "You need to give types to the array and dictionary. "
+    severity: error
+  weak_self_usage:
+    name: "Weak Self Usage"
+    regex: "(self\?\.)"
+    message: "Explicitly extending lifetime is preferred to optional binding. Ex: `guard let this = self else { return }`. "
+    severity: warning
+  weak_self_binding:
+    name: "Weak Self Binding"
+    regex: "(let\s+(?!this)\w+\s*=\s*self[,\s])"
+    message: "Please use `let this = self` instead. "
+    severity: warning
+  unowned:
+    name: "Unowned"
+    regex: "(unowned)"
+    message: "Please use `weak` instead. "
+    severity: error
+  vc_suffix:
+    name: "VC Suffix"
+    regex: "( \w+(vc|VC|ViewController\s=))"
+    message: "Please simplify with `Controller, navi, root...`. "
+    severity: warning
+  empty_string:
+    name: "Empty String"
+    regex: "(.length\s*(==|!=|<|<=|>|>=)\s*0)"
+    message: "Please use `isEmpty` instead. "
+    severity: error
+  bracket:
+    name: "Bracket"
+    regex: "(\}\n{2,}\}|\{\n{2,}\{)"
+    message: "No empty line between two open or close brackets. "
+    severity: warning
+  query_string:
+    name: "Query String"
+    regex: "(\s+[=!><]+ \\\(.*\))"
+    message: "Donot use the string interpolation syntax for query string. "
+    severity: warning
