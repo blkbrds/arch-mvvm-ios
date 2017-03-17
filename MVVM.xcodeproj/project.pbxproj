@@ -18,7 +18,7 @@
 		ECCCCB231E7A40D10073D923 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECCCCB221E7A40D10073D923 /* Assets.xcassets */; };
 		ECCCCB261E7A40D10073D923 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECCCCB241E7A40D10073D923 /* LaunchScreen.storyboard */; };
 		ECCCCB311E7A40D10073D923 /* UserViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCCCB301E7A40D10073D923 /* UserViewModelTests.swift */; };
-		ECCCCB3C1E7A429E0073D923 /* UserVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCCCB3B1E7A429E0073D923 /* UserVM.swift */; };
+		ECCCCB3C1E7A429E0073D923 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCCCB3B1E7A429E0073D923 /* UserViewModel.swift */; };
 		ECCCCB421E7A42D80073D923 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCCCB411E7A42D80073D923 /* User.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,7 +52,7 @@
 		ECCCCB2C1E7A40D10073D923 /* MVVMTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MVVMTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECCCCB301E7A40D10073D923 /* UserViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModelTests.swift; sourceTree = "<group>"; };
 		ECCCCB321E7A40D10073D923 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ECCCCB3B1E7A429E0073D923 /* UserVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserVM.swift; sourceTree = "<group>"; };
+		ECCCCB3B1E7A429E0073D923 /* UserViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		ECCCCB411E7A42D80073D923 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -107,7 +107,7 @@
 		EC7438E01E7A8CB4007FD6E4 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				ECCCCB3B1E7A429E0073D923 /* UserVM.swift */,
+				ECCCCB3B1E7A429E0073D923 /* UserViewModel.swift */,
 				EC7438DA1E7A88AE007FD6E4 /* UserProvider.swift */,
 			);
 			name = ViewModel;
@@ -145,9 +145,9 @@
 		ECCCCB1A1E7A40D00073D923 /* MVVM */ = {
 			isa = PBXGroup;
 			children = (
+				EC7438E11E7A8CC8007FD6E4 /* View */,
 				ECCCCB3D1E7A42A30073D923 /* Controller */,
 				ECCCCB401E7A42CB0073D923 /* Model */,
-				EC7438E11E7A8CC8007FD6E4 /* View */,
 				EC7438E01E7A8CB4007FD6E4 /* ViewModel */,
 				EC5D49A71E7A4FAF0008C257 /* Services */,
 				ECCCCB3F1E7A42BB0073D923 /* Resources */,
@@ -406,7 +406,7 @@
 				ECCCCB1E1E7A40D10073D923 /* LoginViewController.swift in Sources */,
 				EC5D49A91E7A4FCE0008C257 /* UserServices.swift in Sources */,
 				EC7438DE1E7A8A9E007FD6E4 /* FriendListViewController.swift in Sources */,
-				ECCCCB3C1E7A429E0073D923 /* UserVM.swift in Sources */,
+				ECCCCB3C1E7A429E0073D923 /* UserViewModel.swift in Sources */,
 				ECCCCB1C1E7A40D00073D923 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

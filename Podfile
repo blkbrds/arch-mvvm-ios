@@ -11,13 +11,9 @@ end
 
 target 'MVVM' do
     shared_pods
-    pod 'RxSwift',    '~> 3.0'
-    pod 'RxCocoa',    '~> 3.0'
 
     target 'MVVMTests' do
         inherit! :search_paths
         shared_pods
-        pod 'RxBlocking', '~> 3.0'
-        pod 'RxTest',     '~> 3.0'
     end
 end
