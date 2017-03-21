@@ -1,5 +1,7 @@
 # MVVM - iOS
 
+This application implements [GitHub API](https://developer.github.com/v3) 
+
 ## Setup Development Environment
 
 - `./scripts/install` - this script will install

@@ -12,6 +12,7 @@
 		EC5D49A91E7A4FCE0008C257 /* UserServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5D49A81E7A4FCE0008C257 /* UserServices.swift */; };
 		EC7438DB1E7A88AE007FD6E4 /* UserProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7438DA1E7A88AE007FD6E4 /* UserProvider.swift */; };
 		EC7438DE1E7A8A9E007FD6E4 /* FriendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7438DC1E7A8A9E007FD6E4 /* FriendListViewController.swift */; };
+		ECBC268A1E7FBCC400414CE3 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBC26891E7FBCC400414CE3 /* Config.swift */; };
 		ECCCCB1C1E7A40D00073D923 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCCCB1B1E7A40D00073D923 /* AppDelegate.swift */; };
 		ECCCCB1E1E7A40D10073D923 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCCCB1D1E7A40D10073D923 /* LoginViewController.swift */; };
 		ECCCCB211E7A40D10073D923 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECCCCB1F1E7A40D10073D923 /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 		ECCCCB311E7A40D10073D923 /* UserViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCCCB301E7A40D10073D923 /* UserViewModelTests.swift */; };
 		ECCCCB3C1E7A429E0073D923 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCCCB3B1E7A429E0073D923 /* UserViewModel.swift */; };
 		ECCCCB421E7A42D80073D923 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCCCB411E7A42D80073D923 /* User.swift */; };
+		ECDFB07A1E7BC729007716C5 /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDFB0791E7BC729007716C5 /* Mapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,7 @@
 		EC5D49A81E7A4FCE0008C257 /* UserServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserServices.swift; sourceTree = "<group>"; };
 		EC7438DA1E7A88AE007FD6E4 /* UserProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProvider.swift; sourceTree = "<group>"; };
 		EC7438DC1E7A8A9E007FD6E4 /* FriendListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendListViewController.swift; sourceTree = "<group>"; };
+		ECBC26891E7FBCC400414CE3 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		ECCCCB181E7A40D00073D923 /* MVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECCCCB1B1E7A40D00073D923 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ECCCCB1D1E7A40D10073D923 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +57,7 @@
 		ECCCCB321E7A40D10073D923 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ECCCCB3B1E7A429E0073D923 /* UserViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		ECCCCB411E7A42D80073D923 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		ECDFB0791E7BC729007716C5 /* Mapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +126,14 @@
 			name = View;
 			sourceTree = "<group>";
 		};
+		ECBC26881E7FBCB900414CE3 /* Define */ = {
+			isa = PBXGroup;
+			children = (
+				ECBC26891E7FBCC400414CE3 /* Config.swift */,
+			);
+			name = Define;
+			sourceTree = "<group>";
+		};
 		ECCCCB0F1E7A40D00073D923 = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +157,7 @@
 		ECCCCB1A1E7A40D00073D923 /* MVVM */ = {
 			isa = PBXGroup;
 			children = (
+				ECBC26881E7FBCB900414CE3 /* Define */,
 				EC7438E11E7A8CC8007FD6E4 /* View */,
 				ECCCCB3D1E7A42A30073D923 /* Controller */,
 				ECCCCB401E7A42CB0073D923 /* Model */,
@@ -195,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				ECCCCB411E7A42D80073D923 /* User.swift */,
+				ECDFB0791E7BC729007716C5 /* Mapper.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -403,8 +417,10 @@
 			files = (
 				ECCCCB421E7A42D80073D923 /* User.swift in Sources */,
 				EC7438DB1E7A88AE007FD6E4 /* UserProvider.swift in Sources */,
+				ECBC268A1E7FBCC400414CE3 /* Config.swift in Sources */,
 				ECCCCB1E1E7A40D10073D923 /* LoginViewController.swift in Sources */,
 				EC5D49A91E7A4FCE0008C257 /* UserServices.swift in Sources */,
+				ECDFB07A1E7BC729007716C5 /* Mapper.swift in Sources */,
 				EC7438DE1E7A8A9E007FD6E4 /* FriendListViewController.swift in Sources */,
 				ECCCCB3C1E7A429E0073D923 /* UserViewModel.swift in Sources */,
 				ECCCCB1C1E7A40D00073D923 /* AppDelegate.swift in Sources */,

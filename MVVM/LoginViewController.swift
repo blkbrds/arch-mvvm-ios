@@ -8,6 +8,10 @@
 
 import UIKit
 
+private struct Action {
+    static let login = #selector(LoginViewController.login)
+}
+
 class LoginViewController: UIViewController {
 
     var user = UserViewModel() {
@@ -16,10 +20,10 @@ class LoginViewController: UIViewController {
         }
     }
 
-    var nameField: UITextField!
-    var mailField: UITextField!
-    var passField: UITextField!
-    var loginButton: UIButton!
+    @IBOutlet private var nameField: UITextField!
+    @IBOutlet private var mailField: UITextField!
+    @IBOutlet private var passField: UITextField!
+    @IBOutlet private var loginButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,10 +40,11 @@ class LoginViewController: UIViewController {
         loginButton.addTarget(self, action: #selector(LoginViewController.login), for: .touchUpInside)
     }
 
-    @objc private func login() {
-        user.name = nameField.string
-        user.mail = mailField.string
-        user.pass = passField.string
+    @objc fileprivate func login() {
+        user.name =! nameField.text
+        user.mail =! mailField.text
+        user.pass =! passField.text
+
         switch user.validate() {
         case .success:
             user.login { (result) in
@@ -49,26 +54,17 @@ class LoginViewController: UIViewController {
             let alert = UIAlertController(title: "ERROR", message: msg, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { [weak self] _ in
                 guard let this = self else { return }
-                guard let field = this.textField(forKey: key) else { return }
+                guard let field = this.textFields[key] else { return }
                 field.becomeFirstResponder()
             }))
         }
     }
 
-    func textField(forKey key: String) -> UITextField? {
-        switch key {
-        case "name":
-            return nameField
-        case "mail":
-            return mailField
-        case "pass":
-            return passField
-        default:
-            return nil
-        }
+    var textFields: [String:UITextField] {
+        return [
+            "name": nameField,
+            "mail": mailField,
+            "pass": passField
+        ]
     }
-}
-
-extension UITextField {
-    var string: String { return text ?? "" }
 }

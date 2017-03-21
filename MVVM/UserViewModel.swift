@@ -14,20 +14,16 @@ class UserViewModel {
         case failure(key: String, msg: String)
     }
 
-    var name: String
-    var mail: String
-    var pass: String
+    var name = ""
+    var mail = ""
+    var pass = ""
 
     init() {
-        name = ""
-        mail = ""
-        pass = ""
     }
 
     init(user: User) {
-        name = user.name ?? ""
-        mail = user.mail ?? ""
-        pass = user.pass ?? ""
+        name = user.name
+        mail = user.mail
     }
 
     func validate() -> Validation {

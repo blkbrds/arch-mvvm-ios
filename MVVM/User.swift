@@ -9,10 +9,11 @@
 import UIKit
 
 class User {
-    var name: String?
-    var mail: String?
-    var pass: String?
+    var id = 0
+    var name = ""
+    var mail = ""
 
-    init() {
+    init(json: JSON) {
+        id =! json["id"] as? Int
     }
 }
