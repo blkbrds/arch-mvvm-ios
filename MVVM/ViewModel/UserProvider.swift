@@ -7,9 +7,11 @@
 //
 
 import Foundation
+import RealmSwift
+import RealmS
 
 protocol UserProviderProtocol {
-    var users: [UserViewModel] { get }
+    let users: Result<User>
     func fetch() -> Self
     func update(completion: @escaping Completion) -> Self
 }

@@ -7,7 +7,7 @@ install! 'cocoapods', :deterministic_uuids => false
 target 'MVVM' do
     pod 'Alamofire', '~> 4.3.0'
     pod 'SwiftLint', '~> 0.16.1'
-    pod 'RealmMapper', '~> 2.1'
+    pod 'RealmS', '~> 2.2.0'
     pod 'SwiftyJSON', '~> 3.1.4'
 
     target 'MVVMTests' do
