@@ -7,8 +7,15 @@
 //
 
 import UIKit
+import MVVM
 
-class UserViewModel {
+final class UserViewModel: MVVM.ViewModel {
+    var model: User?
+
+    typealias T = User
+    var origin: T?
+    var delegate: Presenter?
+
     enum Validation {
         case success
         case failure(key: String, msg: String)
@@ -18,12 +25,10 @@ class UserViewModel {
     var mail = ""
     var pass = ""
 
-    init() {
-    }
-
-    init(user: User) {
-        name = user.name
-        mail = user.mail
+    init(model: User?) {
+        guard let model = model else { return }
+        name = model.name
+        mail = model.mail
     }
 
     func validate() -> Validation {

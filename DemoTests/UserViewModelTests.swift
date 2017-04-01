@@ -7,11 +7,11 @@
 //
 
 import XCTest
-@testable import MVVM
+@testable import Demo
 
 extension UserViewModel {
     static var standard: UserViewModel {
-        let user = UserViewModel()
+        let user = UserViewModel(model: nil)
         user.name = "Do Nam Trung"
         user.mail = "trungdn@gmail.com"
         user.pass = "Secret@123"

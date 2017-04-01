@@ -7,23 +7,20 @@
 //
 
 import UIKit
-
-private struct Action {
-    static let login = #selector(LoginViewController.login)
-}
+import MVVM
 
 class LoginViewController: UIViewController {
 
-    var user = UserViewModel() {
+    var model = UserViewModel(model: nil) {
         didSet {
             updateView()
         }
     }
 
-    @IBOutlet private var nameField: UITextField!
-    @IBOutlet private var mailField: UITextField!
-    @IBOutlet private var passField: UITextField!
-    @IBOutlet private var loginButton: UIButton!
+    @IBOutlet fileprivate var nameField: UITextField!
+    @IBOutlet fileprivate var mailField: UITextField!
+    @IBOutlet fileprivate var passField: UITextField!
+    @IBOutlet fileprivate var loginButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,23 +28,18 @@ class LoginViewController: UIViewController {
         setupActions()
     }
 
-    private func updateView() {
-        guard isViewLoaded else { return }
-        nameField.text = user.name
-    }
-
     private func setupActions() {
         loginButton.addTarget(self, action: #selector(LoginViewController.login), for: .touchUpInside)
     }
 
-    @objc fileprivate func login() {
-        user.name =! nameField.text
-        user.mail =! mailField.text
-        user.pass =! passField.text
+    @objc private func login() {
+        model.name =! nameField.text
+        model.mail =! mailField.text
+        model.pass =! passField.text
 
-        switch user.validate() {
+        switch model.validate() {
         case .success:
-            user.login { (result) in
+            model.login { (result) in
                 //
             }
         case .failure(let key, let msg):
@@ -67,4 +59,13 @@ class LoginViewController: UIViewController {
             "pass": passField
         ]
     }
+}
+
+extension LoginViewController: MVVM.Presenter {
+    func updateView() {
+        guard isViewLoaded else { return }
+        nameField.text = model.name
+    }
+
+    var identifier: String { return "LoginViewController" }
 }
