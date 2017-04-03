@@ -17,11 +17,11 @@ final class LoginViewController: UIViewController, MVVM.Presenter {
     func updateView(viewModel: UserViewModel) {
         self.viewModel = viewModel
         guard isViewLoaded else { return }
-        nameField.text = viewModel.name
+        mailField.text = viewModel.mail
+        passField.text = viewModel.pass
     }
     // MARK: -
 
-    @IBOutlet fileprivate var nameField: UITextField!
     @IBOutlet fileprivate var mailField: UITextField!
     @IBOutlet fileprivate var passField: UITextField!
     @IBOutlet fileprivate var loginButton: UIButton!

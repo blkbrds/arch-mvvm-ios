@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="MVVM" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -20,11 +20,69 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EEl-bQ-ph1">
+                                <rect key="frame" x="103" y="121" width="168" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="OR0-NO-9Yb"/>
+                                    <constraint firstAttribute="width" constant="168" id="bTh-zr-KcH"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Qf-aY-5dK">
+                                <rect key="frame" x="103" y="159" width="168" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BG1-MA-Sgy">
+                                <rect key="frame" x="145" y="197" width="84" height="30"/>
+                                <state key="normal" title="Login"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="BG1-MA-Sgy" firstAttribute="width" secondItem="6Qf-aY-5dK" secondAttribute="width" multiplier="0.5" id="3k2-NA-48i"/>
+                            <constraint firstItem="6Qf-aY-5dK" firstAttribute="width" secondItem="EEl-bQ-ph1" secondAttribute="width" id="5P2-MU-qZb"/>
+                            <constraint firstItem="6Qf-aY-5dK" firstAttribute="centerX" secondItem="EEl-bQ-ph1" secondAttribute="centerX" id="EvR-1Q-PJI"/>
+                            <constraint firstItem="6Qf-aY-5dK" firstAttribute="height" secondItem="EEl-bQ-ph1" secondAttribute="height" id="Pnl-6P-fFu"/>
+                            <constraint firstItem="BG1-MA-Sgy" firstAttribute="centerX" secondItem="6Qf-aY-5dK" secondAttribute="centerX" id="eaf-O7-WX3"/>
+                            <constraint firstItem="BG1-MA-Sgy" firstAttribute="top" secondItem="6Qf-aY-5dK" secondAttribute="bottom" constant="8" id="go8-Qj-L6r"/>
+                            <constraint firstItem="EEl-bQ-ph1" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="101" id="k7T-vl-dkO"/>
+                            <constraint firstItem="BG1-MA-Sgy" firstAttribute="height" secondItem="6Qf-aY-5dK" secondAttribute="height" id="l4q-fH-Yq1"/>
+                            <constraint firstItem="6Qf-aY-5dK" firstAttribute="top" secondItem="EEl-bQ-ph1" secondAttribute="bottom" constant="8" id="wEb-dG-3bW"/>
+                            <constraint firstItem="EEl-bQ-ph1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xT5-JA-KLt"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="loginButton" destination="BG1-MA-Sgy" id="fWf-Pf-GeR"/>
+                        <outlet property="mailField" destination="EEl-bQ-ph1" id="ehs-uH-Rkf"/>
+                        <outlet property="passField" destination="6Qf-aY-5dK" id="yYe-ze-W8R"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="29.600000000000001" y="44.527736131934034"/>
+        </scene>
+        <!--Repo List View Controller-->
+        <scene sceneID="7Yh-qn-uIR">
+            <objects>
+                <tableViewController id="vbn-EG-7oR" customClass="RepoListViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ptg-0l-aG4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="vbn-EG-7oR" id="1JF-3o-Jo2"/>
+                            <outlet property="delegate" destination="vbn-EG-7oR" id="YWq-NX-Hw6"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q7p-ZI-Iib" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="557" y="45"/>
         </scene>
     </scenes>
 </document>
