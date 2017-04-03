@@ -53,6 +53,8 @@ final class LoginViewController: UIViewController, MVVM.Presenter {
                 guard let field = this.textFields[key] else { return }
                 field.becomeFirstResponder()
             }))
+            
+            self.present(alert, animated: true, completion: nil)
         }
     }
 
