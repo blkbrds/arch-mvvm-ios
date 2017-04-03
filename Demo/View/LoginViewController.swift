@@ -32,6 +32,10 @@ final class LoginViewController: UIViewController, MVVM.Presenter {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        #if DEBUG
+            viewModel.mail = "at.ios.mvvm@gmail.com"
+            viewModel.pass = "Abc@123"
+        #endif
         updateView(viewModel: viewModel)
         setupActions()
     }

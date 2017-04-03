@@ -12,8 +12,8 @@ import XCTest
 extension UserViewModel {
     static var standard: UserViewModel {
         let user = UserViewModel(model: nil)
-        user.mail = "trungdn@gmail.com"
-        user.pass = "Secret@123"
+        user.mail = "at.ios.mvvm@gmail.com"
+        user.pass = "Abc@123"
         return user
     }
 }
