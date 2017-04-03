@@ -1,5 +1,5 @@
 //
-//  FriendCellViewModel.swift
+//  RepoCellViewModel.swift
 //  MVVM
 //
 //  Created by DaoNV on 4/1/17.
@@ -9,7 +9,7 @@
 import Foundation
 import MVVM
 
-final class FriendCellViewModel: MVVM.ViewModel {
+final class RepoCellViewModel: MVVM.ViewModel {
     typealias T = User
     var model: User?
     var name = ""

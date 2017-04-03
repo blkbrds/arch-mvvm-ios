@@ -10,11 +10,11 @@ import Foundation
 import MVVM
 
 final class UserViewModel: MVVM.ViewModel {
-    var model: User?
-
     typealias T = User
+
+    var model: User?
     var origin: T?
-    var delegate: Presenter?
+    var delegate: UserProvider?
 
     enum Validation {
         case success

@@ -19,17 +19,17 @@
 		EC0105541E8F8AE000CE013D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0105441E8F8ADF00CE013D /* AppDelegate.swift */; };
 		EC0105551E8F8AE000CE013D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC0105451E8F8ADF00CE013D /* LaunchScreen.storyboard */; };
 		EC0105561E8F8AE000CE013D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC0105471E8F8ADF00CE013D /* Main.storyboard */; };
-		EC0105571E8F8AE000CE013D /* FriendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0105491E8F8ADF00CE013D /* FriendListViewController.swift */; };
+		EC0105571E8F8AE000CE013D /* RepoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0105491E8F8ADF00CE013D /* RepoListViewController.swift */; };
 		EC0105581E8F8AE000CE013D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC01054A1E8F8AE000CE013D /* LoginViewController.swift */; };
 		EC0105591E8F8AE000CE013D /* UserProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC01054C1E8F8AE000CE013D /* UserProvider.swift */; };
 		EC01055A1E8F8AE000CE013D /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC01054D1E8F8AE000CE013D /* UserViewModel.swift */; };
 		EC01055F1E8F8AF000CE013D /* UserViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC01055D1E8F8AF000CE013D /* UserViewModelTests.swift */; };
-		EC0105661E8F8AFD00CE013D /* MVVMProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = EC0105621E8F8AFD00CE013D /* MVVMProtocol.h */; };
+		EC0105661E8F8AFD00CE013D /* MVVM.h in Headers */ = {isa = PBXBuildFile; fileRef = EC0105621E8F8AFD00CE013D /* MVVM.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC0105671E8F8AFD00CE013D /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0105631E8F8AFD00CE013D /* Provider.swift */; };
 		EC0105681E8F8AFD00CE013D /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0105641E8F8AFD00CE013D /* ViewModel.swift */; };
 		EC01056A1E8F8F3400CE013D /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0105691E8F8F3400CE013D /* Presenter.swift */; };
-		EC01056C1E8FA01200CE013D /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC01056B1E8FA01200CE013D /* FriendCell.swift */; };
-		EC01056E1E8FA86100CE013D /* FriendCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC01056D1E8FA86100CE013D /* FriendCellViewModel.swift */; };
+		EC01056C1E8FA01200CE013D /* RepoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC01056B1E8FA01200CE013D /* RepoCell.swift */; };
+		EC01056E1E8FA86100CE013D /* RepoCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC01056D1E8FA86100CE013D /* RepoCellViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,19 +86,19 @@
 		EC0105441E8F8ADF00CE013D /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC0105461E8F8ADF00CE013D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EC0105481E8F8ADF00CE013D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		EC0105491E8F8ADF00CE013D /* FriendListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendListViewController.swift; sourceTree = "<group>"; };
+		EC0105491E8F8ADF00CE013D /* RepoListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoListViewController.swift; sourceTree = "<group>"; };
 		EC01054A1E8F8AE000CE013D /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		EC01054C1E8F8AE000CE013D /* UserProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProvider.swift; sourceTree = "<group>"; };
 		EC01054D1E8F8AE000CE013D /* UserViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		EC01055C1E8F8AF000CE013D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC01055D1E8F8AF000CE013D /* UserViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewModelTests.swift; sourceTree = "<group>"; };
 		EC0105611E8F8AFD00CE013D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EC0105621E8F8AFD00CE013D /* MVVMProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVVMProtocol.h; sourceTree = "<group>"; };
+		EC0105621E8F8AFD00CE013D /* MVVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVVM.h; sourceTree = "<group>"; };
 		EC0105631E8F8AFD00CE013D /* Provider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
 		EC0105641E8F8AFD00CE013D /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		EC0105691E8F8F3400CE013D /* Presenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
-		EC01056B1E8FA01200CE013D /* FriendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
-		EC01056D1E8FA86100CE013D /* FriendCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendCellViewModel.swift; sourceTree = "<group>"; };
+		EC01056B1E8FA01200CE013D /* RepoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoCell.swift; sourceTree = "<group>"; };
+		EC01056D1E8FA86100CE013D /* RepoCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoCellViewModel.swift; sourceTree = "<group>"; };
 		ECCCCB181E7A40D00073D923 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECCCCB2C1E7A40D10073D923 /* DemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -210,9 +210,9 @@
 				EC0105441E8F8ADF00CE013D /* AppDelegate.swift */,
 				EC0105451E8F8ADF00CE013D /* LaunchScreen.storyboard */,
 				EC0105471E8F8ADF00CE013D /* Main.storyboard */,
-				EC01056D1E8FA86100CE013D /* FriendCellViewModel.swift */,
-				EC01056B1E8FA01200CE013D /* FriendCell.swift */,
-				EC0105491E8F8ADF00CE013D /* FriendListViewController.swift */,
+				EC01056D1E8FA86100CE013D /* RepoCellViewModel.swift */,
+				EC01056B1E8FA01200CE013D /* RepoCell.swift */,
+				EC0105491E8F8ADF00CE013D /* RepoListViewController.swift */,
 				EC01054A1E8F8AE000CE013D /* LoginViewController.swift */,
 			);
 			path = View;
@@ -240,7 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				EC0105611E8F8AFD00CE013D /* Info.plist */,
-				EC0105621E8F8AFD00CE013D /* MVVMProtocol.h */,
+				EC0105621E8F8AFD00CE013D /* MVVM.h */,
 				EC0105631E8F8AFD00CE013D /* Provider.swift */,
 				EC0105641E8F8AFD00CE013D /* ViewModel.swift */,
 				EC0105691E8F8F3400CE013D /* Presenter.swift */,
@@ -277,7 +277,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC0105661E8F8AFD00CE013D /* MVVMProtocol.h in Headers */,
+				EC0105661E8F8AFD00CE013D /* MVVM.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -529,14 +529,14 @@
 				EC0105581E8F8AE000CE013D /* LoginViewController.swift in Sources */,
 				EC01054F1E8F8AE000CE013D /* User.swift in Sources */,
 				EC0105511E8F8AE000CE013D /* Config.swift in Sources */,
-				EC0105571E8F8AE000CE013D /* FriendListViewController.swift in Sources */,
+				EC0105571E8F8AE000CE013D /* RepoListViewController.swift in Sources */,
 				EC0105501E8F8AE000CE013D /* UserServices.swift in Sources */,
 				EC0105541E8F8AE000CE013D /* AppDelegate.swift in Sources */,
 				EC01054E1E8F8AE000CE013D /* Mapper.swift in Sources */,
 				EC01055A1E8F8AE000CE013D /* UserViewModel.swift in Sources */,
-				EC01056E1E8FA86100CE013D /* FriendCellViewModel.swift in Sources */,
+				EC01056E1E8FA86100CE013D /* RepoCellViewModel.swift in Sources */,
 				EC0105591E8F8AE000CE013D /* UserProvider.swift in Sources */,
-				EC01056C1E8FA01200CE013D /* FriendCell.swift in Sources */,
+				EC01056C1E8FA01200CE013D /* RepoCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -599,7 +599,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = vn.asiantech.dev.MVVMProtocol;
+				PRODUCT_BUNDLE_IDENTIFIER = vn.asiantech.dev.MVVM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -626,7 +626,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = vn.asiantech.dev.MVVMProtocol;
+				PRODUCT_BUNDLE_IDENTIFIER = vn.asiantech.dev.MVVM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -736,7 +736,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Demo/Supports/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = vn.asiantech.dev.MVVM;
+				PRODUCT_BUNDLE_IDENTIFIER = vn.asiantech.dev.mvvm.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -751,7 +751,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Demo/Supports/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = vn.asiantech.dev.MVVM;
+				PRODUCT_BUNDLE_IDENTIFIER = vn.asiantech.dev.mvvm.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -765,10 +765,10 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = DemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = vn.asiantech.dev.MVVMTests;
+				PRODUCT_BUNDLE_IDENTIFIER = vn.asiantech.dev.mvvm.tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MVVM.app/MVVM";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Demo.app/Demo";
 			};
 			name = Debug;
 		};
@@ -780,10 +780,10 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = DemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = vn.asiantech.dev.MVVMTests;
+				PRODUCT_BUNDLE_IDENTIFIER = vn.asiantech.dev.mvvm.tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MVVM.app/MVVM";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Demo.app/Demo";
 			};
 			name = Release;
 		};

@@ -6,8 +6,9 @@
 //  Copyright © 2017 Asian Tech Co., Ltd. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 public protocol Presenter: class {
-    func updateView()
+    associatedtype T: ViewModel
+    func updateView(model: T)
 }

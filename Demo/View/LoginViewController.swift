@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  LoginViewController.swift
 //  MVVM
 //
 //  Created by DaoNV on 3/16/17.
@@ -9,11 +9,12 @@
 import UIKit
 import MVVM
 
-class LoginViewController: UIViewController {
+final class LoginViewController: UIViewController {
+    typealias T = UserViewModel
 
-    fileprivate var model = UserViewModel(model: nil)
+    var model = UserViewModel(model: nil)
 
-    func config(model: UserViewModel) {
+    func updateView(model: UserViewModel) {
         self.model = model
     }
 
