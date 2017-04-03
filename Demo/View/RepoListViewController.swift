@@ -9,11 +9,9 @@
 import UIKit
 import MVVM
 
-final class RepoListViewController: UIViewController {
+final class RepoListViewController: UITableViewController {
 
     var data = UserProvider()
-
-    @IBOutlet private weak var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +21,8 @@ final class RepoListViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         reloadData()
+        guard let navi = navigationController else { return }
+        navi.viewControllers = [self]
     }
 
     private func configTable() {
@@ -36,12 +36,12 @@ final class RepoListViewController: UIViewController {
     }
 }
 
-extension RepoListViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+extension RepoListViewController {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "RepoCell") as? RepoCell
         else { fatalError() }
         let idx = indexPath.row

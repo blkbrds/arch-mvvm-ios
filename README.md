@@ -1,6 +1,8 @@
 # MVVM - iOS
 
-This application implements [GitHub API](https://developer.github.com/v3) 
+[![codecov](https://codecov.io/gh/AsianTechInc/AT-MVVM-iOS/branch/master/graph/badge.svg)](https://codecov.io/gh/AsianTechInc/AT-MVVM-iOS)
+
+This application implements [GitHub API](https://developer.github.com/v3)
 
 ## Setup Development Environment
 

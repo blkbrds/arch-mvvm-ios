@@ -1,16 +1,14 @@
 #!/bin/bash
 
-cd OpenAssets
-
 if [[ -z "$SDK" ]]; then
     echo 'Exporting build environment variables...'
-    export SDK='iphonesimulator10.2'
+    export SDK='iphonesimulator10.3'
     export DESTINATION='OS=10.2,name=iPhone 7'
     export CONFIGURATION='Debug'
 fi
 
-export WORKSPACE='OpenAssets.xcworkspace'
-export SCHEME='OpenAssets'
+export WORKSPACE='MVVM.xcworkspace'
+export SCHEME='MVVM'
 
 xcodebuild test \
     -workspace "$WORKSPACE" \
