@@ -12,7 +12,6 @@ import XCTest
 extension UserViewModel {
     static var standard: UserViewModel {
         let user = UserViewModel(model: nil)
-        user.name = "Do Nam Trung"
         user.mail = "trungdn@gmail.com"
         user.pass = "Secret@123"
         return user
@@ -31,7 +30,7 @@ class UserViewModelTests: XCTestCase {
         super.tearDown()
     }
 
-    func test_validate_success() {
+    func testValidateSuccess() {
         let user = UserViewModel.standard
         let validation = user.validate()
         switch validation {
@@ -41,20 +40,7 @@ class UserViewModelTests: XCTestCase {
         }
     }
 
-    func test_validate_failure_name() {
-        let user = UserViewModel.standard
-        user.name = "Trung"
-        let validation = user.validate()
-        switch validation {
-        case .success:
-            XCTAssertTrue(false, "`validation` must be `.failure`")
-        case .failure(let key, let msg):
-            XCTAssertEqual(key, "name", "`validation` must be failure with `key` = `name`")
-            XCTAssertEqual(msg, "'name' too short", "`validation` must be failure with `msg` = `'name' too short`")
-        }
-    }
-
-    func test_validate_failure_mail() {
+    func testValidateFailureMail() {
         let user = UserViewModel.standard
         user.mail = "trung@co.uk"
         let validation = user.validate()
@@ -67,7 +53,7 @@ class UserViewModelTests: XCTestCase {
         }
     }
     
-    func test_validate_failure_pass() {
+    func testValidateFailurePass() {
         let user = UserViewModel.standard
         user.pass = "1234"
         let validation = user.validate()
@@ -80,7 +66,7 @@ class UserViewModelTests: XCTestCase {
         }
     }
 
-    func test_login_success() {
+    func testLoginSuccess() {
         let ex = expectation(description: "login")
         let user = UserViewModel.standard
         user.login { (result) in

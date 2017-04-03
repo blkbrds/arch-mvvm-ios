@@ -21,6 +21,8 @@ final class RepoListViewController: UITableViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         reloadData()
+        guard let navi = navigationController else { return }
+        navi.viewControllers = [self]
     }
 
     private func configTable() {

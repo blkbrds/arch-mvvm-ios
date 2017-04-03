@@ -28,16 +28,6 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES"
       codeCoverageEnabled = "YES">
-      <PostActions>
-         <ExecutionAction
-            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
-            <ActionContent
-               title = "Run Script"
-               scriptText = "bash &lt;(curl -s https://codecov.io/bash) -J &quot;${PROJECT_NAME}&quot;"
-               shellToInvoke = "/bin/bash">
-            </ActionContent>
-         </ExecutionAction>
-      </PostActions>
       <Testables>
          <TestableReference
             skipped = "NO">

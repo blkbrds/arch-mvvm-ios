@@ -42,7 +42,7 @@ final class UserViewModel: MVVM.ViewModel {
 
     enum LoginResult {
         case success
-        case failure(code: Int)
+        case failure(error: NSError)
     }
 
     func login(_ completion: @escaping (LoginResult)->Void) {

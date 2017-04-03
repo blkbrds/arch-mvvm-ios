@@ -210,10 +210,10 @@
 				EC0105441E8F8ADF00CE013D /* AppDelegate.swift */,
 				EC0105451E8F8ADF00CE013D /* LaunchScreen.storyboard */,
 				EC0105471E8F8ADF00CE013D /* Main.storyboard */,
+				EC01054A1E8F8AE000CE013D /* LoginViewController.swift */,
 				EC01056D1E8FA86100CE013D /* RepoCellViewModel.swift */,
 				EC01056B1E8FA01200CE013D /* RepoCell.swift */,
 				EC0105491E8F8ADF00CE013D /* RepoListViewController.swift */,
-				EC01054A1E8F8AE000CE013D /* LoginViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";

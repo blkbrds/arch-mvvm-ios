@@ -9,6 +9,10 @@
 import UIKit
 import MVVM
 
+private enum Segue: String {
+    case ShowRepoList
+}
+
 final class LoginViewController: UIViewController, MVVM.Presenter {
     // MARK: - MVVM
     typealias T = UserViewModel
@@ -32,19 +36,35 @@ final class LoginViewController: UIViewController, MVVM.Presenter {
         setupActions()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        guard !passField.isFirstResponder else { return }
+        mailField.becomeFirstResponder()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        view.endEditing(true)
+    }
+
     private func setupActions() {
         loginButton.addTarget(self, action: #selector(LoginViewController.login), for: .touchUpInside)
     }
 
     @objc private func login() {
-        viewModel.name =! nameField.text
         viewModel.mail =! mailField.text
         viewModel.pass =! passField.text
 
         switch viewModel.validate() {
         case .success:
-            viewModel.login { (result) in
-                //
+            viewModel.login { [weak self] (result) in
+                guard let this = self else { return }
+                switch result {
+                case .success:
+                    this.showRepoList()
+                case .failure(let error):
+                    NSLog("ERROR: " + error.localizedDescription)
+                }
             }
         case .failure(let key, let msg):
             let alert = UIAlertController(title: "ERROR", message: msg, preferredStyle: .alert)
@@ -53,12 +73,16 @@ final class LoginViewController: UIViewController, MVVM.Presenter {
                 guard let field = this.textFields[key] else { return }
                 field.becomeFirstResponder()
             }))
+            present(alert, animated: true, completion: nil)
         }
+    }
+
+    private func showRepoList() {
+        performSegue(withIdentifier: Segue.ShowRepoList.rawValue, sender: self)
     }
 
     var textFields: [String:UITextField] {
         return [
-            "name": nameField,
             "mail": mailField,
             "pass": passField
         ]
