@@ -10,10 +10,12 @@ import UIKit
 import MVVM
 
 final class RepoCell: UITableViewCell, Presenter {
+    // MARK: - MVVM
     typealias T = RepoCellViewModel
-    var model = RepoCellViewModel(model: nil)
+    var viewModel = RepoCellViewModel(model: nil)
 
-    func updateView(model: RepoCellViewModel) {
+    func updateView(viewModel: RepoCellViewModel) {
         //
     }
+    // MARK: -
 }

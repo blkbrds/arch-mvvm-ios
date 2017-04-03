@@ -11,7 +11,6 @@ import MVVM
 
 final class UserViewModel: MVVM.ViewModel {
     typealias T = User
-
     var model: User?
     var origin: T?
     var delegate: UserProvider?

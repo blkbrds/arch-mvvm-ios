@@ -11,7 +11,7 @@ import MVVM
 
 final class RepoListViewController: UIViewController {
 
-    var data = UserProvider() { didSet { reloadData() } }
+    var data = UserProvider()
 
     @IBOutlet private weak var tableView: UITableView!
 
@@ -47,7 +47,7 @@ extension RepoListViewController: UITableViewDataSource {
         let idx = indexPath.row
         let user = data.object(at: idx)
         let model = RepoCellViewModel(model: user)
-        cell.updateView(model: model)
+        cell.updateView(viewModel: model)
         return cell
     }
 }

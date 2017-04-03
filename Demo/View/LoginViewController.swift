@@ -9,14 +9,17 @@
 import UIKit
 import MVVM
 
-final class LoginViewController: UIViewController {
+final class LoginViewController: UIViewController, MVVM.Presenter {
+    // MARK: - MVVM
     typealias T = UserViewModel
+    var viewModel = UserViewModel(model: nil)
 
-    var model = UserViewModel(model: nil)
-
-    func updateView(model: UserViewModel) {
-        self.model = model
+    func updateView(viewModel: UserViewModel) {
+        self.viewModel = viewModel
+        guard isViewLoaded else { return }
+        nameField.text = viewModel.name
     }
+    // MARK: -
 
     @IBOutlet fileprivate var nameField: UITextField!
     @IBOutlet fileprivate var mailField: UITextField!
@@ -25,7 +28,7 @@ final class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateView()
+        updateView(viewModel: viewModel)
         setupActions()
     }
 
@@ -34,13 +37,13 @@ final class LoginViewController: UIViewController {
     }
 
     @objc private func login() {
-        model.name =! nameField.text
-        model.mail =! mailField.text
-        model.pass =! passField.text
+        viewModel.name =! nameField.text
+        viewModel.mail =! mailField.text
+        viewModel.pass =! passField.text
 
-        switch model.validate() {
+        switch viewModel.validate() {
         case .success:
-            model.login { (result) in
+            viewModel.login { (result) in
                 //
             }
         case .failure(let key, let msg):
@@ -60,13 +63,4 @@ final class LoginViewController: UIViewController {
             "pass": passField
         ]
     }
-}
-
-extension LoginViewController: MVVM.Presenter {
-    func updateView() {
-        guard isViewLoaded else { return }
-        nameField.text = model.name
-    }
-
-    var identifier: String { return "LoginViewController" }
 }

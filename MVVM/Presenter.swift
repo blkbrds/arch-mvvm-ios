@@ -10,5 +10,6 @@ import UIKit
 
 public protocol Presenter: class {
     associatedtype T: ViewModel
-    func updateView(model: T)
+    var viewModel: T { get }
+    func updateView(viewModel: T)
 }

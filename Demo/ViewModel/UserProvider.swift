@@ -12,15 +12,15 @@ import RealmS
 import MVVM
 
 class UserProvider: MVVM.Provider {
+    // MARK: - MVVM
     typealias T = User
-
     var count: Int { return objects.count }
-
     var onChangesHandler: (() -> Void)?
 
     func object(at index: Int) -> User {
         return objects[index]
     }
+    // MARK: -
 
     private let objects = RealmS().objects(User.self)
 }
