@@ -12,5 +12,4 @@ public protocol ViewModel: class {
     associatedtype T
     var model: T? { get }
     init(model: T?)
-    weak var delegate: Presenter? { set get }
 }

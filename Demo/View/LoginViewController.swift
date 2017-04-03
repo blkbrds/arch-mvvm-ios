@@ -11,10 +11,10 @@ import MVVM
 
 class LoginViewController: UIViewController {
 
-    var model = UserViewModel(model: nil) {
-        didSet {
-            updateView()
-        }
+    fileprivate var model = UserViewModel(model: nil)
+
+    func config(model: UserViewModel) {
+        self.model = model
     }
 
     @IBOutlet fileprivate var nameField: UITextField!

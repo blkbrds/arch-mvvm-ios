@@ -6,7 +6,7 @@
 //  Copyright © 2017 Asian Tech Co., Ltd. All rights reserved.
 //
 
-import UIKit
+import Foundation
 import MVVM
 
 final class UserViewModel: MVVM.ViewModel {

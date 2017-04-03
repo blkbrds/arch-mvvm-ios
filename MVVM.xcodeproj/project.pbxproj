@@ -29,6 +29,7 @@
 		EC0105681E8F8AFD00CE013D /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0105641E8F8AFD00CE013D /* ViewModel.swift */; };
 		EC01056A1E8F8F3400CE013D /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0105691E8F8F3400CE013D /* Presenter.swift */; };
 		EC01056C1E8FA01200CE013D /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC01056B1E8FA01200CE013D /* FriendCell.swift */; };
+		EC01056E1E8FA86100CE013D /* FriendCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC01056D1E8FA86100CE013D /* FriendCellViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,7 @@
 		EC0105641E8F8AFD00CE013D /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		EC0105691E8F8F3400CE013D /* Presenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
 		EC01056B1E8FA01200CE013D /* FriendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
+		EC01056D1E8FA86100CE013D /* FriendCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendCellViewModel.swift; sourceTree = "<group>"; };
 		ECCCCB181E7A40D00073D923 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECCCCB2C1E7A40D10073D923 /* DemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -208,6 +210,7 @@
 				EC0105441E8F8ADF00CE013D /* AppDelegate.swift */,
 				EC0105451E8F8ADF00CE013D /* LaunchScreen.storyboard */,
 				EC0105471E8F8ADF00CE013D /* Main.storyboard */,
+				EC01056D1E8FA86100CE013D /* FriendCellViewModel.swift */,
 				EC01056B1E8FA01200CE013D /* FriendCell.swift */,
 				EC0105491E8F8ADF00CE013D /* FriendListViewController.swift */,
 				EC01054A1E8F8AE000CE013D /* LoginViewController.swift */,
@@ -531,6 +534,7 @@
 				EC0105541E8F8AE000CE013D /* AppDelegate.swift in Sources */,
 				EC01054E1E8F8AE000CE013D /* Mapper.swift in Sources */,
 				EC01055A1E8F8AE000CE013D /* UserViewModel.swift in Sources */,
+				EC01056E1E8FA86100CE013D /* FriendCellViewModel.swift in Sources */,
 				EC0105591E8F8AE000CE013D /* UserProvider.swift in Sources */,
 				EC01056C1E8FA01200CE013D /* FriendCell.swift in Sources */,
 			);

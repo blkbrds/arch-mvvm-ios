@@ -15,6 +15,11 @@ public protocol Provider: class {
     func object(at index: Int) -> T
 
     // Services
-    func fetch(_ completion: @escaping () -> Void) -> Self
-    func update(_ completion: @escaping () -> Void) -> Self
+    var onChangesHandler: (() -> Void)? { set get }
+}
+
+extension Provider {
+    func onChanges(_ handler: (() -> Void)?) {
+        onChangesHandler = handler
+    }
 }

@@ -13,22 +13,14 @@ import MVVM
 
 class UserProvider: MVVM.Provider {
     typealias T = User
-    typealias S = Results<User>
-
-    private let objects = RealmS().objects(User.self)
 
     var count: Int { return objects.count }
+
+    var onChangesHandler: (() -> Void)?
 
     func object(at index: Int) -> User {
         return objects[index]
     }
 
-    // Services
-    func fetch(_ completion: @escaping () -> Void) -> Self {
-        return self
-    }
-
-    func update(_ completion: @escaping () -> Void) -> Self {
-        return self
-    }
+    private let objects = RealmS().objects(User.self)
 }

@@ -11,7 +11,8 @@ import MVVM
 
 class FriendListViewController: UIViewController {
 
-    var dataProvider: UserProvider?
+    var data = UserProvider() { didSet { reloadData() } }
+
     @IBOutlet private weak var tableView: UITableView!
 
     override func viewDidLoad() {
@@ -24,30 +25,28 @@ class FriendListViewController: UIViewController {
         reloadData()
     }
 
-    func configTable() {
+    private func configTable() {
         tableView.register(FriendCell.self, forCellReuseIdentifier: "FriendCell")
         tableView.dataSource = self
     }
 
     func reloadData() {
-        guard let _ = dataProvider, isViewLoaded else { return }
+        guard isViewLoaded else { return }
         tableView.reloadData()
     }
 }
 
 extension FriendListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let data = dataProvider else { return 0 }
         return data.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let data = dataProvider,
-            let cell = tableView.dequeueReusableCell(withIdentifier: "FriendCell") as? FriendCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "FriendCell") as? FriendCell
         else { fatalError() }
         let idx = indexPath.row
-        let model = data.object(at: idx)
-        cell.model = FriendCell.ViewModel(model: model)
+        let user = data.object(at: idx)
+        cell.config(model: FriendCellViewModel(model: user))
         return cell
     }
 }
