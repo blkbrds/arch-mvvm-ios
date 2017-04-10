@@ -28,6 +28,31 @@ The benifits:
 - UI independence: easier migration to other UIs.
 - Better testability because of the separation of concerns and the decoupled nature of the code.
 
+# Interactor
+
+![](images/interactor.png)
+
+# What's would be tested?
+
+- Model
+    - API
+        - request params
+        - response
+    - DB
+        - mapping
+        - defined fetch
+- ViewModel
+    - output for controller
+    - logic
+- View
+    - data binding
+    - action handler
+
+When ViewModel provide a list of sub-ViewModel, it needs conform to Provider protocol:
+- `numberOfSections() -> Int`
+- `numberOfItemsInSection(_ section: Int) -> Int`
+- `itemAtIndexPath(_ indexPath: IndexPath) -> Item`
+
 # Use cases
 
 ## ViewController ViewModel
