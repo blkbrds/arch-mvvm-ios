@@ -1,5 +1,5 @@
 //
-//  UserViewModelTests.swift
+//  LoginViewModelTests.swift
 //  MVVMTests
 //
 //  Created by DaoNV on 3/16/17.
@@ -9,16 +9,16 @@
 import XCTest
 @testable import Demo
 
-extension UserViewModel {
-    static var standard: UserViewModel {
-        let user = UserViewModel(model: nil)
+extension LoginViewModel {
+    static var standard: LoginViewModel {
+        let user = LoginViewModel(user: nil)
         user.mail = "at.ios.mvvm@gmail.com"
         user.pass = "Abc@123"
         return user
     }
 }
 
-class UserViewModelTests: XCTestCase {
+class LoginViewModelTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -31,7 +31,7 @@ class UserViewModelTests: XCTestCase {
     }
 
     func testValidateSuccess() {
-        let user = UserViewModel.standard
+        let user = LoginViewModel.standard
         let validation = user.validate()
         switch validation {
         case .success: break
@@ -41,7 +41,7 @@ class UserViewModelTests: XCTestCase {
     }
 
     func testValidateFailureMail() {
-        let user = UserViewModel.standard
+        let user = LoginViewModel.standard
         user.mail = "trung@co.uk"
         let validation = user.validate()
         switch validation {
@@ -52,9 +52,9 @@ class UserViewModelTests: XCTestCase {
             XCTAssertEqual(msg, "'mail' too short", "`validation` must be failure with `msg` = `'mail' too short`")
         }
     }
-    
+
     func testValidateFailurePass() {
-        let user = UserViewModel.standard
+        let user = LoginViewModel.standard
         user.pass = "1234"
         let validation = user.validate()
         switch validation {
@@ -68,7 +68,7 @@ class UserViewModelTests: XCTestCase {
 
     func testLoginSuccess() {
         let ex = expectation(description: "login")
-        let user = UserViewModel.standard
+        let user = LoginViewModel.standard
         user.login { (result) in
             switch result {
             case .success: break

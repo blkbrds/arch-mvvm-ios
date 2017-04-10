@@ -7,6 +7,19 @@
 //
 
 import Foundation
+import RealmSwift
+import ObjectMapper
+import RealmS
+
+extension RealmS {
+    func object<T: Object>(ofType: T.Type, forMapping map: Map) -> T? {
+        guard let key = T.primaryKey() else { return nil }
+        var id: Any?
+        id <- map[key]
+        guard let value = id else { return nil }
+        return object(ofType: T.self, forPrimaryKey: value)
+    }
+}
 
 // MARK: Scalar mapping
 

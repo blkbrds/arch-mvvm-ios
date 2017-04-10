@@ -8,8 +8,7 @@
 
 import UIKit
 
-public protocol Presenter: class {
+public protocol View: class {
     associatedtype T: ViewModel
-    var viewModel: T { get }
-    func updateView(viewModel: T)
+    var viewModel: T { set get }
 }

@@ -9,7 +9,11 @@
 import Foundation
 
 public protocol ViewModel: class {
-    associatedtype T
-    var model: T? { get }
-    init(model: T?)
+}
+
+public protocol Provider: class {
+    associatedtype Item: ViewModel
+    var numberOfSections: Int { get }
+    func numberOfRowsInSection(_ section: Int) -> Int
+    func itemForRow(at indexPath: IndexPath) -> Item
 }
