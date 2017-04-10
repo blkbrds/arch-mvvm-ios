@@ -7,7 +7,6 @@
 //
 
 import Alamofire
-import SwiftUtils
 import RealmSwift
 import ObjectMapper
 import RealmS
@@ -22,8 +21,6 @@ extension Request {
         guard let response = response else {
             return .failure(NSError(status: .requestTimeout))
         }
-
-        logger.info("\n response -> \(response)") // URL response
 
         if let error = error {
             return .failure(error)
@@ -51,10 +48,9 @@ extension Request {
         }
 
         guard let data = data, let json = data.toJSON() as? JSObject else {
-            return Result.failure(RSError.json)
+            return Result.failure(API.Error.json)
         }
 
-        logger.info("\n data -> \(json)")
         if let token = Session.Token(headers: response.allHeaderFields) {
             api.session.token = token
         }

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SAMKeychain
 import SwiftyJSON
 
 let kUserIDKey = "UserID"
@@ -54,7 +55,7 @@ final class Session {
         fileprivate(set) var password: String
 
         var isValid: Bool {
-            return username.isNotEmpty && password.isNotEmpty
+            return !username.isEmpty && !password.isEmpty
         }
     }
 
@@ -89,10 +90,9 @@ final class Session {
     init() { }
 
     func loadCredential() {
-        let host = ApiPath.baseURL.host
+        guard let host = ApiPath.baseURL.host else { return }
         guard let accounts = SAMKeychain.accounts(forService: host)?.last,
-            let account = accounts[kSAMKeychainAccountKey] as? String
-        else { return }
+            let account = accounts[kSAMKeychainAccountKey] as? String else { return }
 
         guard let password = SAMKeychain.password(forService: host, account: account) else { return }
         credential.username = account
@@ -101,14 +101,14 @@ final class Session {
 
     private func saveCredential() {
         guard credential.isValid else { return }
-        let host = ApiPath.baseURL.host
+        guard let host = ApiPath.baseURL.host else { return }
         SAMKeychain.setPassword(credential.password, forService: host, account: credential.username)
     }
 
     func clearCredential() {
         credential.username = ""
         credential.password = ""
-        let host = ApiPath.baseURL.host
+        guard let host = ApiPath.baseURL.host else { return }
         guard let accounts = SAMKeychain.accounts(forService: host) else { return }
         for account in accounts {
             if let account = account[kSAMKeychainAccountKey] as? String {

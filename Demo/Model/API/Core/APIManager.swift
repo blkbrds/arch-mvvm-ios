@@ -7,16 +7,12 @@
 //
 
 import Foundation
+import Alamofire
 
 typealias JSObject = [String: Any]
 typealias JSArray = [JSObject]
 
-enum Result {
-    case success(JSObject)
-    case failure(Error)
-}
-
-typealias Completion = (Result)->Void
+typealias Completion = (Result<JSObject>) -> Void
 
 let api = APIManager()
 

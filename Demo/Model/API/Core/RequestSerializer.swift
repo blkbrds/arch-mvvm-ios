@@ -9,32 +9,23 @@
 import Alamofire
 import Foundation
 
-extension ApiManager {
+extension APIManager {
     static func request(method: HTTPMethod,
                        urlString: String,
                        parameters: [String: Any]? = nil,
                        headers: [String: String]? = nil,
                        completion: Completion?) -> Request? {
         guard Network.shared.isReachable else {
-            completion?(.failure(RSError.network))
+            completion?(.failure(API.Error.network))
             return nil
-        }
-
-        logger.info("\n url -> \(urlString)")
-        if let headers = headers {
-            logger.info("\n headers -> \(headers)")
-        }
-
-        if let params = parameters {
-            logger.info("\n parameters -> \(params)\n")
         }
 
         let encoding: ParameterEncoding = (method == .post) ? JSONEncoding.default : URLEncoding.default
 
-        var _headers = api.defaultHTTPHeaders
-        _headers.updateValues(headers)
+        var fullHeaders = api.defaultHTTPHeaders
+        fullHeaders.updateValues(headers)
 
-        let request = Alamofire.request(urlString, method: method, parameters: parameters, encoding: encoding, headers: _headers)
+        let request = Alamofire.request(urlString, method: method, parameters: parameters, encoding: encoding, headers: fullHeaders)
         _ = request.responseJSON(completion: { (response) in
             completion?(response.result)
         })

@@ -38,6 +38,10 @@
 		ECF23ABB1E9B89B2008C23C1 /* ResponseSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF23AB81E9B89B2008C23C1 /* ResponseSerializer.swift */; };
 		ECF23ABC1E9B89B2008C23C1 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF23AB91E9B89B2008C23C1 /* Session.swift */; };
 		ECF23ABE1E9B8A6A008C23C1 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF23ABD1E9B8A6A008C23C1 /* Error.swift */; };
+		ECF23AC31E9B9264008C23C1 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF23AC21E9B9264008C23C1 /* String.swift */; };
+		ECF23AC51E9B927C008C23C1 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF23AC41E9B927C008C23C1 /* Data.swift */; };
+		ECF23AC71E9B9328008C23C1 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF23AC61E9B9328008C23C1 /* Dictionary.swift */; };
+		ECF23AC91E9B982D008C23C1 /* NSURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF23AC81E9B982D008C23C1 /* NSURL.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +121,10 @@
 		ECF23AB81E9B89B2008C23C1 /* ResponseSerializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseSerializer.swift; sourceTree = "<group>"; };
 		ECF23AB91E9B89B2008C23C1 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		ECF23ABD1E9B8A6A008C23C1 /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		ECF23AC21E9B9264008C23C1 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		ECF23AC41E9B927C008C23C1 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		ECF23AC61E9B9328008C23C1 /* Dictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
+		ECF23AC81E9B982D008C23C1 /* NSURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURL.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +188,7 @@
 				EC0105431E8F8ADF00CE013D /* View */,
 				EC01054B1E8F8AE000CE013D /* ViewModel */,
 				ECF23A951E9B8503008C23C1 /* Model */,
+				ECF23AC01E9B9253008C23C1 /* Library */,
 				EC01053F1E8F8ADF00CE013D /* Resources */,
 				EC0105411E8F8ADF00CE013D /* Supports */,
 			);
@@ -334,12 +343,31 @@
 			isa = PBXGroup;
 			children = (
 				ECF23AB11E9B869B008C23C1 /* APIManager.swift */,
+				ECF23AB91E9B89B2008C23C1 /* Session.swift */,
 				ECF23ABD1E9B8A6A008C23C1 /* Error.swift */,
 				ECF23AB71E9B89B2008C23C1 /* RequestSerializer.swift */,
 				ECF23AB81E9B89B2008C23C1 /* ResponseSerializer.swift */,
-				ECF23AB91E9B89B2008C23C1 /* Session.swift */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		ECF23AC01E9B9253008C23C1 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				ECF23AC11E9B9253008C23C1 /* Ext */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		ECF23AC11E9B9253008C23C1 /* Ext */ = {
+			isa = PBXGroup;
+			children = (
+				ECF23AC81E9B982D008C23C1 /* NSURL.swift */,
+				ECF23AC21E9B9264008C23C1 /* String.swift */,
+				ECF23AC41E9B927C008C23C1 /* Data.swift */,
+				ECF23AC61E9B9328008C23C1 /* Dictionary.swift */,
+			);
+			path = Ext;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -600,17 +628,21 @@
 			files = (
 				ECF23AAA1E9B85AB008C23C1 /* User.swift in Sources */,
 				EC0105581E8F8AE000CE013D /* LoginViewController.swift in Sources */,
+				ECF23AC31E9B9264008C23C1 /* String.swift in Sources */,
 				ECF23AB51E9B869B008C23C1 /* RepoAPIs.swift in Sources */,
 				ECB937A51E9A82AF007764C9 /* LoginViewModel.swift in Sources */,
 				ECF23AA81E9B8586008C23C1 /* Mapper.swift in Sources */,
 				ECF23ABA1E9B89B2008C23C1 /* RequestSerializer.swift in Sources */,
+				ECF23AC51E9B927C008C23C1 /* Data.swift in Sources */,
 				EC0105511E8F8AE000CE013D /* Config.swift in Sources */,
 				EC0105571E8F8AE000CE013D /* RepoListViewController.swift in Sources */,
 				ECF23ABC1E9B89B2008C23C1 /* Session.swift in Sources */,
+				ECF23AC91E9B982D008C23C1 /* NSURL.swift in Sources */,
 				ECF23AB61E9B869B008C23C1 /* UserAPIs.swift in Sources */,
 				ECF23AA71E9B8586008C23C1 /* Repo.swift in Sources */,
 				EC0105541E8F8AE000CE013D /* AppDelegate.swift in Sources */,
 				ECF23AB41E9B869B008C23C1 /* APIManager.swift in Sources */,
+				ECF23AC71E9B9328008C23C1 /* Dictionary.swift in Sources */,
 				ECF23A921E9B7D0F008C23C1 /* RepoCellViewModel.swift in Sources */,
 				EC0105591E8F8AE000CE013D /* RepoListViewModel.swift in Sources */,
 				ECF23ABB1E9B89B2008C23C1 /* ResponseSerializer.swift in Sources */,

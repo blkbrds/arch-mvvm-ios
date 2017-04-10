@@ -11,7 +11,7 @@ import Foundation
 extension API.User {
     static func getAll(completion: @escaping Completion) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            let json = JSON()
+            let json = JSObject()
             completion(.success(json))
         }
     }

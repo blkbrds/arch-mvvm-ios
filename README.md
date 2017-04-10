@@ -1,11 +1,21 @@
-
-
+- [Theory](#theory)
+- [Use cases](#use-cases)
+  * [ViewController ViewModel](#viewcontroller-viewmodel)
+    + [Declaration](#declaration)
+    + [Business logic](#business-logic)
+    + [Data Binding](#data-binding)
+    + [API call](#api-call)
+  * [Cell ViewModel](#cell-viewmodel)
+    + [Declaration](#declaration-1)
+    + [Business logic](#business-logic-1)
+    + [Data Binding](#data-binding-1)
+- [Demo](#demo)
 
 # Theory
 
 MVVM is a specialization of the [Presentation Model](https://msdn.microsoft.com/en-us/library/ff921080.aspx) (or Application Model) for Microsoft's Silverlight and WPF. The main ideas behind this UI architectural pattern are:
 - The view part is the only one that depends on the GUI framework. This means that for iOS, the view controller is part of the view.
-- The view can only talk to the view model. **Never** to the model.
+- The view can only talk to the view model. Never to the model.
 - The view model holds the state of the view. This state is offered to the view via view model properties. These properties contain not only the value of the labels, but also other view related information like if the save button is enabled or the color for a rating view. But the information of the state must be UI framework independent. So in the case of iOS, the property for the color should be an enum, for example, instead of a UIColor.
 - The view model also provides methods that will take care of the UI actions. This actions will talk to the model, but they never change the state of the view that is data related directly. Instead, it talks to the model and asks for the required changes.
 - The model should be *autonomous*, i.e. you should be able to use the same code for the model for a command line application and a UI interface. It will take care of all the business logic.
@@ -124,7 +134,7 @@ The benifits:
 
 This application implements [GitHub API](https://developer.github.com/v3)
 
-## Setup Development Environment
+**Setup Development Environment**
 
 - `./scripts/install` - this script will install
     - [Homebrew](https://github.com/Homebrew/brew) & necessary formulas
@@ -132,6 +142,6 @@ This application implements [GitHub API](https://developer.github.com/v3)
     - [CocoaPods](https://cocoapods.org/) & project's dependences
     > Please use command `bundle exec pod install` instead of `pod install` to update `Pods`.
 
-## Coding Convension
+**Coding Convension**
 
 Based on [The Official raywenderlich.com Swift Style Guide](https://github.com/raywenderlich/swift-style-guide).
