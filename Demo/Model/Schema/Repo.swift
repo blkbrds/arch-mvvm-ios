@@ -1,20 +1,20 @@
 //
-//  User.swift
+//  Repo.swift
 //  MVVM
 //
-//  Created by DaoNV on 3/16/17.
+//  Created by DaoNV on 4/4/17.
 //  Copyright © 2017 Asian Tech Co., Ltd. All rights reserved.
 //
 
-import UIKit
+import Foundation
 import RealmSwift
 import ObjectMapper
 import RealmS
 
-final class User: Object, Mappable, StaticMappable {
+final class Repo: Object, Mappable, StaticMappable {
     dynamic var id = 0
     dynamic var name = ""
-    dynamic var mail = ""
+    dynamic var slug = ""
 
     override static func primaryKey() -> String? {
         return "id"
@@ -22,17 +22,15 @@ final class User: Object, Mappable, StaticMappable {
 
     convenience init?(map: Map) {
         self.init()
+        id <- map["id"]
     }
 
     func mapping(map: Map) {
-        //
+        name <- map["name"]
+        slug <- map["slug"]
     }
 
     static func objectForMapping(map: Map) -> BaseMappable? {
-        guard let key = primaryKey() else { return nil }
-        var id = 0
-        id <- map[key]
-        guard id > 0 else { return nil }
-        return RealmS().object(ofType: self, forPrimaryKey: id)
+        return RealmS().object(ofType: self, forMapping: map)
     }
 }

@@ -60,7 +60,7 @@
                         <outlet property="loginButton" destination="BG1-MA-Sgy" id="fWf-Pf-GeR"/>
                         <outlet property="mailField" destination="EEl-bQ-ph1" id="ehs-uH-Rkf"/>
                         <outlet property="passField" destination="6Qf-aY-5dK" id="yYe-ze-W8R"/>
-                        <segue destination="vbn-EG-7oR" kind="show" identifier="ShowRepoList" id="9hD-Fl-iL0"/>
+                        <segue destination="vbn-EG-7oR" kind="show" identifier="showRepoList" id="9hD-Fl-iL0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

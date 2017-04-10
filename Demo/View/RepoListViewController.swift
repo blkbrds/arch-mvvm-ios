@@ -11,7 +11,7 @@ import MVVM
 
 final class RepoListViewController: UITableViewController {
 
-    var data = UserProvider()
+    var viewModel = RepoListViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,17 +37,18 @@ final class RepoListViewController: UITableViewController {
 }
 
 extension RepoListViewController {
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return viewModel.numberOfSections
+    }
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
+        return viewModel.numberOfRowsInSection(section)
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "RepoCell") as? RepoCell
         else { fatalError() }
-        let idx = indexPath.row
-        let user = data.object(at: idx)
-        let model = RepoCellViewModel(model: user)
-        cell.updateView(viewModel: model)
+        cell.viewModel = viewModel.itemForRow(at: indexPath)
         return cell
     }
 }

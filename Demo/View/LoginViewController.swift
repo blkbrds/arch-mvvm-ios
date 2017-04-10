@@ -10,16 +10,19 @@ import UIKit
 import MVVM
 
 private enum Segue: String {
-    case ShowRepoList
+    case showRepoList
 }
 
-final class LoginViewController: UIViewController, MVVM.Presenter {
+final class LoginViewController: UIViewController, MVVM.View {
     // MARK: - MVVM
-    typealias T = UserViewModel
-    var viewModel = UserViewModel(model: nil)
+    typealias T = LoginViewModel
+    var viewModel = LoginViewModel(user: nil) {
+        didSet {
+            updateView()
+        }
+    }
 
-    func updateView(viewModel: UserViewModel) {
-        self.viewModel = viewModel
+    private func updateView() {
         guard isViewLoaded else { return }
         mailField.text = viewModel.mail
         passField.text = viewModel.pass
@@ -32,7 +35,11 @@ final class LoginViewController: UIViewController, MVVM.Presenter {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateView(viewModel: viewModel)
+        #if DEBUG
+            viewModel.mail = "at.ios.mvvm@gmail.com"
+            viewModel.pass = "Abc@123"
+        #endif
+        updateView()
         setupActions()
     }
 
@@ -52,8 +59,8 @@ final class LoginViewController: UIViewController, MVVM.Presenter {
     }
 
     @objc private func login() {
-        viewModel.mail =! mailField.text
-        viewModel.pass =! passField.text
+        viewModel.mail =! mailField.text?.trimmed
+        viewModel.pass =! passField.text?.trimmed
 
         switch viewModel.validate() {
         case .success:
@@ -77,8 +84,12 @@ final class LoginViewController: UIViewController, MVVM.Presenter {
         }
     }
 
+    private func performSegue(_ segue: Segue) {
+        performSegue(withIdentifier: segue.rawValue, sender: self)
+    }
+
     private func showRepoList() {
-        performSegue(withIdentifier: Segue.ShowRepoList.rawValue, sender: self)
+        performSegue(.showRepoList)
     }
 
     var textFields: [String:UITextField] {
@@ -86,5 +97,11 @@ final class LoginViewController: UIViewController, MVVM.Presenter {
             "mail": mailField,
             "pass": passField
         ]
+    }
+}
+
+extension String {
+    var trimmed: String {
+        return trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     }
 }
