@@ -9,13 +9,11 @@
 import Foundation
 
 extension String {
-    
     var host: String? {
         return (try? asURL())?.host
     }
-    
     var base64Encode: String? {
-        if let data  = self.data(using: .utf8) {
+        if let data = self.data(using: .utf8) {
             return data.base64EncodedString()
         }
         return nil

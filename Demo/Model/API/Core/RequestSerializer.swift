@@ -10,7 +10,7 @@ import Alamofire
 import Foundation
 
 extension APIManager {
-    static func request(method: HTTPMethod,
+    func request(method: HTTPMethod,
                        urlString: String,
                        parameters: [String: Any]? = nil,
                        headers: [String: String]? = nil,

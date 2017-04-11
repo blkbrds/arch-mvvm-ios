@@ -10,7 +10,6 @@ import Foundation
 import Alamofire
 
 extension API.User {
-    
     struct LoginParams {
         let mail: String
         let pass: String
@@ -23,8 +22,7 @@ extension API.User {
                 headers["Authorization"] = "Basic \(base64Encode)"
             }
         }
-        
-        let _ = APIManager.request(method: HTTPMethod.get, urlString: ApiPath.Users, parameters: nil, headers: headers) { (result) in
+        _ = api.request(method: HTTPMethod.get, urlString: ApiPath.Users, parameters: nil, headers: headers) { (result) in
             completion(result)
         }
     }
