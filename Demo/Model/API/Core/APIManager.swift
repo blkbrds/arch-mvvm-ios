@@ -21,8 +21,8 @@ final class APIManager {
 
     var defaultHTTPHeaders: [String: String] {
         var headers: [String: String] = [:]
-        if let token = session.token {
-            headers.updateValues(token.values)
+        if session.credential.isValid {
+            headers["Authorization"] = "\(session.credential)"
         }
         return headers
     }

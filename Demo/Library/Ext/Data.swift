@@ -11,7 +11,10 @@ import Foundation
 extension Data {
     func toJSON() -> Any? {
         do {
-            return try JSONSerialization.jsonObject(with: self, options: JSONSerialization.ReadingOptions.allowFragments)
+            return try JSONSerialization.jsonObject(
+                with: self,
+                options: JSONSerialization.ReadingOptions.allowFragments
+            )
         } catch {
             return nil
         }

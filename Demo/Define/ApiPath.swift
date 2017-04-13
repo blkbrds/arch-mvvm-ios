@@ -21,5 +21,7 @@ final class ApiPath {
         var description: String {
             return ApiPath.Users + "/id"
         }
+
+        static var login: String { return ApiPath.baseURL + "/user" }
     }
 }

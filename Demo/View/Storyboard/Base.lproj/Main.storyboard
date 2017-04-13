@@ -37,7 +37,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K5J-f5-d8H">
                                 <rect key="frame" x="63" y="187.5" width="250" height="191"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username or email address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QIM-yv-ruQ">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QIM-yv-ruQ">
                                         <rect key="frame" x="8" y="16" width="234" height="18"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                         <nil key="textColor"/>
@@ -110,7 +110,7 @@
                     </view>
                     <connections>
                         <outlet property="loginButton" destination="BG1-MA-Sgy" id="fWf-Pf-GeR"/>
-                        <outlet property="mailField" destination="EEl-bQ-ph1" id="ehs-uH-Rkf"/>
+                        <outlet property="nameField" destination="EEl-bQ-ph1" id="ie9-ne-WWk"/>
                         <outlet property="passField" destination="6Qf-aY-5dK" id="yYe-ze-W8R"/>
                         <segue destination="vbn-EG-7oR" kind="show" identifier="showRepoList" id="9hD-Fl-iL0"/>
                     </connections>

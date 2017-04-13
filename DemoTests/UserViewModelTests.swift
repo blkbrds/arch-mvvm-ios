@@ -12,19 +12,19 @@ import XCTest
 extension LoginViewModel {
     static var standard: LoginViewModel {
         let user = LoginViewModel(user: nil)
-        user.mail = "at.ios.mvvm@gmail.com"
-        user.pass = "Abc@123"
+        user.name = "at-ios-mvvm"
+        user.pass = "1d46bff0b87f5d4f93c8db0fe747ce7afbf93f4e"
         return user
     }
 }
 
 class LoginViewModelTests: XCTestCase {
-    
+
     override func setUp() {
         super.setUp()
         //
     }
-    
+
     override func tearDown() {
         //
         super.tearDown()
@@ -42,7 +42,7 @@ class LoginViewModelTests: XCTestCase {
 
     func testValidateFailureMail() {
         let user = LoginViewModel.standard
-        user.mail = "trung@co.uk"
+        user.name = "trung@co.uk"
         let validation = user.validate()
         switch validation {
         case .success:
