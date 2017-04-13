@@ -13,8 +13,7 @@ import RealmS
 import SwiftyJSON
 
 extension Request {
-    static func responseJSONSerializer(
-                                       log: Bool = true,
+    static func responseJSONSerializer(log: Bool = true,
                                        response: HTTPURLResponse?,
                                        data: Data?,
                                        error: Error?) -> Result<JSObject> {
@@ -51,9 +50,9 @@ extension Request {
             return Result.failure(API.Error.json)
         }
 
-        if let token = Session.Token(headers: response.allHeaderFields) {
-            api.session.token = token
-        }
+//        if let token = Session.Token(headers: response.allHeaderFields) {
+//            api.session.token = token
+//        }
 
         return .success(json)
     }
@@ -66,6 +65,7 @@ extension DataRequest {
         }
     }
 
+    @discardableResult
     func responseJSON(queue: DispatchQueue? = nil, completion: @escaping (DataResponse<JSObject>) -> Void) -> Self {
         return response(responseSerializer: DataRequest.responseSerializer(), completionHandler: completion)
     }

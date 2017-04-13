@@ -16,13 +16,11 @@ extension API.User {
     }
 
     func login(params: LoginParams, completion: @escaping Completion) {
-        var headers: [String: String] = [:]
-        if let base64Encode = "\(params.mail):\(params.pass)".base64Encode {
-            if !base64Encode.isEmpty {
-                headers["Authorization"] = "Basic \(base64Encode)"
-            }
-        }
-        _ = api.request(method: HTTPMethod.get, urlString: ApiPath.Users, parameters: nil, headers: headers) { (result) in
+        api.session.credential = Session.Credential(
+            mail: params.mail,
+            pass: params.pass
+        )
+        api.request(method: HTTPMethod.get, urlString: ApiPath.Users) { (result) in
             completion(result)
         }
     }
