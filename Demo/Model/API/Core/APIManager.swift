@@ -22,7 +22,7 @@ final class APIManager {
     var defaultHTTPHeaders: [String: String] {
         var headers: [String: String] = [:]
         if session.credential.isValid {
-            headers["Authentication"] = "\(session.credential)"
+            headers["Authorization"] = "\(session.credential)"
         }
         return headers
     }

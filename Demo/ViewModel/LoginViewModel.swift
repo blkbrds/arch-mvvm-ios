@@ -30,21 +30,17 @@ final class LoginViewModel: MVVM.ViewModel {
         }
     }
 
-    var mail = ""
+    var name = ""
     var pass = ""
 
     init(user: User?) {
         guard let user = user else { return }
-        mail = user.mail
+        name = user.name
     }
 
     func validate() -> Validation {
-        let comps = mail.components(separatedBy: "@")
-        guard comps.count == 2,
-            let name = comps.first, name.len >= 6,
-            let domain = comps.last, domain.len >= 5
-        else {
-            return .failure(key: "mail", msg: "'mail' too short")
+        guard name.len >= 6 else {
+            return .failure(key: "name", msg: "'name' too short")
         }
         guard pass.len >= 6 else { return .failure(key: "pass", msg: "'pass' too short") }
         return .success
@@ -66,7 +62,7 @@ final class LoginViewModel: MVVM.ViewModel {
             return
         }
         let ws = API.User(id: 0)
-        let params = API.User.LoginParams(mail: mail, pass: pass)
+        let params = API.User.LoginParams(name: name, pass: pass)
         ws.login(params: params) { (result) in
             switch result {
             case .success(_):
