@@ -33,6 +33,8 @@ final class LoginViewModel: MVVM.ViewModel {
     var name = ""
     var pass = ""
 
+    var changesHandler: ((ObjectChanges) -> Void)?
+
     init(user: User?) {
         guard let user = user else { return }
         name = user.name
@@ -61,8 +63,8 @@ final class LoginViewModel: MVVM.ViewModel {
             completion(.failure(error: error))
             return
         }
-        let ws = API.User(id: 0)
-        let params = API.User.LoginParams(name: name, pass: pass)
+        let ws = Api.User(id: 0)
+        let params = Api.User.LoginParams(name: name, pass: pass)
         ws.login(params: params) { (result) in
             switch result {
             case .success(_):

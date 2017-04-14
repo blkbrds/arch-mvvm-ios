@@ -9,11 +9,39 @@
 import Foundation
 import Alamofire
 
-extension API.Repo {
-    static func getAll(completion: @escaping Completion) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            let json = JSObject()
-            completion(.success(json))
+extension Api.Repo {
+    struct QueryParams {
+        let type: Type
+        let sort: Sort
+        let direction: Direction
+    }
+
+    @discardableResult
+    static func query(params: QueryParams, completion: @escaping Completion) -> Request? {
+        return api.request(method: .get, urlString: Api.Path.User.login) { (result) in
+            completion(result)
         }
+    }
+}
+
+enum Direction: String {
+    case asc
+    case desc
+}
+
+extension Api.Repo.QueryParams {
+    enum `Type`: String {
+        case all
+        case owner
+        case `public`
+        case `private`
+        case member
+    }
+
+    enum Sort: String {
+        case created
+        case updated
+        case pushed
+        case full_name
     }
 }

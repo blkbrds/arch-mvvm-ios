@@ -13,11 +13,17 @@ import MVVM
 
 final class RepoListViewModel: MVVM.ViewModel, MVVM.Provider {
     typealias Item = RepoCellViewModel
+    typealias ModelChanges = CollectionChanges
+    var changesHandler: ((CollectionChanges) -> Void)?
 
     private var repos: Results<Repo>?
+    private var token: NotificationToken?
 
     func fetch() {
         repos = RealmS().objects(Repo.self).sorted(byKeyPath: "id", ascending: true)
+        token = repos?.addNotificationBlock({ (change) in
+
+        })
     }
 
     var numberOfSections: Int {
@@ -40,5 +46,15 @@ final class RepoListViewModel: MVVM.ViewModel, MVVM.Provider {
         }
         let repo = repos[indexPath.row]
         return RepoCellViewModel(repo: repo)
+    }
+
+    func getRepos() {
+        let params = Api.Repo.QueryParams(
+            type: .all,
+            sort: .full_name,
+            direction: .desc
+        )
+        Api.Repo.query(params: params) { (result) in
+        }
     }
 }

@@ -1,5 +1,5 @@
 //
-//  API.swift
+//  ApiManager.swift
 //  MVVM
 //
 //  Created by DaoNV on 4/10/17.
@@ -14,9 +14,9 @@ typealias JSArray = [JSObject]
 
 typealias Completion = (Result<JSObject>) -> Void
 
-let api = APIManager()
+let api = ApiManager()
 
-final class APIManager {
+final class ApiManager {
     let session = Session()
 
     var defaultHTTPHeaders: [String: String] {
@@ -25,15 +25,5 @@ final class APIManager {
             headers["Authorization"] = "\(session.credential)"
         }
         return headers
-    }
-}
-
-final class API {
-    struct User {
-        var id: Int
-    }
-
-    struct Repo {
-        var id: Int
     }
 }

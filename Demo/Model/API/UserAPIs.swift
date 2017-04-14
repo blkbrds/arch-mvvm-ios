@@ -9,18 +9,19 @@
 import Foundation
 import Alamofire
 
-extension API.User {
+extension Api.User {
     struct LoginParams {
         let name: String
         let pass: String
     }
 
-    func login(params: LoginParams, completion: @escaping Completion) {
+    @discardableResult
+    func login(params: LoginParams, completion: @escaping Completion) -> Request? {
         api.session.credential = Session.Credential(
             name: params.name,
             pass: params.pass
         )
-        api.request(method: HTTPMethod.get, urlString: ApiPath.User.login) { (result) in
+        return api.request(method: .get, urlString: Api.Path.User.login) { (result) in
             completion(result)
         }
     }

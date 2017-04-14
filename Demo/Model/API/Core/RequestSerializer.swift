@@ -9,7 +9,7 @@
 import Alamofire
 import Foundation
 
-extension APIManager {
+extension ApiManager {
     @discardableResult
     func request(method: HTTPMethod,
                  urlString: String,
@@ -17,7 +17,7 @@ extension APIManager {
                  headers: [String: String]? = nil,
                  completion: Completion?) -> Request? {
         guard Network.shared.isReachable else {
-            completion?(.failure(API.Error.network))
+            completion?(.failure(Api.Error.network))
             return nil
         }
 
