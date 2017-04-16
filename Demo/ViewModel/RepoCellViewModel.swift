@@ -9,13 +9,42 @@
 import Foundation
 import MVVM
 
+protocol CellPresentable {
+    static func registerCell(tableView: UITableView)
+    func dequeueCell(with tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell
+    func cellSelected()
+}
+
 final class RepoCellViewModel: MVVM.ViewModel {
+
+    fileprivate(set) var repo: Repo!
+
+    var didError: ((Error) -> Void)?
+    var didSelectRepo: ((Repo) -> Void)?
+
     var name = ""
     var slug = ""
 
-    init(repo: Repo?) {
-        guard let repo = repo else { return }
+    init(repo: Repo) {
         name = repo.name
         slug = repo.slug
+        self.repo = repo
+    }
+}
+
+extension RepoCellViewModel: CellPresentable {
+    static func registerCell(tableView: UITableView) {
+        tableView.register(RepoCell.self, forCellReuseIdentifier: "RepoCell")
+    }
+
+    func dequeueCell(with tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "RepoCell", for: indexPath) as? RepoCell
+            else { fatalError("can not dequeue RepoCell") }
+        cell.viewModel = self
+        return cell
+    }
+
+    func cellSelected() {
+        self.didSelectRepo?(repo)
     }
 }

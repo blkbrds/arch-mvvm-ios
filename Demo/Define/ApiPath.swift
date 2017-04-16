@@ -23,5 +23,6 @@ final class ApiPath {
         }
 
         static var login: String { return ApiPath.baseURL + "/user" }
+        static var allRepo: String { return ApiPath.baseURL + "/users/" + api.session.credential.name + "/repos" }
     }
 }

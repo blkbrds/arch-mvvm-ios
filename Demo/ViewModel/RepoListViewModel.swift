@@ -11,34 +11,40 @@ import RealmSwift
 import RealmS
 import MVVM
 
-final class RepoListViewModel: MVVM.ViewModel, MVVM.Provider {
+final class RepoListViewModel: MVVM.ViewModel {
     typealias Item = RepoCellViewModel
 
-    private var repos: Results<Repo>?
+    var repoViewModelsTypes: [CellPresentable.Type] = [RepoCellViewModel.self]
+    private(set) var repoViewModels = [CellPresentable]()
 
-    func fetch() {
-        repos = RealmS().objects(Repo.self).sorted(byKeyPath: "id", ascending: true)
+    //MARK: - Events
+    var didError: ((Error) -> Void)?
+    var didUpdate: ((RepoListViewModel) -> Void)?
+    var didSelectRepo: ((Repo) -> Void)?
+
+    func reloadData() {
+        API.Repo.getAll { [weak self] results in
+            switch results {
+            case .success(let repos):
+                guard let `self` = self else { return }
+                self.repoViewModels = repos.map {
+                    self.viewModelFor(repo: $0)
+                }
+                self.didUpdate?(self)
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 
-    var numberOfSections: Int {
-        guard let _ = repos else {
-            return 0
+    private func viewModelFor(repo: Repo) -> CellPresentable {
+        let viewModel = RepoCellViewModel(repo: repo)
+        viewModel.didSelectRepo = { [weak self] repo in
+            self?.didSelectRepo?(repo)
         }
-        return 1
-    }
-
-    func numberOfRowsInSection(_ section: Int) -> Int {
-        guard let repos = repos else {
-            return 0
+        viewModel.didError = { [weak self] error in
+            self?.didError?(error)
         }
-        return repos.count
-    }
-
-    func itemForRow(at indexPath: IndexPath) -> RepoCellViewModel {
-        guard let repos = repos else {
-            fatalError("Please call `fetch()` first.")
-        }
-        let repo = repos[indexPath.row]
-        return RepoCellViewModel(repo: repo)
+        return viewModel
     }
 }
