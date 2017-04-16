@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import Alamofire
 
-extension API.User {
+extension API.Repo {
     static func getAll(completion: @escaping Completion) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             let json = JSObject()

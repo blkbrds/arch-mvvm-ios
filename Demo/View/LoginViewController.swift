@@ -24,20 +24,20 @@ final class LoginViewController: UIViewController, MVVM.View {
 
     private func updateView() {
         guard isViewLoaded else { return }
-        mailField.text = viewModel.mail
+        nameField.text = viewModel.name
         passField.text = viewModel.pass
     }
     // MARK: -
 
-    @IBOutlet fileprivate var mailField: UITextField!
+    @IBOutlet fileprivate var nameField: UITextField!
     @IBOutlet fileprivate var passField: UITextField!
     @IBOutlet fileprivate var loginButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         #if DEBUG
-            viewModel.mail = "at.ios.mvvm@gmail.com"
-            viewModel.pass = "Abc@123"
+            viewModel.name = "at-ios-mvvm"
+            viewModel.pass = "1d46bff0b87f5d4f93c8db0fe747ce7afbf93f4e"
         #endif
         updateView()
         setupActions()
@@ -46,7 +46,7 @@ final class LoginViewController: UIViewController, MVVM.View {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         guard !passField.isFirstResponder else { return }
-        mailField.becomeFirstResponder()
+        nameField.becomeFirstResponder()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -59,7 +59,7 @@ final class LoginViewController: UIViewController, MVVM.View {
     }
 
     @objc private func login() {
-        viewModel.mail =! mailField.text?.trimmed
+        viewModel.name =! nameField.text?.trimmed
         viewModel.pass =! passField.text?.trimmed
 
         switch viewModel.validate() {
@@ -94,7 +94,7 @@ final class LoginViewController: UIViewController, MVVM.View {
 
     var textFields: [String:UITextField] {
         return [
-            "mail": mailField,
+            "mail": nameField,
             "pass": passField
         ]
     }
