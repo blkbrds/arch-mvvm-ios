@@ -15,6 +15,7 @@ extension Api.User {
         let pass: String
     }
 
+    // https://developer.github.com/v3/users/#get-the-authenticated-user
     @discardableResult
     func login(params: LoginParams, completion: @escaping Completion) -> Request? {
         api.session.credential = Session.Credential(

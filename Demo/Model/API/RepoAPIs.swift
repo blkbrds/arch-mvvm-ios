@@ -16,6 +16,7 @@ extension Api.Repo {
         let direction: Direction
     }
 
+    // https://developer.github.com/v3/repos/#list-your-repositories
     @discardableResult
     static func query(params: QueryParams, completion: @escaping Completion) -> Request? {
         return api.request(method: .get, urlString: Api.Path.User.login) { (result) in
