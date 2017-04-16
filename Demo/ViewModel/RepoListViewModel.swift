@@ -11,7 +11,7 @@ import RealmSwift
 import RealmS
 import MVVM
 
-final class RepoListViewModel: MVVM.ViewModel, MVVM.Provider {
+final class RepoListViewModel: MVVM.ViewModel {
     typealias Item = RepoCellViewModel
 
     var repoViewModelsTypes: [CellPresentable.Type] = [RepoCellViewModel.self]
@@ -22,28 +22,19 @@ final class RepoListViewModel: MVVM.ViewModel, MVVM.Provider {
     var didUpdate: ((RepoListViewModel) -> Void)?
     var didSelectRepo: ((Repo) -> Void)?
 
-    var title: String {
-        return "Your Repo (\(self.repoViewModels.count))"
-    }
-
-    var numberOfSections: Int {
-        return 1
-    }
-
-    func numberOfRowsInSection(_ section: Int) -> Int {
-        return repoViewModels.count
-    }
-
     func reloadData() {
-        RepoService.getRepos(
-            success: { [weak self] repos in
-                self?.repoViewModels = repos.map { self.viewModelFor($0) }
-                self?.didUpdate?(self)
-            },
-            failure: { [weak self] error in
-                self?.didError?(error)
+        API.Repo.getAll { [weak self] results in
+            switch results {
+            case .success(let repos):
+                guard let `self` = self else { return }
+                self.repoViewModels = repos.map {
+                    self.viewModelFor(repo: $0)
+                }
+                self.didUpdate?(self)
+            case .failure(let error):
+                print(error)
             }
-        )
+        }
     }
 
     private func viewModelFor(repo: Repo) -> CellPresentable {

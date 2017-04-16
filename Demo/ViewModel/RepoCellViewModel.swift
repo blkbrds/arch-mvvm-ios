@@ -21,6 +21,7 @@ final class RepoCellViewModel: MVVM.ViewModel {
 
     var didError: ((Error) -> Void)?
     var didSelectRepo: ((Repo) -> Void)?
+
     var name = ""
     var slug = ""
 
@@ -33,13 +34,12 @@ final class RepoCellViewModel: MVVM.ViewModel {
 
 extension RepoCellViewModel: CellPresentable {
     static func registerCell(tableView: UITableView) {
-        let nib = UINib(nibName: "RepoCell", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: "RepoCell")
+        tableView.register(RepoCell.self, forCellReuseIdentifier: "RepoCell")
     }
 
     func dequeueCell(with tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "RepoCell", for: indexPath) as? RepoCell
-        else { return fatalError("RepoCell invalid") }
+            else { fatalError("can not dequeue RepoCell") }
         cell.viewModel = self
         return cell
     }

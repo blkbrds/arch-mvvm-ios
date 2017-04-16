@@ -11,26 +11,21 @@ import RealmSwift
 import ObjectMapper
 import RealmS
 
-final class Repo: Object, Mappable, StaticMappable {
-    dynamic var id = 0
-    dynamic var name = ""
-    dynamic var slug = ""
-
-    override static func primaryKey() -> String? {
-        return "id"
-    }
+final class Repo: Mappable {
+    var id = 0
+    var name = ""
+    var slug = ""
 
     convenience init?(map: Map) {
         self.init()
         id <- map["id"]
+        name <- map["name"]
     }
 
     func mapping(map: Map) {
+        id <- map["id"]
         name <- map["name"]
         slug <- map["slug"]
     }
 
-    static func objectForMapping(map: Map) -> BaseMappable? {
-        return RealmS().object(ofType: self, forMapping: map)
-    }
 }

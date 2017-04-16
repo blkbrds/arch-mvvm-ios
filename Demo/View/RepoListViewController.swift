@@ -11,7 +11,7 @@ import MVVM
 
 final class RepoListViewController: UITableViewController {
 
-    private(set) var viewModel: RepoListViewModel!
+    private(set) var viewModel = RepoListViewModel()
 
     convenience init(viewModel: RepoListViewModel = RepoListViewModel()) {
         self.init(nibName: nil, bundle: nil)
@@ -38,7 +38,8 @@ final class RepoListViewController: UITableViewController {
         viewModel.didError = { [weak self] error in
             self?.viewModelDidError(error)
         }
-        viewModel.didSelectRepo = { [weak self] error in
+        viewModel.didSelectRepo = { [weak self] repo in
+            print(repo)
             // push to detail repo
         }
     }
@@ -48,7 +49,6 @@ final class RepoListViewController: UITableViewController {
     }
 
     private func viewModelDidUpdate() {
-        title = viewModel.title
         tableView.reloadData()
     }
 
@@ -58,12 +58,9 @@ final class RepoListViewController: UITableViewController {
 }
 
 extension RepoListViewController {
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return viewModel.numberOfSections
-    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfRowsInSection(section)
+        return viewModel.repoViewModels.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
