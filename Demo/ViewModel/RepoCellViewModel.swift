@@ -10,9 +10,6 @@ import Foundation
 import MVVM
 
 final class RepoCellViewModel: MVVM.ViewModel {
-    typealias ModelChanges = ObjectChanges
-    var changesHandler: ((ObjectChanges) -> Void)?
-
     var name = ""
     var slug = ""
 

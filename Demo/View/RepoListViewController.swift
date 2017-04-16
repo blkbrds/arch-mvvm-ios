@@ -10,25 +10,23 @@ import UIKit
 import MVVM
 
 final class RepoListViewController: UITableViewController {
-
     var viewModel = RepoListViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configTable()
+        viewModel.delegate = self
+        viewModel.fetch()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        reloadData()
-        startListenViewModel()
         guard let navi = navigationController else { return }
         navi.viewControllers = [self]
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        stopListenViewModel()
     }
 
     private func configTable() {
@@ -40,16 +38,11 @@ final class RepoListViewController: UITableViewController {
         guard isViewLoaded else { return }
         tableView.reloadData()
     }
+}
 
-    func startListenViewModel() {
-        viewModel.onChanges { [weak self] (changes) in
-            guard let this = self else { return }
-            this.reloadData()
-        }
-    }
-
-    func stopListenViewModel() {
-        viewModel.onChanges(nil)
+extension RepoListViewController: CollectionViewModelDelegate {
+    func viewModel(change changes: CollectionChanges) {
+        tableView.reloadData()
     }
 }
 

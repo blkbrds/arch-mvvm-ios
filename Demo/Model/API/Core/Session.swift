@@ -22,7 +22,7 @@ final class Session {
         }
 
         var description: String {
-            guard isValid, let base64 = "\(name):\(pass)".base64Encode else { return "" }
+            guard isValid, let base64 = "\(name):\(pass)".base64(.encode) else { return "" }
             return "Basic \(base64)"
         }
     }

@@ -33,8 +33,6 @@ final class LoginViewModel: MVVM.ViewModel {
     var name = ""
     var pass = ""
 
-    var changesHandler: ((ObjectChanges) -> Void)?
-
     init(user: User?) {
         guard let user = user else { return }
         name = user.name
@@ -76,6 +74,4 @@ final class LoginViewModel: MVVM.ViewModel {
     }
 }
 
-extension String {
-    var len: Int { return characters.count }
-}
+
