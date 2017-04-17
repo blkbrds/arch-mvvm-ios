@@ -11,14 +11,12 @@ import RealmSwift
 import RealmS
 import MVVM
 
-final class RepoListViewModel: MVVM.ViewModel, MVVM.Provider {
+final class RepoListViewModel: MVVM.CollectionViewModel {
     typealias Item = RepoCellViewModel
+    weak var delegate: CollectionViewModelDelegate?
 
     private var repos: Results<Repo>?
-
-    func fetch() {
-        repos = RealmS().objects(Repo.self).sorted(byKeyPath: "id", ascending: true)
-    }
+    private var token: NotificationToken?
 
     var numberOfSections: Int {
         guard let _ = repos else {
@@ -40,5 +38,36 @@ final class RepoListViewModel: MVVM.ViewModel, MVVM.Provider {
         }
         let repo = repos[indexPath.row]
         return RepoCellViewModel(repo: repo)
+    }
+
+    // MARK: - Action
+
+    func fetch() {
+        DispatchQueue.global(qos: .background).async { [weak self] Void in
+            guard let this = self else { return }
+            this.execFetch()
+        }
+    }
+
+    func getRepos() {
+        let params = Api.Repo.QueryParams(
+            type: .all,
+            sort: .full_name,
+            direction: .desc
+        )
+        Api.Repo.query(params: params) { (result) in
+        }
+    }
+
+    // MARK: Private
+
+    private func execFetch() {
+        repos = RealmS().objects(Repo.self).sorted(byKeyPath: "id", ascending: true)
+        token = repos?.addNotificationBlock({ [weak self] (change) in
+            guard let this = self else { return }
+            DispatchQueue.main.async {
+                this.delegate?.viewModel(change: change.changes)
+            }
+        })
     }
 }

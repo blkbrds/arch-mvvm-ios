@@ -9,13 +9,22 @@
 import Foundation
 
 extension String {
-    var host: String? {
-        return (try? asURL())?.host
+    var len: Int { return characters.count }
+    var host: String? { return (try? asURL())?.host }
+
+    enum EncodingMethod {
+        case encode
+        case decode
     }
-    var base64Encode: String? {
-        if let data = self.data(using: .utf8) {
+
+    func base64(_ method: EncodingMethod) -> String? {
+        switch method {
+        case .encode:
+            guard let data = data(using: .utf8) else { return nil }
             return data.base64EncodedString()
+        case .decode:
+            guard let data = Data(base64Encoded: self) else { return nil }
+            return String(data: data, encoding: .utf8)
         }
-        return nil
     }
 }

@@ -36,9 +36,9 @@ extension Request {
             if let json = data?.toJSON() as? JSObject, let errors = json["errors"] as? JSArray, !errors.isEmpty, let message = errors[0]["value"] as? String {
                 err = NSError(message: message)
             } else if let status = HTTPStatus(code: statusCode) {
-                err = NSError(domain: ApiPath.baseURL.host, status: status)
+                err = NSError(domain: Api.Path.baseURL.host, status: status)
             } else {
-                err = NSError(domain: ApiPath.baseURL.host,
+                err = NSError(domain: Api.Path.baseURL.host,
                               code: statusCode,
                               message: "Unknown HTTP status code received (\(statusCode)).")
             }
@@ -47,7 +47,7 @@ extension Request {
         }
 
         guard let data = data, let json = data.toJSON() as? JSObject else {
-            return Result.failure(API.Error.json)
+            return Result.failure(Api.Error.json)
         }
 
 //        if let token = Session.Token(headers: response.allHeaderFields) {
