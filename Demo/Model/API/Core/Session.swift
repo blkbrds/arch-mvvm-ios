@@ -22,7 +22,7 @@ final class Session {
         }
 
         var description: String {
-            guard isValid, let base64 = "\(name):\(pass)".base64Encode else { return "" }
+            guard isValid, let base64 = "\(name):\(pass)".base64(.encode) else { return "" }
             return "Basic \(base64)"
         }
     }
@@ -48,7 +48,7 @@ final class Session {
     init() { }
 
     func loadCredential() {
-        guard let host = ApiPath.baseURL.host else { return }
+        guard let host = Api.Path.baseURL.host else { return }
         guard let accounts = SAMKeychain.accounts(forService: host)?.last,
             let account = accounts[kSAMKeychainAccountKey] as? String else { return }
 
@@ -58,13 +58,13 @@ final class Session {
 
     private func saveCredential() {
         guard credential.isValid else { return }
-        guard let host = ApiPath.baseURL.host else { return }
+        guard let host = Api.Path.baseURL.host else { return }
         SAMKeychain.setPassword(credential.pass, forService: host, account: credential.name)
     }
 
     func clearCredential() {
         credential = Credential(name: "'", pass: "")
-        guard let host = ApiPath.baseURL.host else { return }
+        guard let host = Api.Path.baseURL.host else { return }
         guard let accounts = SAMKeychain.accounts(forService: host) else { return }
         for account in accounts {
             if let account = account[kSAMKeychainAccountKey] as? String {

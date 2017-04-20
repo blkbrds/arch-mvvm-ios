@@ -11,40 +11,70 @@ import RealmSwift
 import RealmS
 import MVVM
 
-final class RepoListViewModel: MVVM.ViewModel {
+
+final class RepoListViewModel: MVVM.CollectionViewModel {
+
     typealias Item = RepoCellViewModel
-
-    var repoViewModelsTypes: [CellPresentable.Type] = [RepoCellViewModel.self]
-    private(set) var repoViewModels = [CellPresentable]()
-
-    //MARK: - Events
-    var didError: ((Error) -> Void)?
-    var didUpdate: ((RepoListViewModel) -> Void)?
-    var didSelectRepo: ((Repo) -> Void)?
+    weak var delegate: CollectionViewModelDelegate?
+    private var repoViewModels = [Item]()
+    private var token: NotificationToken?
 
     func reloadData() {
-        API.Repo.getAll { [weak self] results in
+        Api.Repo.getAll { [weak self] results in
+            guard let `self` = self else { return }
             switch results {
             case .success(let repos):
-                guard let `self` = self else { return }
-                self.repoViewModels = repos.map {
-                    self.viewModelFor(repo: $0)
-                }
-                self.didUpdate?(self)
+                repos.forEach({
+                    let cellViewModel = RepoCellViewModel(repo: $0)
+                    self.repoViewModels.append(cellViewModel)
+                })
+                self.delegate?.viewModel(change: .initial)
             case .failure(let error):
-                print(error)
+                self.delegate?.viewModel(change: .error(error))
             }
         }
     }
 
-    private func viewModelFor(repo: Repo) -> CellPresentable {
-        let viewModel = RepoCellViewModel(repo: repo)
-        viewModel.didSelectRepo = { [weak self] repo in
-            self?.didSelectRepo?(repo)
+    // MARK: - Action
+
+    func fetch() {
+        DispatchQueue.global(qos: .background).async { [weak self] Void in
+            guard let this = self else { return }
+            this.execFetch()
         }
-        viewModel.didError = { [weak self] error in
-            self?.didError?(error)
+    }
+
+    func getRepos() {
+        let params = Api.Repo.QueryParams(
+            type: .all,
+            sort: .full_name,
+            direction: .desc
+        )
+        Api.Repo.query(params: params) { (result) in
         }
-        return viewModel
+    }
+
+    // MARK: Private
+
+    private func execFetch() {
+//        repos = RealmS().objects(Repo.self).sorted(byKeyPath: "id", ascending: true)
+//        token = repos?.addNotificationBlock({ [weak self] (change) in
+//            guard let this = self else { return }
+//            DispatchQueue.main.async {
+//                this.delegate?.viewModel(change: change.changes)
+//            }
+//        })
+    }
+
+    var numberOfSections: Int {
+        return 1
+    }
+
+    func numberOfRowsInSection(_ section: Int) -> Int {
+        return repoViewModels.count
+    }
+
+    func itemForRow(at indexPath: IndexPath) -> RepoCellViewModel {
+        return repoViewModels[indexPath.row]
     }
 }

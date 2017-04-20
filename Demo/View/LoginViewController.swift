@@ -37,7 +37,7 @@ final class LoginViewController: UIViewController, MVVM.View {
         super.viewDidLoad()
         #if DEBUG
             viewModel.name = "at-ios-mvvm"
-            viewModel.pass = "1d46bff0b87f5d4f93c8db0fe747ce7afbf93f4e"
+            viewModel.pass = "101a6476440c30431a17" + "25c310d1abe049189b2a"
         #endif
         updateView()
         setupActions()

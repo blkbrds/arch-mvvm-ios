@@ -21,12 +21,12 @@ extension Network {
     }()
 }
 
-extension API {
-    final class Error {
-        static let network = NSError(domain: ApiPath.baseURL.host, status: HTTPStatus.requestTimeout, message: "The Internet connection appears to be offline.")
-        static let authen = NSError(domain: ApiPath.baseURL.host, status: HTTPStatus.unauthorized)
+extension Api {
+    struct Error {
+        static let network = NSError(domain: Api.Path.baseURL.host, status: HTTPStatus.requestTimeout, message: "The Internet connection appears to be offline.")
+        static let authen = NSError(domain: Api.Path.baseURL.host, status: HTTPStatus.unauthorized)
         static let json = NSError(domain: NSCocoaErrorDomain, code: 3840, message: "The operation couldn’t be completed.")
-        static let apiKey = NSError(domain: ApiPath.baseURL.host, status: HTTPStatus.badRequest)
+        static let apiKey = NSError(domain: Api.Path.baseURL.host, status: HTTPStatus.badRequest)
     }
 }
 

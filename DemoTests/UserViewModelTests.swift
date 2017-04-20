@@ -13,7 +13,7 @@ extension LoginViewModel {
     static var standard: LoginViewModel {
         let user = LoginViewModel(user: nil)
         user.name = "at-ios-mvvm"
-        user.pass = "1d46bff0b87f5d4f93c8db0fe747ce7afbf93f4e"
+        user.pass = "101a6476440c30431a17" + "25c310d1abe049189b2a"
         return user
     }
 }

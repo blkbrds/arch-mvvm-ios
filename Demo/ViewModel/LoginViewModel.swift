@@ -61,8 +61,8 @@ final class LoginViewModel: MVVM.ViewModel {
             completion(.failure(error: error))
             return
         }
-        let ws = API.User(id: 0)
-        let params = API.User.LoginParams(name: name, pass: pass)
+        let ws = Api.User(id: 0)
+        let params = Api.User.LoginParams(name: name, pass: pass)
         ws.login(params: params) { (result) in
             switch result {
             case .success(_):
@@ -74,6 +74,4 @@ final class LoginViewModel: MVVM.ViewModel {
     }
 }
 
-extension String {
-    var len: Int { return characters.count }
-}
+

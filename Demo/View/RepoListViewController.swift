@@ -21,53 +21,47 @@ final class RepoListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configTable()
-        bindToViewModel()
-        reloadData()
-    }
-
-    private func configTable() {
-        tableView.dataSource = self
-        viewModel.repoViewModelsTypes.forEach { $0.registerCell(tableView: tableView) }
-    }
-    
-    private func bindToViewModel() {
-        viewModel.didUpdate = { [weak self] viewModel in
-            self?.viewModel = viewModel
-            self?.viewModelDidUpdate()
-        }
-        viewModel.didError = { [weak self] error in
-            self?.viewModelDidError(error)
-        }
-        viewModel.didSelectRepo = { [weak self] repo in
-            print(repo)
-            // push to detail repo
-        }
-    }
-
-    private func reloadData() {
+        viewModel.delegate = self
         viewModel.reloadData()
     }
 
-    private func viewModelDidUpdate() {
-        tableView.reloadData()
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+//        guard let navi = navigationController else { return }
+//        navi.viewControllers = [self]
     }
 
+    private func configTable() {
+        tableView.register(RepoCell.self, forCellReuseIdentifier: "RepoCell")
+        tableView.dataSource = self
+    }
     private func viewModelDidError(_ error: Error) {
         UIAlertView(title: "Error", message: "viewModelDidError", delegate: nil, cancelButtonTitle: "OK").show()
     }
 }
 
+extension RepoListViewController: CollectionViewModelDelegate {
+    func viewModel(change changes: CollectionChanges) {
+        tableView.reloadData()
+    }
+}
+
 extension RepoListViewController {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    }
+
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return viewModel.numberOfSections
+    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.repoViewModels.count
+        return viewModel.numberOfRowsInSection(section)
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return viewModel.repoViewModels[indexPath.row].dequeueCell(with: tableView ,at: indexPath)
-    }
-
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel.repoViewModels[indexPath.row].cellSelected()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "RepoCell") as? RepoCell
+        else { fatalError() }
+        cell.viewModel = viewModel.itemForRow(at: indexPath)
+        return cell
     }
 }
