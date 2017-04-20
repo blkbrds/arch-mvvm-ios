@@ -8,7 +8,10 @@
 
 import Foundation
 import Alamofire
+import ObjectMapper
 
+
+typealias RepoCompletion = (Result<[Repo]>) -> Void
 extension Api.Repo {
     struct QueryParams {
         let type: Type
@@ -21,6 +24,23 @@ extension Api.Repo {
     static func query(params: QueryParams, completion: @escaping Completion) -> Request? {
         return api.request(method: .get, urlString: Api.Path.User.login) { (result) in
             completion(result)
+        }
+    }
+
+    static func getAll(completion: @escaping RepoCompletion) {
+        api.request(method: .get, urlString: Api.Path.User.repos) { (result) in
+            switch result {
+            case .success(let json):
+
+                if let jsons = json["data"] as? [[String: Any]],
+                    let repos: [Repo] = Mapper<Repo>().mapArray(JSONArray: jsons) {
+                    completion(Result.success(repos))
+                } else {
+                    completion(Result.failure(Api.Error.json))
+                }
+            case .failure(let error):
+                completion(Result.failure(error))
+            }
         }
     }
 }

@@ -46,15 +46,17 @@ extension Request {
             return .failure(err)
         }
 
-        guard let data = data, let json = data.toJSON() as? JSObject else {
+        guard let data = data, let json = data.toJSON() else {
             return Result.failure(Api.Error.json)
         }
 
 //        if let token = Session.Token(headers: response.allHeaderFields) {
 //            api.session.token = token
 //        }
-
-        return .success(json)
+        if let js = json as? JSObject {
+            return .success(js)
+        }
+        return .success(["data": json])
     }
 }
 

@@ -11,33 +11,28 @@ import RealmSwift
 import RealmS
 import MVVM
 
+
 final class RepoListViewModel: MVVM.CollectionViewModel {
+
     typealias Item = RepoCellViewModel
     weak var delegate: CollectionViewModelDelegate?
-
-    private var repos: Results<Repo>?
+    private var repoViewModels = [Item]()
     private var token: NotificationToken?
 
-    var numberOfSections: Int {
-        guard let _ = repos else {
-            return 0
+    func reloadData() {
+        Api.Repo.getAll { [weak self] results in
+            guard let `self` = self else { return }
+            switch results {
+            case .success(let repos):
+                repos.forEach({
+                    let cellViewModel = RepoCellViewModel(repo: $0)
+                    self.repoViewModels.append(cellViewModel)
+                })
+                self.delegate?.viewModel(change: .initial)
+            case .failure(let error):
+                self.delegate?.viewModel(change: .error(error))
+            }
         }
-        return 1
-    }
-
-    func numberOfRowsInSection(_ section: Int) -> Int {
-        guard let repos = repos else {
-            return 0
-        }
-        return repos.count
-    }
-
-    func itemForRow(at indexPath: IndexPath) -> RepoCellViewModel {
-        guard let repos = repos else {
-            fatalError("Please call `fetch()` first.")
-        }
-        let repo = repos[indexPath.row]
-        return RepoCellViewModel(repo: repo)
     }
 
     // MARK: - Action
@@ -62,12 +57,24 @@ final class RepoListViewModel: MVVM.CollectionViewModel {
     // MARK: Private
 
     private func execFetch() {
-        repos = RealmS().objects(Repo.self).sorted(byKeyPath: "id", ascending: true)
-        token = repos?.addNotificationBlock({ [weak self] (change) in
-            guard let this = self else { return }
-            DispatchQueue.main.async {
-                this.delegate?.viewModel(change: change.changes)
-            }
-        })
+//        repos = RealmS().objects(Repo.self).sorted(byKeyPath: "id", ascending: true)
+//        token = repos?.addNotificationBlock({ [weak self] (change) in
+//            guard let this = self else { return }
+//            DispatchQueue.main.async {
+//                this.delegate?.viewModel(change: change.changes)
+//            }
+//        })
+    }
+
+    var numberOfSections: Int {
+        return 1
+    }
+
+    func numberOfRowsInSection(_ section: Int) -> Int {
+        return repoViewModels.count
+    }
+
+    func itemForRow(at indexPath: IndexPath) -> RepoCellViewModel {
+        return repoViewModels[indexPath.row]
     }
 }

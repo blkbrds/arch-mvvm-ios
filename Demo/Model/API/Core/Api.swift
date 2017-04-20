@@ -17,7 +17,7 @@ final class Api {
             let id: String
             var description: String { return Api.Path.users + "/id" }
             static var login: String { return Api.Path.baseURL + "/user" }
-            var repos: String { return Api.Path.baseURL + "/user/repos" }
+            static var repos: String { return Api.Path.baseURL + "/users/" + api.session.credential.name + "/repos"  }
         }
     }
 

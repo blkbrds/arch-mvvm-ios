@@ -9,12 +9,10 @@
 import UIKit
 import MVVM
 
-
-
-final class RepoCell: UITableViewCell, MVVM.View {
+final class RepoCell: UITableViewCell {
     // MARK: - MVVM
     typealias T = RepoCellViewModel
-    var viewModel = RepoCellViewModel(repo: nil) {
+    var viewModel: RepoCellViewModel! {
         didSet {
             updateView()
         }

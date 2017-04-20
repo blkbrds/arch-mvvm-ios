@@ -39,10 +39,10 @@ final class LoginViewModel: MVVM.ViewModel {
     }
 
     func validate() -> Validation {
-        guard name.len >= 6 else {
+        guard name.len >= 4 else {
             return .failure(key: "name", msg: "'name' too short")
         }
-        guard pass.len >= 6 else { return .failure(key: "pass", msg: "'pass' too short") }
+        guard pass.len >= 4 else { return .failure(key: "pass", msg: "'pass' too short") }
         return .success
     }
 

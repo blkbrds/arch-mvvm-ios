@@ -10,33 +10,33 @@ import UIKit
 import MVVM
 
 final class RepoListViewController: UITableViewController {
-    var viewModel = RepoListViewModel()
+
+    private(set) var viewModel = RepoListViewModel()
+
+    convenience init(viewModel: RepoListViewModel = RepoListViewModel()) {
+        self.init(nibName: nil, bundle: nil)
+        self.viewModel = viewModel
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configTable()
         viewModel.delegate = self
-        viewModel.fetch()
+        viewModel.reloadData()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        guard let navi = navigationController else { return }
-        navi.viewControllers = [self]
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+//        guard let navi = navigationController else { return }
+//        navi.viewControllers = [self]
     }
 
     private func configTable() {
         tableView.register(RepoCell.self, forCellReuseIdentifier: "RepoCell")
         tableView.dataSource = self
     }
-
-    func reloadData() {
-        guard isViewLoaded else { return }
-        tableView.reloadData()
+    private func viewModelDidError(_ error: Error) {
+        UIAlertView(title: "Error", message: "viewModelDidError", delegate: nil, cancelButtonTitle: "OK").show()
     }
 }
 
@@ -47,6 +47,9 @@ extension RepoListViewController: CollectionViewModelDelegate {
 }
 
 extension RepoListViewController {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    }
+
     override func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.numberOfSections
     }
@@ -57,7 +60,7 @@ extension RepoListViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "RepoCell") as? RepoCell
-            else { fatalError() }
+        else { fatalError() }
         cell.viewModel = viewModel.itemForRow(at: indexPath)
         return cell
     }
