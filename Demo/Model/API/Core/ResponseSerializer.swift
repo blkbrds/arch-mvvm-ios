@@ -16,7 +16,7 @@ extension Request {
     static func responseJSONSerializer(log: Bool = true,
                                        response: HTTPURLResponse?,
                                        data: Data?,
-                                       error: Error?) -> Result<JSObject> {
+                                       error: Error?) -> Result<Any> {
         guard let response = response else {
             return .failure(NSError(status: .requestTimeout))
         }
@@ -46,27 +46,23 @@ extension Request {
             return .failure(err)
         }
 
-        guard let data = data, let json = data.toJSON() as? JSObject else {
+        guard let data = data, let json = data.toJSON() else {
             return Result.failure(Api.Error.json)
         }
-
-//        if let token = Session.Token(headers: response.allHeaderFields) {
-//            api.session.token = token
-//        }
 
         return .success(json)
     }
 }
 
 extension DataRequest {
-    static func responseSerializer() -> DataResponseSerializer<JSObject> {
+    static func responseSerializer() -> DataResponseSerializer<Any> {
         return DataResponseSerializer { _, response, data, error in
             return Request.responseJSONSerializer(log: true, response: response, data: data, error: error)
         }
     }
 
     @discardableResult
-    func responseJSON(queue: DispatchQueue? = nil, completion: @escaping (DataResponse<JSObject>) -> Void) -> Self {
+    func responseJSON(queue: DispatchQueue? = nil, completion: @escaping (DataResponse<Any>) -> Void) -> Self {
         return response(responseSerializer: DataRequest.responseSerializer(), completionHandler: completion)
     }
 }

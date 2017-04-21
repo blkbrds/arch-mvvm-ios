@@ -8,16 +8,16 @@
 
 import Foundation
 
+enum Process {
+    case encode
+    case decode
+}
+
 extension String {
     var len: Int { return characters.count }
     var host: String? { return (try? asURL())?.host }
 
-    enum EncodingMethod {
-        case encode
-        case decode
-    }
-
-    func base64(_ method: EncodingMethod) -> String? {
+    func base64(_ method: Process) -> String? {
         switch method {
         case .encode:
             guard let data = data(using: .utf8) else { return nil }
@@ -26,5 +26,9 @@ extension String {
             guard let data = Data(base64Encoded: self) else { return nil }
             return String(data: data, encoding: .utf8)
         }
+    }
+
+    var trimmed: String {
+        return trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     }
 }

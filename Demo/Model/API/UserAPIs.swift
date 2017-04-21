@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import ObjectMapper
 
 extension Api.User {
     struct LoginParams {
@@ -22,8 +23,9 @@ extension Api.User {
             name: params.name,
             pass: params.pass
         )
-        return api.request(method: .get, urlString: Api.Path.User.login) { (result) in
-            completion(result)
+        let path = Api.Path.User.login
+        return api.request(method: .get, urlString: path) { (result) in
+            Mapper<User>().map(result: result, type: .object, completion: completion)
         }
     }
 }

@@ -49,13 +49,15 @@ final class RepoListViewModel: MVVM.CollectionViewModel {
         }
     }
 
-    func getRepos() {
+    func getRepos(completion: @escaping Completion) {
         let params = Api.Repo.QueryParams(
             type: .all,
             sort: .full_name,
             direction: .desc
         )
         Api.Repo.query(params: params) { (result) in
+            RealmS().refresh()
+            completion(result)
         }
     }
 

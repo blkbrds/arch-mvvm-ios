@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import ObjectMapper
 
 extension Api.Repo {
     struct QueryParams {
@@ -19,8 +20,13 @@ extension Api.Repo {
     // https://developer.github.com/v3/repos/#list-your-repositories
     @discardableResult
     static func query(params: QueryParams, completion: @escaping Completion) -> Request? {
-        return api.request(method: .get, urlString: Api.Path.User.login) { (result) in
-            completion(result)
+        guard let userId = api.session.userId else {
+            completion(.failure(Api.Error.authen))
+            return nil
+        }
+        let path = Api.Path.User(id: userId).repos
+        return api.request(method: .get, urlString: path) { (result) in
+            Mapper<Repo>().map(result: result, type: .array, completion: completion)
         }
     }
 }

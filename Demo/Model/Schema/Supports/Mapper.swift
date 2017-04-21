@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 import RealmSwift
 import ObjectMapper
 import RealmS
@@ -21,37 +22,39 @@ extension RealmS {
     }
 }
 
-// MARK: Scalar mapping
-
-infix operator =!: AssignmentPrecedence
-func =! (lhs: inout String, rhs: String?) {
-    guard let rhs = rhs else {
-        lhs = ""
-        return
+extension Mapper where N: Object, N: Mappable {
+    func map(result: Result<Any>, type: DataType, completion: Completion) {
+        switch result {
+        case .success(let json):
+            switch type {
+            case .object:
+                guard let obj = json as? JSObject else {
+                    completion(.failure(Api.Error.json))
+                    return
+                }
+                let realm = RealmS()
+                realm.write {
+                    realm.map(N.self, json: obj)
+                }
+                completion(.success(json))
+            case .array:
+                guard let objs = json as? JSArray else {
+                    completion(.failure(Api.Error.json))
+                    return
+                }
+                let realm = RealmS()
+                realm.write {
+                    realm.map(N.self, json: objs)
+                }
+                completion(.success(json))
+            }
+        case .failure(let error):
+            completion(.failure(error))
+        }
     }
-    lhs = rhs
 }
 
-func =! <T: Integer>(lhs: inout T, rhs: T?) {
-    guard let rhs = rhs else {
-        lhs = 0
-        return
-    }
-    lhs = rhs
-}
-
-func =! (lhs: inout Double, rhs: Double?) {
-    guard let rhs = rhs else {
-        lhs = 0
-        return
-    }
-    lhs = rhs
-}
-
-func =! (lhs: inout Float, rhs: Float?) {
-    guard let rhs = rhs else {
-        lhs = 0
-        return
-    }
-    lhs = rhs
+enum DataType {
+    case object
+    case array
 }
