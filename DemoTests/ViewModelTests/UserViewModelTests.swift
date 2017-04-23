@@ -19,37 +19,26 @@ extension LoginViewModel {
 }
 
 class LoginViewModelTests: XCTestCase {
-
-    override func setUp() {
-        super.setUp()
-        //
-    }
-
-    override func tearDown() {
-        //
-        super.tearDown()
-    }
-
     func testValidateSuccess() {
         let user = LoginViewModel.standard
         let validation = user.validate()
         switch validation {
         case .success: break
         case .failure(_, _):
-            XCTAssertTrue(false, "`validation` must be `.success`")
+            XCTFail("`validation` must be `.success`")
         }
     }
 
-    func testValidateFailureMail() {
+    func testValidateFailureName() {
         let user = LoginViewModel.standard
-        user.name = "trung@co.uk"
+        user.name = "trung"
         let validation = user.validate()
         switch validation {
         case .success:
-            XCTAssertTrue(false, "`validation` must be `.failure`")
+            XCTFail("`validation` must be `.failure`")
         case .failure(let key, let msg):
-            XCTAssertEqual(key, "mail", "`validation` must be failure with `key` = `mail`")
-            XCTAssertEqual(msg, "'mail' too short", "`validation` must be failure with `msg` = `'mail' too short`")
+            XCTAssertEqual(key, "name", "`validation` must be failure with `key` = `name`")
+            XCTAssertEqual(msg, "'name' too short", "`validation` must be failure with `msg` = `'name' too short`")
         }
     }
 
@@ -59,7 +48,7 @@ class LoginViewModelTests: XCTestCase {
         let validation = user.validate()
         switch validation {
         case .success:
-            XCTAssertTrue(false, "`validation` must be `.failure`")
+            XCTFail("`validation` must be `.failure`")
         case .failure(let key, let msg):
             XCTAssertEqual(key, "pass", "`validation` must be failure with `key` = `pass`")
             XCTAssertEqual(msg, "'pass' too short", "`validation` must be failure with `msg` = `'pass' too short`")
@@ -73,7 +62,7 @@ class LoginViewModelTests: XCTestCase {
             switch result {
             case .success: break
             case .failure(_):
-                XCTAssertTrue(false, "`login result` must be `.success`")
+                XCTFail("`login result` must be `.success`")
             }
             ex.fulfill()
         }

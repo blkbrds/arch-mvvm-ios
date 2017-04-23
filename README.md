@@ -28,6 +28,8 @@ The benifits:
 - UI independence: easier migration to other UIs.
 - Better testability because of the separation of concerns and the decoupled nature of the code.
 
+> Special thanks to [Jorge Ortiz](https://twitter.com/jdortiz)
+
 # Interactor
 
 ![](images/interactor.png)

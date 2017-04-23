@@ -10,7 +10,7 @@ import Foundation
 import SAMKeychain
 import SwiftyJSON
 
-let kUserIDKey = "UserID"
+let kUserIdKey = "UserID"
 
 final class Session {
     struct Credential: CustomStringConvertible {
@@ -33,17 +33,13 @@ final class Session {
         }
     }
 
-    var userID: Int? = UserDefaults.standard.object(forKey: kUserIDKey) as? Int {
+    var userId: String? = UserDefaults.standard.string(forKey: kUserIdKey) {
         didSet {
             let userDefaults = UserDefaults.standard
-            userDefaults.set(userID, forKey: kUserIDKey)
+            userDefaults.set(userId, forKey: kUserIdKey)
             userDefaults.synchronize()
         }
     }
-
-//    var isAuthenticated: Bool {
-//        return credential.isValid
-//    }
 
     init() { }
 

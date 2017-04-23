@@ -59,8 +59,8 @@ final class LoginViewController: UIViewController, MVVM.View {
     }
 
     @objc private func login() {
-        viewModel.name =! nameField.text?.trimmed
-        viewModel.pass =! passField.text?.trimmed
+        viewModel.name = nameField.string.trimmed
+        viewModel.pass = passField.string.trimmed
 
         switch viewModel.validate() {
         case .success:
@@ -92,16 +92,10 @@ final class LoginViewController: UIViewController, MVVM.View {
         performSegue(.showRepoList)
     }
 
-    var textFields: [String:UITextField] {
+    var textFields: [String: UITextField] {
         return [
             "mail": nameField,
             "pass": passField
         ]
-    }
-}
-
-extension String {
-    var trimmed: String {
-        return trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     }
 }
