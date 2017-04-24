@@ -42,7 +42,7 @@ final class LoginViewModel: MVVM.ViewModel {
         guard username.len >= 6 else {
             return .failure(key: "username", msg: "'username' too short")
         }
-        guard token.len >= 6 else { return .failure(key: "password", msg: "'password' too short") }
+        guard token.len >= 6 else { return .failure(key: "token", msg: "'token' too short") }
         return .success
     }
 

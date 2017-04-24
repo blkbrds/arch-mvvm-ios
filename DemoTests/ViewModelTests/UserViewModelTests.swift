@@ -12,8 +12,8 @@ import XCTest
 extension LoginViewModel {
     static var standard: LoginViewModel {
         let user = LoginViewModel(user: nil)
-        user.name = "at-ios-mvvm"
-        user.pass = "101a6476440c30431a17" + "25c310d1abe049189b2a"
+        user.username = "at-ios-mvvm"
+        user.token = "101a6476440c30431a17" + "25c310d1abe049189b2a"
         return user
     }
 }
@@ -31,27 +31,27 @@ class LoginViewModelTests: XCTestCase {
 
     func testValidateFailureName() {
         let user = LoginViewModel.standard
-        user.name = "trung"
+        user.username = "trung"
         let validation = user.validate()
         switch validation {
         case .success:
             XCTFail("`validation` must be `.failure`")
         case .failure(let key, let msg):
-            XCTAssertEqual(key, "name", "`validation` must be failure with `key` = `name`")
-            XCTAssertEqual(msg, "'name' too short", "`validation` must be failure with `msg` = `'name' too short`")
+            XCTAssertEqual(key, "username", "`validation` must be failure with `key` = `username`")
+            XCTAssertEqual(msg, "'username' too short", "`validation` must be failure with `msg` = `'username' too short`")
         }
     }
 
-    func testValidateFailurePass() {
+    func testValidateFailureToken() {
         let user = LoginViewModel.standard
-        user.pass = "1234"
+        user.token = "1234"
         let validation = user.validate()
         switch validation {
         case .success:
             XCTFail("`validation` must be `.failure`")
         case .failure(let key, let msg):
-            XCTAssertEqual(key, "pass", "`validation` must be failure with `key` = `pass`")
-            XCTAssertEqual(msg, "'pass' too short", "`validation` must be failure with `msg` = `'pass' too short`")
+            XCTAssertEqual(key, "token", "`validation` must be failure with `key` = `token`")
+            XCTAssertEqual(msg, "'token' too short", "`validation` must be failure with `msg` = `'token' too short`")
         }
     }
 
@@ -69,30 +69,16 @@ class LoginViewModelTests: XCTestCase {
         waitForExpectations(timeout: 1.5)
     }
 
-    func testLoginAgainStillSuccess() {
-        let ex = expectation(description: "login")
-        let user = LoginViewModel.standard
-        user.login { (result) in
-            switch result {
-            case .success: break
-            case .failure(_):
-                XCTFail("`login result` must be `.success`")
-            }
-            ex.fulfill()
-        }
-        waitForExpectations(timeout: 1.5)
-    }
-
     func testLoginFailure() {
         let ex = expectation(description: "login")
         let user = LoginViewModel.standard
-        user.pass = "123"
+        user.token = "123"
         user.login { (result) in
             switch result {
             case .success:
                 XCTFail("`login result` must be `.failure`")
             case .failure(let error):
-                XCTAssertEqual(error.localizedDescription, "Failure: 'pass' too short")
+                XCTAssertEqual(error.localizedDescription, "Failure: 'token' too short")
             }
             ex.fulfill()
         }
