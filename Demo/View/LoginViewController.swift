@@ -55,14 +55,15 @@ final class LoginViewController: UIViewController, MVVM.View {
             "pass": tokenField
         ]
     }
+}
 
-    // MARK: - Private
-
-    private func setupActions() {
+// MARK: - Private
+extension LoginViewController {
+    fileprivate func setupActions() {
         loginButton.addTarget(self, action: #selector(LoginViewController.login), for: .touchUpInside)
     }
 
-    @objc private func login() {
+    @objc fileprivate func login() {
         viewModel.username = usernameField.string.trimmed
         viewModel.token = tokenField.string.trimmed
 
@@ -88,17 +89,17 @@ final class LoginViewController: UIViewController, MVVM.View {
         }
     }
 
-    private func updateView() {
+    fileprivate func updateView() {
         guard isViewLoaded else { return }
         usernameField.text = viewModel.username
         tokenField.text = viewModel.token
     }
 
-    private func performSegue(_ segue: Segue) {
+    fileprivate func performSegue(_ segue: Segue) {
         performSegue(withIdentifier: segue.rawValue, sender: self)
     }
 
-    private func showRepoList() {
+    fileprivate func showRepoList() {
         performSegue(.showRepoList)
     }
 }

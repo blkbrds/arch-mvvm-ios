@@ -43,11 +43,6 @@ final class RepoListViewController: UITableViewController {
         super.viewWillDisappear(animated)
     }
 
-    private func configTable() {
-        tableView.register(RepoCell.self, forCellReuseIdentifier: "RepoCell")
-        tableView.dataSource = self
-    }
-
     func reloadData() {
         guard isViewLoaded else { return }
         tableView.reloadData()
@@ -74,5 +69,13 @@ extension RepoListViewController {
             else { fatalError() }
         cell.viewModel = viewModel.itemForRow(at: indexPath)
         return cell
+    }
+}
+
+// MARK: - Private
+extension RepoListViewController {
+    fileprivate func configTable() {
+        tableView.register(RepoCell.self, forCellReuseIdentifier: "RepoCell")
+        tableView.dataSource = self
     }
 }
