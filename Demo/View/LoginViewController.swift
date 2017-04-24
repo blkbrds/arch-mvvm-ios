@@ -22,22 +22,17 @@ final class LoginViewController: UIViewController, MVVM.View {
         }
     }
 
-    private func updateView() {
-        guard isViewLoaded else { return }
-        nameField.text = viewModel.name
-        passField.text = viewModel.pass
-    }
     // MARK: -
 
-    @IBOutlet fileprivate var nameField: UITextField!
-    @IBOutlet fileprivate var passField: UITextField!
+    @IBOutlet fileprivate var usernameField: UITextField!
+    @IBOutlet fileprivate var tokenField: UITextField!
     @IBOutlet fileprivate var loginButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         #if DEBUG
-            viewModel.name = "at-ios-mvvm"
-            viewModel.pass = "101a6476440c30431a17" + "25c310d1abe049189b2a"
+            viewModel.username = "at-ios-mvvm"
+            viewModel.token = "101a6476440c30431a17" + "25c310d1abe049189b2a"
         #endif
         updateView()
         setupActions()
@@ -45,8 +40,8 @@ final class LoginViewController: UIViewController, MVVM.View {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        guard !passField.isFirstResponder else { return }
-        nameField.becomeFirstResponder()
+        guard !tokenField.isFirstResponder else { return }
+        usernameField.becomeFirstResponder()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -54,13 +49,22 @@ final class LoginViewController: UIViewController, MVVM.View {
         view.endEditing(true)
     }
 
+    var textFields: [String: UITextField] {
+        return [
+            "mail": usernameField,
+            "pass": tokenField
+        ]
+    }
+
+    // MARK: - Private
+
     private func setupActions() {
         loginButton.addTarget(self, action: #selector(LoginViewController.login), for: .touchUpInside)
     }
 
     @objc private func login() {
-        viewModel.name = nameField.string.trimmed
-        viewModel.pass = passField.string.trimmed
+        viewModel.username = usernameField.string.trimmed
+        viewModel.token = tokenField.string.trimmed
 
         switch viewModel.validate() {
         case .success:
@@ -84,18 +88,17 @@ final class LoginViewController: UIViewController, MVVM.View {
         }
     }
 
+    private func updateView() {
+        guard isViewLoaded else { return }
+        usernameField.text = viewModel.username
+        tokenField.text = viewModel.token
+    }
+
     private func performSegue(_ segue: Segue) {
         performSegue(withIdentifier: segue.rawValue, sender: self)
     }
 
     private func showRepoList() {
         performSegue(.showRepoList)
-    }
-
-    var textFields: [String: UITextField] {
-        return [
-            "mail": nameField,
-            "pass": passField
-        ]
     }
 }

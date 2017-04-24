@@ -22,7 +22,7 @@ extension RealmS {
     }
 }
 
-extension Mapper where N: Object, N: Mappable {
+extension Mapper where N: Object, N: Mappable, N: StaticMappable {
     func map(result: Result<Any>, type: DataType, completion: Completion) {
         switch result {
         case .success(let json):

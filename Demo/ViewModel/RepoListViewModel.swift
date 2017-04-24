@@ -43,13 +43,21 @@ final class RepoListViewModel: MVVM.CollectionViewModel {
     // MARK: - Action
 
     func fetch() {
-        DispatchQueue.global(qos: .background).async { [weak self] Void in
+        repos = RealmS().objects(Repo.self).sorted(byKeyPath: "id", ascending: true)
+        token = repos?.addNotificationBlock({ [weak self] (change) in
             guard let this = self else { return }
-            this.execFetch()
-        }
+            this.delegate?.viewModel(change: change.changes)
+        })
     }
 
-    func getRepos(completion: @escaping Completion) {
+    enum GetReposResult {
+        case success
+        case failure(Error)
+    }
+
+    typealias GetReposCompletion = (GetReposResult) -> Void
+
+    func getRepos(completion: @escaping GetReposCompletion) {
         let params = Api.Repo.QueryParams(
             type: .all,
             sort: .full_name,
@@ -57,19 +65,12 @@ final class RepoListViewModel: MVVM.CollectionViewModel {
         )
         Api.Repo.query(params: params) { (result) in
             RealmS().refresh()
-            completion(result)
-        }
-    }
-
-    // MARK: Private
-
-    private func execFetch() {
-        repos = RealmS().objects(Repo.self).sorted(byKeyPath: "id", ascending: true)
-        token = repos?.addNotificationBlock({ [weak self] (change) in
-            guard let this = self else { return }
-            DispatchQueue.main.async {
-                this.delegate?.viewModel(change: change.changes)
+            switch result {
+            case .success(_):
+                completion(.success)
+            case .failure(let error):
+                completion(.failure(error))
             }
-        })
+        }
     }
 }

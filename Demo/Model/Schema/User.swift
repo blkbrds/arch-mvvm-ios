@@ -12,9 +12,11 @@ import ObjectMapper
 import RealmS
 
 final class User: Object, Mappable, StaticMappable {
-    dynamic var id = 0
-    dynamic var name = ""
-    dynamic var mail = ""
+    dynamic var id: String!
+    dynamic var login: String!
+    dynamic var name: String?
+    dynamic var email: String?
+    dynamic var avatar: String?
 
     override static func primaryKey() -> String? {
         return "id"
@@ -22,11 +24,14 @@ final class User: Object, Mappable, StaticMappable {
 
     convenience init?(map: Map) {
         self.init()
+        id <- map["id"]
     }
 
     func mapping(map: Map) {
+        login <- map["login"]
         name <- map["name"]
-        mail <- map["mail"]
+        email <- map["email"]
+        avatar <- map["avatar_url"]
     }
 
     static func objectForMapping(map: Map) -> BaseMappable? {
