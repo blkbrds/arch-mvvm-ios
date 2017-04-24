@@ -13,8 +13,8 @@ import RealmS
 
 final class Repo: Object, Mappable, StaticMappable {
     dynamic var id = 0
-    dynamic var name = ""
-    dynamic var slug = ""
+    dynamic var name: String!
+    dynamic var desc: String?
 
     override static func primaryKey() -> String? {
         return "id"
@@ -27,7 +27,7 @@ final class Repo: Object, Mappable, StaticMappable {
 
     func mapping(map: Map) {
         name <- map["name"]
-        slug <- map["slug"]
+        desc <- map["description"]
     }
 
     static func objectForMapping(map: Map) -> BaseMappable? {

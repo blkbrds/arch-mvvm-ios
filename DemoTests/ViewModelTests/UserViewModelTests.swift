@@ -68,4 +68,34 @@ class LoginViewModelTests: XCTestCase {
         }
         waitForExpectations(timeout: 1.5)
     }
+
+    func testLoginAgainStillSuccess() {
+        let ex = expectation(description: "login")
+        let user = LoginViewModel.standard
+        user.login { (result) in
+            switch result {
+            case .success: break
+            case .failure(_):
+                XCTFail("`login result` must be `.success`")
+            }
+            ex.fulfill()
+        }
+        waitForExpectations(timeout: 1.5)
+    }
+
+    func testLoginFailure() {
+        let ex = expectation(description: "login")
+        let user = LoginViewModel.standard
+        user.pass = "123"
+        user.login { (result) in
+            switch result {
+            case .success:
+                XCTFail("`login result` must be `.failure`")
+            case .failure(let error):
+                XCTAssertEqual(error.localizedDescription, "Failure: 'pass' too short")
+            }
+            ex.fulfill()
+        }
+        waitForExpectations(timeout: 1.5)
+    }
 }

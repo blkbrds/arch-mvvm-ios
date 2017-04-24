@@ -9,8 +9,6 @@
 import UIKit
 import MVVM
 
-
-
 final class RepoCell: UITableViewCell, MVVM.View {
     // MARK: - MVVM
     typealias T = RepoCellViewModel
@@ -22,6 +20,6 @@ final class RepoCell: UITableViewCell, MVVM.View {
 
     private func updateView() {
         textLabel?.text = viewModel.name
-        detailTextLabel?.text = viewModel.slug
+        detailTextLabel?.text = viewModel.desc
     }
 }

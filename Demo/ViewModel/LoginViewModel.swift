@@ -14,7 +14,7 @@ final class LoginViewModel: MVVM.ViewModel {
         case success
         case failure(key: String, msg: String)
 
-        var passed: Bool {
+        var isSuccess: Bool {
             switch self {
             case .success: return true
             default: return false
@@ -30,45 +30,44 @@ final class LoginViewModel: MVVM.ViewModel {
         }
     }
 
-    var name = ""
-    var pass = ""
+    var username = ""
+    var token = ""
 
     init(user: User?) {
         guard let user = user else { return }
-        name = user.name
+        username = user.login
     }
 
     func validate() -> Validation {
-        guard name.len >= 6 else {
-            return .failure(key: "name", msg: "'name' too short")
+        guard username.len >= 6 else {
+            return .failure(key: "username", msg: "'username' too short")
         }
-        guard pass.len >= 6 else { return .failure(key: "pass", msg: "'pass' too short") }
+        guard token.len >= 6 else { return .failure(key: "password", msg: "'password' too short") }
         return .success
     }
 
     enum LoginResult {
         case success
-        case failure(error: Error)
+        case failure(Error)
     }
 
     func login(_ completion: @escaping (LoginResult) -> Void) {
         let validation = validate()
-        guard validation.passed else {
+        guard validation.isSuccess else {
             let info: [String: Any] = [
                 NSLocalizedDescriptionKey: validation.description
             ]
             let error = NSError(domain: "", code: -1, userInfo: info)
-            completion(.failure(error: error))
+            completion(.failure(error))
             return
         }
-        let ws = Api.User(id: 0)
-        let params = Api.User.LoginParams(name: name, pass: pass)
-        ws.login(params: params) { (result) in
+        let params = Api.Me.LoginParams(username: username, token: token)
+        Api.Me.login(params: params) { (result) in
             switch result {
             case .success(_):
                 completion(.success)
             case .failure(let error):
-                completion(.failure(error: error))
+                completion(.failure(error))
             }
         }
     }

@@ -20,11 +20,7 @@ extension Api.Repo {
     // https://developer.github.com/v3/repos/#list-your-repositories
     @discardableResult
     static func query(params: QueryParams, completion: @escaping Completion) -> Request? {
-        guard let userId = api.session.userId else {
-            completion(.failure(Api.Error.authen))
-            return nil
-        }
-        let path = Api.Path.User(id: userId).repos
+        let path = Api.Path.Me.repos
         return api.request(method: .get, urlString: path) { (result) in
             Mapper<Repo>().map(result: result, type: .array, completion: completion)
         }

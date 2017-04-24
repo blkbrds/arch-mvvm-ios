@@ -1,5 +1,5 @@
 //
-//  UserAPIs.swift
+//  MeAPIs.swift
 //  MVVM
 //
 //  Created by DaoNV on 3/16/17.
@@ -10,20 +10,20 @@ import Foundation
 import Alamofire
 import ObjectMapper
 
-extension Api.User {
+extension Api.Me {
     struct LoginParams {
-        let name: String
-        let pass: String
+        let username: String
+        let token: String
     }
 
     // https://developer.github.com/v3/users/#get-the-authenticated-user
     @discardableResult
-    func login(params: LoginParams, completion: @escaping Completion) -> Request? {
+    static func login(params: LoginParams, completion: @escaping Completion) -> Request? {
         api.session.credential = Session.Credential(
-            name: params.name,
-            pass: params.pass
+            name: params.username,
+            pass: params.token
         )
-        let path = Api.Path.User.login
+        let path = Api.Path.Me.login
         return api.request(method: .get, urlString: path) { (result) in
             Mapper<User>().map(result: result, type: .object, completion: completion)
         }

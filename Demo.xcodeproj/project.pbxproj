@@ -15,13 +15,14 @@
 		EC0105571E8F8AE000CE013D /* RepoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0105491E8F8ADF00CE013D /* RepoListViewController.swift */; };
 		EC0105581E8F8AE000CE013D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC01054A1E8F8AE000CE013D /* LoginViewController.swift */; };
 		EC0105591E8F8AE000CE013D /* RepoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC01054C1E8F8AE000CE013D /* RepoListViewModel.swift */; };
+		EC0BC7BC1EAE0A10009A738C /* Repo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC0BC7BA1EAE0A10009A738C /* Repo.storyboard */; };
 		EC1C41DB1EA4814B007D045A /* RepoListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1C41D91EA4814B007D045A /* RepoListViewModelTests.swift */; };
 		EC1C41DC1EA4814B007D045A /* UserViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1C41DA1EA4814B007D045A /* UserViewModelTests.swift */; };
 		EC332A481EA0A8CB0011DF1E /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC332A471EA0A8CB0011DF1E /* Api.swift */; };
 		EC744A301EA21FDA00382ED9 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC744A2F1EA21FDA00382ED9 /* Utils.swift */; };
 		EC757EE11E939C3B009FC9E5 /* RepoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC757EDF1E939C3B009FC9E5 /* RepoCell.swift */; };
 		EC757EE81E939C58009FC9E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC757EE41E939C58009FC9E5 /* LaunchScreen.storyboard */; };
-		EC757EE91E939C58009FC9E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC757EE61E939C58009FC9E5 /* Main.storyboard */; };
+		EC757EE91E939C58009FC9E5 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC757EE61E939C58009FC9E5 /* Auth.storyboard */; };
 		ECB937A51E9A82AF007764C9 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB937A41E9A82AF007764C9 /* LoginViewModel.swift */; };
 		ECD1C29B1EA725B1000EC989 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD1C29A1EA725B1000EC989 /* InputView.swift */; };
 		ECDC355F1EA9BCBD00697E91 /* MVVM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECDC355E1EA9BCBD00697E91 /* MVVM.framework */; };
@@ -31,7 +32,7 @@
 		ECF23AAA1E9B85AB008C23C1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF23AA91E9B85AB008C23C1 /* User.swift */; };
 		ECF23AB41E9B869B008C23C1 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF23AB11E9B869B008C23C1 /* ApiManager.swift */; };
 		ECF23AB51E9B869B008C23C1 /* RepoAPIs.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF23AB21E9B869B008C23C1 /* RepoAPIs.swift */; };
-		ECF23AB61E9B869B008C23C1 /* UserAPIs.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF23AB31E9B869B008C23C1 /* UserAPIs.swift */; };
+		ECF23AB61E9B869B008C23C1 /* MeAPIs.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF23AB31E9B869B008C23C1 /* MeAPIs.swift */; };
 		ECF23ABA1E9B89B2008C23C1 /* RequestSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF23AB71E9B89B2008C23C1 /* RequestSerializer.swift */; };
 		ECF23ABB1E9B89B2008C23C1 /* ResponseSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF23AB81E9B89B2008C23C1 /* ResponseSerializer.swift */; };
 		ECF23ABC1E9B89B2008C23C1 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF23AB91E9B89B2008C23C1 /* Session.swift */; };
@@ -86,13 +87,14 @@
 		EC01054A1E8F8AE000CE013D /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		EC01054C1E8F8AE000CE013D /* RepoListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoListViewModel.swift; sourceTree = "<group>"; };
 		EC01055C1E8F8AF000CE013D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC0BC7BB1EAE0A10009A738C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Repo.storyboard; sourceTree = "<group>"; };
 		EC1C41D91EA4814B007D045A /* RepoListViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoListViewModelTests.swift; sourceTree = "<group>"; };
 		EC1C41DA1EA4814B007D045A /* UserViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewModelTests.swift; sourceTree = "<group>"; };
 		EC332A471EA0A8CB0011DF1E /* Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		EC744A2F1EA21FDA00382ED9 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		EC757EDF1E939C3B009FC9E5 /* RepoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoCell.swift; sourceTree = "<group>"; };
 		EC757EE51E939C58009FC9E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		EC757EE71E939C58009FC9E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EC757EE71E939C58009FC9E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Auth.storyboard; sourceTree = "<group>"; };
 		ECB937A41E9A82AF007764C9 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		ECCCCB181E7A40D00073D923 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECCCCB2C1E7A40D10073D923 /* DemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,7 +107,7 @@
 		ECF23AA91E9B85AB008C23C1 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		ECF23AB11E9B869B008C23C1 /* ApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		ECF23AB21E9B869B008C23C1 /* RepoAPIs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoAPIs.swift; sourceTree = "<group>"; };
-		ECF23AB31E9B869B008C23C1 /* UserAPIs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAPIs.swift; sourceTree = "<group>"; };
+		ECF23AB31E9B869B008C23C1 /* MeAPIs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeAPIs.swift; sourceTree = "<group>"; };
 		ECF23AB71E9B89B2008C23C1 /* RequestSerializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestSerializer.swift; sourceTree = "<group>"; };
 		ECF23AB81E9B89B2008C23C1 /* ResponseSerializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseSerializer.swift; sourceTree = "<group>"; };
 		ECF23AB91E9B89B2008C23C1 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
@@ -256,7 +258,8 @@
 			isa = PBXGroup;
 			children = (
 				EC757EE41E939C58009FC9E5 /* LaunchScreen.storyboard */,
-				EC757EE61E939C58009FC9E5 /* Main.storyboard */,
+				EC757EE61E939C58009FC9E5 /* Auth.storyboard */,
+				EC0BC7BA1EAE0A10009A738C /* Repo.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -313,7 +316,7 @@
 			children = (
 				ECF23AB01E9B869B008C23C1 /* Core */,
 				ECF23AB21E9B869B008C23C1 /* RepoAPIs.swift */,
-				ECF23AB31E9B869B008C23C1 /* UserAPIs.swift */,
+				ECF23AB31E9B869B008C23C1 /* MeAPIs.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -441,7 +444,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC757EE91E939C58009FC9E5 /* Main.storyboard in Resources */,
+				EC0BC7BC1EAE0A10009A738C /* Repo.storyboard in Resources */,
+				EC757EE91E939C58009FC9E5 /* Auth.storyboard in Resources */,
 				EC757EE81E939C58009FC9E5 /* LaunchScreen.storyboard in Resources */,
 				EC0105521E8F8AE000CE013D /* Assets.xcassets in Resources */,
 			);
@@ -567,7 +571,7 @@
 				EC0105571E8F8AE000CE013D /* RepoListViewController.swift in Sources */,
 				ECF23ABC1E9B89B2008C23C1 /* Session.swift in Sources */,
 				ECF23AC91E9B982D008C23C1 /* NSURL.swift in Sources */,
-				ECF23AB61E9B869B008C23C1 /* UserAPIs.swift in Sources */,
+				ECF23AB61E9B869B008C23C1 /* MeAPIs.swift in Sources */,
 				ECF23AA71E9B8586008C23C1 /* Repo.swift in Sources */,
 				EC0105541E8F8AE000CE013D /* AppDelegate.swift in Sources */,
 				EC332A481EA0A8CB0011DF1E /* Api.swift in Sources */,
@@ -602,6 +606,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		EC0BC7BA1EAE0A10009A738C /* Repo.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EC0BC7BB1EAE0A10009A738C /* Base */,
+			);
+			name = Repo.storyboard;
+			sourceTree = "<group>";
+		};
 		EC757EE41E939C58009FC9E5 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -610,12 +622,12 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		EC757EE61E939C58009FC9E5 /* Main.storyboard */ = {
+		EC757EE61E939C58009FC9E5 /* Auth.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				EC757EE71E939C58009FC9E5 /* Base */,
 			);
-			name = Main.storyboard;
+			name = Auth.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

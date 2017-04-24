@@ -12,20 +12,20 @@ final class Api {
     struct Path {
         static var baseURL = "https://api.github.com"
         static var users: String { return baseURL + "/users" }
-
-        struct User: CustomStringConvertible {
-            let id: String
-            var description: String { return Api.Path.users + "/id" }
-            static var login: String { return Api.Path.baseURL + "/user" }
-            var repos: String { return User.login + "/repos" }
-        }
     }
 
-    struct User {
-        var id: Int
+    struct Me {
     }
 
     struct Repo {
-        var id: Int
+        var id: String
+    }
+}
+
+extension Api.Path {
+    struct Me {
+        static var path: String { return Api.Path.baseURL + "/user" }
+        static var login: String { return path }
+        static var repos: String { return Me.path + "/repos" }
     }
 }

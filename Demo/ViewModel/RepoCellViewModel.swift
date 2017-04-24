@@ -10,12 +10,12 @@ import Foundation
 import MVVM
 
 final class RepoCellViewModel: MVVM.ViewModel {
-    var name = ""
-    var slug = ""
+    var name: String!
+    var desc: String?
 
     init(repo: Repo?) {
         guard let repo = repo else { return }
         name = repo.name
-        slug = repo.slug
+        desc = repo.desc
     }
 }
