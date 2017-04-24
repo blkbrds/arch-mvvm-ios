@@ -21,8 +21,8 @@ class RepoListViewModelTests: XCTestCase {
         super.setUp()
         let login = LoginViewModel.standard
         api.session.credential = Session.Credential(
-            name: login.name,
-            pass: login.pass
+            name: login.username,
+            pass: login.token
         )
     }
 
