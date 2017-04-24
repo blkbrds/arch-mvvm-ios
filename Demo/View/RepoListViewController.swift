@@ -21,8 +21,22 @@ final class RepoListViewController: UITableViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        guard let navi = navigationController else { return }
-        navi.viewControllers = [self]
+        if let navi = navigationController,
+            let window = AppDelegate.shared.window {
+            window.rootViewController = navi
+        }
+        viewModel.getRepos { [weak self] (result) in
+            switch result {
+            case .success:
+                break
+            case .failure(let error):
+                guard let this = self, let navi = this.navigationController else { return }
+                let alert = UIAlertController(title: "", message: error.localizedDescription, preferredStyle: .alert)
+                let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alert.addAction(ok)
+                navi.present(alert, animated: true, completion: nil)
+            }
+        }
     }
 
     override func viewWillDisappear(_ animated: Bool) {

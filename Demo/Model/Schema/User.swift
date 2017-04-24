@@ -12,7 +12,7 @@ import ObjectMapper
 import RealmS
 
 final class User: Object, Mappable, StaticMappable {
-    dynamic var id: String!
+    dynamic var id = 0
     dynamic var login: String!
     dynamic var name: String?
     dynamic var email: String?
