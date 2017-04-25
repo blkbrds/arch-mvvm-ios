@@ -25,7 +25,11 @@ extension Api.Me {
         )
         let path = Api.Path.Me.login
         return api.request(method: .get, urlString: path) { (result) in
-            Mapper<User>().map(result: result, type: .object, completion: completion)
+            Mapper<User>().map(result: result, type: .object, completion: { (result) in
+                DispatchQueue.main.async {
+                    completion(result)
+                }
+            })
         }
     }
 }

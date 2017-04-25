@@ -18,6 +18,7 @@
 		EC0BC7BC1EAE0A10009A738C /* Repo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC0BC7BA1EAE0A10009A738C /* Repo.storyboard */; };
 		EC1C41DB1EA4814B007D045A /* RepoListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1C41D91EA4814B007D045A /* RepoListViewModelTests.swift */; };
 		EC1C41DC1EA4814B007D045A /* UserViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1C41DA1EA4814B007D045A /* UserViewModelTests.swift */; };
+		EC2C488D1EAF011C00B22F4B /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2C488C1EAF011C00B22F4B /* Utils.swift */; };
 		EC332A481EA0A8CB0011DF1E /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC332A471EA0A8CB0011DF1E /* Api.swift */; };
 		EC744A301EA21FDA00382ED9 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC744A2F1EA21FDA00382ED9 /* Utils.swift */; };
 		EC757EE11E939C3B009FC9E5 /* RepoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC757EDF1E939C3B009FC9E5 /* RepoCell.swift */; };
@@ -92,6 +93,7 @@
 		EC0BC7BB1EAE0A10009A738C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Repo.storyboard; sourceTree = "<group>"; };
 		EC1C41D91EA4814B007D045A /* RepoListViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoListViewModelTests.swift; sourceTree = "<group>"; };
 		EC1C41DA1EA4814B007D045A /* UserViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewModelTests.swift; sourceTree = "<group>"; };
+		EC2C488C1EAF011C00B22F4B /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		EC332A471EA0A8CB0011DF1E /* Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		EC744A2F1EA21FDA00382ED9 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		EC757EDF1E939C3B009FC9E5 /* RepoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoCell.swift; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				EC01055C1E8F8AF000CE013D /* Info.plist */,
+				EC2C488C1EAF011C00B22F4B /* Utils.swift */,
 				EC1C41D81EA4814B007D045A /* ViewModelTests */,
 			);
 			path = DemoTests;
@@ -596,6 +599,7 @@
 			files = (
 				EC1C41DC1EA4814B007D045A /* UserViewModelTests.swift in Sources */,
 				EC1C41DB1EA4814B007D045A /* RepoListViewModelTests.swift in Sources */,
+				EC2C488D1EAF011C00B22F4B /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

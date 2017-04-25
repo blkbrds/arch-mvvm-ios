@@ -62,7 +62,11 @@ extension DataRequest {
     }
 
     @discardableResult
-    func responseJSON(queue: DispatchQueue? = nil, completion: @escaping (DataResponse<Any>) -> Void) -> Self {
-        return response(responseSerializer: DataRequest.responseSerializer(), completionHandler: completion)
+    func responseJSON(queue: DispatchQueue = .global(qos: .background), completion: @escaping (DataResponse<Any>) -> Void) -> Self {
+        return response(
+            queue: queue,
+            responseSerializer: DataRequest.responseSerializer(),
+            completionHandler: completion
+        )
     }
 }
