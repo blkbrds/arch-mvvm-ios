@@ -19,6 +19,7 @@
 		EC0923061EAEF42C00D06EA2 /* MVVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVVM.h; sourceTree = "<group>"; };
 		EC0923071EAEF42C00D06EA2 /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		EC0923081EAEF42C00D06EA2 /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		EC09230F1EAEF85100D06EA2 /* MVVM.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = MVVM.podspec; sourceTree = "<group>"; };
 		ECDC354B1EA9BAB900697E91 /* MVVM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MVVM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -48,6 +49,7 @@
 		ECDC35411EA9BAB900697E91 = {
 			isa = PBXGroup;
 			children = (
+				EC09230F1EAEF85100D06EA2 /* MVVM.podspec */,
 				EC0923021EAEF42C00D06EA2 /* MVVM */,
 				ECDC354C1EA9BAB900697E91 /* Products */,
 			);

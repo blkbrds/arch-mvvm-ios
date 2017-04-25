@@ -13,6 +13,7 @@ target 'Demo' do
     pod 'SwiftLint', '~> 0.16.1'
     pod 'RealmS', '~> 2.2.0'
     pod 'SwiftyJSON', '~> 3.1.4'
+    pod 'MVVM', :podspec => './MVVM.podspec'
 
     target 'DemoTests' do
         project 'Demo'
