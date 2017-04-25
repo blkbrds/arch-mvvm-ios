@@ -3,14 +3,14 @@
 if [[ -z "$SDK" ]]; then
     echo 'Exporting build environment variables...'
     export SDK='iphonesimulator10.3'
-    export DESTINATION='OS=10.2,name=iPhone 7'
+    export DESTINATION='OS=10.3,name=iPhone 7'
     export CONFIGURATION='Debug'
 fi
 
 export WORKSPACE='MVVM.xcworkspace'
 export SCHEME='MVVM'
 
-xcodebuild test \
+xcodebuild build \
     -workspace "$WORKSPACE" \
     -scheme "$SCHEME" \
     -sdk "$SDK" \
