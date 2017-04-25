@@ -61,12 +61,12 @@ class LoginViewModelTests: XCTestCase {
         user.login { (result) in
             switch result {
             case .success: break
-            case .failure(_):
-                XCTFail("`login result` must be `.success`")
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
             }
             ex.fulfill()
         }
-        waitForExpectations(timeout: 1.5)
+        waitForExpectations(timeout: 2)
     }
 
     func testLoginFailure() {
