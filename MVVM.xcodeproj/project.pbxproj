@@ -7,19 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		ECDC35501EA9BAB900697E91 /* MVVM.h in Headers */ = {isa = PBXBuildFile; fileRef = ECDC354E1EA9BAB900697E91 /* MVVM.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ECDC35591EA9BAD800697E91 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDC35561EA9BAD800697E91 /* Model.swift */; };
-		ECDC355A1EA9BAD800697E91 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDC35571EA9BAD800697E91 /* View.swift */; };
-		ECDC355B1EA9BAD800697E91 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDC35581EA9BAD800697E91 /* ViewModel.swift */; };
+		EC09230B1EAEF42C00D06EA2 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0923051EAEF42C00D06EA2 /* Model.swift */; };
+		EC09230C1EAEF42C00D06EA2 /* MVVM.h in Headers */ = {isa = PBXBuildFile; fileRef = EC0923061EAEF42C00D06EA2 /* MVVM.h */; };
+		EC09230D1EAEF42C00D06EA2 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0923071EAEF42C00D06EA2 /* View.swift */; };
+		EC09230E1EAEF42C00D06EA2 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0923081EAEF42C00D06EA2 /* ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EC0923041EAEF42C00D06EA2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC0923051EAEF42C00D06EA2 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		EC0923061EAEF42C00D06EA2 /* MVVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVVM.h; sourceTree = "<group>"; };
+		EC0923071EAEF42C00D06EA2 /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		EC0923081EAEF42C00D06EA2 /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		ECDC354B1EA9BAB900697E91 /* MVVM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MVVM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		ECDC354E1EA9BAB900697E91 /* MVVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MVVM.h; sourceTree = "<group>"; };
-		ECDC354F1EA9BAB900697E91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ECDC35561EA9BAD800697E91 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		ECDC35571EA9BAD800697E91 /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
-		ECDC35581EA9BAD800697E91 /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,10 +33,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EC0923021EAEF42C00D06EA2 /* MVVM */ = {
+			isa = PBXGroup;
+			children = (
+				EC0923041EAEF42C00D06EA2 /* Info.plist */,
+				EC0923051EAEF42C00D06EA2 /* Model.swift */,
+				EC0923061EAEF42C00D06EA2 /* MVVM.h */,
+				EC0923071EAEF42C00D06EA2 /* View.swift */,
+				EC0923081EAEF42C00D06EA2 /* ViewModel.swift */,
+			);
+			path = MVVM;
+			sourceTree = "<group>";
+		};
 		ECDC35411EA9BAB900697E91 = {
 			isa = PBXGroup;
 			children = (
-				ECDC354D1EA9BAB900697E91 /* MVVM */,
+				EC0923021EAEF42C00D06EA2 /* MVVM */,
 				ECDC354C1EA9BAB900697E91 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -49,18 +61,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		ECDC354D1EA9BAB900697E91 /* MVVM */ = {
-			isa = PBXGroup;
-			children = (
-				ECDC354E1EA9BAB900697E91 /* MVVM.h */,
-				ECDC35561EA9BAD800697E91 /* Model.swift */,
-				ECDC35571EA9BAD800697E91 /* View.swift */,
-				ECDC35581EA9BAD800697E91 /* ViewModel.swift */,
-				ECDC354F1EA9BAB900697E91 /* Info.plist */,
-			);
-			path = MVVM;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -68,7 +68,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECDC35501EA9BAB900697E91 /* MVVM.h in Headers */,
+				EC09230C1EAEF42C00D06EA2 /* MVVM.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,9 +141,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECDC355A1EA9BAD800697E91 /* View.swift in Sources */,
-				ECDC355B1EA9BAD800697E91 /* ViewModel.swift in Sources */,
-				ECDC35591EA9BAD800697E91 /* Model.swift in Sources */,
+				EC09230D1EAEF42C00D06EA2 /* View.swift in Sources */,
+				EC09230E1EAEF42C00D06EA2 /* ViewModel.swift in Sources */,
+				EC09230B1EAEF42C00D06EA2 /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,6 +309,7 @@
 				ECDC35551EA9BAB900697E91 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
