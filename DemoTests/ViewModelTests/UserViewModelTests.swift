@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import Alamofire
 @testable import Demo
 
 extension LoginViewModel {
@@ -66,7 +67,7 @@ class LoginViewModelTests: XCTestCase {
             }
             ex.fulfill()
         }
-        waitForExpectations(timeout: 2)
+        waitForExpectations(timeout: Timeout.forRequest)
     }
 
     func testLoginFailure() {
@@ -82,6 +83,6 @@ class LoginViewModelTests: XCTestCase {
             }
             ex.fulfill()
         }
-        waitForExpectations(timeout: 1.5)
+        waitForExpectations(timeout: Timeout.forRequest)
     }
 }

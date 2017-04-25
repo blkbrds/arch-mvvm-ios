@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
 
   # Source Code
   s.source_files  = "MVVM/*.{h,swift}"
-  s.public_header_files = "MVVM/*.{h,swift}"
+  s.public_header_files = "MVVM/*.h"
 
   # Project Settings
   s.requires_arc = true

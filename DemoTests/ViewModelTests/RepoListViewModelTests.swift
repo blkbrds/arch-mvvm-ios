@@ -41,7 +41,7 @@ class RepoListViewModelTests: XCTestCase {
             }
             this.ex?.fulfill()
         }
-        waitForExpectations(timeout: 2)
+        waitForExpectations(timeout: Timeout.forRequest)
     }
 }
 

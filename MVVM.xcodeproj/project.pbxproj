@@ -38,8 +38,8 @@
 			isa = PBXGroup;
 			children = (
 				EC0923041EAEF42C00D06EA2 /* Info.plist */,
-				EC0923051EAEF42C00D06EA2 /* Model.swift */,
 				EC0923061EAEF42C00D06EA2 /* MVVM.h */,
+				EC0923051EAEF42C00D06EA2 /* Model.swift */,
 				EC0923071EAEF42C00D06EA2 /* View.swift */,
 				EC0923081EAEF42C00D06EA2 /* ViewModel.swift */,
 			);

@@ -22,7 +22,11 @@ extension Api.Repo {
     static func query(params: QueryParams, completion: @escaping Completion) -> Request? {
         let path = Api.Path.Me.repos
         return api.request(method: .get, urlString: path) { (result) in
-            Mapper<Repo>().map(result: result, type: .array, completion: completion)
+            Mapper<Repo>().map(result: result, type: .array, completion: { (result) in
+                DispatchQueue.main.async {
+                    completion(result)
+                }
+            })
         }
     }
 }
