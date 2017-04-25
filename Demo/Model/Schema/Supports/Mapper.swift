@@ -14,11 +14,12 @@ import RealmS
 
 extension RealmS {
     func object<T: Object>(ofType: T.Type, forMapping map: Map) -> T? {
-        guard let key = T.primaryKey() else { return nil }
-        var id: Any?
-        id <- map[key]
-        guard let value = id else { return nil }
-        return object(ofType: T.self, forPrimaryKey: value)
+        guard let key = T.primaryKey() else { return T() }
+        guard let id: Any = map[key].value() else { return nil }
+        if let exist = object(ofType: T.self, forPrimaryKey: id) {
+            return exist
+        }
+        return T()
     }
 }
 
