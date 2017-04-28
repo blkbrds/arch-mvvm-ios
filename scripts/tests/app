@@ -5,7 +5,7 @@ if [[ -z "$SDK" ]]; then
     export SDK='iphonesimulator10.3'
     export SCHEME='Demo'
     export WORKSPACE='MVVM.xcworkspace'
-    export DESTINATION='OS=10.2,name=iPhone 7'
+    export DESTINATION='OS=10.3,name=iPhone 7'
     export CONFIGURATION='Debug'
 fi
 
@@ -18,6 +18,6 @@ xcodebuild build \
     -destination "$DESTINATION" \
     -derivedDataPath build \
     ONLY_ACTIVE_ARCH=YES \
-    -configuration "$CONFIGURATION" | bundle exec xcpretty;
+    -configuration "$CONFIGURATION";
 
 exit "${PIPESTATUS[0]}"
