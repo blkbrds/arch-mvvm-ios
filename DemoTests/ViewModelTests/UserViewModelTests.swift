@@ -24,8 +24,8 @@ class LoginViewModelTests: XCTestCase {
     func testInitUser() {
         let user = User()
         user.login = "truong test"
-        let loginModel = LoginViewModel(user: user)
-        XCTAssertEqual(loginModel.username, "truong test")
+        let loginVM = LoginViewModel(user: user)
+        XCTAssertEqual(loginVM.username, "truong test")
     }
     
     func testValidateSuccess() {
