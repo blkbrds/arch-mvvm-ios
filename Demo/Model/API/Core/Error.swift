@@ -35,6 +35,11 @@ extension Error {
         let this = self as NSError
         this.show()
     }
+    
+    public var code: Int {
+        let this = self as NSError
+        return this.code
+    }
 }
 
 extension NSError {

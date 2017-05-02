@@ -43,6 +43,26 @@ class RepoListViewModelTests: XCTestCase {
         }
         waitForExpectations(timeout: Timeout.forRequest)
     }
+
+    func testNumberOfRepo() {
+        ex = expectation(description: "testNumberOfRepo")
+        let repoListVM = RepoListViewModel()
+        repoListVM.delegate = self
+        repoListVM.getRepos { [weak self] (result) in
+            guard let this = self else { return }
+            switch result {
+            case .success:
+                repoListVM.fetch()
+                let repos = RealmS().objects(Repo.self)
+                guard repoListVM.numberOfSections > 0 else { return }
+                XCTAssertEqual(repos.count, repoListVM.numberOfRowsInSection(0))
+            case .failure(_):
+                break
+            }
+            this.ex?.fulfill()
+        }
+        waitForExpectations(timeout: Timeout.forRequest, handler: nil)
+    }
 }
 
 extension RepoListViewModelTests: CollectionViewModelDelegate {
