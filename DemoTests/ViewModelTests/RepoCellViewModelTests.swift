@@ -15,22 +15,23 @@ import RealmS
 @testable import Demo
 
 class RepoCellViewModelTests: XCTestCase {
-    
+
     var ex: XCTestExpectation?
-    
+
     func testRepoCellVMInit() {
-        ex = expectation(description: "testGetRepos")
-        let repoVM = RepoListViewModel()
-        repoVM.delegate = self
-        repoVM.getRepos { [weak self] (result) in
+        ex = expectation(description: "testRepoCellVMInit")
+        let repoListVM = RepoListViewModel()
+        repoListVM.delegate = self
+        repoListVM.getRepos { [weak self] (result) in
             guard let this = self else { return }
             switch result {
             case .success:
-                repoVM.fetch()
+                repoListVM.fetch()
                 let repos = RealmS().objects(Repo.self).sorted(byKeyPath: "id", ascending: true)
-                guard let firstRepo = repos.first else {return}
-                let repo = repoVM.itemForRow(at: IndexPath(row: 0, section: 0))
-                
+                guard let firstRepo = repos.first else { return }
+                let indexPath = IndexPath(row: 0, section: 0)
+                let repo = repoListVM.itemForRow(at: indexPath)
+
                 XCTAssertEqual(repo.name, firstRepo.name)
                 XCTAssertEqual(repo.desc, firstRepo.desc)
             case .failure(_):

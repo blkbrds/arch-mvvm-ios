@@ -20,14 +20,14 @@ extension LoginViewModel {
 }
 
 class LoginViewModelTests: XCTestCase {
-    
+
     func testInitUser() {
         let user = User()
         user.login = "truong test"
         let loginVM = LoginViewModel(user: user)
         XCTAssertEqual(loginVM.username, "truong test")
     }
-    
+
     func testValidateSuccess() {
         let user = LoginViewModel.standard
         let validation = user.validate()
@@ -37,7 +37,7 @@ class LoginViewModelTests: XCTestCase {
             XCTFail("`validation` must be `.success`")
         }
     }
-    
+
     func testValidateDescriptionSuccess() {
         let user = LoginViewModel.standard
         let validation = user.validate()
@@ -105,11 +105,10 @@ class LoginViewModelTests: XCTestCase {
         }
         waitForExpectations(timeout: Timeout.forRequest)
     }
-    
+
     func testLoginFailureInfo() {
         let expected = expectation(description: "login")
-        let user = LoginViewModel(user: nil)
-        user.username = "at-ios-mvvm"
+        let user = LoginViewModel.standard
         user.token = "001a6476440c30431a17" + "25c310d1abe049189b2a"
         user.login { (result) in
             switch result {
