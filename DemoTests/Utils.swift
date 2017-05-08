@@ -7,6 +7,12 @@
 //
 
 import Alamofire
+import MVVM
+import RealmSwift
+import ObjectMapper
+import RealmS
+
+@testable import Demo
 
 struct Timeout {
     static var forRequest: TimeInterval {
@@ -15,5 +21,14 @@ struct Timeout {
 
     static var forResource: TimeInterval {
         return Alamofire.SessionManager.default.session.configuration.timeoutIntervalForResource
+    }
+}
+
+extension LoginViewModel {
+    static var standard: LoginViewModel {
+        let user = LoginViewModel(user: nil)
+        user.username = "at-ios-mvvm"
+        user.accessToken = "101a6476440c30431a17" + "25c310d1abe049189b2a"
+        return user
     }
 }

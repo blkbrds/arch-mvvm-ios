@@ -25,14 +25,14 @@ final class LoginViewController: UIViewController, MVVM.View {
     // MARK: -
 
     @IBOutlet fileprivate var usernameField: UITextField!
-    @IBOutlet fileprivate var tokenField: UITextField!
+    @IBOutlet fileprivate var accessTokenField: UITextField!
     @IBOutlet fileprivate var loginButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         #if DEBUG
             viewModel.username = "at-ios-mvvm"
-            viewModel.token = "101a6476440c30431a17" + "25c310d1abe049189b2a"
+            viewModel.accessToken = "101a6476440c30431a17" + "25c310d1abe049189b2a"
         #endif
         updateView()
         setupActions()
@@ -40,7 +40,7 @@ final class LoginViewController: UIViewController, MVVM.View {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        guard !tokenField.isFirstResponder else { return }
+        if accessTokenField.isFirstResponder { return }
         usernameField.becomeFirstResponder()
     }
 
@@ -49,10 +49,10 @@ final class LoginViewController: UIViewController, MVVM.View {
         view.endEditing(true)
     }
 
-    var textFields: [String: UITextField] {
+    var textFields: [LoginViewModel.Field: UITextField] {
         return [
-            "mail": usernameField,
-            "pass": tokenField
+            .username: usernameField,
+            .accessToken: accessTokenField
         ]
     }
 }
@@ -65,7 +65,7 @@ extension LoginViewController {
 
     @objc fileprivate func login() {
         viewModel.username = usernameField.string.trimmed
-        viewModel.token = tokenField.string.trimmed
+        viewModel.accessToken = accessTokenField.string.trimmed
 
         switch viewModel.validate() {
         case .success:
@@ -92,7 +92,7 @@ extension LoginViewController {
     fileprivate func updateView() {
         guard isViewLoaded else { return }
         usernameField.text = viewModel.username
-        tokenField.text = viewModel.token
+        accessTokenField.text = viewModel.accessToken
     }
 
     fileprivate func performSegue(_ segue: Segue) {

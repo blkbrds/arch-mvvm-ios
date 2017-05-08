@@ -21,6 +21,8 @@
 		EC1C41DC1EA4814B007D045A /* UserViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1C41DA1EA4814B007D045A /* UserViewModelTests.swift */; };
 		EC2C488D1EAF011C00B22F4B /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2C488C1EAF011C00B22F4B /* Utils.swift */; };
 		EC332A481EA0A8CB0011DF1E /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC332A471EA0A8CB0011DF1E /* Api.swift */; };
+		EC4692CD1EC06E5E004CA003 /* LoginViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4692CC1EC06E5E004CA003 /* LoginViewControllerTests.swift */; };
+		EC4692D11EC08BC3004CA003 /* StringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4692D01EC08BC3004CA003 /* StringTests.swift */; };
 		EC744A301EA21FDA00382ED9 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC744A2F1EA21FDA00382ED9 /* Utils.swift */; };
 		EC757EE11E939C3B009FC9E5 /* RepoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC757EDF1E939C3B009FC9E5 /* RepoCell.swift */; };
 		EC757EE81E939C58009FC9E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC757EE41E939C58009FC9E5 /* LaunchScreen.storyboard */; };
@@ -97,6 +99,8 @@
 		EC1C41DA1EA4814B007D045A /* UserViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewModelTests.swift; sourceTree = "<group>"; };
 		EC2C488C1EAF011C00B22F4B /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		EC332A471EA0A8CB0011DF1E /* Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
+		EC4692CC1EC06E5E004CA003 /* LoginViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewControllerTests.swift; sourceTree = "<group>"; };
+		EC4692D01EC08BC3004CA003 /* StringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringTests.swift; sourceTree = "<group>"; };
 		EC744A2F1EA21FDA00382ED9 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		EC757EDF1E939C3B009FC9E5 /* RepoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoCell.swift; sourceTree = "<group>"; };
 		EC757EE51E939C58009FC9E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -241,6 +245,8 @@
 			children = (
 				EC01055C1E8F8AF000CE013D /* Info.plist */,
 				EC2C488C1EAF011C00B22F4B /* Utils.swift */,
+				EC4692CE1EC08BAB004CA003 /* LibraryTests */,
+				EC4692CB1EC06E5E004CA003 /* ViewControllerTests */,
 				EC1C41D81EA4814B007D045A /* ViewModelTests */,
 			);
 			path = DemoTests;
@@ -254,6 +260,30 @@
 				51402F131EB73771007F12DE /* RepoCellViewModelTests.swift */,
 			);
 			path = ViewModelTests;
+			sourceTree = "<group>";
+		};
+		EC4692CB1EC06E5E004CA003 /* ViewControllerTests */ = {
+			isa = PBXGroup;
+			children = (
+				EC4692CC1EC06E5E004CA003 /* LoginViewControllerTests.swift */,
+			);
+			path = ViewControllerTests;
+			sourceTree = "<group>";
+		};
+		EC4692CE1EC08BAB004CA003 /* LibraryTests */ = {
+			isa = PBXGroup;
+			children = (
+				EC4692CF1EC08BB9004CA003 /* Ext */,
+			);
+			path = LibraryTests;
+			sourceTree = "<group>";
+		};
+		EC4692CF1EC08BB9004CA003 /* Ext */ = {
+			isa = PBXGroup;
+			children = (
+				EC4692D01EC08BC3004CA003 /* StringTests.swift */,
+			);
+			path = Ext;
 			sourceTree = "<group>";
 		};
 		EC757EDE1E939C3B009FC9E5 /* Cell */ = {
@@ -603,6 +633,8 @@
 				51402F141EB73771007F12DE /* RepoCellViewModelTests.swift in Sources */,
 				EC1C41DC1EA4814B007D045A /* UserViewModelTests.swift in Sources */,
 				EC1C41DB1EA4814B007D045A /* RepoListViewModelTests.swift in Sources */,
+				EC4692CD1EC06E5E004CA003 /* LoginViewControllerTests.swift in Sources */,
+				EC4692D11EC08BC3004CA003 /* StringTests.swift in Sources */,
 				EC2C488D1EAF011C00B22F4B /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

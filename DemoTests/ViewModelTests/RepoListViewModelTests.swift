@@ -22,7 +22,7 @@ class RepoListViewModelTests: XCTestCase {
         let login = LoginViewModel.standard
         api.session.credential = Session.Credential(
             name: login.username,
-            pass: login.token
+            pass: login.accessToken
         )
     }
 
