@@ -11,7 +11,7 @@ import RealmSwift
 import ObjectMapper
 import RealmS
 
-final class User: Object, Mappable, StaticMappable {
+final class User: Object, StaticMappable {
     dynamic var id = 0
     dynamic var login: String!
     dynamic var name: String?
@@ -20,11 +20,6 @@ final class User: Object, Mappable, StaticMappable {
 
     override static func primaryKey() -> String? {
         return "id"
-    }
-
-    convenience init?(map: Map) {
-        self.init()
-        id <- map["id"]
     }
 
     func mapping(map: Map) {
