@@ -30,6 +30,8 @@
 		ECC3B1C11EC17025001345C6 /* UserViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC3B1BE1EC17025001345C6 /* UserViewModelTests.swift */; };
 		ECC3B1C51EC17044001345C6 /* StringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC3B1C41EC17044001345C6 /* StringTests.swift */; };
 		ECC3B1C71EC17066001345C6 /* RepoCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC3B1C61EC17066001345C6 /* RepoCellTests.swift */; };
+		ECC3B1C91EC1A2EA001345C6 /* NSURLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC3B1C81EC1A2EA001345C6 /* NSURLTests.swift */; };
+		ECC3B1CB1EC1B196001345C6 /* DictionayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC3B1CA1EC1B196001345C6 /* DictionayTests.swift */; };
 		ECD1C29B1EA725B1000EC989 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD1C29A1EA725B1000EC989 /* InputView.swift */; };
 		ECDC355F1EA9BCBD00697E91 /* MVVM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECDC355E1EA9BCBD00697E91 /* MVVM.framework */; };
 		ECF23A921E9B7D0F008C23C1 /* RepoCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF23A911E9B7D0F008C23C1 /* RepoCellViewModel.swift */; };
@@ -110,6 +112,8 @@
 		ECC3B1BE1EC17025001345C6 /* UserViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewModelTests.swift; sourceTree = "<group>"; };
 		ECC3B1C41EC17044001345C6 /* StringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringTests.swift; sourceTree = "<group>"; };
 		ECC3B1C61EC17066001345C6 /* RepoCellTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoCellTests.swift; sourceTree = "<group>"; };
+		ECC3B1C81EC1A2EA001345C6 /* NSURLTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLTests.swift; sourceTree = "<group>"; };
+		ECC3B1CA1EC1B196001345C6 /* DictionayTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionayTests.swift; sourceTree = "<group>"; };
 		ECCCCB181E7A40D00073D923 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECCCCB2C1E7A40D10073D923 /* DemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECD1C29A1EA725B1000EC989 /* InputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
@@ -314,6 +318,8 @@
 			isa = PBXGroup;
 			children = (
 				ECC3B1C41EC17044001345C6 /* StringTests.swift */,
+				ECC3B1C81EC1A2EA001345C6 /* NSURLTests.swift */,
+				ECC3B1CA1EC1B196001345C6 /* DictionayTests.swift */,
 			);
 			path = Ext;
 			sourceTree = "<group>";
@@ -648,7 +654,9 @@
 				ECC3B1C11EC17025001345C6 /* UserViewModelTests.swift in Sources */,
 				ECC3B1BF1EC17025001345C6 /* RepoCellViewModelTests.swift in Sources */,
 				ECC3B1C51EC17044001345C6 /* StringTests.swift in Sources */,
+				ECC3B1CB1EC1B196001345C6 /* DictionayTests.swift in Sources */,
 				ECC3B1C01EC17025001345C6 /* RepoListViewModelTests.swift in Sources */,
+				ECC3B1C91EC1A2EA001345C6 /* NSURLTests.swift in Sources */,
 				ECC3B1BA1EC1701A001345C6 /* RepoListViewControllerTests.swift in Sources */,
 				EC2C488D1EAF011C00B22F4B /* Utils.swift in Sources */,
 				ECC3B1C71EC17066001345C6 /* RepoCellTests.swift in Sources */,

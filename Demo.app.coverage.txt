@@ -1,0 +1,1370 @@
+/Users/Home/dev/repo/mvvm-ios/Demo/Library/Ext/Data.swift:
+    1|       |//
+    2|       |//  Data.swift
+    3|       |//  MVVM
+    4|       |//
+    5|       |//  Created by DaoNV on 4/10/17.
+    6|       |//  Copyright © 2017 Asian Tech Co., Ltd. All rights reserved.
+    7|       |//
+    8|       |
+    9|       |import Foundation
+   10|       |
+   11|       |extension Data {
+   12|      5|    func toJSON() -> Any? {
+   13|      5|        do {
+   14|      5|            return try JSONSerialization.jsonObject(
+   15|      5|                with: self,
+   16|      5|                options: JSONSerialization.ReadingOptions.allowFragments
+   17|      5|            )
+   18|      0|        } catch {
+   19|      0|            return nil
+   20|      0|        }
+   21|      0|    }
+   22|       |
+   23|      0|    func toString() -> String? {
+   24|      0|        return String(data: self, encoding: .utf8)
+   25|      0|    }
+   26|       |}
+
+/Users/Home/dev/repo/mvvm-ios/Demo/Library/Ext/Dictionary.swift:
+    1|       |//
+    2|       |//  Dictionary.swift
+    3|       |//  MVVM
+    4|       |//
+    5|       |//  Created by DaoNV on 4/10/17.
+    6|       |//  Copyright © 2017 Asian Tech Co., Ltd. All rights reserved.
+    7|       |//
+    8|       |
+    9|       |import Foundation
+   10|       |
+   11|       |extension Dictionary {
+   12|      5|    mutating func updateValues(_ info: [Key: Value]?) {
+   13|      5|        guard let info = info else { return }
+   14|      0|        for (key, value) in info {
+   15|      0|            self[key] = value
+   16|      0|        }
+   17|      0|    }
+   18|       |}
+
+/Users/Home/dev/repo/mvvm-ios/Demo/Library/Ext/InputView.swift:
+    1|       |//
+    2|       |//  InputView.swift
+    3|       |//  MVVM
+    4|       |//
+    5|       |//  Created by DaoNV on 4/19/17.
+    6|       |//  Copyright © 2017 Asian Tech Co., Ltd. All rights reserved.
+    7|       |//
+    8|       |
+    9|       |import UIKit
+   10|       |
+   11|       |extension UITextView {
+   12|      0|    var string: String { return text ?? "" }
+   13|       |}
+   14|       |
+   15|       |extension UITextField {
+   16|      2|    var string: String { return text ?? "" }
+   17|       |}
+
+/Users/Home/dev/repo/mvvm-ios/Demo/Library/Ext/NSURL.swift:
+    1|       |//
+    2|       |//  NSURL.swift
+    3|       |//  SwiftUtils
+    4|       |//
+    5|       |//  Created by DaoNV on 10/7/15.
+    6|       |//  Copyright © 2016 Asian Tech Co., Ltd. All rights reserved.
+    7|       |//
+    8|       |
+    9|       |import Foundation
+   10|       |
+   11|       |public enum HTTPStatus: Int {
+   12|       |    // Informational 1xx
+   13|       |    case `continue` = 100
+   14|       |    case switchingProtocols = 101
+   15|       |    case processing = 102
+   16|       |    case checkpoint = 103
+   17|       |
+   18|       |    // Successful 2xx
+   19|       |    case success = 200
+   20|       |    case created = 201
+   21|       |    case accepted = 202
+   22|       |    case nonAuthoritativeInformation = 203
+   23|       |    case noContent = 204
+   24|       |    case resetContent = 205
+   25|       |    case partialContent = 206
+   26|       |    case multiStatus = 207
+   27|       |    case alreadyReported = 208
+   28|       |    case imUsed = 226
+   29|       |
+   30|       |    // Redirection 3xx
+   31|       |    case multipleChoices = 300
+   32|       |    case movedPermanently = 301
+   33|       |    case found = 302
+   34|       |    case seeOther = 303
+   35|       |    case notModified = 304
+   36|       |    case useProxy = 305
+   37|       |    case switchProxy = 306
+   38|       |    case temporaryRedirect = 307
+   39|       |    case resumeIncomplete = 308
+   40|       |
+   41|       |    // Client Error 4xx
+   42|       |    case badRequest = 400
+   43|       |    case unauthorized = 401
+   44|       |    case paymentRequired = 402
+   45|       |    case forbidden = 403
+   46|       |    case notFound = 404
+   47|       |    case methodNotAllowed = 405
+   48|       |    case notAcceptable = 406
+   49|       |    case proxyAuthenticationRequired = 407
+   50|       |    case requestTimeout = 408
+   51|       |    case conflict = 409
+   52|       |    case gone = 410
+   53|       |    case lengthRequired = 411
+   54|       |    case preconditionFailed = 412
+   55|       |    case requestEntityTooLarge = 413
+   56|       |    case requestURITooLong = 414
+   57|       |    case unsupportedMediaType = 415
+   58|       |    case requestedRangeNotSatisfiable = 416
+   59|       |    case expectationFailed = 417
+   60|       |    case imATeapot = 418
+   61|       |    case authenticationTimeout = 419
+   62|       |    case enhanceYourCalm = 420
+   63|       |    case misdirectedRequest = 421
+   64|       |    case unprocessableEntity = 422
+   65|       |    case locked = 423
+   66|       |    case failedDependency = 424
+   67|       |    case upgradeRequired = 426
+   68|       |    case preconditionRequired = 428
+   69|       |    case tooManyRequests = 429
+   70|       |    case requestHeaderFieldsTooLarge = 431
+   71|       |    case loginTimeout = 440
+   72|       |    case noResponse = 444
+   73|       |    case retryWith = 449
+   74|       |    case blockedByWindowsParentalControls = 450
+   75|       |    case wrongExchangeServer = 451
+   76|       |    case requestHeaderTooLarge = 494
+   77|       |    case certError = 495
+   78|       |    case noCert = 496
+   79|       |    case httPtoHTTPS = 497
+   80|       |    case tokenExpiredOrInvalid = 498
+   81|       |    case cientClosedRequest = 499
+   82|       |
+   83|       |    // Server Error 5xx
+   84|       |    case internalServerError = 500
+   85|       |    case notImplemented = 501
+   86|       |    case badGateway = 502
+   87|       |    case serviceUnavailable = 503
+   88|       |    case gatewayTimeout = 504
+   89|       |    case httpVersionNotSupported = 505
+   90|       |    case variantAlsoNegotiates = 506
+   91|       |    case insufficientStorage = 507
+   92|       |    case loopDetected = 508
+   93|       |    case bandwidthLimitExceeded = 509
+   94|       |    case notExtended = 510
+   95|       |    case networkAuthenticationRequired = 511
+   96|       |    case networkReadTimeout = 598
+   97|       |    case networkConnectTimeout = 599
+   98|       |
+   99|      1|    public init?(code: Int) {
+  100|      1|        self.init(rawValue: code)
+  101|      1|    }
+  102|       |
+  103|      1|    public var code: Int {
+  104|      1|        return rawValue
+  105|      1|    }
+  106|       |}
+  107|       |
+  108|       |extension HTTPStatus: CustomStringConvertible {
+  109|      1|    public var description: String {
+  110|      1|        switch self {
+  111|      0|        case .continue: // 100
+  112|      0|            return "The server has received the request headers, and the client should proceed to send the request body."
+  113|      0|        case .switchingProtocols: // 101
+  114|      0|            return "The requester has asked the server to switch protocols."
+  115|      0|        case .processing:
+  116|      0|            return "Server has received and is processing the request."
+  117|      0|        case .checkpoint: // 103
+  118|      0|            return "Used in the resumable requests proposal to resume aborted PUT or POST requests."
+  119|      0|        case .success: // 200
+  120|      0|            return "The request is OK."
+  121|      0|        case .created: // 201
+  122|      0|            return "The request has been fulfilled, and a new resource is created ."
+  123|      0|        case .accepted: // 202
+  124|      0|            return "The request has been accepted for processing, but the processing has not been completed."
+  125|      0|        case .nonAuthoritativeInformation: // 203
+  126|      0|            return "The request has been successfully processed, but is returning information that may be from another source."
+  127|      0|        case .noContent: // 204
+  128|      0|            return "The request has been successfully processed, but is not returning any content."
+  129|      0|        case .resetContent: // 205
+  130|      0|            return "The request has been successfully processed, but is not returning any content, and requires that the requester reset the document view."
+  131|      0|        case .partialContent: // 206
+  132|      0|            return "The server is delivering only part of the resource due to a range header sent by the client."
+  133|      0|        case .multiStatus: // 207
+  134|      0|            return "XML, can contain multiple separate responses."
+  135|      0|        case .alreadyReported: // 208
+  136|      0|            return "Results previously returned."
+  137|      0|        case .imUsed: // 226
+  138|      0|            return "Request fulfilled, reponse is instance-manipulations."
+  139|      0|        case .multipleChoices: // 300
+  140|      0|            return "A link list. The user can select a link and go to that location. Maximum five addresses."
+  141|      0|        case .movedPermanently: // 301
+  142|      0|            return "The requested page has moved to a new URL."
+  143|      0|        case .found: // 302
+  144|      0|            return "The requested page has moved temporarily to a new URL."
+  145|      0|        case .seeOther: // 303
+  146|      0|            return "The requested page can be found under a different URL."
+  147|      0|        case .notModified: // 304
+  148|      0|            return "Indicates the requested page has not been modified since last requested."
+  149|      0|        case .useProxy: // 305
+  150|      0|            return "The requested resource must be accessed through the proxy given by the Location field."
+  151|      0|        case .switchProxy: // 306
+  152|      0|            return "No longer used."
+  153|      0|        case .temporaryRedirect: // 307
+  154|      0|            return "The requested page has moved temporarily to a new URL"
+  155|      0|        case .resumeIncomplete: // 308
+  156|      0|            return "Used in the resumable requests proposal to resume aborted PUT or POST requests."
+  157|      0|        case .badRequest: // 400
+  158|      0|            return "The request cannot be fulfilled due to bad syntax."
+  159|      1|        case .unauthorized: // 401
+  160|      1|            return "The request was a legal request, but the server is refusing to respond to it. For use when authentication is possible but has failed or not yet been provided."
+  161|      0|        case .paymentRequired: // 402
+  162|      0|            return "Reserved for future use."
+  163|      0|        case .forbidden: // 403
+  164|      0|            return "The request was a legal request, but the server is refusing to respond to it."
+  165|      0|        case .notFound: // 404
+  166|      0|            return "The requested page could not be found but may be available again in the future."
+  167|      0|        case .methodNotAllowed: // 405
+  168|      0|            return "A request was made of a page using a request method not supported by that page."
+  169|      0|        case .notAcceptable: // 406
+  170|      0|            return "The server can only generate a response that is not accepted by the client."
+  171|      0|        case .proxyAuthenticationRequired: // 407
+  172|      0|            return "The client must first authenticate itself with the proxy."
+  173|      0|        case .requestTimeout: // 408
+  174|      0|            return "The server timed out waiting for the request."
+  175|      0|        case .conflict: // 409
+  176|      0|            return "The request could not be completed because of a conflict in the request."
+  177|      0|        case .gone: // 410
+  178|      0|            return "The requested page is no longer available."
+  179|      0|        case .lengthRequired: // 411
+  180|      0|            return "The \"Content-Length\" is not defined. The server will not accept the request without it."
+  181|      0|        case .preconditionFailed: // 412
+  182|      0|            return "The precondition given in the request evaluated to false by the server."
+  183|      0|        case .requestEntityTooLarge: // 413
+  184|      0|            return "The server will not accept the request, because the request entity is too large."
+  185|      0|        case .requestURITooLong: // 414
+  186|      0|            return "The server will not accept the request, because the URL is too long. Occurs when you convert a POST request to a GET request with a long query information."
+  187|      0|        case .unsupportedMediaType: // 415
+  188|      0|            return "The server will not accept the request, because the media type is not supported."
+  189|      0|        case .requestedRangeNotSatisfiable: // 416
+  190|      0|            return "The client has asked for a portion of the file, but the server cannot supply that portion."
+  191|      0|        case .expectationFailed: // 417
+  192|      0|            return "The server cannot meet the requirements of the Expect request-header field."
+  193|      0|        case .imATeapot: // 418
+  194|      0|            return "I'm a teapot"
+  195|      0|        case .authenticationTimeout: // 419
+  196|      0|            return "Previously valid authentication has expired."
+  197|      0|        case .enhanceYourCalm: // 420
+  198|      0|            return "Twitter rate limiting."
+  199|      0|        case .misdirectedRequest: // 421
+  200|      0|            return "The request was directed at a server that is not able to produce a response."
+  201|      0|        case .unprocessableEntity: // 422
+  202|      0|            return "Request unable to be followed due to semantic errors."
+  203|      0|        case .locked: // 423
+  204|      0|            return "The resource that is being accessed is locked."
+  205|      0|        case .failedDependency: // 424
+  206|      0|            return "The request failed due to failure of a previous request."
+  207|      0|        case .upgradeRequired: // 426
+  208|      0|            return "The client should switch to a different protocol."
+  209|      0|        case .preconditionRequired: // 428
+  210|      0|            return "The origin server requires the request to be conditional."
+  211|      0|        case .tooManyRequests: // 429
+  212|      0|            return "The user has sent too many requests in a given amount of time."
+  213|      0|        case .requestHeaderFieldsTooLarge: // 431
+  214|      0|            return "Server is unwilling to process the request."
+  215|      0|        case .loginTimeout: // 440
+  216|      0|            return "Your session has expired."
+  217|      0|        case .noResponse: // 444
+  218|      0|            return "Server returns no information and closes the connection."
+  219|      0|        case .retryWith: // 449
+  220|      0|            return "Request should be retried after performing action."
+  221|      0|        case .blockedByWindowsParentalControls: // 450
+  222|      0|            return "Windows Parental Controls blocking access to webpage."
+  223|      0|        case .wrongExchangeServer: // 451
+  224|      0|            return "Resource access is denied for legal reasons."
+  225|      0|        case .requestHeaderTooLarge: // 494
+  226|      0|            return "Server is unwilling to process the request."
+  227|      0|        case .certError: // 495
+  228|      0|            return "SSL client certificate error occurred to distinguish it from 4XX in a log and an error page redirection."
+  229|      0|        case .noCert: // 496
+  230|      0|            return "Client didn't provide certificate to distinguish it from 4XX in a log and an error page redirection."
+  231|      0|        case .httPtoHTTPS: // 497
+  232|      0|            return "The plain HTTP requests are sent to HTTPS port to distinguish it from 4XX in a log and an error page redirection."
+  233|      0|        case .tokenExpiredOrInvalid: // 498
+  234|      0|            return "An expired or otherwise invalid token."
+  235|      0|        case .cientClosedRequest: // 499
+  236|      0|            return "Connection closed by client while HTTP server is processing."
+  237|      0|        case .internalServerError: // 500
+  238|      0|            return "A generic error message, given when no more specific message is suitable."
+  239|      0|        case .notImplemented: // 501
+  240|      0|            return "The server either does not recognize the request method, or it lacks the ability to fulfill the request."
+  241|      0|        case .badGateway: // 502
+  242|      0|            return "The server was acting as a gateway or proxy and received an invalid response from the upstream server."
+  243|      0|        case .serviceUnavailable: // 503
+  244|      0|            return "The server is currently unavailable (overloaded or down)."
+  245|      0|        case .gatewayTimeout: // 504
+  246|      0|            return "The server was acting as a gateway or proxy and did not receive a timely response from the upstream server."
+  247|      0|        case .httpVersionNotSupported: // 505
+  248|      0|            return "The server does not support the HTTP protocol version used in the request."
+  249|      0|        case .variantAlsoNegotiates: // 506
+  250|      0|            return "Transparent content negotiation for the request results in a circular reference."
+  251|      0|        case .insufficientStorage: // 507
+  252|      0|            return "The server is unable to store the representation needed to complete the request."
+  253|      0|        case .loopDetected: // 508
+  254|      0|            return "The server detected an infinite loop while processing the request."
+  255|      0|        case .bandwidthLimitExceeded: // 509
+  256|      0|            return "Server reached the bandwidth limit that the system administrator imposed."
+  257|      0|        case .notExtended: // 510
+  258|      0|            return "Further extensions to the request are required for the server to fulfil it."
+  259|      0|        case .networkAuthenticationRequired: // 511
+  260|      0|            return "The client needs to authenticate to gain network access."
+  261|      0|        case .networkReadTimeout: // 598
+  262|      0|            return "Network read timeout behind the proxy."
+  263|      0|        case .networkConnectTimeout: // 599
+  264|      0|            return "Network connect timeout behind the proxy."
+  265|      1|        }
+  266|      1|    }
+  267|       |}
+  268|       |
+  269|       |extension NSError {
+  270|      1|    public convenience init(domain: String? = nil, status: HTTPStatus, message: String? = nil) {
+  271|      0|        let domain = domain ?? Bundle.main.bundleIdentifier ?? ""
+  272|      1|        let userInfo: [String: String] = [NSLocalizedDescriptionKey: message ?? status.description]
+  273|      1|        self.init(domain: domain, code: status.code, userInfo: userInfo)
+  274|      1|    }
+  275|       |
+  276|      0|    public convenience init(domain: String? = nil, code: Int = -999, message: String) {
+  277|      0|        let domain = domain ?? Bundle.main.bundleIdentifier ?? ""
+  278|      0|        let userInfo: [String: String] = [NSLocalizedDescriptionKey: message]
+  279|      0|        self.init(domain: domain, code: code, userInfo: userInfo)
+  280|      0|    }
+  281|       |}
+
+/Users/Home/dev/repo/mvvm-ios/Demo/Library/Ext/String.swift:
+    1|       |//
+    2|       |//  String.swift
+    3|       |//  MVVM
+    4|       |//
+    5|       |//  Created by DaoNV on 4/10/17.
+    6|       |//  Copyright © 2017 Asian Tech Co., Ltd. All rights reserved.
+    7|       |//
+    8|       |
+    9|       |import Foundation
+   10|       |
+   11|       |enum Process {
+   12|       |    case encode
+   13|       |    case decode
+   14|       |}
+   15|       |
+   16|       |extension String {
+   17|     18|    var len: Int { return characters.count }
+   18|      6|    var host: String? { return (try? asURL())?.host }
+   19|       |
+   20|      5|    func base64(_ method: Process) -> String? {
+   21|      5|        switch method {
+   22|      5|        case .encode:
+   23|      5|            guard let data = data(using: .utf8) else { return nil }
+   24|      5|            return data.base64EncodedString()
+   25|      0|        case .decode:
+   26|      0|            guard let data = Data(base64Encoded: self) else { return nil }
+   27|      0|            return String(data: data, encoding: .utf8)
+   28|      5|        }
+   29|      5|    }
+   30|       |
+   31|      3|    var trimmed: String {
+   32|      3|        return trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+   33|      3|    }
+   34|       |}
+
+/Users/Home/dev/repo/mvvm-ios/Demo/Model/API/Core/Api.swift:
+    1|       |//
+    2|       |//  Api.swift
+    3|       |//  MVVM
+    4|       |//
+    5|       |//  Created by DaoNV on 4/10/17.
+    6|       |//  Copyright © 2017 Asian Tech Co., Ltd. All rights reserved.
+    7|       |//
+    8|       |
+    9|       |import Foundation
+   10|       |
+   11|       |final class Api {
+   12|       |    struct Path {
+   13|       |        static var baseURL = "https://api.github.com"
+   14|      0|        static var users: String { return baseURL + "/users" }
+   15|       |    }
+   16|       |
+   17|       |    struct Me {
+   18|       |    }
+   19|       |
+   20|       |    struct Repo {
+   21|       |        var id: String
+   22|       |    }
+   23|       |}
+   24|       |
+   25|       |extension Api.Path {
+   26|       |    struct Me {
+   27|      5|        static var path: String { return Api.Path.baseURL + "/user" }
+   28|      3|        static var login: String { return path }
+   29|      2|        static var repos: String { return Me.path + "/repos" }
+   30|       |    }
+   31|       |}
+
+/Users/Home/dev/repo/mvvm-ios/Demo/Model/API/Core/ApiManager.swift:
+    1|       |//
+    2|       |//  ApiManager.swift
+    3|       |//  MVVM
+    4|       |//
+    5|       |//  Created by DaoNV on 4/10/17.
+    6|       |//  Copyright © 2017 Asian Tech Co., Ltd. All rights reserved.
+    7|       |//
+    8|       |
+    9|       |import Foundation
+   10|       |import Alamofire
+   11|       |
+   12|       |typealias JSObject = [String: Any]
+   13|       |typealias JSArray = [JSObject]
+   14|       |
+   15|       |typealias Completion = (Result<Any>) -> Void
+   16|       |
+   17|       |let api = ApiManager()
+   18|       |
+   19|       |final class ApiManager {
+   20|       |    let session = Session()
+   21|       |
+   22|      5|    var defaultHTTPHeaders: [String: String] {
+   23|      5|        var headers: [String: String] = [:]
+   24|      5|        if session.credential.isValid {
+   25|      5|            headers["Authorization"] = "\(session.credential)"
+   26|      5|        }
+   27|      5|        return headers
+   28|      5|    }
+   29|       |}
+
+/Users/Home/dev/repo/mvvm-ios/Demo/Model/API/Core/Error.swift:
+    1|       |//
+    2|       |//  Error.swift
+    3|       |//  CM
+    4|       |//
+    5|       |//  Created by DaoNV on 3/7/16.
+    6|       |//  Copyright © 2016 AsianTech Inc. All rights reserved.
+    7|       |//
+    8|       |
+    9|       |import Foundation
+   10|       |import Alamofire
+   11|       |
+   12|       |typealias Network = NetworkReachabilityManager
+   13|       |
+   14|       |// MARK: - Network
+   15|       |extension Network {
+   16|       |    static let shared: Network = {
+   17|       |        guard let manager = Network() else {
+   18|       |            fatalError("Cannot alloc network reachability manager!")
+   19|       |        }
+   20|       |        return manager
+   21|       |    }()
+   22|       |}
+   23|       |
+   24|       |extension Api {
+   25|       |    struct Error {
+   26|       |        static let network = NSError(domain: Api.Path.baseURL.host, status: HTTPStatus.requestTimeout, message: "The Internet connection appears to be offline.")
+   27|       |        static let authen = NSError(domain: Api.Path.baseURL.host, status: HTTPStatus.unauthorized)
+   28|       |        static let json = NSError(domain: NSCocoaErrorDomain, code: 3840, message: "The operation couldn’t be completed.")
+   29|       |        static let apiKey = NSError(domain: Api.Path.baseURL.host, status: HTTPStatus.badRequest)
+   30|       |    }
+   31|       |}
+   32|       |
+   33|       |extension Error {
+   34|      0|    func show() {
+   35|      0|        let this = self as NSError
+   36|      0|        this.show()
+   37|      0|    }
+   38|       |    
+   39|      1|    public var code: Int {
+   40|      1|        let this = self as NSError
+   41|      1|        return this.code
+   42|      1|    }
+   43|       |}
+   44|       |
+   45|       |extension NSError {
+   46|      0|    func show() { }
+   47|       |}
+
+/Users/Home/dev/repo/mvvm-ios/Demo/Model/API/Core/RequestSerializer.swift:
+    1|       |//
+    2|       |//  RequestSerializer.swift
+    3|       |//  CM
+    4|       |//
+    5|       |//  Created by DaoNV on 7/8/16.
+    6|       |//  Copyright © 2016 AsianTech Co., Ltd. All rights reserved.
+    7|       |//
+    8|       |
+    9|       |import Alamofire
+   10|       |import Foundation
+   11|       |
+   12|       |extension ApiManager {
+   13|       |    @discardableResult
+   14|       |    func request(method: HTTPMethod,
+   15|       |                 urlString: String,
+   16|       |                 parameters: [String: Any]? = nil,
+   17|       |                 headers: [String: String]? = nil,
+   18|      5|                 completion: Completion?) -> Request? {
+   19|      0|        guard Network.shared.isReachable else {
+   20|      0|            completion?(.failure(Api.Error.network))
+   21|      0|            return nil
+   22|      5|        }
+   23|      5|
+   24|      5|        let encoding: ParameterEncoding = (method == .post) ? JSONEncoding.default : URLEncoding.default
+   25|      5|
+   26|      5|        var _headers = api.defaultHTTPHeaders
+   27|      5|        _headers.updateValues(headers)
+   28|      5|
+   29|      5|        let request = Alamofire.request(
+   30|      5|            urlString,
+   31|      5|            method: method,
+   32|      5|            parameters: parameters,
+   33|      5|            encoding: encoding,
+   34|      5|            headers: _headers
+   35|      5|        ).responseJSON(completion: { (response) in
+   36|      5|            completion?(response.result)
+   37|      5|        })
+   38|      5|        return request
+   39|      5|    }
+   40|       |}
+
+/Users/Home/dev/repo/mvvm-ios/Demo/Model/API/Core/ResponseSerializer.swift:
+    1|       |//
+    2|       |//  ResponseSerializer.swift
+    3|       |//  CM
+    4|       |//
+    5|       |//  Created by DaoNV on 3/7/16.
+    6|       |//  Copyright © 2016 AsianTech Inc. All rights reserved.
+    7|       |//
+    8|       |
+    9|       |import Alamofire
+   10|       |import RealmSwift
+   11|       |import ObjectMapper
+   12|       |import RealmS
+   13|       |import SwiftyJSON
+   14|       |
+   15|       |extension Request {
+   16|       |    static func responseJSONSerializer(log: Bool = true,
+   17|       |                                       response: HTTPURLResponse?,
+   18|       |                                       data: Data?,
+   19|      5|                                       error: Error?) -> Result<Any> {
+   20|      0|        guard let response = response else {
+   21|      0|            return .failure(NSError(status: .requestTimeout))
+   22|      5|        }
+   23|      5|
+   24|      0|        if let error = error {
+   25|      0|            return .failure(error)
+   26|      5|        }
+   27|      5|
+   28|      5|        let statusCode = response.statusCode
+   29|      5|
+   30|      0|        if 204...205 ~= statusCode { // empty data status code
+   31|      0|            return .success([:])
+   32|      5|        }
+   33|      5|
+   34|      1|        guard 200...299 ~= statusCode else {
+   35|      1|            var err: NSError!
+   36|      0|            if let json = data?.toJSON() as? JSObject, let errors = json["errors"] as? JSArray, !errors.isEmpty, let message = errors[0]["value"] as? String {
+   37|      0|                err = NSError(message: message)
+   38|      1|            } else if let status = HTTPStatus(code: statusCode) {
+   39|      1|                err = NSError(domain: Api.Path.baseURL.host, status: status)
+   40|      1|            } else {
+   41|      0|                err = NSError(domain: Api.Path.baseURL.host,
+   42|      0|                              code: statusCode,
+   43|      0|                              message: "Unknown HTTP status code received (\(statusCode)).")
+   44|      1|            }
+   45|      1|
+   46|      1|            return .failure(err)
+   47|      4|        }
+   48|      4|
+   49|      0|        guard let data = data, let json = data.toJSON() else {
+   50|      0|            return Result.failure(Api.Error.json)
+   51|      4|        }
+   52|      4|
+   53|      4|        return .success(json)
+   54|      4|    }
+   55|       |}
+   56|       |
+   57|       |extension DataRequest {
+   58|      5|    static func responseSerializer() -> DataResponseSerializer<Any> {
+   59|      5|        return DataResponseSerializer { _, response, data, error in
+   60|      5|            return Request.responseJSONSerializer(log: true, response: response, data: data, error: error)
+   61|      5|        }
+   62|      5|    }
+   63|       |
+   64|       |    @discardableResult
+   65|      5|    func responseJSON(queue: DispatchQueue = .global(qos: .background), completion: @escaping (DataResponse<Any>) -> Void) -> Self {
+   66|      5|        return response(
+   67|      5|            queue: queue,
+   68|      5|            responseSerializer: DataRequest.responseSerializer(),
+   69|      5|            completionHandler: completion
+   70|      5|        )
+   71|      5|    }
+   72|       |}
+
+/Users/Home/dev/repo/mvvm-ios/Demo/Model/API/Core/Session.swift:
+    1|       |//
+    2|       |//  Session.swift
+    3|       |//  CM
+    4|       |//
+    5|       |//  Created by DaoNV on 3/7/16.
+    6|       |//  Copyright © 2016 AsianTech Inc. All rights reserved.
+    7|       |//
+    8|       |
+    9|       |import Foundation
+   10|       |import SAMKeychain
+   11|       |import SwiftyJSON
+   12|       |
+   13|       |let kUserIdKey = "UserID"
+   14|       |
+   15|       |final class Session {
+   16|       |    struct Credential: CustomStringConvertible {
+   17|       |        let name: String
+   18|       |        let pass: String
+   19|       |
+   20|     14|        var isValid: Bool {
+   21|     14|            return !name.isEmpty && !pass.isEmpty
+   22|     14|        }
+   23|       |
+   24|      5|        var description: String {
+   25|      5|            guard isValid, let base64 = "\(name):\(pass)".base64(.encode) else { return "" }
+   26|      5|            return "Basic \(base64)"
+   27|      5|        }
+   28|       |    }
+   29|       |
+   30|       |    var credential = Credential(name: "", pass: "") {
+   31|      4|        didSet {
+   32|      4|            saveCredential()
+   33|      4|        }
+   34|       |    }
+   35|       |
+   36|       |    var userId: String? = UserDefaults.standard.string(forKey: kUserIdKey) {
+   37|      0|        didSet {
+   38|      0|            let userDefaults = UserDefaults.standard
+   39|      0|            userDefaults.set(userId, forKey: kUserIdKey)
+   40|      0|            userDefaults.synchronize()
+   41|      0|        }
+   42|       |    }
+   43|       |
+   44|      1|    init() { }
+   45|       |
+   46|      0|    func loadCredential() {
+   47|      0|        guard let host = Api.Path.baseURL.host else { return }
+   48|      0|        guard let accounts = SAMKeychain.accounts(forService: host)?.last,
+   49|      0|            let account = accounts[kSAMKeychainAccountKey] as? String else { return }
+   50|      0|
+   51|      0|        guard let password = SAMKeychain.password(forService: host, account: account) else { return }
+   52|      0|        credential = Credential(name: account, pass: password)
+   53|      0|    }
+   54|       |
+   55|      4|    private func saveCredential() {
+   56|      4|        guard credential.isValid else { return }
+   57|      4|        guard let host = Api.Path.baseURL.host else { return }
+   58|      4|        SAMKeychain.setPassword(credential.pass, forService: host, account: credential.name)
+   59|      4|    }
+   60|       |
+   61|      0|    func clearCredential() {
+   62|      0|        credential = Credential(name: "'", pass: "")
+   63|      0|        guard let host = Api.Path.baseURL.host else { return }
+   64|      0|        guard let accounts = SAMKeychain.accounts(forService: host) else { return }
+   65|      0|        for account in accounts {
+   66|      0|            if let account = account[kSAMKeychainAccountKey] as? String {
+   67|      0|                SAMKeychain.deletePassword(forService: host, account: account)
+   68|      0|            }
+   69|      0|        }
+   70|      0|    }
+   71|       |
+   72|      0|    func reset() {
+   73|      0|        clearCredential()
+   74|      0|    }
+   75|       |}
+
+/Users/Home/dev/repo/mvvm-ios/Demo/Model/API/MeAPIs.swift:
+    1|       |//
+    2|       |//  MeAPIs.swift
+    3|       |//  MVVM
+    4|       |//
+    5|       |//  Created by DaoNV on 3/16/17.
+    6|       |//  Copyright © 2017 Asian Tech Co., Ltd. All rights reserved.
+    7|       |//
+    8|       |
+    9|       |import Foundation
+   10|       |import Alamofire
+   11|       |import ObjectMapper
+   12|       |
+   13|       |extension Api.Me {
+   14|       |    struct LoginParams {
+   15|       |        let username: String
+   16|       |        let token: String
+   17|       |    }
+   18|       |
+   19|       |    // https://developer.github.com/v3/users/#get-the-authenticated-user
+   20|       |    @discardableResult
+   21|      3|    static func login(params: LoginParams, completion: @escaping Completion) -> Request? {
+   22|      3|        api.session.credential = Session.Credential(
+   23|      3|            name: params.username,
+   24|      3|            pass: params.token
+   25|      3|        )
+   26|      3|        let path = Api.Path.Me.login
+   27|      3|        return api.request(method: .get, urlString: path) { (result) in
+   28|      3|            Mapper<User>().map(result: result, type: .object, completion: { (result) in
+   29|      3|                DispatchQueue.main.async {
+   30|      3|                    completion(result)
+   31|      3|                }
+   32|      3|            })
+   33|      3|        }
+   34|      3|    }
+   35|       |}
+
+/Users/Home/dev/repo/mvvm-ios/Demo/Model/API/RepoAPIs.swift:
+    1|       |//
+    2|       |//  RepoAPIs.swift
+    3|       |//  MVVM
+    4|       |//
+    5|       |//  Created by DaoNV on 4/10/17.
+    6|       |//  Copyright © 2017 Asian Tech Co., Ltd. All rights reserved.
+    7|       |//
+    8|       |
+    9|       |import Foundation
+   10|       |import Alamofire
+   11|       |import ObjectMapper
+   12|       |
+   13|       |extension Api.Repo {
+   14|       |    struct QueryParams {
+   15|       |        let type: Type
+   16|       |        let sort: Sort
+   17|       |        let direction: Direction
+   18|       |    }
+   19|       |
+   20|       |    // https://developer.github.com/v3/repos/#list-your-repositories
+   21|       |    @discardableResult
+   22|      2|    static func query(params: QueryParams, completion: @escaping Completion) -> Request? {
+   23|      2|        let path = Api.Path.Me.repos
+   24|      2|        return api.request(method: .get, urlString: path) { (result) in
+   25|      2|            Mapper<Repo>().map(result: result, type: .array, completion: { (result) in
+   26|      2|                DispatchQueue.main.async {
+   27|      2|                    completion(result)
+   28|      2|                }
+   29|      2|            })
+   30|      2|        }
+   31|      2|    }
+   32|       |}
+   33|       |
+   34|       |enum Direction: String {
+   35|       |    case asc
+   36|       |    case desc
+   37|       |}
+   38|       |
+   39|       |extension Api.Repo.QueryParams {
+   40|       |    enum `Type`: String {
+   41|       |        case all
+   42|       |        case owner
+   43|       |        case `public`
+   44|       |        case `private`
+   45|       |        case member
+   46|       |    }
+   47|       |
+   48|       |    enum Sort: String {
+   49|       |        case created
+   50|       |        case updated
+   51|       |        case pushed
+   52|       |        case full_name
+   53|       |    }
+   54|       |}
+
+/Users/Home/dev/repo/mvvm-ios/Demo/Model/Schema/Repo.swift:
+    1|       |//
+    2|       |//  Repo.swift
+    3|       |//  MVVM
+    4|       |//
+    5|       |//  Created by DaoNV on 4/4/17.
+    6|       |//  Copyright © 2017 Asian Tech Co., Ltd. All rights reserved.
+    7|       |//
+    8|       |
+    9|       |import Foundation
+   10|       |import RealmSwift
+   11|       |import ObjectMapper
+   12|       |import RealmS
+   13|       |
+   14|       |final class Repo: Object, StaticMappable {
+   15|       |    dynamic var id = 0
+   16|       |    dynamic var name = ""
+   17|       |    dynamic var desc: String?
+   18|       |
+   19|      5|    override static func primaryKey() -> String? {
+   20|      5|        return "id"
+   21|      5|    }
+   22|       |
+   23|      4|    func mapping(map: Map) {
+   24|      4|        name <- map["name"]
+   25|      4|        desc <- map["description"]
+   26|      4|    }
+   27|       |
+   28|      4|    static func objectForMapping(map: Map) -> BaseMappable? {
+   29|      4|        return RealmS().object(ofType: self, forMapping: map)
+   30|      4|    }
+   31|       |}
+
+/Users/Home/dev/repo/mvvm-ios/Demo/Model/Schema/Supports/Mapper.swift:
+    1|       |//
+    2|       |//  Mapper.swift
+    3|       |//  MVVM
+    4|       |//
+    5|       |//  Created by DaoNV on 3/17/17.
+    6|       |//  Copyright © 2017 Asian Tech Co., Ltd. All rights reserved.
+    7|       |//
+    8|       |
+    9|       |import Foundation
+   10|       |import Alamofire
+   11|       |import RealmSwift
+   12|       |import ObjectMapper
+   13|       |import RealmS
+   14|       |
+   15|       |extension Mapper where N: Object, N: BaseMappable {
+   16|      5|    func map(result: Result<Any>, type: DataType, completion: Completion) {
+   17|      5|        switch result {
+   18|      4|        case .success(let json):
+   19|      4|            switch type {
+   20|      2|            case .object:
+   21|      0|                guard let obj = json as? JSObject else {
+   22|      0|                    completion(.failure(Api.Error.json))
+   23|      0|                    return
+   24|      2|                }
+   25|      2|                let realm = RealmS()
+   26|      2|                realm.write {
+   27|      2|                    realm.map(N.self, json: obj)
+   28|      2|                }
+   29|      2|                completion(.success(json))
+   30|      2|            case .array:
+   31|      0|                guard let objs = json as? JSArray else {
+   32|      0|                    completion(.failure(Api.Error.json))
+   33|      0|                    return
+   34|      2|                }
+   35|      2|                let realm = RealmS()
+   36|      2|                realm.write {
+   37|      2|                    realm.map(N.self, json: objs)
+   38|      2|                }
+   39|      2|                completion(.success(json))
+   40|      4|            }
+   41|      1|        case .failure(let error):
+   42|      1|            completion(.failure(error))
+   43|      5|        }
+   44|      5|    }
+   45|       |}
+   46|       |
+   47|       |enum DataType {
+   48|       |    case object
+   49|       |    case array
+   50|       |}
+
+/Users/Home/dev/repo/mvvm-ios/Demo/Model/Schema/User.swift:
+    1|       |//
+    2|       |//  User.swift
+    3|       |//  MVVM
+    4|       |//
+    5|       |//  Created by DaoNV on 3/16/17.
+    6|       |//  Copyright © 2017 Asian Tech Co., Ltd. All rights reserved.
+    7|       |//
+    8|       |
+    9|       |import Foundation
+   10|       |import RealmSwift
+   11|       |import ObjectMapper
+   12|       |import RealmS
+   13|       |
+   14|       |final class User: Object, StaticMappable {
+   15|       |    dynamic var id = 0
+   16|       |    dynamic var username: String!
+   17|       |    dynamic var name: String?
+   18|       |    dynamic var email: String?
+   19|       |    dynamic var avatar: String?
+   20|       |
+   21|      3|    override static func primaryKey() -> String? {
+   22|      3|        return "id"
+   23|      3|    }
+   24|       |
+   25|      2|    func mapping(map: Map) {
+   26|      2|        username <- map["login"]
+   27|      2|        name <- map["name"]
+   28|      2|        email <- map["email"]
+   29|      2|        avatar <- map["avatar_url"]
+   30|      2|    }
+   31|       |
+   32|      2|    static func objectForMapping(map: Map) -> BaseMappable? {
+   33|      2|        return RealmS().object(ofType: self, forMapping: map)
+   34|      2|    }
+   35|       |}
+
+/Users/Home/dev/repo/mvvm-ios/Demo/View/AppDelegate.swift:
+    1|       |//
+    2|       |//  AppDelegate.swift
+    3|       |//  MVVM
+    4|       |//
+    5|       |//  Created by DaoNV on 3/16/17.
+    6|       |//  Copyright © 2017 Asian Tech Co., Ltd. All rights reserved.
+    7|       |//
+    8|       |
+    9|       |import UIKit
+   10|       |import RealmSwift
+   11|       |
+   12|       |@UIApplicationMain
+   13|       |class AppDelegate: UIResponder, UIApplicationDelegate {
+   14|       |
+   15|       |    var window: UIWindow?
+   16|       |    static let shared = UIApplication.shared.delegate as! AppDelegate
+   17|       |
+   18|      1|    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+   19|      1|        Realm.Configuration.defaultConfiguration = {
+   20|      1|            var config = Realm.Configuration.defaultConfiguration
+   21|      1|            config.deleteRealmIfMigrationNeeded = true
+   22|      1|            return config
+   23|      1|        }()
+   24|      1|        return true
+   25|      1|    }
+   26|       |}
+
+/Users/Home/dev/repo/mvvm-ios/Demo/View/Cell/RepoCell.swift:
+    1|       |//
+    2|       |//  RepoCell.swift
+    3|       |//  MVVM
+    4|       |//
+    5|       |//  Created by DaoNV on 4/1/17.
+    6|       |//  Copyright © 2017 Asian Tech Co., Ltd. All rights reserved.
+    7|       |//
+    8|       |
+    9|       |import UIKit
+   10|       |import MVVM
+   11|       |
+   12|       |final class RepoCell: UITableViewCell, MVVM.View {
+   13|       |    // MARK: - MVVM
+   14|       |    typealias T = RepoCellViewModel
+   15|       |    var viewModel = RepoCellViewModel(repo: nil) {
+   16|      1|        didSet {
+   17|      1|            updateView()
+   18|      1|        }
+   19|       |    }
+   20|       |
+   21|      1|    private func updateView() {
+   22|      1|        textLabel?.text = viewModel.name
+   23|      1|        detailTextLabel?.text = viewModel.desc
+   24|      1|    }
+   25|       |}
+
+/Users/Home/dev/repo/mvvm-ios/Demo/View/LoginViewController.swift:
+    1|       |//
+    2|       |//  LoginViewController.swift
+    3|       |//  MVVM
+    4|       |//
+    5|       |//  Created by DaoNV on 3/16/17.
+    6|       |//  Copyright © 2017 Asian Tech Co., Ltd. All rights reserved.
+    7|       |//
+    8|       |
+    9|       |import UIKit
+   10|       |import MVVM
+   11|       |
+   12|       |private enum Segue: String {
+   13|       |    case showRepoList
+   14|       |}
+   15|       |
+   16|       |final class LoginViewController: UIViewController, MVVM.View {
+   17|       |    // MARK: - MVVM
+   18|       |    typealias T = LoginViewModel
+   19|       |    var viewModel = LoginViewModel(user: nil) {
+   20|      1|        didSet {
+   21|      1|            updateView()
+   22|      1|        }
+   23|       |    }
+   24|       |
+   25|       |    // MARK: -
+   26|       |
+   27|       |    @IBOutlet weak var usernameField: UITextField!
+   28|       |    @IBOutlet weak var accessTokenField: UITextField!
+   29|       |    @IBOutlet weak var loginButton: UIButton!
+   30|       |
+   31|      3|    override func viewDidLoad() {
+   32|      3|        super.viewDidLoad()
+   33|      3|        #if DEBUG
+   34|      3|            viewModel.username = "at-ios-mvvm"
+   35|      3|            viewModel.accessToken = "101a6476440c30431a17" + "25c310d1abe049189b2a"
+   36|      3|        #endif
+   37|      3|        updateView()
+   38|      3|        setupActions()
+   39|      3|    }
+   40|       |
+   41|      1|    override func viewDidAppear(_ animated: Bool) {
+   42|      1|        super.viewDidAppear(animated)
+   43|      1|        if accessTokenField.isFirstResponder { return }
+   44|      1|        usernameField.becomeFirstResponder()
+   45|      1|    }
+   46|       |
+   47|      0|    override func viewWillDisappear(_ animated: Bool) {
+   48|      0|        super.viewWillDisappear(animated)
+   49|      0|        view.endEditing(true)
+   50|      0|    }
+   51|       |
+   52|      0|    func textField(for field: LoginViewModel.Field) -> UITextField {
+   53|      0|        switch field {
+   54|      0|        case .username: return usernameField
+   55|      0|        case .accessToken: return accessTokenField
+   56|      0|        }
+   57|      0|    }
+   58|       |}
+   59|       |
+   60|       |// MARK: - Private
+   61|       |extension LoginViewController {
+   62|      3|    fileprivate func setupActions() {
+   63|      3|        loginButton.addTarget(self, action: #selector(LoginViewController.login), for: .touchUpInside)
+   64|      3|    }
+   65|       |
+   66|      1|    @objc private func login() {
+   67|      1|        viewModel.username = usernameField.string.trimmed
+   68|      1|        viewModel.accessToken = accessTokenField.string.trimmed
+   69|      1|
+   70|      1|        switch viewModel.validate() {
+   71|      1|        case .success:
+   72|      1|            viewModel.login { [weak self] (result) in
+   73|      1|                guard let this = self else { return }
+   74|      1|                switch result {
+   75|      1|                case .success:
+   76|      1|                    this.showRepoList()
+   77|      0|                case .failure(let error):
+   78|      0|                    NSLog("ERROR: " + error.localizedDescription)
+   79|      1|                }
+   80|      1|                this.viewDidUpdated()
+   81|      1|            }
+   82|      0|        case .failure(let field, let msg):
+   83|      0|            let alert = UIAlertController(title: "ERROR", message: msg, preferredStyle: .alert)
+   84|      0|            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { [weak self] _ in
+   85|      0|                guard let this = self else { return }
+   86|      0|                let fld = this.textField(for: field)
+   87|      0|                fld.becomeFirstResponder()
+   88|      0|            }))
+   89|      0|            present(alert, animated: true, completion: nil)
+   90|      0|            viewDidUpdated()
+   91|      1|        }
+   92|      1|    }
+   93|       |
+   94|      4|    fileprivate func updateView() {
+   95|      4|        guard isViewLoaded else { return }
+   96|      4|        usernameField.text = viewModel.username
+   97|      4|        accessTokenField.text = viewModel.accessToken
+   98|      4|    }
+   99|       |
+  100|      1|    fileprivate func performSegue(_ segue: Segue) {
+  101|      1|        performSegue(withIdentifier: segue.rawValue, sender: self)
+  102|      1|    }
+  103|       |
+  104|      1|    fileprivate func showRepoList() {
+  105|      1|        performSegue(.showRepoList)
+  106|      1|    }
+  107|       |}
+
+/Users/Home/dev/repo/mvvm-ios/Demo/View/RepoListViewController.swift:
+    1|       |//
+    2|       |//  RepoListViewController.swift
+    3|       |//  MVVM
+    4|       |//
+    5|       |//  Created by DaoNV on 3/16/17.
+    6|       |//  Copyright © 2017 Asian Tech Co., Ltd. All rights reserved.
+    7|       |//
+    8|       |
+    9|       |import UIKit
+   10|       |import MVVM
+   11|       |
+   12|       |final class RepoListViewController: UITableViewController, MVVM.View {
+   13|       |    var viewModel = RepoListViewModel() {
+   14|      1|        didSet {
+   15|      1|            updateView()
+   16|      1|        }
+   17|       |    }
+   18|       |
+   19|      1|    override func viewDidLoad() {
+   20|      1|        super.viewDidLoad()
+   21|      1|        configTable()
+   22|      1|        viewModel.delegate = self
+   23|      1|        viewModel.fetch()
+   24|      1|    }
+   25|       |
+   26|      0|    override func viewDidAppear(_ animated: Bool) {
+   27|      0|        super.viewDidAppear(animated)
+   28|      0|        if let navi = navigationController,
+   29|      0|            let window = AppDelegate.shared.window {
+   30|      0|            window.rootViewController = navi
+   31|      0|        }
+   32|      0|        viewModel.getRepos { [weak self] (result) in
+   33|      0|            guard let this = self, let navi = this.navigationController else { return }
+   34|      0|            switch result {
+   35|      0|            case .success:
+   36|      0|                break
+   37|      0|            case .failure(let error):
+   38|      0|                let alert = UIAlertController(title: "", message: error.localizedDescription, preferredStyle: .alert)
+   39|      0|                let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+   40|      0|                alert.addAction(ok)
+   41|      0|                navi.present(alert, animated: true, completion: nil)
+   42|      0|            }
+   43|      0|            this.viewDidUpdated()
+   44|      0|        }
+   45|      0|    }
+   46|       |
+   47|      0|    override func viewWillDisappear(_ animated: Bool) {
+   48|      0|        super.viewWillDisappear(animated)
+   49|      0|    }
+   50|       |}
+   51|       |
+   52|       |extension RepoListViewController: CollectionViewModelDelegate {
+   53|      0|    func viewModel(change changes: CollectionChanges) {
+   54|      0|        updateView()
+   55|      0|    }
+   56|       |}
+   57|       |
+   58|       |extension RepoListViewController {
+   59|      1|    override func numberOfSections(in tableView: UITableView) -> Int {
+   60|      1|        return viewModel.numberOfSections
+   61|      1|    }
+   62|       |
+   63|      1|    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+   64|      1|        return viewModel.numberOfRowsInSection(section)
+   65|      1|    }
+   66|       |
+   67|      0|    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+   68|      0|        guard let cell = tableView.dequeueReusableCell(withIdentifier: "RepoCell") as? RepoCell
+   69|      0|            else { fatalError() }
+   70|      0|        cell.viewModel = viewModel.itemForRow(at: indexPath)
+   71|      0|        return cell
+   72|      0|    }
+   73|       |}
+   74|       |
+   75|       |// MARK: - Private
+   76|       |extension RepoListViewController {
+   77|      1|    fileprivate func configTable() {
+   78|      1|        tableView.register(RepoCell.self, forCellReuseIdentifier: "RepoCell")
+   79|      1|        tableView.dataSource = self
+   80|      1|    }
+   81|       |
+   82|      1|    fileprivate func updateView() {
+   83|      1|        guard isViewLoaded else { return }
+   84|      1|        tableView.reloadData()
+   85|      1|        viewDidUpdated()
+   86|      1|    }
+   87|       |}
+
+/Users/Home/dev/repo/mvvm-ios/Demo/ViewModel/LoginViewModel.swift:
+    1|       |//
+    2|       |//  LoginViewModel.swift
+    3|       |//  MVVM
+    4|       |//
+    5|       |//  Created by DaoNV on 3/16/17.
+    6|       |//  Copyright © 2017 Asian Tech Co., Ltd. All rights reserved.
+    7|       |//
+    8|       |
+    9|       |import Foundation
+   10|       |import MVVM
+   11|       |
+   12|       |final class LoginViewModel: MVVM.ViewModel {
+   13|       |    enum Field: String {
+   14|       |        case username
+   15|       |        case accessToken
+   16|       |    }
+   17|       |
+   18|       |    enum Validation: CustomStringConvertible {
+   19|       |        case success
+   20|       |        case failure(field: Field, msg: String)
+   21|       |
+   22|      4|        var isSuccess: Bool {
+   23|      4|            switch self {
+   24|      3|            case .success: return true
+   25|      1|            default: return false
+   26|      4|            }
+   27|      4|        }
+   28|       |
+   29|      2|        var description: String {
+   30|      2|            switch self {
+   31|      1|            case .success: return "Success"
+   32|      1|            case .failure(_, let msg):
+   33|      1|                return "Failure: " + msg
+   34|      2|            }
+   35|      2|        }
+   36|       |    }
+   37|       |
+   38|       |    var username = ""
+   39|       |    var accessToken = ""
+   40|       |
+   41|     14|    init(user: User?) {
+   42|     13|        guard let user = user else { return }
+   43|      1|        username = user.username
+   44|      1|    }
+   45|       |
+   46|      9|    func validate() -> Validation {
+   47|      1|        guard username.len >= 6 else {
+   48|      1|            return .failure(field: .username, msg: "'\(Field.username)' too short")
+   49|      8|        }
+   50|      6|        guard accessToken.len >= 6 else { return .failure(field: .accessToken, msg: "'\(Field.accessToken)' too short") }
+   51|      6|        return .success
+   52|      8|    }
+   53|       |
+   54|       |    enum LoginResult {
+   55|       |        case success
+   56|       |        case failure(Error)
+   57|       |    }
+   58|       |
+   59|      4|    func login(_ completion: @escaping (LoginResult) -> Void) {
+   60|      4|        let validation = validate()
+   61|      1|        guard validation.isSuccess else {
+   62|      1|            let info: [String: Any] = [
+   63|      1|                NSLocalizedDescriptionKey: validation.description
+   64|      1|            ]
+   65|      1|            let error = NSError(domain: "", code: -1, userInfo: info)
+   66|      1|            completion(.failure(error))
+   67|      1|            return
+   68|      3|        }
+   69|      3|        let params = Api.Me.LoginParams(username: username, token: accessToken)
+   70|      3|        Api.Me.login(params: params) { (result) in
+   71|      3|            switch result {
+   72|      2|            case .success(_):
+   73|      2|                completion(.success)
+   74|      1|            case .failure(let error):
+   75|      1|                completion(.failure(error))
+   76|      3|            }
+   77|      3|        }
+   78|      3|    }
+   79|       |}
+   80|       |
+   81|       |
+
+/Users/Home/dev/repo/mvvm-ios/Demo/ViewModel/RepoCellViewModel.swift:
+    1|       |//
+    2|       |//  RepoCellViewModel.swift
+    3|       |//  MVVM
+    4|       |//
+    5|       |//  Created by DaoNV on 4/1/17.
+    6|       |//  Copyright © 2017 Asian Tech Co., Ltd. All rights reserved.
+    7|       |//
+    8|       |
+    9|       |import Foundation
+   10|       |import MVVM
+   11|       |
+   12|       |final class RepoCellViewModel: MVVM.ViewModel {
+   13|       |    var name = ""
+   14|       |    var desc: String?
+   15|       |
+   16|      3|    init(repo: Repo?) {
+   17|      2|        guard let repo = repo else { return }
+   18|      1|        name = repo.name
+   19|      1|        desc = repo.desc
+   20|      1|    }
+   21|       |}
+
+/Users/Home/dev/repo/mvvm-ios/Demo/ViewModel/RepoListViewModel.swift:
+    1|       |//
+    2|       |//  RepoListViewModel.swift
+    3|       |//  MVVM
+    4|       |//
+    5|       |//  Created by DaoNV on 3/16/17.
+    6|       |//  Copyright © 2017 Asian Tech Co., Ltd. All rights reserved.
+    7|       |//
+    8|       |
+    9|       |import Foundation
+   10|       |import RealmSwift
+   11|       |import RealmS
+   12|       |import MVVM
+   13|       |
+   14|       |class RepoListViewModel: MVVM.CollectionViewModel {
+   15|       |    typealias Item = RepoCellViewModel
+   16|       |    weak var delegate: CollectionViewModelDelegate?
+   17|       |
+   18|       |    private var repos: Results<Repo>?
+   19|       |    private var token: NotificationToken?
+   20|       |
+   21|      1|    var numberOfSections: Int {
+   22|      0|        guard let _ = repos else {
+   23|      0|            return 0
+   24|      1|        }
+   25|      1|        return 1
+   26|      1|    }
+   27|       |
+   28|      1|    func numberOfRowsInSection(_ section: Int) -> Int {
+   29|      0|        guard let repos = repos else {
+   30|      0|            return 0
+   31|      1|        }
+   32|      1|        return repos.count
+   33|      1|    }
+   34|       |
+   35|      1|    func itemForRow(at indexPath: IndexPath) -> RepoCellViewModel {
+   36|      0|        guard let repos = repos else {
+   37|      0|            fatalError("Please call `fetch()` first.")
+   38|      1|        }
+   39|      1|        let repo = repos[indexPath.row]
+   40|      1|        return RepoCellViewModel(repo: repo)
+   41|      1|    }
+   42|       |
+   43|       |    // MARK: - Action
+   44|       |
+   45|      3|    func fetch() {
+   46|      3|        repos = RealmS().objects(Repo.self).sorted(byKeyPath: "id", ascending: true)
+   47|      4|        token = repos?.addNotificationBlock({ [weak self] (change) in
+   48|      4|            guard let this = self else { return }
+   49|      4|            this.delegate?.viewModel(change: change.changes)
+   50|      4|        })
+   51|      3|    }
+   52|       |
+   53|       |    enum GetReposResult {
+   54|       |        case success
+   55|       |        case failure(Error)
+   56|       |    }
+   57|       |
+   58|       |    typealias GetReposCompletion = (GetReposResult) -> Void
+   59|       |
+   60|      2|    func getRepos(completion: @escaping GetReposCompletion) {
+   61|      2|        let params = Api.Repo.QueryParams(
+   62|      2|            type: .all,
+   63|      2|            sort: .full_name,
+   64|      2|            direction: .desc
+   65|      2|        )
+   66|      2|        Api.Repo.query(params: params) { (result) in
+   67|      2|            RealmS().refresh()
+   68|      2|            switch result {
+   69|      2|            case .success(_):
+   70|      2|                completion(.success)
+   71|      0|            case .failure(let error):
+   72|      0|                completion(.failure(error))
+   73|      2|            }
+   74|      2|        }
+   75|      2|    }
+   76|       |}
+
+/Users/Home/dev/repo/mvvm-ios/Demo/ViewModel/Utils.swift:
+    1|       |//
+    2|       |//  Core.swift
+    3|       |//  MVVM
+    4|       |//
+    5|       |//  Created by DaoNV on 4/15/17.
+    6|       |//  Copyright © 2017 Asian Tech Co., Ltd. All rights reserved.
+    7|       |//
+    8|       |
+    9|       |import Foundation
+   10|       |import RealmSwift
+   11|       |import MVVM
+   12|       |
+   13|       |extension RealmCollectionChange {
+   14|      0|    var changes: CollectionChanges {
+   15|      0|        switch self {
+   16|      0|        case .initial(_):
+   17|      0|            return .initial
+   18|      0|        case .update(_, let deletions, let insertions, let modifications):
+   19|      0|            return .update(deletions: deletions, insertions: insertions, modifications: modifications)
+   20|      0|        case .error(let error):
+   21|      0|            return .error(error)
+   22|      0|        }
+   23|      0|    }
+   24|       |}
+

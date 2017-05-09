@@ -11,8 +11,8 @@ import XCTest
 
 final class StringTests: XCTestCase {
     func testLen() {
-        let str = "Ò ò o"
-        XCTAssertEqual(str.len, 5)
+        XCTAssertEqual("オハヨウゴザイマス".len, 9)
+        XCTAssertEqual("ｵﾊﾖｳｺﾞｻﾞｲﾏｽ".len, 9)
     }
 
     func testHost() {
@@ -21,11 +21,16 @@ final class StringTests: XCTestCase {
     }
 
     func testBase64() {
-
+        XCTAssertEqual("".base64(.encode), "")
+        XCTAssertEqual("f".base64(.encode), "Zg==")
+        XCTAssertEqual("fo".base64(.encode), "Zm8=")
+        XCTAssertEqual("foo".base64(.encode), "Zm9v")
+        XCTAssertEqual("foob".base64(.encode), "Zm9vYg==")
+        XCTAssertEqual("fooba".base64(.encode), "Zm9vYmE=")
+        XCTAssertEqual("foobar".base64(.encode), "Zm9vYmFy")
     }
 
     func testTrimmed() {
-        let msg = "  Ok,  fine!  "
-        XCTAssertEqual(msg.trimmed, "Ok,  fine!")
+        XCTAssertEqual("  Ok,  fine!  ".trimmed, "Ok,  fine!")
     }
 }
