@@ -24,9 +24,9 @@ final class LoginViewController: UIViewController, MVVM.View {
 
     // MARK: -
 
-    @IBOutlet fileprivate var usernameField: UITextField!
-    @IBOutlet fileprivate var accessTokenField: UITextField!
-    @IBOutlet fileprivate var loginButton: UIButton!
+    @IBOutlet weak var usernameField: UITextField!
+    @IBOutlet weak var accessTokenField: UITextField!
+    @IBOutlet weak var loginButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,11 +49,11 @@ final class LoginViewController: UIViewController, MVVM.View {
         view.endEditing(true)
     }
 
-    var textFields: [LoginViewModel.Field: UITextField] {
-        return [
-            .username: usernameField,
-            .accessToken: accessTokenField
-        ]
+    func textField(for field: LoginViewModel.Field) -> UITextField {
+        switch field {
+        case .username: return usernameField
+        case .accessToken: return accessTokenField
+        }
     }
 }
 
@@ -63,7 +63,7 @@ extension LoginViewController {
         loginButton.addTarget(self, action: #selector(LoginViewController.login), for: .touchUpInside)
     }
 
-    @objc fileprivate func login() {
+    @objc private func login() {
         viewModel.username = usernameField.string.trimmed
         viewModel.accessToken = accessTokenField.string.trimmed
 
@@ -77,15 +77,17 @@ extension LoginViewController {
                 case .failure(let error):
                     NSLog("ERROR: " + error.localizedDescription)
                 }
+                this.viewDidUpdated()
             }
-        case .failure(let key, let msg):
+        case .failure(let field, let msg):
             let alert = UIAlertController(title: "ERROR", message: msg, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { [weak self] _ in
                 guard let this = self else { return }
-                guard let field = this.textFields[key] else { return }
-                field.becomeFirstResponder()
+                let fld = this.textField(for: field)
+                fld.becomeFirstResponder()
             }))
             present(alert, animated: true, completion: nil)
+            viewDidUpdated()
         }
     }
 

@@ -13,7 +13,7 @@ import RealmS
 
 final class Repo: Object, StaticMappable {
     dynamic var id = 0
-    dynamic var name: String!
+    dynamic var name = ""
     dynamic var desc: String?
 
     override static func primaryKey() -> String? {

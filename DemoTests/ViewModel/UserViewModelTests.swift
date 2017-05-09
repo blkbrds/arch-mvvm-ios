@@ -10,8 +10,7 @@ import XCTest
 import Alamofire
 @testable import Demo
 
-class LoginViewModelTests: XCTestCase {
-
+final class LoginViewModelTests: XCTestCase {
     func testInitUser() {
         let user = User()
         user.username = "truong test"

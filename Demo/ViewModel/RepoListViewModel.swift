@@ -11,7 +11,7 @@ import RealmSwift
 import RealmS
 import MVVM
 
-final class RepoListViewModel: MVVM.CollectionViewModel {
+class RepoListViewModel: MVVM.CollectionViewModel {
     typealias Item = RepoCellViewModel
     weak var delegate: CollectionViewModelDelegate?
 

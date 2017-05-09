@@ -9,8 +9,12 @@
 import UIKit
 import MVVM
 
-final class RepoListViewController: UITableViewController {
-    var viewModel = RepoListViewModel()
+final class RepoListViewController: UITableViewController, MVVM.View {
+    var viewModel = RepoListViewModel() {
+        didSet {
+            updateView()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,32 +30,28 @@ final class RepoListViewController: UITableViewController {
             window.rootViewController = navi
         }
         viewModel.getRepos { [weak self] (result) in
+            guard let this = self, let navi = this.navigationController else { return }
             switch result {
             case .success:
                 break
             case .failure(let error):
-                guard let this = self, let navi = this.navigationController else { return }
                 let alert = UIAlertController(title: "", message: error.localizedDescription, preferredStyle: .alert)
                 let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
                 alert.addAction(ok)
                 navi.present(alert, animated: true, completion: nil)
             }
+            this.viewDidUpdated()
         }
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
     }
-
-    func reloadData() {
-        guard isViewLoaded else { return }
-        tableView.reloadData()
-    }
 }
 
 extension RepoListViewController: CollectionViewModelDelegate {
     func viewModel(change changes: CollectionChanges) {
-        tableView.reloadData()
+        updateView()
     }
 }
 
@@ -77,5 +77,11 @@ extension RepoListViewController {
     fileprivate func configTable() {
         tableView.register(RepoCell.self, forCellReuseIdentifier: "RepoCell")
         tableView.dataSource = self
+    }
+
+    fileprivate func updateView() {
+        guard isViewLoaded else { return }
+        tableView.reloadData()
+        viewDidUpdated()
     }
 }
