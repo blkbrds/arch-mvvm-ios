@@ -13,7 +13,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Login" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="LoginViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -110,8 +110,8 @@
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <connections>
+                        <outlet property="accessTokenField" destination="6Qf-aY-5dK" id="bSc-VP-olb"/>
                         <outlet property="loginButton" destination="BG1-MA-Sgy" id="fWf-Pf-GeR"/>
-                        <outlet property="tokenField" destination="6Qf-aY-5dK" id="N19-AG-SlO"/>
                         <outlet property="usernameField" destination="EEl-bQ-ph1" id="OyV-vt-HWN"/>
                         <segue destination="l6W-Ob-Qg2" kind="presentation" identifier="showRepoList" animates="NO" id="9hD-Fl-iL0"/>
                     </connections>

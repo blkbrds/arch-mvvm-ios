@@ -11,9 +11,9 @@ import RealmSwift
 import ObjectMapper
 import RealmS
 
-final class User: Object, Mappable, StaticMappable {
+final class User: Object, StaticMappable {
     dynamic var id = 0
-    dynamic var login: String!
+    dynamic var username: String!
     dynamic var name: String?
     dynamic var email: String?
     dynamic var avatar: String?
@@ -22,13 +22,8 @@ final class User: Object, Mappable, StaticMappable {
         return "id"
     }
 
-    convenience init?(map: Map) {
-        self.init()
-        id <- map["id"]
-    }
-
     func mapping(map: Map) {
-        login <- map["login"]
+        username <- map["login"]
         name <- map["name"]
         email <- map["email"]
         avatar <- map["avatar_url"]

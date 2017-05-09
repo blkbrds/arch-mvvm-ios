@@ -10,7 +10,7 @@ import Foundation
 import MVVM
 
 final class RepoCellViewModel: MVVM.ViewModel {
-    var name: String!
+    var name = ""
     var desc: String?
 
     init(repo: Repo?) {

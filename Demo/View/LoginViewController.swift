@@ -24,15 +24,15 @@ final class LoginViewController: UIViewController, MVVM.View {
 
     // MARK: -
 
-    @IBOutlet fileprivate var usernameField: UITextField!
-    @IBOutlet fileprivate var tokenField: UITextField!
-    @IBOutlet fileprivate var loginButton: UIButton!
+    @IBOutlet weak var usernameField: UITextField!
+    @IBOutlet weak var accessTokenField: UITextField!
+    @IBOutlet weak var loginButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         #if DEBUG
             viewModel.username = "at-ios-mvvm"
-            viewModel.token = "101a6476440c30431a17" + "25c310d1abe049189b2a"
+            viewModel.accessToken = "101a6476440c30431a17" + "25c310d1abe049189b2a"
         #endif
         updateView()
         setupActions()
@@ -40,7 +40,7 @@ final class LoginViewController: UIViewController, MVVM.View {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        guard !tokenField.isFirstResponder else { return }
+        if accessTokenField.isFirstResponder { return }
         usernameField.becomeFirstResponder()
     }
 
@@ -49,11 +49,11 @@ final class LoginViewController: UIViewController, MVVM.View {
         view.endEditing(true)
     }
 
-    var textFields: [String: UITextField] {
-        return [
-            "mail": usernameField,
-            "pass": tokenField
-        ]
+    func textField(for field: LoginViewModel.Field) -> UITextField {
+        switch field {
+        case .username: return usernameField
+        case .accessToken: return accessTokenField
+        }
     }
 }
 
@@ -63,9 +63,9 @@ extension LoginViewController {
         loginButton.addTarget(self, action: #selector(LoginViewController.login), for: .touchUpInside)
     }
 
-    @objc fileprivate func login() {
+    @objc private func login() {
         viewModel.username = usernameField.string.trimmed
-        viewModel.token = tokenField.string.trimmed
+        viewModel.accessToken = accessTokenField.string.trimmed
 
         switch viewModel.validate() {
         case .success:
@@ -77,22 +77,24 @@ extension LoginViewController {
                 case .failure(let error):
                     NSLog("ERROR: " + error.localizedDescription)
                 }
+                this.viewDidUpdated()
             }
-        case .failure(let key, let msg):
+        case .failure(let field, let msg):
             let alert = UIAlertController(title: "ERROR", message: msg, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { [weak self] _ in
                 guard let this = self else { return }
-                guard let field = this.textFields[key] else { return }
-                field.becomeFirstResponder()
+                let fld = this.textField(for: field)
+                fld.becomeFirstResponder()
             }))
             present(alert, animated: true, completion: nil)
+            viewDidUpdated()
         }
     }
 
     fileprivate func updateView() {
         guard isViewLoaded else { return }
         usernameField.text = viewModel.username
-        tokenField.text = viewModel.token
+        accessTokenField.text = viewModel.accessToken
     }
 
     fileprivate func performSegue(_ segue: Segue) {

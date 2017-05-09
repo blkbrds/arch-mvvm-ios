@@ -10,9 +10,14 @@ import Foundation
 import MVVM
 
 final class LoginViewModel: MVVM.ViewModel {
+    enum Field: String {
+        case username
+        case accessToken
+    }
+
     enum Validation: CustomStringConvertible {
         case success
-        case failure(key: String, msg: String)
+        case failure(field: Field, msg: String)
 
         var isSuccess: Bool {
             switch self {
@@ -31,18 +36,18 @@ final class LoginViewModel: MVVM.ViewModel {
     }
 
     var username = ""
-    var token = ""
+    var accessToken = ""
 
     init(user: User?) {
         guard let user = user else { return }
-        username = user.login
+        username = user.username
     }
 
     func validate() -> Validation {
         guard username.len >= 6 else {
-            return .failure(key: "username", msg: "'username' too short")
+            return .failure(field: .username, msg: "'\(Field.username)' too short")
         }
-        guard token.len >= 6 else { return .failure(key: "token", msg: "'token' too short") }
+        guard accessToken.len >= 6 else { return .failure(field: .accessToken, msg: "'\(Field.accessToken)' too short") }
         return .success
     }
 
@@ -61,7 +66,7 @@ final class LoginViewModel: MVVM.ViewModel {
             completion(.failure(error))
             return
         }
-        let params = Api.Me.LoginParams(username: username, token: token)
+        let params = Api.Me.LoginParams(username: username, token: accessToken)
         Api.Me.login(params: params) { (result) in
             switch result {
             case .success(_):

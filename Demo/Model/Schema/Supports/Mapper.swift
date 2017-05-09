@@ -12,18 +12,7 @@ import RealmSwift
 import ObjectMapper
 import RealmS
 
-extension RealmS {
-    func object<T: Object>(ofType: T.Type, forMapping map: Map) -> T? {
-        guard let key = T.primaryKey() else { return T() }
-        guard let id: Any = map[key].value() else { return nil }
-        if let exist = object(ofType: T.self, forPrimaryKey: id) {
-            return exist
-        }
-        return T()
-    }
-}
-
-extension Mapper where N: Object, N: Mappable, N: StaticMappable {
+extension Mapper where N: Object, N: BaseMappable {
     func map(result: Result<Any>, type: DataType, completion: Completion) {
         switch result {
         case .success(let json):
