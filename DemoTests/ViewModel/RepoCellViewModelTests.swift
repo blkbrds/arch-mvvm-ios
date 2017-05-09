@@ -18,7 +18,7 @@ final class RepoCellViewModelTests: XCTestCase {
         let ex = expectation(description: "testReturnFromRepoListViewModel")
         let vm = RepoListViewModel()
         vm.fetch()
-        vm.getRepos { (result) in
+        vm.getRepos { [weak self] (result) in
             switch result {
             case .success:
                 let repos = RealmS().objects(Repo.self).sorted(byKeyPath: "id", ascending: true)

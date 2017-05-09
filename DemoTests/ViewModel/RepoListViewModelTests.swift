@@ -28,7 +28,6 @@ final class RepoListViewModelTests: XCTestCase {
         let vm = RepoListViewModel()
         vm.fetch()
         vm.getRepos { [weak self] (result) in
-            guard let this = self else { return }
             switch result {
             case .success:
                 let repos = RealmS().objects(Repo.self)
