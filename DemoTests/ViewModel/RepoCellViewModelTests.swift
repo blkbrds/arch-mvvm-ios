@@ -17,8 +17,9 @@ final class RepoCellViewModelTests: XCTestCase {
     func testReturnFromRepoListViewModel() {
         let ex = expectation(description: "testReturnFromRepoListViewModel")
         let vm = RepoListViewModel()
+        vm.delegate = self
         vm.fetch()
-        vm.getRepos { [weak self] (result) in
+        vm.getRepos { (result) in
             switch result {
             case .success:
                 let repos = RealmS().objects(Repo.self).sorted(byKeyPath: "id", ascending: true)
@@ -33,5 +34,10 @@ final class RepoCellViewModelTests: XCTestCase {
             ex.fulfill()
         }
         waitForExpectations(timeout: Timeout.forRequest)
+    }
+}
+
+extension RepoCellViewModelTests: CollectionViewModelDelegate {
+    func viewModel(change changes: CollectionChanges) {
     }
 }

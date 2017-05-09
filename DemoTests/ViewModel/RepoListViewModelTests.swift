@@ -26,8 +26,9 @@ final class RepoListViewModelTests: XCTestCase {
     func testGetRepos() {
         let ex = expectation(description: "testGetRepos")
         let vm = RepoListViewModel()
+        vm.delegate = self
         vm.fetch()
-        vm.getRepos { [weak self] (result) in
+        vm.getRepos { (result) in
             switch result {
             case .success:
                 let repos = RealmS().objects(Repo.self)
@@ -39,5 +40,10 @@ final class RepoListViewModelTests: XCTestCase {
             ex.fulfill()
         }
         waitForExpectations(timeout: Timeout.forRequest)
+    }
+}
+
+extension RepoListViewModelTests: CollectionViewModelDelegate {
+    func viewModel(change changes: CollectionChanges) {
     }
 }
