@@ -74,4 +74,6 @@ fastlane/test_output
 .bundle
 vendor/bundle
 
+*.coverage.txt
+
 # End of https://www.gitignore.io/api/swift
