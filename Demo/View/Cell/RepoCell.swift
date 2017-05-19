@@ -11,7 +11,7 @@ import MVVM
 
 final class RepoCell: UITableViewCell, MVVM.View {
     // MARK: - MVVM
-    typealias T = RepoCellViewModel
+    typealias ViewModel = RepoCellViewModel
     var viewModel = RepoCellViewModel(repo: nil) {
         didSet {
             updateView()

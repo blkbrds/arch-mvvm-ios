@@ -1,13 +1,13 @@
 #!/bin/bash
 
-if [[ -z "$SDK" ]]; then
+if [[ "$CI" != 'true' ]]; then
     echo 'Exporting build environment variables...'
     export SDK='iphonesimulator10.3'
+    export WORKSPACE='MVVM.xcworkspace'
     export DESTINATION='OS=10.3,name=iPhone 7'
     export CONFIGURATION='Debug'
 fi
 
-export WORKSPACE='MVVM.xcworkspace'
 export SCHEME='MVVM'
 
 xcodebuild build \
@@ -17,6 +17,6 @@ xcodebuild build \
     -destination "$DESTINATION" \
     -derivedDataPath build \
     ONLY_ACTIVE_ARCH=YES \
-    -configuration "$CONFIGURATION" | bundle exec xcpretty
+    -configuration "$CONFIGURATION"
 
 exit "${PIPESTATUS[0]}"

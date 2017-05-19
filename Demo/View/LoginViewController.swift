@@ -60,7 +60,7 @@ final class LoginViewController: UIViewController, MVVM.View {
 // MARK: - Private
 extension LoginViewController {
     fileprivate func setupActions() {
-        loginButton.addTarget(self, action: #selector(LoginViewController.login), for: .touchUpInside)
+        loginButton.addTarget(self, action: #selector(login), for: .touchUpInside)
     }
 
     @objc private func login() {

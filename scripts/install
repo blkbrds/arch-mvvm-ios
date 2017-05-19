@@ -5,12 +5,15 @@
 # update submodule if need
 if [[ "$CI" != 'true' ]]; then
     git submodule update --init --recursive
+    mkdir -p .git/hooks
+    yes | cp -rf scripts/git/hooks/* .git/hooks/
 fi
 
 # homebrew
 if ! which brew > /dev/null; then
     sudo chown -R "$(whoami)":admin '/usr/local'
     /usr/bin/ruby -e "$(curl -fsSL 'https://raw.githubusercontent.com/Homebrew/install/master/install')"
+    mkdir -p '/Library/Caches/Homebrew'
     sudo chown -R "$(whoami)":admin '/Library/Caches/Homebrew'
 fi
 
@@ -38,8 +41,5 @@ brew tap Homebrew/bundle
 brew bundle
 
 if ! bundle exec pod install; then
-    echo 'Setup cocoapods...'
-    bundle exec pod setup --silent > /dev/null
-    bundle exec pod repo update --silent
-    bundle exec pod install
+    bundle exec pod install --repo-update
 fi

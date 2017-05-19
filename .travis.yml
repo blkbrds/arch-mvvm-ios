@@ -6,6 +6,7 @@ cache:
   directories:
     - ~/.rbenv
     - ~/.cocoapods
+    - ~/Library/Caches/CocoaPods
     - .bundle
     - vendor
 env:
@@ -13,21 +14,19 @@ env:
     - SDK="iphonesimulator10.3"
     - SCHEME='Demo'
     - WORKSPACE='MVVM.xcworkspace'
-    - DESTINATION="platform=iOS Simulator,OS=10.2,id=22FA2149-1241-469C-BF6D-462D3837DB72"
+    - DESTINATION="OS=10.3,name=iPhone 7"
     - CONFIGURATION='Debug'
 install:
   - set -o pipefail
   - ./scripts/install
 script:
-  # export custom environment variables
   - export REPO_SLUG="$TRAVIS_REPO_SLUG"
   - export SRC_BRANCH="$(./scripts/ci/src_branch)"
   - export PR_NUMBER="$(./scripts/ci/pr_number)"
-  # execute tests
-  - ./scripts/tests/branch
-  - ./scripts/tests/lint
+  - ./scripts/tests/pod
   - ./scripts/tests/app
+  - ./scripts/tests/lint
 notifications:
   email: false
 after_success:
-  - ./scripts/tests/cover
+  - ./scripts/ci/codecov

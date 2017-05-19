@@ -70,10 +70,10 @@ fastlane/Preview.html
 fastlane/screenshots
 fastlane/test_output
 
+# End of https://www.gitignore.io/api/swift
+
 # Bundler
 .bundle
 vendor/bundle
-
 *.coverage.txt
-
-# End of https://www.gitignore.io/api/swift
+swiftlint-report.json
