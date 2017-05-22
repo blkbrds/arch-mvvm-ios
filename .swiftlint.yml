@@ -76,11 +76,6 @@ custom_rules:
     message: "There should be a space after //"
     severity: warning
     match_kinds: comment
-  empty_line:
-    name: "Empty Line"
-    regex: "(\}\n[ \t]*([ \t]|class|static|dynamic|@objc|@IBAction|override|private|public|internal)*func)"
-    message: "Must have an empty line between functions. "
-    severity: warning
   switch_enum:
     name: "Switch Enum"
     regex: "(case\s\w+\.+rawValue:)"

@@ -15,7 +15,7 @@ private enum Segue: String {
 
 final class LoginViewController: UIViewController, MVVM.View {
     // MARK: - MVVM
-    typealias T = LoginViewModel
+    typealias ViewModel = LoginViewModel
     var viewModel = LoginViewModel(user: nil) {
         didSet {
             updateView()

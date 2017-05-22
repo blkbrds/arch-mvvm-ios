@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		EC09230B1EAEF42C00D06EA2 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0923051EAEF42C00D06EA2 /* Model.swift */; };
-		EC09230C1EAEF42C00D06EA2 /* MVVM.h in Headers */ = {isa = PBXBuildFile; fileRef = EC0923061EAEF42C00D06EA2 /* MVVM.h */; };
 		EC09230D1EAEF42C00D06EA2 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0923071EAEF42C00D06EA2 /* View.swift */; };
 		EC09230E1EAEF42C00D06EA2 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0923081EAEF42C00D06EA2 /* ViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -16,7 +15,6 @@
 /* Begin PBXFileReference section */
 		EC0923041EAEF42C00D06EA2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC0923051EAEF42C00D06EA2 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		EC0923061EAEF42C00D06EA2 /* MVVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVVM.h; sourceTree = "<group>"; };
 		EC0923071EAEF42C00D06EA2 /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		EC0923081EAEF42C00D06EA2 /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		EC09230F1EAEF85100D06EA2 /* MVVM.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = MVVM.podspec; sourceTree = "<group>"; };
@@ -38,7 +36,6 @@
 			isa = PBXGroup;
 			children = (
 				EC0923041EAEF42C00D06EA2 /* Info.plist */,
-				EC0923061EAEF42C00D06EA2 /* MVVM.h */,
 				EC0923051EAEF42C00D06EA2 /* Model.swift */,
 				EC0923071EAEF42C00D06EA2 /* View.swift */,
 				EC0923081EAEF42C00D06EA2 /* ViewModel.swift */,
@@ -70,7 +67,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC09230C1EAEF42C00D06EA2 /* MVVM.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,7 +261,7 @@
 				INFOPLIST_FILE = MVVM/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = vn.asiantech.dev.MVVM;
+				PRODUCT_BUNDLE_IDENTIFIER = vn.asiantech.dev.mvvm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -285,7 +281,7 @@
 				INFOPLIST_FILE = MVVM/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = vn.asiantech.dev.MVVM;
+				PRODUCT_BUNDLE_IDENTIFIER = vn.asiantech.dev.mvvm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;

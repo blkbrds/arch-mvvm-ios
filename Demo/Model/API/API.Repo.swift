@@ -31,11 +31,6 @@ extension Api.Repo {
     }
 }
 
-enum Direction: String {
-    case asc
-    case desc
-}
-
 extension Api.Repo.QueryParams {
     enum `Type`: String {
         case all

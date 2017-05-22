@@ -8,9 +8,9 @@
 
 import Foundation
 
-public protocol ViewModel: class { }
+@objc public protocol ViewModel: class { }
 
-// MARK: ObjectViewModel
+// MARK: - Object
 
 public struct PropertyChange {
     public let name: String
@@ -32,7 +32,7 @@ public protocol ObjectViewModel: ViewModel {
     weak var delegate: ObjectViewModelDelegate? { set get }
 }
 
-// MARK: CollectionViewModel
+// MARK: - Collection
 
 public enum CollectionChanges {
     case initial
@@ -45,9 +45,8 @@ public protocol CollectionViewModelDelegate: class {
 }
 
 public protocol CollectionViewModel: ViewModel {
-    associatedtype Item: ViewModel
     weak var delegate: CollectionViewModelDelegate? { set get }
-    var numberOfSections: Int { get }
-    func numberOfRowsInSection(_ section: Int) -> Int
-    func itemForRow(at indexPath: IndexPath) -> Item
+    func numberOfSections() -> Int
+    func numberOfItemsInSection(_ section: Int) -> Int
+    func viewModelForItem<ViewModel>(at indexPath: IndexPath) -> ViewModel
 }

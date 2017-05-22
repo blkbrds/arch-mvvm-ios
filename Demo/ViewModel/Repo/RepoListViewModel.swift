@@ -12,32 +12,35 @@ import RealmS
 import MVVM
 
 class RepoListViewModel: MVVM.CollectionViewModel {
-    typealias Item = RepoCellViewModel
     weak var delegate: CollectionViewModelDelegate?
 
     private var repos: Results<Repo>?
     private var token: NotificationToken?
 
-    var numberOfSections: Int {
+    func numberOfSections() -> Int {
         guard let _ = repos else {
             return 0
         }
         return 1
     }
 
-    func numberOfRowsInSection(_ section: Int) -> Int {
+    func numberOfItemsInSection(_ section: Int) -> Int {
         guard let repos = repos else {
             return 0
         }
         return repos.count
     }
 
-    func itemForRow(at indexPath: IndexPath) -> RepoCellViewModel {
+    func viewModelForItem(at indexPath: IndexPath) -> RepoCellViewModel {
         guard let repos = repos else {
             fatalError("Please call `fetch()` first.")
         }
         let repo = repos[indexPath.row]
         return RepoCellViewModel(repo: repo)
+    }
+
+    func viewModelForItem(at indexPath: IndexPath) -> NotifyCellViewModel {
+        //
     }
 
     // MARK: - Action

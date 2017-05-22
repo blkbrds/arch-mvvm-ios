@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    static lazy var shared: AppDelegate = {
+    static var shared: AppDelegate = {
         guard let shared = UIApplication.shared.delegate as? AppDelegate else {
             fatalError("Unexpected error occurred.")
         }

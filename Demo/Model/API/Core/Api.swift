@@ -11,7 +11,10 @@ import Foundation
 final class Api {
     struct Path {
         static var baseURL = "https://api.github.com"
-        static var users: String { return baseURL + "/users" }
+        static var users: String { return baseURL / "users" }
+    }
+
+    struct User {
     }
 
     struct Me {
@@ -20,12 +23,42 @@ final class Api {
     struct Repo {
         var id: String
     }
+
+    struct Notif {
+        var id: String
+    }
 }
 
 extension Api.Path {
-    struct Me {
-        static var path: String { return Api.Path.baseURL + "/user" }
-        static var login: String { return path }
-        static var repos: String { return Me.path + "/repos" }
+    struct User: URLStringConvertible {
+        var id: String
+        var urlString: String { return "users" / id }
     }
+
+    struct Me: URLStringConvertible {
+        var urlString: String { return Api.Path.baseURL / "user" }
+        var login: String { return urlString }
+        var repos: String { return urlString / "repos" }
+        var notifs: String { return urlString / "notifications" }
+    }
+}
+
+fileprivate protocol URLStringConvertible {
+    var urlString: String { get }
+}
+
+extension URL: URLStringConvertible {
+    fileprivate var urlString: String { return absoluteString }
+}
+
+extension String: URLStringConvertible {
+    fileprivate var urlString: String { return self }
+}
+
+extension Int: URLStringConvertible {
+    fileprivate var urlString: String { return String(describing: self) }
+}
+
+fileprivate func / (lhs: URLStringConvertible, rhs: URLStringConvertible) -> String {
+    return "\(lhs.urlString)/\(rhs.urlString)"
 }

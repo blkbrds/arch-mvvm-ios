@@ -9,7 +9,7 @@
 import UIKit
 
 extension NSNotification.Name {
-    public static let viewDidUpdated = NSNotification.Name("MVVM.viewDidUpdated")
+    public static let viewDidUpdated = NSNotification.Name("viewDidUpdated")
 }
 
 public protocol View: class {
