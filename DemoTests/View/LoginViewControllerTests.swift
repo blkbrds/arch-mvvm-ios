@@ -19,7 +19,7 @@ final class LoginViewControllerTests: XCTestCase {
     override func setUp() {
         super.setUp()
         let nc = NotificationCenter.default
-        nc.addObserver(self, selector: #selector(viewDidUpdated), name: NSNotification.Name(MVVM.ViewDidUpdatedNotification), object: nil)
+        nc.addObserver(self, selector: #selector(viewDidUpdated), name: .viewDidUpdated, object: nil)
     }
 
     override func tearDown() {

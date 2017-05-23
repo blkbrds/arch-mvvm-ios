@@ -11,28 +11,27 @@ import RealmSwift
 import RealmS
 import MVVM
 
-class RepoListViewModel: MVVM.CollectionViewModel {
-    typealias Item = RepoCellViewModel
-    weak var delegate: CollectionViewModelDelegate?
+class RepoListViewModel: MVVM.ViewModel {
+    weak var delegate: ViewModelDelegate?
 
     private var repos: Results<Repo>?
     private var token: NotificationToken?
 
-    var numberOfSections: Int {
+    func numberOfSections() -> Int {
         guard let _ = repos else {
             return 0
         }
         return 1
     }
 
-    func numberOfRowsInSection(_ section: Int) -> Int {
+    func numberOfItemsInSection(_ section: Int) -> Int {
         guard let repos = repos else {
             return 0
         }
         return repos.count
     }
 
-    func itemForRow(at indexPath: IndexPath) -> RepoCellViewModel {
+    func viewModelForItem(at indexPath: IndexPath) -> RepoCellViewModel {
         guard let repos = repos else {
             fatalError("Please call `fetch()` first.")
         }
@@ -46,7 +45,7 @@ class RepoListViewModel: MVVM.CollectionViewModel {
         repos = RealmS().objects(Repo.self).sorted(byKeyPath: "id", ascending: true)
         token = repos?.addNotificationBlock({ [weak self] (change) in
             guard let this = self else { return }
-            this.delegate?.viewModel(change: change.changes)
+            this.notify(change: change)
         })
     }
 
@@ -60,7 +59,7 @@ class RepoListViewModel: MVVM.CollectionViewModel {
     func getRepos(completion: @escaping GetReposCompletion) {
         let params = Api.Repo.QueryParams(
             type: .all,
-            sort: .full_name,
+            sort: .fullName,
             direction: .desc
         )
         Api.Repo.query(params: params) { (result) in

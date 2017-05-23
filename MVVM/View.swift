@@ -8,16 +8,17 @@
 
 import UIKit
 
-public let ViewDidUpdatedNotification = "MVVM.ViewDidUpdatedNotification"
+extension NSNotification.Name {
+    public static let viewDidUpdated = NSNotification.Name("viewDidUpdated")
+}
 
-public protocol View: class {
-    associatedtype T: ViewModel
-    var viewModel: T { set get }
+@objc public protocol View: class {
+    @objc optional var viewModel: ViewModel { set get }
 }
 
 extension View {
     public func viewDidUpdated() {
         let nc = NotificationCenter.default
-        nc.post(name: NSNotification.Name(rawValue: ViewDidUpdatedNotification), object: self)
+        nc.post(name: .viewDidUpdated, object: self)
     }
 }

@@ -8,4 +8,4 @@
 
 import Foundation
 
-public protocol Model: class { }
+@objc public protocol Model: class { }

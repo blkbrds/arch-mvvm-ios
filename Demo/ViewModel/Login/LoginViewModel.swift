@@ -77,5 +77,3 @@ final class LoginViewModel: MVVM.ViewModel {
         }
     }
 }
-
-

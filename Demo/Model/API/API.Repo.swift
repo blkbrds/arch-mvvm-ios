@@ -20,7 +20,7 @@ extension Api.Repo {
     // https://developer.github.com/v3/repos/#list-your-repositories
     @discardableResult
     static func query(params: QueryParams, completion: @escaping Completion) -> Request? {
-        let path = Api.Path.Me.repos
+        let path = Api.Path.Me().repos
         return api.request(method: .get, urlString: path) { (result) in
             Mapper<Repo>().map(result: result, type: .array, completion: { (result) in
                 DispatchQueue.main.async {
@@ -29,11 +29,6 @@ extension Api.Repo {
             })
         }
     }
-}
-
-enum Direction: String {
-    case asc
-    case desc
 }
 
 extension Api.Repo.QueryParams {
@@ -49,6 +44,6 @@ extension Api.Repo.QueryParams {
         case created
         case updated
         case pushed
-        case full_name
+        case fullName = "full_name"
     }
 }

@@ -1,16 +1,16 @@
 //
-//  RepoListViewController.swift
-//  MVVM
+//  NotifListViewController.swift
+//  Demo
 //
-//  Created by DaoNV on 3/16/17.
+//  Created by DaoNV on 5/21/17.
 //  Copyright © 2017 Asian Tech Co., Ltd. All rights reserved.
 //
 
 import UIKit
 import MVVM
 
-final class RepoListViewController: UITableViewController, MVVM.View {
-    var viewModel = RepoListViewModel() {
+final class NotifListViewController: UITableViewController, MVVM.View {
+    var viewModel = NotifListViewModel() {
         didSet {
             updateView()
         }
@@ -31,7 +31,7 @@ final class RepoListViewController: UITableViewController, MVVM.View {
             let window = AppDelegate.shared.window {
             window.rootViewController = navi
         }
-        viewModel.getRepos { [weak self] (result) in
+        viewModel.getNotifs { [weak self] (result) in
             guard let this = self else { return }
             switch result {
             case .success:
@@ -44,13 +44,13 @@ final class RepoListViewController: UITableViewController, MVVM.View {
     }
 }
 
-extension RepoListViewController: ViewModelDelegate {
+extension NotifListViewController: ViewModelDelegate {
     func viewModel(_ viewModel: ViewModel, didChangeItemsAt indexPaths: [IndexPath], changeType: ChangeType) {
         updateView()
     }
 }
 
-extension RepoListViewController {
+extension NotifListViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.numberOfSections()
     }
@@ -60,17 +60,17 @@ extension RepoListViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "RepoCell") as? RepoCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "NotifCell") as? NotifCell
             else { fatalError() }
-        cell.viewModel = viewModel.viewModelForItem(at: indexPath)
+        cell.viewModel = viewModel.viewModelForItem(at: indexPath) as? NotifCellViewModel
         return cell
     }
 }
 
 // MARK: - Private
-extension RepoListViewController {
+extension NotifListViewController {
     fileprivate func configTable() {
-        tableView.register(RepoCell.self, forCellReuseIdentifier: "RepoCell")
+        tableView.register(NotifCell.self, forCellReuseIdentifier: "NotifCell")
         tableView.dataSource = self
     }
 

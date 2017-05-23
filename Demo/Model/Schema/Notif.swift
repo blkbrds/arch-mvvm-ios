@@ -1,8 +1,8 @@
 //
-//  Repo.swift
-//  MVVM
+//  Notif.swift
+//  Demo
 //
-//  Created by DaoNV on 4/4/17.
+//  Created by DaoNV on 5/22/17.
 //  Copyright © 2017 Asian Tech Co., Ltd. All rights reserved.
 //
 
@@ -11,13 +11,12 @@ import RealmSwift
 import ObjectMapper
 import RealmS
 
-final class Repo: Object, StaticMappable {
+final class Notif: Object, StaticMappable {
     dynamic var id = 0
     dynamic var name = ""
-    dynamic var fullName = ""
     dynamic var desc: String?
-    dynamic var owner: User?
-    dynamic var isPrivate = false
+    dynamic var repo: Repo?
+    dynamic var isUnread = true
 
     override static func primaryKey() -> String? {
         return "id"
@@ -25,10 +24,9 @@ final class Repo: Object, StaticMappable {
 
     func mapping(map: Map) {
         name <- map["name"]
-        fullName <- map["full_name"]
         desc <- map["description"]
-        owner <- map["owner"]
-        isPrivate <- map["private"]
+        repo <- map["repository"]
+        isUnread <- map["unread"]
     }
 
     static func objectForMapping(map: Map) -> BaseMappable? {

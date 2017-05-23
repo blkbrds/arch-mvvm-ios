@@ -13,7 +13,13 @@ import RealmSwift
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    static let shared = UIApplication.shared.delegate as! AppDelegate
+
+    static var shared: AppDelegate = {
+        guard let shared = UIApplication.shared.delegate as? AppDelegate else {
+            fatalError("Unexpected error occurred.")
+        }
+        return shared
+    }()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         Realm.Configuration.defaultConfiguration = {

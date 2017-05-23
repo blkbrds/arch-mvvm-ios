@@ -19,7 +19,7 @@ final class RepoListViewControllerTests: XCTestCase {
     override func setUp() {
         super.setUp()
         let nc = NotificationCenter.default
-        nc.addObserver(self, selector: #selector(viewDidUpdated), name: NSNotification.Name(MVVM.ViewDidUpdatedNotification), object: nil)
+        nc.addObserver(self, selector: #selector(viewDidUpdated), name: .viewDidUpdated, object: nil)
     }
 
     override func tearDown() {
@@ -27,7 +27,7 @@ final class RepoListViewControllerTests: XCTestCase {
         nc.removeObserver(self)
         super.tearDown()
     }
-    
+
     func testLoad() {
         ex = expectation(description: "testLoad")
         let vc = repoListViewController()
@@ -52,9 +52,15 @@ final class RepoListViewControllerTests: XCTestCase {
 }
 
 private final class RepoListViewModel: Demo.RepoListViewModel {
-    override var numberOfSections: Int { return 1 }
-    override func numberOfRowsInSection(_ section: Int) -> Int { return 2 }
-    override func itemForRow(at indexPath: IndexPath) -> RepoCellViewModel { return .test }
+    override func numberOfSections() -> Int {
+        return 1
+    }
+
+    override func numberOfItemsInSection(_ section: Int) -> Int {
+        return 2
+    }
+
+    override func viewModelForItem(at indexPath: IndexPath) -> RepoCellViewModel {
+        return .test
+    }
 }
-
-

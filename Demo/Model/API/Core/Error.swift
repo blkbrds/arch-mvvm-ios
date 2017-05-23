@@ -25,20 +25,20 @@ extension Api {
     struct Error {
         static let network = NSError(domain: Api.Path.baseURL.host, status: HTTPStatus.requestTimeout, message: "The Internet connection appears to be offline.")
         static let authen = NSError(domain: Api.Path.baseURL.host, status: HTTPStatus.unauthorized)
-        static let json = NSError(domain: NSCocoaErrorDomain, code: 3840, message: "The operation couldn’t be completed.")
+        static let json = NSError(domain: NSCocoaErrorDomain, code: 3_840, message: "The operation couldn’t be completed.")
         static let apiKey = NSError(domain: Api.Path.baseURL.host, status: HTTPStatus.badRequest)
     }
 }
 
 extension Error {
     func show() {
-        let this = self as NSError
-        this.show()
+        let `self` = self as NSError
+        self.show()
     }
-    
+
     public var code: Int {
-        let this = self as NSError
-        return this.code
+        let `self` = self as NSError
+        return self.code
     }
 }
 

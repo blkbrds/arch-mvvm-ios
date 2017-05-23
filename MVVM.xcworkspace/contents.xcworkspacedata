@@ -5,12 +5,9 @@
       location = "group:MVVM.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:/Users/Home/dev/repo/mvvm-ios/Demo.xcodeproj">
+      location = "group:Demo.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:Demo.xcodeproj">
    </FileRef>
 </Workspace>
