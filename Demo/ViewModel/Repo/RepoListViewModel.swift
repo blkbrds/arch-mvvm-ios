@@ -11,7 +11,7 @@ import RealmSwift
 import RealmS
 import MVVM
 
-final class RepoListViewModel: MVVM.ViewModel {
+class RepoListViewModel: MVVM.ViewModel {
     weak var delegate: ViewModelDelegate?
 
     private var repos: Results<Repo>?

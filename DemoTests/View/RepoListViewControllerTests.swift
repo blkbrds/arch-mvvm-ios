@@ -52,7 +52,15 @@ final class RepoListViewControllerTests: XCTestCase {
 }
 
 private final class RepoListViewModel: Demo.RepoListViewModel {
-    override var numberOfSections: Int { return 1 }
-    override func numberOfRowsInSection(_ section: Int) -> Int { return 2 }
-    override func itemForRow(at indexPath: IndexPath) -> RepoCellViewModel { return .test }
+    override func numberOfSections() -> Int {
+        return 1
+    }
+
+    override func numberOfItemsInSection(_ section: Int) -> Int {
+        return 2
+    }
+
+    override func viewModelForItem(at indexPath: IndexPath) -> RepoCellViewModel {
+        return .test
+    }
 }
