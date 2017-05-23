@@ -16,6 +16,8 @@ final class RepoListViewController: UITableViewController, MVVM.View {
         }
     }
 
+    // MARK: - Life cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configTable()
@@ -30,23 +32,20 @@ final class RepoListViewController: UITableViewController, MVVM.View {
             window.rootViewController = navi
         }
         viewModel.getRepos { [weak self] (result) in
-            guard let this = self, let navi = this.navigationController else { return }
+            guard let this = self else { return }
             switch result {
             case .success:
                 break
             case .failure(let error):
-                let alert = UIAlertController(title: "", message: error.localizedDescription, preferredStyle: .alert)
-                let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
-                alert.addAction(ok)
-                navi.present(alert, animated: true, completion: nil)
+                this.alert(error: error)
             }
             this.viewDidUpdated()
         }
     }
 }
 
-extension RepoListViewController: CollectionViewModelDelegate {
-    func viewModel(change changes: CollectionChanges) {
+extension RepoListViewController: ViewModelDelegate {
+    func viewModel(_ viewModel: ViewModel, didChangeItemsAt indexPaths: [IndexPath], changeType: ChangeType) {
         updateView()
     }
 }

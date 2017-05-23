@@ -43,7 +43,7 @@ final class RepoListViewModelTests: XCTestCase {
     }
 }
 
-extension RepoListViewModelTests: CollectionViewModelDelegate {
+extension RepoListViewModelTests: ViewModelDelegate {
     func viewModel(change changes: CollectionChanges) {
     }
 }

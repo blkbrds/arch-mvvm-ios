@@ -17,7 +17,7 @@
                BlueprintIdentifier = "ECDC354A1EA9BAB900697E91"
                BuildableName = "MVVM.framework"
                BlueprintName = "MVVM"
-               ReferencedContainer = "container:MVVM/MVVM.xcodeproj">
+               ReferencedContainer = "container:MVVM.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry

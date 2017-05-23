@@ -14,19 +14,17 @@ private enum Segue: String {
 }
 
 final class LoginViewController: UIViewController, MVVM.View {
-    // MARK: - MVVM
-    typealias ViewModel = LoginViewModel
     var viewModel = LoginViewModel(user: nil) {
         didSet {
             updateView()
         }
     }
 
-    // MARK: -
-
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var accessTokenField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
+
+    // MARK: - Life cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,13 +78,11 @@ extension LoginViewController {
                 this.viewDidUpdated()
             }
         case .failure(let field, let msg):
-            let alert = UIAlertController(title: "ERROR", message: msg, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { [weak self] _ in
+            alert(title: Strings.error, msg: msg, buttons: [Strings.ok], handler: { [weak self] _ in
                 guard let this = self else { return }
                 let fld = this.textField(for: field)
                 fld.becomeFirstResponder()
-            }))
-            present(alert, animated: true, completion: nil)
+            })
             viewDidUpdated()
         }
     }

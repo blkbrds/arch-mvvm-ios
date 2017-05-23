@@ -12,9 +12,8 @@ extension NSNotification.Name {
     public static let viewDidUpdated = NSNotification.Name("viewDidUpdated")
 }
 
-public protocol View: class {
-    associatedtype ViewModel: MVVM.ViewModel
-    var viewModel: ViewModel { set get }
+@objc public protocol View: class {
+    @objc optional var viewModel: ViewModel { set get }
 }
 
 extension View {

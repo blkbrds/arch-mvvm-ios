@@ -11,45 +11,45 @@ import RealmSwift
 import RealmS
 import MVVM
 
-class NotifListViewModel: MVVM.CollectionViewModel {
-    weak var delegate: CollectionViewModelDelegate?
+final class NotifListViewModel: MVVM.ViewModel {
+    weak var delegate: ViewModelDelegate?
 
-    private var Notifs: Results<Notif>?
+    private var notifs: Results<Notif>?
     private var token: NotificationToken?
 
     func numberOfSections() -> Int {
-        guard let _ = Notifs else {
+        guard let _ = notifs else {
             return 0
         }
         return 1
     }
 
     func numberOfItemsInSection(_ section: Int) -> Int {
-        guard let Notifs = Notifs else {
+        guard let notifs = notifs else {
             return 0
         }
-        return Notifs.count
+        return notifs.count
     }
 
-    func viewModelForItem(at indexPath: IndexPath) -> NotifCellViewModel {
-        guard let Notifs = Notifs else {
+    func viewModelForItem(at indexPath: IndexPath) -> ViewModel {
+        guard let notifs = notifs else {
             fatalError("Please call `fetch()` first.")
         }
-        let Notif = Notifs[indexPath.row]
-        return NotifCellViewModel(notif: Notif)
+        let notif = notifs[indexPath.row]
+        return NotifCellViewModel(notif: notif)
     }
 
-    func viewModelForItem(at indexPath: IndexPath) -> NotifyCellViewModel {
-        //
+    func viewModelForHeaderInSection(_ section: Int) -> ViewModel {
+        fatalError()
     }
 
     // MARK: - Action
 
     func fetch() {
-        Notifs = RealmS().objects(Notif.self).sorted(byKeyPath: "id", ascending: true)
-        token = Notifs?.addNotificationBlock({ [weak self] (change) in
+        notifs = RealmS().objects(Notif.self).sorted(byKeyPath: "id", ascending: true)
+        token = notifs?.addNotificationBlock({ [weak self] (change) in
             guard let this = self else { return }
-            this.delegate?.viewModel(change: change.changes)
+            this.notify(change: change)
         })
     }
 
@@ -61,11 +61,7 @@ class NotifListViewModel: MVVM.CollectionViewModel {
     typealias GetNotifsCompletion = (GetNotifsResult) -> Void
 
     func getNotifs(completion: @escaping GetNotifsCompletion) {
-        let params = Api.Notif.QueryParams(
-            type: .all,
-            sort: .full_name,
-            direction: .desc
-        )
+        let params = Api.Notif.QueryParams(type: .all, sort: .fullName, direction: .desc)
         Api.Notif.query(params: params) { (result) in
             RealmS().refresh()
             switch result {

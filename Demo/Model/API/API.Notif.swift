@@ -17,9 +17,9 @@ extension Api.Notif {
         let direction: Direction
     }
 
-    // https://developer.github.com/v3/Notifs/#list-your-Notifsitories
+    // https://developer.github.com/v3/activity/notifications/#list-your-notifications
     @discardableResult
-    static func query(params: QueryParams, completion: @escaping Completion) -> Request? {
+    static func query(params: Api.Notif.QueryParams, completion: @escaping Completion) -> Request? {
         let path = Api.Path.Me().notifs
         return api.request(method: .get, urlString: path) { (result) in
             Mapper<Notif>().map(result: result, type: .array, completion: { (result) in
@@ -44,6 +44,6 @@ extension Api.Notif.QueryParams {
         case created
         case updated
         case pushed
-        case full_name
+        case fullName = "full_name"
     }
 }

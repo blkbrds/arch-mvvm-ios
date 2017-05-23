@@ -24,12 +24,10 @@
 		EC297E361ED27FC3004938CE /* RepoCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC297E301ED27FC3004938CE /* RepoCellViewModel.swift */; };
 		EC297E371ED27FC3004938CE /* RepoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC297E311ED27FC3004938CE /* RepoListViewModel.swift */; };
 		EC297E391ED27FF5004938CE /* Notif.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC297E381ED27FF5004938CE /* Notif.swift */; };
-		EC297E3C1ED2803B004938CE /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC297E3B1ED2803B004938CE /* Mapper.swift */; };
-		EC297E3F1ED28083004938CE /* CollectionChanges.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC297E3E1ED28083004938CE /* CollectionChanges.swift */; };
 		EC297E431ED280F9004938CE /* API.Me.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC297E401ED280F9004938CE /* API.Me.swift */; };
 		EC297E441ED280F9004938CE /* API.Notif.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC297E411ED280F9004938CE /* API.Notif.swift */; };
 		EC297E451ED280F9004938CE /* API.Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC297E421ED280F9004938CE /* API.Repo.swift */; };
-		EC297E471ED290EC004938CE /* ParamTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC297E461ED290EC004938CE /* ParamTypes.swift */; };
+		EC297E491ED2D52D004938CE /* NotifCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC297E481ED2D52D004938CE /* NotifCell.swift */; };
 		EC2C488D1EAF011C00B22F4B /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2C488C1EAF011C00B22F4B /* Utils.swift */; };
 		EC332A481EA0A8CB0011DF1E /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC332A471EA0A8CB0011DF1E /* Api.swift */; };
 		EC757EE11E939C3B009FC9E5 /* RepoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC757EDF1E939C3B009FC9E5 /* RepoCell.swift */; };
@@ -46,6 +44,11 @@
 		ECC3B1CB1EC1B196001345C6 /* DictionayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC3B1CA1EC1B196001345C6 /* DictionayTests.swift */; };
 		ECD1C29B1EA725B1000EC989 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD1C29A1EA725B1000EC989 /* InputView.swift */; };
 		ECDC355F1EA9BCBD00697E91 /* MVVM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECDC355E1EA9BCBD00697E91 /* MVVM.framework */; };
+		ECEC0C581ED44C5D00F6760A /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEC0C571ED44C5D00F6760A /* Strings.swift */; };
+		ECEC0C5A1ED44D4100F6760A /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEC0C591ED44D4100F6760A /* UIViewController.swift */; };
+		ECEC0C5C1ED44D5F00F6760A /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEC0C5B1ED44D5F00F6760A /* ViewModel.swift */; };
+		ECEC0C5E1ED44D7700F6760A /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEC0C5D1ED44D7700F6760A /* Mapper.swift */; };
+		ECEC0C601ED44DB100F6760A /* API.ParamTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEC0C5F1ED44DB100F6760A /* API.ParamTypes.swift */; };
 		ECF23AA71E9B8586008C23C1 /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF23AA41E9B8586008C23C1 /* Repo.swift */; };
 		ECF23AAA1E9B85AB008C23C1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF23AA91E9B85AB008C23C1 /* User.swift */; };
 		ECF23AB41E9B869B008C23C1 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF23AB11E9B869B008C23C1 /* ApiManager.swift */; };
@@ -110,12 +113,10 @@
 		EC297E301ED27FC3004938CE /* RepoCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoCellViewModel.swift; sourceTree = "<group>"; };
 		EC297E311ED27FC3004938CE /* RepoListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoListViewModel.swift; sourceTree = "<group>"; };
 		EC297E381ED27FF5004938CE /* Notif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notif.swift; sourceTree = "<group>"; };
-		EC297E3B1ED2803B004938CE /* Mapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mapper.swift; sourceTree = "<group>"; };
-		EC297E3E1ED28083004938CE /* CollectionChanges.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionChanges.swift; sourceTree = "<group>"; };
 		EC297E401ED280F9004938CE /* API.Me.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.Me.swift; sourceTree = "<group>"; };
 		EC297E411ED280F9004938CE /* API.Notif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.Notif.swift; sourceTree = "<group>"; };
 		EC297E421ED280F9004938CE /* API.Repo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.Repo.swift; sourceTree = "<group>"; };
-		EC297E461ED290EC004938CE /* ParamTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParamTypes.swift; sourceTree = "<group>"; };
+		EC297E481ED2D52D004938CE /* NotifCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotifCell.swift; sourceTree = "<group>"; };
 		EC2C488C1EAF011C00B22F4B /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		EC332A471EA0A8CB0011DF1E /* Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		EC757EDF1E939C3B009FC9E5 /* RepoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoCell.swift; sourceTree = "<group>"; };
@@ -135,6 +136,11 @@
 		ECD1C29A1EA725B1000EC989 /* InputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		ECDC355C1EA9BC4500697E91 /* MVVM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MVVM.framework; path = "MVVM/build/Debug-iphoneos/MVVM.framework"; sourceTree = "<group>"; };
 		ECDC355E1EA9BCBD00697E91 /* MVVM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MVVM.framework; path = "../../../Library/Developer/Xcode/DerivedData/MVVM-fojmkruklfepnegqcdofyxbwoxxm/Build/Products/Debug-iphonesimulator/MVVM.framework"; sourceTree = "<group>"; };
+		ECEC0C571ED44C5D00F6760A /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		ECEC0C591ED44D4100F6760A /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		ECEC0C5B1ED44D5F00F6760A /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		ECEC0C5D1ED44D7700F6760A /* Mapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mapper.swift; sourceTree = "<group>"; };
+		ECEC0C5F1ED44DB100F6760A /* API.ParamTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.ParamTypes.swift; sourceTree = "<group>"; };
 		ECF23AA41E9B8586008C23C1 /* Repo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repo.swift; sourceTree = "<group>"; };
 		ECF23AA91E9B85AB008C23C1 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		ECF23AB11E9B869B008C23C1 /* ApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
@@ -213,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				EC01053E1E8F8ADF00CE013D /* Config.swift */,
+				ECEC0C571ED44C5D00F6760A /* Strings.swift */,
 			);
 			path = Define;
 			sourceTree = "<group>";
@@ -252,7 +259,6 @@
 				EC297E291ED27FC3004938CE /* Login */,
 				EC297E2B1ED27FC3004938CE /* Notif */,
 				EC297E2F1ED27FC3004938CE /* Repo */,
-				EC297E3D1ED28083004938CE /* Utils */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -296,27 +302,11 @@
 			path = Repo;
 			sourceTree = "<group>";
 		};
-		EC297E3A1ED2803B004938CE /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				EC297E3B1ED2803B004938CE /* Mapper.swift */,
-				EC297E461ED290EC004938CE /* ParamTypes.swift */,
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
-		EC297E3D1ED28083004938CE /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				EC297E3E1ED28083004938CE /* CollectionChanges.swift */,
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
 		EC757EDE1E939C3B009FC9E5 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
 				EC757EDF1E939C3B009FC9E5 /* RepoCell.swift */,
+				EC297E481ED2D52D004938CE /* NotifCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -403,7 +393,6 @@
 			children = (
 				ECF23AAF1E9B869B008C23C1 /* API */,
 				ECF23AA31E9B8586008C23C1 /* Schema */,
-				EC297E3A1ED2803B004938CE /* Utils */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -425,6 +414,7 @@
 				EC297E401ED280F9004938CE /* API.Me.swift */,
 				EC297E411ED280F9004938CE /* API.Notif.swift */,
 				EC297E421ED280F9004938CE /* API.Repo.swift */,
+				ECEC0C5F1ED44DB100F6760A /* API.ParamTypes.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -453,11 +443,14 @@
 		ECF23AC11E9B9253008C23C1 /* Ext */ = {
 			isa = PBXGroup;
 			children = (
-				ECF23AC81E9B982D008C23C1 /* NSURL.swift */,
-				ECF23AC21E9B9264008C23C1 /* String.swift */,
 				ECF23AC41E9B927C008C23C1 /* Data.swift */,
 				ECF23AC61E9B9328008C23C1 /* Dictionary.swift */,
 				ECD1C29A1EA725B1000EC989 /* InputView.swift */,
+				ECEC0C5D1ED44D7700F6760A /* Mapper.swift */,
+				ECF23AC81E9B982D008C23C1 /* NSURL.swift */,
+				ECF23AC21E9B9264008C23C1 /* String.swift */,
+				ECEC0C591ED44D4100F6760A /* UIViewController.swift */,
+				ECEC0C5B1ED44D5F00F6760A /* ViewModel.swift */,
 			);
 			path = Ext;
 			sourceTree = "<group>";
@@ -686,20 +679,21 @@
 				EC0105581E8F8AE000CE013D /* LoginViewController.swift in Sources */,
 				ECF23AC31E9B9264008C23C1 /* String.swift in Sources */,
 				EC0518C81ED1926A00189D64 /* NotifListViewController.swift in Sources */,
-				EC297E3C1ED2803B004938CE /* Mapper.swift in Sources */,
+				ECEC0C5E1ED44D7700F6760A /* Mapper.swift in Sources */,
 				ECF23ABA1E9B89B2008C23C1 /* RequestSerializer.swift in Sources */,
 				EC297E391ED27FF5004938CE /* Notif.swift in Sources */,
 				ECF23AC51E9B927C008C23C1 /* Data.swift in Sources */,
 				EC0105511E8F8AE000CE013D /* Config.swift in Sources */,
+				ECEC0C601ED44DB100F6760A /* API.ParamTypes.swift in Sources */,
 				EC297E331ED27FC3004938CE /* NotifCellViewModel.swift in Sources */,
 				EC297E371ED27FC3004938CE /* RepoListViewModel.swift in Sources */,
 				EC0105571E8F8AE000CE013D /* RepoListViewController.swift in Sources */,
+				EC297E491ED2D52D004938CE /* NotifCell.swift in Sources */,
 				ECF23ABC1E9B89B2008C23C1 /* Session.swift in Sources */,
 				EC297E341ED27FC3004938CE /* NotifListViewModel.swift in Sources */,
 				ECF23AC91E9B982D008C23C1 /* NSURL.swift in Sources */,
-				EC297E3F1ED28083004938CE /* CollectionChanges.swift in Sources */,
 				EC297E441ED280F9004938CE /* API.Notif.swift in Sources */,
-				EC297E471ED290EC004938CE /* ParamTypes.swift in Sources */,
+				ECEC0C5C1ED44D5F00F6760A /* ViewModel.swift in Sources */,
 				ECF23AA71E9B8586008C23C1 /* Repo.swift in Sources */,
 				EC297E351ED27FC3004938CE /* NotifRepoViewModel.swift in Sources */,
 				EC0105541E8F8AE000CE013D /* AppDelegate.swift in Sources */,
@@ -707,6 +701,8 @@
 				ECD1C29B1EA725B1000EC989 /* InputView.swift in Sources */,
 				ECF23AB41E9B869B008C23C1 /* ApiManager.swift in Sources */,
 				ECF23AC71E9B9328008C23C1 /* Dictionary.swift in Sources */,
+				ECEC0C5A1ED44D4100F6760A /* UIViewController.swift in Sources */,
+				ECEC0C581ED44C5D00F6760A /* Strings.swift in Sources */,
 				EC297E321ED27FC3004938CE /* LoginViewModel.swift in Sources */,
 				EC297E451ED280F9004938CE /* API.Repo.swift in Sources */,
 				EC297E361ED27FC3004938CE /* RepoCellViewModel.swift in Sources */,

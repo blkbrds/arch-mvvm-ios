@@ -15,6 +15,8 @@ final class Notif: Object, StaticMappable {
     dynamic var id = 0
     dynamic var name = ""
     dynamic var desc: String?
+    dynamic var repo: Repo?
+    dynamic var isUnread = true
 
     override static func primaryKey() -> String? {
         return "id"
@@ -23,6 +25,8 @@ final class Notif: Object, StaticMappable {
     func mapping(map: Map) {
         name <- map["name"]
         desc <- map["description"]
+        repo <- map["repository"]
+        isUnread <- map["unread"]
     }
 
     static func objectForMapping(map: Map) -> BaseMappable? {

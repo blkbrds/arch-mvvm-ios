@@ -14,7 +14,10 @@ import RealmS
 final class Repo: Object, StaticMappable {
     dynamic var id = 0
     dynamic var name = ""
+    dynamic var fullName = ""
     dynamic var desc: String?
+    dynamic var owner: User?
+    dynamic var isPrivate = false
 
     override static func primaryKey() -> String? {
         return "id"
@@ -22,7 +25,10 @@ final class Repo: Object, StaticMappable {
 
     func mapping(map: Map) {
         name <- map["name"]
+        fullName <- map["full_name"]
         desc <- map["description"]
+        owner <- map["owner"]
+        isPrivate <- map["private"]
     }
 
     static func objectForMapping(map: Map) -> BaseMappable? {

@@ -16,6 +16,8 @@ final class NotifListViewController: UITableViewController, MVVM.View {
         }
     }
 
+    // MARK: - Life cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configTable()
@@ -30,23 +32,20 @@ final class NotifListViewController: UITableViewController, MVVM.View {
             window.rootViewController = navi
         }
         viewModel.getNotifs { [weak self] (result) in
-            guard let this = self, let navi = this.navigationController else { return }
+            guard let this = self else { return }
             switch result {
             case .success:
                 break
             case .failure(let error):
-                let alert = UIAlertController(title: "", message: error.localizedDescription, preferredStyle: .alert)
-                let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
-                alert.addAction(ok)
-                navi.present(alert, animated: true, completion: nil)
+                this.alert(error: error)
             }
             this.viewDidUpdated()
         }
     }
 }
 
-extension NotifListViewController: CollectionViewModelDelegate {
-    func viewModel(change changes: CollectionChanges) {
+extension NotifListViewController: ViewModelDelegate {
+    func viewModel(_ viewModel: ViewModel, didChangeItemsAt indexPaths: [IndexPath], changeType: ChangeType) {
         updateView()
     }
 }
@@ -57,13 +56,13 @@ extension NotifListViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfRowsInSection(section)
+        return viewModel.numberOfItemsInSection(section)
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "NotifCell") as? NotifCell
             else { fatalError() }
-        cell.viewModel = viewModel.itemForRow(at: indexPath)
+        cell.viewModel = viewModel.viewModelForItem(at: indexPath) as? NotifCellViewModel
         return cell
     }
 }

@@ -8,45 +8,25 @@
 
 import Foundation
 
-@objc public protocol ViewModel: class { }
-
-// MARK: - Object
-
-public struct PropertyChange {
-    public let name: String
-    public let oldValue: Any?
-    public let newValue: Any?
-}
-
-public enum ObjectChanges {
-    case error(_: Error)
-    case change(_: [PropertyChange])
-    case deleted
-}
-
-public protocol ObjectViewModelDelegate: class {
-    func viewModel(change changes: ObjectChanges)
-}
-
-public protocol ObjectViewModel: ViewModel {
-    weak var delegate: ObjectViewModelDelegate? { set get }
-}
-
 // MARK: - Collection
 
-public enum CollectionChanges {
-    case initial
-    case update(deletions: [Int], insertions: [Int], modifications: [Int])
-    case error(Error)
+@objc public enum ChangeType: Int {
+    case insert
+    case delete
+    case update
+    case move
 }
 
-public protocol CollectionViewModelDelegate: class {
-    func viewModel(change changes: CollectionChanges)
+@objc public protocol ViewModelDelegate: class {
+    @objc optional func viewModel(_ viewModel: ViewModel, didChangeItemsAt indexPaths: [IndexPath], changeType: ChangeType)
 }
 
-public protocol CollectionViewModel: ViewModel {
-    weak var delegate: CollectionViewModelDelegate? { set get }
-    func numberOfSections() -> Int
-    func numberOfItemsInSection(_ section: Int) -> Int
-    func viewModelForItem<ViewModel>(at indexPath: IndexPath) -> ViewModel
+@objc public protocol ViewModel {
+    @objc optional func numberOfSections() -> Int
+    @objc optional func numberOfItemsInSection(_ section: Int) -> Int
+    @objc optional func viewModelForItem(at indexPath: IndexPath) -> ViewModel
+    @objc optional func viewModelForHeaderInSection(_ section: Int) -> ViewModel
+    @objc optional func viewModelForFooterInSection(_ section: Int) -> ViewModel
+    @objc optional func titleForHeaderInSection(_ section: Int) -> String?
+    @objc optional weak var delegate: ViewModelDelegate? { set get }
 }
