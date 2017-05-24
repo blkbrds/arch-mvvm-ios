@@ -18,7 +18,7 @@
 		EC0518C81ED1926A00189D64 /* NotifListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0518C71ED1926A00189D64 /* NotifListViewController.swift */; };
 		EC0BC7BC1EAE0A10009A738C /* Repo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC0BC7BA1EAE0A10009A738C /* Repo.storyboard */; };
 		EC297E321ED27FC3004938CE /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC297E2A1ED27FC3004938CE /* LoginViewModel.swift */; };
-		EC297E331ED27FC3004938CE /* NotifCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC297E2C1ED27FC3004938CE /* NotifCellViewModel.swift */; };
+		EC297E331ED27FC3004938CE /* NotifViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC297E2C1ED27FC3004938CE /* NotifViewModel.swift */; };
 		EC297E341ED27FC3004938CE /* NotifListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC297E2D1ED27FC3004938CE /* NotifListViewModel.swift */; };
 		EC297E351ED27FC3004938CE /* NotifRepoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC297E2E1ED27FC3004938CE /* NotifRepoViewModel.swift */; };
 		EC297E361ED27FC3004938CE /* RepoCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC297E301ED27FC3004938CE /* RepoCellViewModel.swift */; };
@@ -107,7 +107,7 @@
 		EC0518C71ED1926A00189D64 /* NotifListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotifListViewController.swift; sourceTree = "<group>"; };
 		EC0BC7BB1EAE0A10009A738C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Repo.storyboard; sourceTree = "<group>"; };
 		EC297E2A1ED27FC3004938CE /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
-		EC297E2C1ED27FC3004938CE /* NotifCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotifCellViewModel.swift; sourceTree = "<group>"; };
+		EC297E2C1ED27FC3004938CE /* NotifViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotifViewModel.swift; sourceTree = "<group>"; };
 		EC297E2D1ED27FC3004938CE /* NotifListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotifListViewModel.swift; sourceTree = "<group>"; };
 		EC297E2E1ED27FC3004938CE /* NotifRepoViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotifRepoViewModel.swift; sourceTree = "<group>"; };
 		EC297E301ED27FC3004938CE /* RepoCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoCellViewModel.swift; sourceTree = "<group>"; };
@@ -286,7 +286,7 @@
 		EC297E2B1ED27FC3004938CE /* Notif */ = {
 			isa = PBXGroup;
 			children = (
-				EC297E2C1ED27FC3004938CE /* NotifCellViewModel.swift */,
+				EC297E2C1ED27FC3004938CE /* NotifViewModel.swift */,
 				EC297E2D1ED27FC3004938CE /* NotifListViewModel.swift */,
 				EC297E2E1ED27FC3004938CE /* NotifRepoViewModel.swift */,
 			);
@@ -685,7 +685,7 @@
 				ECF23AC51E9B927C008C23C1 /* Data.swift in Sources */,
 				EC0105511E8F8AE000CE013D /* Config.swift in Sources */,
 				ECEC0C601ED44DB100F6760A /* API.ParamTypes.swift in Sources */,
-				EC297E331ED27FC3004938CE /* NotifCellViewModel.swift in Sources */,
+				EC297E331ED27FC3004938CE /* NotifViewModel.swift in Sources */,
 				EC297E371ED27FC3004938CE /* RepoListViewModel.swift in Sources */,
 				EC0105571E8F8AE000CE013D /* RepoListViewController.swift in Sources */,
 				EC297E491ED2D52D004938CE /* NotifCell.swift in Sources */,

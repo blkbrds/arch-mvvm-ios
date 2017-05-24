@@ -16,7 +16,12 @@ final class RepoCell: UITableViewCell, MVVM.View {
         }
     }
 
-    private func updateView() {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        updateView()
+    }
+
+    func updateView() {
         textLabel?.text = viewModel.name
         detailTextLabel?.text = viewModel.desc
     }

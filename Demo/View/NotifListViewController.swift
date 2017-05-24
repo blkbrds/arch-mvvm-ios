@@ -42,6 +42,12 @@ final class NotifListViewController: UITableViewController, MVVM.View {
             this.viewDidUpdated()
         }
     }
+
+    func updateView() {
+        guard isViewLoaded else { return }
+        tableView.reloadData()
+        viewDidUpdated()
+    }
 }
 
 extension NotifListViewController: ViewModelDelegate {
@@ -55,6 +61,11 @@ extension NotifListViewController {
         return viewModel.numberOfSections()
     }
 
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let vm = viewModel.viewModelForHeaderInSection(section)
+        return vm.repoFullName
+    }
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfItemsInSection(section)
     }
@@ -62,7 +73,7 @@ extension NotifListViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "NotifCell") as? NotifCell
             else { fatalError() }
-        cell.viewModel = viewModel.viewModelForItem(at: indexPath) as? NotifCellViewModel
+        cell.viewModel = viewModel.viewModelForItem(at: indexPath)
         return cell
     }
 }
@@ -72,11 +83,5 @@ extension NotifListViewController {
     fileprivate func configTable() {
         tableView.register(NotifCell.self, forCellReuseIdentifier: "NotifCell")
         tableView.dataSource = self
-    }
-
-    fileprivate func updateView() {
-        guard isViewLoaded else { return }
-        tableView.reloadData()
-        viewDidUpdated()
     }
 }

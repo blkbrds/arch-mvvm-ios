@@ -10,13 +10,18 @@ import UIKit
 import MVVM
 
 final class NotifCell: UITableViewCell, MVVM.View {
-    var viewModel: NotifCellViewModel? {
+    var viewModel: NotifViewModel? {
         didSet {
             updateView()
         }
     }
 
-    private func updateView() {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        updateView()
+    }
+
+    func updateView() {
         guard let viewModel = viewModel else {
             // clean
             return
