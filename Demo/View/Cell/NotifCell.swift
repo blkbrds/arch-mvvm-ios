@@ -16,7 +16,12 @@ final class NotifCell: UITableViewCell, MVVM.View {
         }
     }
 
-    private func updateView() {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        updateView()
+    }
+
+    func updateView() {
         guard let viewModel = viewModel else {
             // clean
             return

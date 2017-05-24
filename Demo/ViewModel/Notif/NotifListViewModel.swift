@@ -46,6 +46,7 @@ final class NotifListViewModel: MVVM.ViewModel {
     // MARK: - Action
 
     func fetch() {
+        guard notifs == nil else { return }
         notifs = RealmS().objects(Notif.self).sorted(byKeyPath: "id", ascending: true)
         token = notifs?.addNotificationBlock({ [weak self] (change) in
             guard let this = self else { return }

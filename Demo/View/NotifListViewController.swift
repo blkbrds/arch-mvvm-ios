@@ -42,6 +42,12 @@ final class NotifListViewController: UITableViewController, MVVM.View {
             this.viewDidUpdated()
         }
     }
+
+    func updateView() {
+        guard isViewLoaded else { return }
+        tableView.reloadData()
+        viewDidUpdated()
+    }
 }
 
 extension NotifListViewController: ViewModelDelegate {
@@ -72,11 +78,5 @@ extension NotifListViewController {
     fileprivate func configTable() {
         tableView.register(NotifCell.self, forCellReuseIdentifier: "NotifCell")
         tableView.dataSource = self
-    }
-
-    fileprivate func updateView() {
-        guard isViewLoaded else { return }
-        tableView.reloadData()
-        viewDidUpdated()
     }
 }
