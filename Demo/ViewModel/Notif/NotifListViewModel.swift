@@ -31,16 +31,20 @@ final class NotifListViewModel: MVVM.ViewModel {
         return notifs.count
     }
 
-    func viewModelForItem(at indexPath: IndexPath) -> ViewModel {
+    func viewModelForItem(at indexPath: IndexPath) -> NotifViewModel {
         guard let notifs = notifs else {
             fatalError("Please call `fetch()` first.")
         }
         let notif = notifs[indexPath.row]
-        return NotifCellViewModel(notif: notif)
+        return NotifViewModel(notif: notif)
     }
 
-    func viewModelForHeaderInSection(_ section: Int) -> ViewModel {
-        fatalError()
+    func viewModelForHeaderInSection(_ section: Int) -> NotifRepoViewModel {
+        guard let notifs = notifs else {
+            fatalError("Please call `fetch()` first.")
+        }
+        let notif = notifs[section]
+        return NotifRepoViewModel(notif: notif)
     }
 
     // MARK: - Action

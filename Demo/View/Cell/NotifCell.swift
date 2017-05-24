@@ -10,7 +10,7 @@ import UIKit
 import MVVM
 
 final class NotifCell: UITableViewCell, MVVM.View {
-    var viewModel: NotifCellViewModel? {
+    var viewModel: NotifViewModel? {
         didSet {
             updateView()
         }
