@@ -15,10 +15,10 @@ Pod::Spec.new do |s|
   s.screenshots  = "https://github.com/asiantechinc/at-mvvm-ios/raw/master/images/interactor.png"
 
   # License
-  s.license      = "MIT"
+  s.license      = { "type" => "MIT", "file" => "LICENSE" }
 
   # Author Metadata
-  s.author             = { "Dao Nguyen V." => "dao.nguyen@asiantech.vn" }
+  s.author       = { "Dao Nguyen V." => "dao.nguyen@asiantech.vn" }
 
   # Platform Specifics
   s.platform     = :ios, "9.0"
@@ -27,8 +27,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/asiantechinc/at-mvvm-ios.git", :tag => "#{s.version}" }
 
   # Source Code
-  s.source_files  = "MVVM/*.{h,swift}"
-  s.public_header_files = "MVVM/*.h"
+  s.source_files = "MVVM/*.swift"
 
   # Project Settings
   s.requires_arc = true

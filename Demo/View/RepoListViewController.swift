@@ -42,6 +42,12 @@ final class RepoListViewController: UITableViewController, MVVM.View {
             this.viewDidUpdated()
         }
     }
+
+    func updateView() {
+        guard isViewLoaded else { return }
+        tableView.reloadData()
+        viewDidUpdated()
+    }
 }
 
 extension RepoListViewController: ViewModelDelegate {
@@ -72,11 +78,5 @@ extension RepoListViewController {
     fileprivate func configTable() {
         tableView.register(RepoCell.self, forCellReuseIdentifier: "RepoCell")
         tableView.dataSource = self
-    }
-
-    fileprivate func updateView() {
-        guard isViewLoaded else { return }
-        tableView.reloadData()
-        viewDidUpdated()
     }
 }

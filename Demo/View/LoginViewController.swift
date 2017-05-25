@@ -87,7 +87,7 @@ extension LoginViewController {
         }
     }
 
-    fileprivate func updateView() {
+    func updateView() {
         guard isViewLoaded else { return }
         usernameField.text = viewModel.username
         accessTokenField.text = viewModel.accessToken

@@ -27,6 +27,5 @@ import Foundation
     @objc optional func viewModelForItem(at indexPath: IndexPath) -> ViewModel
     @objc optional func viewModelForHeaderInSection(_ section: Int) -> ViewModel
     @objc optional func viewModelForFooterInSection(_ section: Int) -> ViewModel
-    @objc optional func titleForHeaderInSection(_ section: Int) -> String?
     @objc optional weak var delegate: ViewModelDelegate? { set get }
 }
