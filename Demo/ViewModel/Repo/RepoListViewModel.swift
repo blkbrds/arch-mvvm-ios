@@ -24,7 +24,7 @@ class RepoListViewModel: MVVM.ViewModel {
         return 1
     }
 
-    func numberOfItemsInSection(_ section: Int) -> Int {
+    func numberOfItems(inSection section: Int) -> Int {
         guard let repos = repos else {
             return 0
         }

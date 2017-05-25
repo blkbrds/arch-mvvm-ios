@@ -1,5 +1,5 @@
 //
-//  NotifRepoViewModel.swift
+//  NotifRepoCellViewModel.swift
 //  Demo
 //
 //  Created by DaoNV on 5/22/17.
@@ -9,7 +9,7 @@
 import Foundation
 import MVVM
 
-final class NotifRepoViewModel: MVVM.ViewModel {
+final class NotifRepoCellViewModel: MVVM.ViewModel {
     var name = ""
     var desc: String?
     var repoFullName: String?

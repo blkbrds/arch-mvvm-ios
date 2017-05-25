@@ -1,5 +1,5 @@
 //
-//  NotifViewModel.swift
+//  NotifCellViewModel.swift
 //  Demo
 //
 //  Created by DaoNV on 5/22/17.
@@ -9,7 +9,7 @@
 import Foundation
 import MVVM
 
-final class NotifViewModel: MVVM.ViewModel {
+final class NotifCellViewModel: MVVM.ViewModel {
     var name = ""
     var desc: String?
 
