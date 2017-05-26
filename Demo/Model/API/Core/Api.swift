@@ -10,10 +10,10 @@ import Foundation
 
 final class Api {
     struct Path {
-        static var baseURL = "https://api.github.com"
-        static var users: String { return baseURL / "users" }
+        static let baseURL = "https://api.github.com"
     }
 
+    // MARK: - Services properties define
     struct User {
     }
 
@@ -21,44 +21,54 @@ final class Api {
     }
 
     struct Repo {
-        var id: String
+        let id: String
     }
 
     struct Notif {
-        var id: String
+        let id: String
     }
 }
 
 extension Api.Path {
-    struct User: URLStringConvertible {
-        var id: String
-        var urlString: String { return "users" / id }
+    struct User: ApiPath {
+        static var path: String { return baseURL / "users" }
+        let id: String
+        var urlString: String { return User.path / id }
     }
 
-    struct Me: URLStringConvertible {
-        var urlString: String { return Api.Path.baseURL / "user" }
+    struct Me: ApiPath {
+        static var path: String { return Api.Path.baseURL / "user" }
+        var urlString: String { return Me.path }
         var login: String { return urlString }
         var repos: String { return urlString / "repos" }
         var notifs: String { return urlString / "notifications" }
     }
 }
 
-fileprivate protocol URLStringConvertible {
+protocol URLStringConvertible {
     var urlString: String { get }
 }
 
-extension URL: URLStringConvertible {
-    fileprivate var urlString: String { return absoluteString }
+protocol ApiPath: URLStringConvertible {
+    static var path: String { get }
 }
 
-extension String: URLStringConvertible {
-    fileprivate var urlString: String { return self }
+extension URL: URLStringConvertible {
+    var urlString: String { return absoluteString }
 }
 
 extension Int: URLStringConvertible {
-    fileprivate var urlString: String { return String(describing: self) }
+    var urlString: String { return String(describing: self) }
 }
 
 fileprivate func / (lhs: URLStringConvertible, rhs: URLStringConvertible) -> String {
-    return "\(lhs.urlString)/\(rhs.urlString)"
+    return lhs.urlString + "/" + rhs.urlString
+}
+
+extension String: URLStringConvertible {
+    var urlString: String { return self }
+}
+
+extension CustomStringConvertible where Self: URLStringConvertible {
+    var urlString: String { return description }
 }
