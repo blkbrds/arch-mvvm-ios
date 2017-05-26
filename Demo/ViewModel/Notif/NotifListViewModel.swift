@@ -66,7 +66,7 @@ class NotifListViewModel: MVVM.ViewModel {
     typealias GetNotifsCompletion = (GetNotifsResult) -> Void
 
     func getNotifs(completion: @escaping GetNotifsCompletion) {
-        let params = Api.Notif.QueryParams(type: .all, sort: .fullName, direction: .desc)
+        let params = Api.Notif.QueryParams()
         Api.Notif.query(params: params) { (result) in
             RealmS().refresh()
             switch result {

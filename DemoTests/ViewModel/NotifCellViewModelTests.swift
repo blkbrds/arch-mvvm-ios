@@ -22,7 +22,7 @@ class NotifCellViewModelTests: XCTestCase {
             switch result {
             case .success:
                 let notifs = RealmS().objects(Notif.self).sorted(byKeyPath: "id", ascending: true)
-                guard let notif = notifs.first else { return }
+                guard let notif = notifs.first else { break }
                 let indexPath = IndexPath(row: 0, section: 0)
                 let item = vm.viewModelForItem(at: indexPath)
                 XCTAssertEqual(item.name, notif.name)
