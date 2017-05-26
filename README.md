@@ -1,4 +1,4 @@
-[![](https://img.shields.io/cocoapods/v/mvvm.svg)](http://cocoapods.org/pods/mvvm) [![](https://travis-ci.org/blkbrds/arch-mvvm-ios.svg?branch=master)](https://travis-ci.org/blkbrds/arch-mvvm-ios) [![codecov](https://codecov.io/gh/blkbrds/arch-mvvm-ios/branch/master/graph/badge.svg)](https://codecov.io/gh/blkbrds/arch-mvvm-ios)
+[![](https://img.shields.io/cocoapods/v/MVVM-Swift.svg)](http://cocoapods.org/pods/MVVM-Swift) [![](https://travis-ci.org/blkbrds/arch-mvvm-ios.svg?branch=master)](https://travis-ci.org/blkbrds/arch-mvvm-ios) [![codecov](https://codecov.io/gh/blkbrds/arch-mvvm-ios/branch/master/graph/badge.svg)](https://codecov.io/gh/blkbrds/arch-mvvm-ios)
 
 ## Ideas
 
