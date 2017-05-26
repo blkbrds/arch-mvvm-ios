@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		0695783BD373531427587FF1 /* Pods_DemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A001B44D0B8699EB1C67FA48 /* Pods_DemoTests.framework */; };
 		5B391230A3A203A8572D6232 /* Pods_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C31C66A004138FE73EA76E2A /* Pods_Demo.framework */; };
+		D4541BAF1ED7CCF500686A27 /* GitTeam.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4541BAE1ED7CCF500686A27 /* GitTeam.storyboard */; };
+		D4541BB11ED7CE3500686A27 /* GitTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4541BB01ED7CE3500686A27 /* GitTeamViewController.swift */; };
+		D4541BB41ED7E1E000686A27 /* TeamViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4541BB31ED7E1E000686A27 /* TeamViewModel.swift */; };
+		D4541BB61ED7E33300686A27 /* API.Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4541BB51ED7E33300686A27 /* API.Team.swift */; };
+		D4541BB81ED7E82900686A27 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4541BB71ED7E82900686A27 /* Team.swift */; };
 		EC0105511E8F8AE000CE013D /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC01053E1E8F8ADF00CE013D /* Config.swift */; };
 		EC0105521E8F8AE000CE013D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC0105401E8F8ADF00CE013D /* Assets.xcassets */; };
 		EC0105541E8F8AE000CE013D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0105441E8F8ADF00CE013D /* AppDelegate.swift */; };
@@ -95,6 +100,11 @@
 		927161CBD2756DC488CB9A24 /* Pods-DemoTests.staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoTests.staging.xcconfig"; path = "Pods/Target Support Files/Pods-DemoTests/Pods-DemoTests.staging.xcconfig"; sourceTree = "<group>"; };
 		A001B44D0B8699EB1C67FA48 /* Pods_DemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C31C66A004138FE73EA76E2A /* Pods_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4541BAE1ED7CCF500686A27 /* GitTeam.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GitTeam.storyboard; sourceTree = "<group>"; };
+		D4541BB01ED7CE3500686A27 /* GitTeamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitTeamViewController.swift; sourceTree = "<group>"; };
+		D4541BB31ED7E1E000686A27 /* TeamViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamViewModel.swift; sourceTree = "<group>"; };
+		D4541BB51ED7E33300686A27 /* API.Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.Team.swift; sourceTree = "<group>"; };
+		D4541BB71ED7E82900686A27 /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		E69362EE6E1335F90F68225F /* Pods-Demo.staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.staging.xcconfig"; path = "Pods/Target Support Files/Pods-Demo/Pods-Demo.staging.xcconfig"; sourceTree = "<group>"; };
 		EC01053E1E8F8ADF00CE013D /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		EC0105401E8F8ADF00CE013D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -188,6 +198,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		D4541BB21ED7E1C000686A27 /* Team */ = {
+			isa = PBXGroup;
+			children = (
+				D4541BB31ED7E1E000686A27 /* TeamViewModel.swift */,
+			);
+			path = Team;
+			sourceTree = "<group>";
+		};
 		E7A23BB3FDC7E19F0663DF69 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -249,6 +267,7 @@
 				EC01054A1E8F8AE000CE013D /* LoginViewController.swift */,
 				EC0105491E8F8ADF00CE013D /* RepoListViewController.swift */,
 				EC0518C71ED1926A00189D64 /* NotifListViewController.swift */,
+				D4541BB01ED7CE3500686A27 /* GitTeamViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -256,6 +275,7 @@
 		EC01054B1E8F8AE000CE013D /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				D4541BB21ED7E1C000686A27 /* Team */,
 				EC297E291ED27FC3004938CE /* Login */,
 				EC297E2B1ED27FC3004938CE /* Notif */,
 				EC297E2F1ED27FC3004938CE /* Repo */,
@@ -318,6 +338,7 @@
 				EC757EE61E939C58009FC9E5 /* Auth.storyboard */,
 				EC0BC7BA1EAE0A10009A738C /* Repo.storyboard */,
 				EC0518C41ED1923300189D64 /* Notif.storyboard */,
+				D4541BAE1ED7CCF500686A27 /* GitTeam.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -403,6 +424,7 @@
 				ECF23AA91E9B85AB008C23C1 /* User.swift */,
 				ECF23AA41E9B8586008C23C1 /* Repo.swift */,
 				EC297E381ED27FF5004938CE /* Notif.swift */,
+				D4541BB71ED7E82900686A27 /* Team.swift */,
 			);
 			path = Schema;
 			sourceTree = "<group>";
@@ -415,6 +437,7 @@
 				EC297E411ED280F9004938CE /* API.Notif.swift */,
 				EC297E421ED280F9004938CE /* API.Repo.swift */,
 				ECEC0C5F1ED44DB100F6760A /* API.ParamTypes.swift */,
+				D4541BB51ED7E33300686A27 /* API.Team.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -548,6 +571,7 @@
 			files = (
 				EC0BC7BC1EAE0A10009A738C /* Repo.storyboard in Resources */,
 				EC757EE91E939C58009FC9E5 /* Auth.storyboard in Resources */,
+				D4541BAF1ED7CCF500686A27 /* GitTeam.storyboard in Resources */,
 				EC757EE81E939C58009FC9E5 /* LaunchScreen.storyboard in Resources */,
 				EC0105521E8F8AE000CE013D /* Assets.xcassets in Resources */,
 				EC0518C61ED1923300189D64 /* Notif.storyboard in Resources */,
@@ -690,6 +714,7 @@
 				EC0105571E8F8AE000CE013D /* RepoListViewController.swift in Sources */,
 				EC297E491ED2D52D004938CE /* NotifCell.swift in Sources */,
 				ECF23ABC1E9B89B2008C23C1 /* Session.swift in Sources */,
+				D4541BB81ED7E82900686A27 /* Team.swift in Sources */,
 				EC297E341ED27FC3004938CE /* NotifListViewModel.swift in Sources */,
 				ECF23AC91E9B982D008C23C1 /* NSURL.swift in Sources */,
 				EC297E441ED280F9004938CE /* API.Notif.swift in Sources */,
@@ -699,10 +724,13 @@
 				EC0105541E8F8AE000CE013D /* AppDelegate.swift in Sources */,
 				EC332A481EA0A8CB0011DF1E /* Api.swift in Sources */,
 				ECD1C29B1EA725B1000EC989 /* InputView.swift in Sources */,
+				D4541BB11ED7CE3500686A27 /* GitTeamViewController.swift in Sources */,
 				ECF23AB41E9B869B008C23C1 /* ApiManager.swift in Sources */,
 				ECF23AC71E9B9328008C23C1 /* Dictionary.swift in Sources */,
 				ECEC0C5A1ED44D4100F6760A /* UIViewController.swift in Sources */,
+				D4541BB61ED7E33300686A27 /* API.Team.swift in Sources */,
 				ECEC0C581ED44C5D00F6760A /* Strings.swift in Sources */,
+				D4541BB41ED7E1E000686A27 /* TeamViewModel.swift in Sources */,
 				EC297E321ED27FC3004938CE /* LoginViewModel.swift in Sources */,
 				EC297E451ED280F9004938CE /* API.Repo.swift in Sources */,
 				EC297E361ED27FC3004938CE /* RepoCellViewModel.swift in Sources */,

@@ -27,6 +27,10 @@ final class Api {
     struct Notif {
         var id: String
     }
+
+    struct Team {
+        var id: String
+    }
 }
 
 extension Api.Path {
@@ -40,6 +44,11 @@ extension Api.Path {
         var login: String { return urlString }
         var repos: String { return urlString / "repos" }
         var notifs: String { return urlString / "notifications" }
+    }
+
+    struct Team: URLStringConvertible {
+        var id: Int
+        var urlString: String { return "teams" / id }
     }
 }
 
