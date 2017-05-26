@@ -23,7 +23,7 @@ extension Api.Me {
             name: params.username,
             pass: params.token
         )
-        let path = Api.Path.Me().login
+        let path = Api.Path.Me()
         return api.request(method: .get, urlString: path) { (result) in
             Mapper<User>().map(result: result, type: .object, completion: { (result) in
                 DispatchQueue.main.async {
