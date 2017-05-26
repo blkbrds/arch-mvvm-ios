@@ -15,19 +15,19 @@ import RealmS
 
 class NotifCellTests: XCTestCase {
     func testUpdateView() {
-        let vm = NotifViewModel.test
+        let vm = NotifCellViewModel.test
         let cell = NotifCell()
         cell.viewModel = vm
         XCTAssertEqual(cell.textLabel?.text, vm.name)
     }
 }
 
-extension NotifViewModel {
-    static var test: NotifViewModel {
+extension NotifCellViewModel {
+    static var test: NotifCellViewModel {
         let notifObj = Notif()
         notifObj.name = "notif name"
         notifObj.desc = "This your first repo"
-        let vm = NotifViewModel(notif: notifObj)
+        let vm = NotifCellViewModel(notif: notifObj)
         return vm
     }
 }

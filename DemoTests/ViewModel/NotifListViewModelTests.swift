@@ -32,7 +32,7 @@ class NotifListViewModelTests: XCTestCase {
             case .success:
                 let repos = RealmS().objects(Notif.self)
                 guard vm.numberOfSections() > 0 else { return }
-                XCTAssertEqual(repos.count, vm.numberOfItemsInSection(0))
+                XCTAssertEqual(repos.count, vm.numberOfItems(inSection: 0))
             case .failure(let error):
                 XCTFail(error.localizedDescription)
             }

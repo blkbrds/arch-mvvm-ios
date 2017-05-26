@@ -57,19 +57,19 @@ private final class NotifListViewModel: Demo.NotifListViewModel {
         return 1
     }
 
-    override func numberOfItemsInSection(_ section: Int) -> Int {
+    override func numberOfItems(inSection section: Int) -> Int {
         return 5
     }
 
-    override func viewModelForItem(at indexPath: IndexPath) -> NotifViewModel {
+    override func viewModelForItem(at indexPath: IndexPath) -> NotifCellViewModel {
         return .test
     }
 
-    override func viewModelForHeaderInSection(_ section: Int) -> NotifRepoViewModel {
+    override func viewModelForHeaderInSection(_ section: Int) -> NotifRepoCellViewModel {
         let notifObj = Notif()
         notifObj.name = "notif name"
         notifObj.desc = "This your first repo"
-        let vm = NotifRepoViewModel(notif: notifObj)
+        let vm = NotifRepoCellViewModel(notif: notifObj)
         return vm
     }
 }
