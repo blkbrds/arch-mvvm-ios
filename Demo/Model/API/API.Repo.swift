@@ -15,13 +15,21 @@ extension Api.Repo {
         let type: Type
         let sort: Sort
         let direction: Direction
+
+        func toJSON() -> [String: Any] {
+            return [
+                "type": type.rawValue,
+                "sort": sort.rawValue,
+                "direction": direction.rawValue
+            ]
+        }
     }
 
     // https://developer.github.com/v3/repos/#list-your-repositories
     @discardableResult
     static func query(params: QueryParams, completion: @escaping Completion) -> Request? {
         let path = Api.Path.Me().repos
-        return api.request(method: .get, urlString: path) { (result) in
+        return api.request(method: .get, urlString: path, parameters: params.toJSON()) { (result) in
             Mapper<Repo>().map(result: result, type: .array, completion: { (result) in
                 DispatchQueue.main.async {
                     completion(result)

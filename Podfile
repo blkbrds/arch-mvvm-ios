@@ -13,6 +13,7 @@ target 'Demo' do
     pod 'SwiftLint', '~> 0.16.1'
     pod 'RealmS', '~> 2.3.1'
     pod 'SwiftyJSON', '~> 3.1.4'
+    pod 'SwiftDate', '~> 4.1.2'
     pod 'MVVM-Swift', :path => './'
 
     target 'DemoTests' do

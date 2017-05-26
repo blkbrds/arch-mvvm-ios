@@ -11,6 +11,7 @@ PODS:
   - RealmSwift (2.7.0):
     - Realm (= 2.7.0)
   - SAMKeychain (1.5.2)
+  - SwiftDate (4.1.2)
   - SwiftLint (0.16.1)
   - SwiftyJSON (3.1.4)
 
@@ -19,6 +20,7 @@ DEPENDENCIES:
   - MVVM-Swift (from `./`)
   - RealmS (~> 2.3.1)
   - SAMKeychain (~> 1.5.1)
+  - SwiftDate (~> 4.1.2)
   - SwiftLint (~> 0.16.1)
   - SwiftyJSON (~> 3.1.4)
 
@@ -34,9 +36,10 @@ SPEC CHECKSUMS:
   RealmS: 939afb24205b83c0af75770bcf06347b6e5df0da
   RealmSwift: 6d06425d3900c86473c4f323bf6949b43fca22bc
   SAMKeychain: 1865333198217411f35327e8da61b43de79b635b
+  SwiftDate: 2dfdebd4f67ae71c9c3e2413ee3c56947f302858
   SwiftLint: b8b683208cc09640898f16318a7a452274e91f61
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 73cc251ca0dcd472457745e527740cec4cabd93f
+PODFILE CHECKSUM: 5da3e7bf22dc0c26f51fdac0c770da3564a6575e
 
 COCOAPODS: 1.2.0

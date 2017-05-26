@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		0695783BD373531427587FF1 /* Pods_DemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A001B44D0B8699EB1C67FA48 /* Pods_DemoTests.framework */; };
 		5B391230A3A203A8572D6232 /* Pods_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C31C66A004138FE73EA76E2A /* Pods_Demo.framework */; };
+		D4541BA71ED6C1E900686A27 /* NotifCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4541BA61ED6C1E900686A27 /* NotifCellTests.swift */; };
+		D4541BA91ED6C7B500686A27 /* NotifListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4541BA81ED6C7B500686A27 /* NotifListViewControllerTests.swift */; };
+		D4541BAB1ED6DD2200686A27 /* NotifCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4541BAA1ED6DD2200686A27 /* NotifCellViewModelTests.swift */; };
+		D4541BAD1ED6E03C00686A27 /* NotifListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4541BAC1ED6E03C00686A27 /* NotifListViewModelTests.swift */; };
 		EC0105511E8F8AE000CE013D /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC01053E1E8F8ADF00CE013D /* Config.swift */; };
 		EC0105521E8F8AE000CE013D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC0105401E8F8ADF00CE013D /* Assets.xcassets */; };
 		EC0105541E8F8AE000CE013D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0105441E8F8ADF00CE013D /* AppDelegate.swift */; };
@@ -95,6 +99,10 @@
 		927161CBD2756DC488CB9A24 /* Pods-DemoTests.staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoTests.staging.xcconfig"; path = "Pods/Target Support Files/Pods-DemoTests/Pods-DemoTests.staging.xcconfig"; sourceTree = "<group>"; };
 		A001B44D0B8699EB1C67FA48 /* Pods_DemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C31C66A004138FE73EA76E2A /* Pods_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4541BA61ED6C1E900686A27 /* NotifCellTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotifCellTests.swift; sourceTree = "<group>"; };
+		D4541BA81ED6C7B500686A27 /* NotifListViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotifListViewControllerTests.swift; sourceTree = "<group>"; };
+		D4541BAA1ED6DD2200686A27 /* NotifCellViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotifCellViewModelTests.swift; sourceTree = "<group>"; };
+		D4541BAC1ED6E03C00686A27 /* NotifListViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotifListViewModelTests.swift; sourceTree = "<group>"; };
 		E69362EE6E1335F90F68225F /* Pods-Demo.staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.staging.xcconfig"; path = "Pods/Target Support Files/Pods-Demo/Pods-Demo.staging.xcconfig"; sourceTree = "<group>"; };
 		EC01053E1E8F8ADF00CE013D /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		EC0105401E8F8ADF00CE013D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -328,6 +336,7 @@
 				ECC3B1B61EC1701A001345C6 /* Cell */,
 				ECC3B1B71EC1701A001345C6 /* LoginViewControllerTests.swift */,
 				ECC3B1B81EC1701A001345C6 /* RepoListViewControllerTests.swift */,
+				D4541BA81ED6C7B500686A27 /* NotifListViewControllerTests.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -336,6 +345,7 @@
 			isa = PBXGroup;
 			children = (
 				ECC3B1C61EC17066001345C6 /* RepoCellTests.swift */,
+				D4541BA61ED6C1E900686A27 /* NotifCellTests.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -346,6 +356,8 @@
 				ECC3B1BC1EC17025001345C6 /* RepoCellViewModelTests.swift */,
 				ECC3B1BD1EC17025001345C6 /* RepoListViewModelTests.swift */,
 				ECC3B1BE1EC17025001345C6 /* UserViewModelTests.swift */,
+				D4541BAA1ED6DD2200686A27 /* NotifCellViewModelTests.swift */,
+				D4541BAC1ED6E03C00686A27 /* NotifListViewModelTests.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -720,10 +732,14 @@
 				ECC3B1B91EC1701A001345C6 /* LoginViewControllerTests.swift in Sources */,
 				ECC3B1C11EC17025001345C6 /* UserViewModelTests.swift in Sources */,
 				ECC3B1BF1EC17025001345C6 /* RepoCellViewModelTests.swift in Sources */,
+				D4541BA91ED6C7B500686A27 /* NotifListViewControllerTests.swift in Sources */,
+				D4541BAB1ED6DD2200686A27 /* NotifCellViewModelTests.swift in Sources */,
 				ECC3B1C51EC17044001345C6 /* StringTests.swift in Sources */,
 				ECC3B1CB1EC1B196001345C6 /* DictionayTests.swift in Sources */,
+				D4541BAD1ED6E03C00686A27 /* NotifListViewModelTests.swift in Sources */,
 				ECC3B1C01EC17025001345C6 /* RepoListViewModelTests.swift in Sources */,
 				ECC3B1C91EC1A2EA001345C6 /* NSURLTests.swift in Sources */,
+				D4541BA71ED6C1E900686A27 /* NotifCellTests.swift in Sources */,
 				ECC3B1BA1EC1701A001345C6 /* RepoListViewControllerTests.swift in Sources */,
 				EC2C488D1EAF011C00B22F4B /* Utils.swift in Sources */,
 				ECC3B1C71EC17066001345C6 /* RepoCellTests.swift in Sources */,

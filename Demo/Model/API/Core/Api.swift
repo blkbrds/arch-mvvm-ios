@@ -40,7 +40,12 @@ extension Api.Path {
         static var path: String { return Api.Path.baseURL / "user" }
         var urlString: String { return Me.path }
         var repos: String { return self / "repos" }
-        var notifs: String { return self / "notifications" }
+    }
+
+    struct Notif: ApiPath {
+        static var path: String { return Api.Path.baseURL / "notifications" }
+        let id: String
+        var urlString: String { return Notif.path / id }
     }
 }
 
