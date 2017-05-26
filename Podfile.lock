@@ -1,6 +1,6 @@
 PODS:
   - Alamofire (4.3.0)
-  - MVVM (1.0.0)
+  - MVVM-Swift (1.0.0)
   - ObjectMapper (2.2.6)
   - Realm (2.7.0):
     - Realm/Headers (= 2.7.0)
@@ -16,19 +16,19 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.3.0)
-  - MVVM (from `./`)
+  - MVVM-Swift (from `./`)
   - RealmS (~> 2.3.1)
   - SAMKeychain (~> 1.5.1)
   - SwiftLint (~> 0.16.1)
   - SwiftyJSON (~> 3.1.4)
 
 EXTERNAL SOURCES:
-  MVVM:
+  MVVM-Swift:
     :path: "./"
 
 SPEC CHECKSUMS:
   Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
-  MVVM: dd85248fafa1a42ee738b48ec61cfd963bf728f9
+  MVVM-Swift: 678aa4ef56645a496d42645777dd97a61b1ed1d7
   ObjectMapper: '042708195cc46c20871cbcbec0453826398273fd'
   Realm: 07e5d3a9e0e41d65fd5f9f05150ed6295d0f093b
   RealmS: 939afb24205b83c0af75770bcf06347b6e5df0da
@@ -37,6 +37,6 @@ SPEC CHECKSUMS:
   SwiftLint: b8b683208cc09640898f16318a7a452274e91f61
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 527f6a1f45d344bbe67d417a3d4f86c216a034cd
+PODFILE CHECKSUM: 73cc251ca0dcd472457745e527740cec4cabd93f
 
 COCOAPODS: 1.2.0
