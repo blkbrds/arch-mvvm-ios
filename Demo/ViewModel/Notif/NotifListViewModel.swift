@@ -11,7 +11,7 @@ import RealmSwift
 import RealmS
 import MVVM
 
-final class NotifListViewModel: MVVM.ViewModel {
+class NotifListViewModel: MVVM.ViewModel {
     weak var delegate: ViewModelDelegate?
 
     private var notifs: Results<Notif>?

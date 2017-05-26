@@ -11,6 +11,7 @@ import MVVM
 
 private enum Segue: String {
     case showRepoList
+    case showNotifList
 }
 
 final class LoginViewController: UIViewController, MVVM.View {
