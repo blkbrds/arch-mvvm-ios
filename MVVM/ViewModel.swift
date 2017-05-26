@@ -23,9 +23,9 @@ import Foundation
 
 @objc public protocol ViewModel {
     @objc optional func numberOfSections() -> Int
-    @objc optional func numberOfItemsInSection(_ section: Int) -> Int
+    @objc optional func numberOfItems(inSection section: Int) -> Int
     @objc optional func viewModelForItem(at indexPath: IndexPath) -> ViewModel
-    @objc optional func viewModelForHeaderInSection(_ section: Int) -> ViewModel
-    @objc optional func viewModelForFooterInSection(_ section: Int) -> ViewModel
+    @objc optional func viewModelForHeader(inSection section: Int) -> ViewModel
+    @objc optional func viewModelForFooter(inSection section: Int) -> ViewModel
     @objc optional weak var delegate: ViewModelDelegate? { set get }
 }

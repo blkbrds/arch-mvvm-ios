@@ -56,7 +56,7 @@ private final class RepoListViewModel: Demo.RepoListViewModel {
         return 1
     }
 
-    override func numberOfItemsInSection(_ section: Int) -> Int {
+    override func numberOfItems(inSection section: Int) -> Int {
         return 2
     }
 
