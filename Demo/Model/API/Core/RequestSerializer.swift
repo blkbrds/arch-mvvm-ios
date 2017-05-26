@@ -12,7 +12,7 @@ import Foundation
 extension ApiManager {
     @discardableResult
     func request(method: HTTPMethod,
-                 urlString: String,
+                 urlString: URLStringConvertible,
                  parameters: [String: Any]? = nil,
                  headers: [String: String]? = nil,
                  completion: Completion?) -> Request? {
@@ -27,7 +27,7 @@ extension ApiManager {
         _headers.updateValues(headers)
 
         let request = Alamofire.request(
-            urlString,
+            urlString.urlString,
             method: method,
             parameters: parameters,
             encoding: encoding,
