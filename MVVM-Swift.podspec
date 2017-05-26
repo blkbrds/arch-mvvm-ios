@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   # Metadata
-  s.name         = "MVVM"
+  s.name         = "MVVM-Swift"
   s.version      = "1.0.0"
   s.summary      = "MVVM Architect for iOS application."
   s.description  = <<-DESC
