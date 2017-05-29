@@ -27,6 +27,7 @@ if [[ "$CI" != 'true' ]]; then
         eval "$(rbenv init -)"
         echo 'which rbenv > /dev/null && eval "$(rbenv init -)"' >> ~/.bashrc
     fi
+    brew outdated ruby-build || brew upgrade ruby-build
     echo 'n' | rbenv install || true
     rbenv rehash
 fi
