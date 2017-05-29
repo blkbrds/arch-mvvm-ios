@@ -7,11 +7,15 @@
 //
 
 import Foundation
+import RealmSwift
+import RealmS
 import MVVM
 
 final class TeamViewModel: MVVM.ViewModel {
     let teamId: Int
     var teamDetailViewModel: TeamDetailViewModel? {
+        let team = RealmS().object(ofType: Team.self, forPrimaryKey: teamId)
+        return TeamDetailViewModel(team: team)
     }
 
     init(teamId: Int) {

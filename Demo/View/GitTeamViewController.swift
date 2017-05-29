@@ -10,7 +10,7 @@ import UIKit
 import MVVM
 
 class GitTeamViewController: UIViewController, MVVM.View {
-    var viewModel = LoginViewModel(user: nil) {
+    var viewModel = TeamViewModel(teamId: 0) {
         didSet {
             updateView()
         }
@@ -22,14 +22,30 @@ class GitTeamViewController: UIViewController, MVVM.View {
     @IBOutlet weak var nemberCountLabel: UILabel!
     @IBOutlet weak var repoCountLabel: UILabel!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if let navi = navigationController,
+            let window = AppDelegate.shared.window {
+            window.rootViewController = navi
+        }
+        viewModel.getTeamDetail { [weak self] (result) in
+            guard let this = self else { return }
+            switch result {
+            case .success:
+                this.updateView()
+            case .failure(let error):
+                this.alert(error: error)
+            }
+        }
     }
-}
 
-// MARK: - Private
-extension GitTeamViewController {
     func updateView() {
-        guard isViewLoaded else { return }
+        guard isViewLoaded, let teamDetailViewModel = viewModel.teamDetailViewModel else { return }
+        nameLabel.text = teamDetailViewModel.name
+        slugLabel.text = teamDetailViewModel.slug
+        descLabel.text = teamDetailViewModel.desc
+        nemberCountLabel.text = teamDetailViewModel.memberCount
+        repoCountLabel.text = teamDetailViewModel.repoCount
+        viewDidUpdated()
     }
 }
