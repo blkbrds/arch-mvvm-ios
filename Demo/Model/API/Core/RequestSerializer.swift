@@ -16,25 +16,31 @@ extension ApiManager {
                  parameters: [String: Any]? = nil,
                  headers: [String: String]? = nil,
                  completion: Completion?) -> Request? {
+
         guard Network.shared.isReachable else {
             completion?(.failure(Api.Error.network))
             return nil
         }
 
-        let encoding: ParameterEncoding = (method == .post) ? JSONEncoding.default : URLEncoding.default
+        let encoding: ParameterEncoding
+        if method == .post {
+            encoding = JSONEncoding.default
+        } else {
+            encoding = URLEncoding.default
+        }
 
         var _headers = api.defaultHTTPHeaders
         _headers.updateValues(headers)
 
-        let request = Alamofire.request(
-            urlString.urlString,
-            method: method,
-            parameters: parameters,
-            encoding: encoding,
-            headers: _headers
+        let request = Alamofire.request(urlString.urlString,
+                                        method: method,
+                                        parameters: parameters,
+                                        encoding: encoding,
+                                        headers: _headers
         ).responseJSON(completion: { (response) in
             completion?(response.result)
         })
+
         return request
     }
 }
