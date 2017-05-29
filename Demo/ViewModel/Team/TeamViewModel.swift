@@ -10,4 +10,31 @@ import Foundation
 import MVVM
 
 final class TeamViewModel: MVVM.ViewModel {
+    let teamId: Int
+    var teamDetailViewModel: TeamDetailViewModel? {
+    }
+
+    init(teamId: Int) {
+        self.teamId = teamId
+    }
+
+    enum GetTeamResult {
+        case success
+        case failure(Error)
+    }
+
+    typealias GetTeamCompletion = (GetTeamResult) -> Void
+
+    func getTeamDetail(completion: @escaping GetTeamCompletion) {
+        let params = Api.Team.QueryParams(teamId: teamId)
+        Api.Team.query(params: params) { (result) in
+            RealmS().refresh()
+            switch result {
+            case .success(_):
+                completion(.success)
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
 }

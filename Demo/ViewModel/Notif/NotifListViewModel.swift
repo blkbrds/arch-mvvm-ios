@@ -11,7 +11,7 @@ import RealmSwift
 import RealmS
 import MVVM
 
-final class NotifListViewModel: MVVM.ViewModel {
+class NotifListViewModel: MVVM.ViewModel {
     weak var delegate: ViewModelDelegate?
 
     private var notifs: Results<Notif>?
@@ -66,7 +66,7 @@ final class NotifListViewModel: MVVM.ViewModel {
     typealias GetNotifsCompletion = (GetNotifsResult) -> Void
 
     func getNotifs(completion: @escaping GetNotifsCompletion) {
-        let params = Api.Notif.QueryParams(type: .all, sort: .fullName, direction: .desc)
+        let params = Api.Notif.QueryParams()
         Api.Notif.query(params: params) { (result) in
             RealmS().refresh()
             switch result {

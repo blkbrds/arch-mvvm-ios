@@ -9,19 +9,30 @@
 import Foundation
 import Alamofire
 import ObjectMapper
+import SwiftDate
 
 extension Api.Notif {
     struct QueryParams {
-        let type: Type
-        let sort: Sort
-        let direction: Direction
+        let all = false
+        let participating = false
+        let since = Date() - 1.day
+        let before = Date()
+
+        func toJSON() -> [String: Any] {
+            return [
+                "all": all,
+                "participating": participating,
+                "since": since.inGMTRegion().string(format: .iso8601Auto),
+                "before": before.inGMTRegion().string(format: .iso8601Auto)
+            ]
+        }
     }
 
     // https://developer.github.com/v3/activity/notifications/#list-your-notifications
     @discardableResult
     static func query(params: Api.Notif.QueryParams, completion: @escaping Completion) -> Request? {
-        let path = Api.Path.Me().notifs
-        return api.request(method: .get, urlString: path) { (result) in
+        let path = Api.Path.Notif.path
+        return api.request(method: .get, urlString: path, parameters: params.toJSON()) { (result) in
             Mapper<Notif>().map(result: result, type: .array, completion: { (result) in
                 DispatchQueue.main.async {
                     completion(result)

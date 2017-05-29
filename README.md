@@ -1,4 +1,4 @@
-[![](https://img.shields.io/cocoapods/v/mvvm.svg)](http://cocoapods.org/pods/mvvm) [![](https://travis-ci.org/blkbrds/arch-mvvm-ios.svg?branch=master)](https://travis-ci.org/blkbrds/arch-mvvm-ios) [![codecov](https://codecov.io/gh/blkbrds/arch-mvvm-ios/branch/master/graph/badge.svg)](https://codecov.io/gh/blkbrds/arch-mvvm-ios)
+[![pod](https://img.shields.io/cocoapods/v/MVVM-Swift.svg)](http://cocoapods.org/pods/MVVM-Swift) [![build](https://travis-ci.org/blkbrds/arch-mvvm-ios.svg?branch=master)](https://travis-ci.org/blkbrds/arch-mvvm-ios) [![codecov](https://codecov.io/gh/blkbrds/arch-mvvm-ios/branch/master/graph/badge.svg)](https://codecov.io/gh/blkbrds/arch-mvvm-ios) [![codebeat](https://codebeat.co/badges/baf4fd48-cb1b-487e-ac3a-a0d235f614db)](https://codebeat.co/projects/github-com-blkbrds-arch-mvvm-ios-master)
 
 ## Ideas
 

@@ -1,8 +1,8 @@
 //
-//  RepoListViewModelTests.swift
-//  MVVM
+//  NotifListViewModelTests.swift
+//  Demo
 //
-//  Created by DaoNV on 4/17/17.
+//  Created by Huynh Quang Tien on 5/25/17.
 //  Copyright © 2017 Asian Tech Co., Ltd. All rights reserved.
 //
 
@@ -13,7 +13,7 @@ import ObjectMapper
 import RealmS
 @testable import Demo
 
-final class RepoListViewModelTests: XCTestCase {
+class NotifListViewModelTests: XCTestCase {
     override func setUp() {
         super.setUp()
         let login = LoginViewModel.standard
@@ -23,14 +23,14 @@ final class RepoListViewModelTests: XCTestCase {
         )
     }
 
-    func testGetRepos() {
-        let ex = expectation(description: "testGetRepos")
-        let vm = RepoListViewModel()
+    func testGetNotifs() {
+        let ex = expectation(description: "testGetNotifs")
+        let vm = NotifListViewModel()
         vm.fetch()
-        vm.getRepos { (result) in
+        vm.getNotifs { (result) in
             switch result {
             case .success:
-                let repos = RealmS().objects(Repo.self)
+                let repos = RealmS().objects(Notif.self)
                 guard vm.numberOfSections() > 0 else { return }
                 XCTAssertEqual(repos.count, vm.numberOfItems(inSection: 0))
             case .failure(let error):
@@ -38,6 +38,7 @@ final class RepoListViewModelTests: XCTestCase {
             }
             ex.fulfill()
         }
+
         waitForExpectations(timeout: Timeout.forRequest)
     }
 }
