@@ -11,8 +11,8 @@ Pod::Spec.new do |s|
         - Better testability because of the separation of concerns and the decoupled nature of the code.
                    DESC
 
-  s.homepage     = "https://github.com/asiantechinc/at-mvvm-ios"
-  s.screenshots  = "https://github.com/asiantechinc/at-mvvm-ios/raw/master/images/interactor.png"
+  s.homepage     = "https://github.com/blkbrds/arch-mvvm-ios"
+  s.screenshots  = "https://github.com/blkbrds/arch-mvvm-ios/raw/master/images/interactor.png"
 
   # License
   s.license      = { "type" => "MIT", "file" => "LICENSE" }
@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "9.0"
 
   # Source Location
-  s.source       = { :git => "https://github.com/asiantechinc/at-mvvm-ios.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/blkbrds/arch-mvvm-ios.git", :tag => "#{s.version}" }
 
   # Source Code
   s.source_files = "MVVM/*.swift"
