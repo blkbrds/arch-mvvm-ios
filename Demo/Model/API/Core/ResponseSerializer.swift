@@ -18,7 +18,7 @@ extension Request {
                                        data: Data?,
                                        error: Error?) -> Result<Any> {
         guard let response = response else {
-            return .failure(NSError(status: .requestTimeout))
+            return .failure(NSError(status: .noResponse))
         }
 
         if let error = error {
@@ -33,7 +33,10 @@ extension Request {
 
         guard 200...299 ~= statusCode else {
             var err: NSError!
-            if let json = data?.toJSON() as? JSObject, let errors = json["errors"] as? JSArray, !errors.isEmpty, let message = errors[0]["value"] as? String {
+            if let json = data?.toJSON() as? JSObject,
+                let errors = json["errors"] as? JSArray,
+                !errors.isEmpty,
+                let message = errors[0]["value"] as? String {
                 err = NSError(message: message)
             } else if let status = HTTPStatus(code: statusCode) {
                 err = NSError(domain: Api.Path.baseURL.host, status: status)
@@ -57,16 +60,18 @@ extension Request {
 extension DataRequest {
     static func responseSerializer() -> DataResponseSerializer<Any> {
         return DataResponseSerializer { _, response, data, error in
-            return Request.responseJSONSerializer(log: true, response: response, data: data, error: error)
+            return Request.responseJSONSerializer(log: true,
+                                                  response: response,
+                                                  data: data,
+                                                  error: error)
         }
     }
 
     @discardableResult
-    func responseJSON(queue: DispatchQueue = .global(qos: .background), completion: @escaping (DataResponse<Any>) -> Void) -> Self {
-        return response(
-            queue: queue,
-            responseSerializer: DataRequest.responseSerializer(),
-            completionHandler: completion
-        )
+    func responseJSON(queue: DispatchQueue = .global(qos: .background),
+                      completion: @escaping (DataResponse<Any>) -> Void) -> Self {
+        return response(queue: queue,
+                        responseSerializer: DataRequest.responseSerializer(),
+                        completionHandler: completion)
     }
 }

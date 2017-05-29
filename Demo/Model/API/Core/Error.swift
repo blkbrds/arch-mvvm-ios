@@ -23,7 +23,7 @@ extension Network {
 
 extension Api {
     struct Error {
-        static let network = NSError(domain: Api.Path.baseURL.host, status: HTTPStatus.requestTimeout, message: "The Internet connection appears to be offline.")
+        static let network = NSError(domain: NSCocoaErrorDomain, message: "The internet connection appears to be offline.")
         static let authen = NSError(domain: Api.Path.baseURL.host, status: HTTPStatus.unauthorized)
         static let json = NSError(domain: NSCocoaErrorDomain, code: 3_840, message: "The operation couldn’t be completed.")
         static let apiKey = NSError(domain: Api.Path.baseURL.host, status: HTTPStatus.badRequest)
