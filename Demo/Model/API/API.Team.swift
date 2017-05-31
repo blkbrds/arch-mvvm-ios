@@ -12,13 +12,13 @@ import ObjectMapper
 
 extension Api.Team {
     struct QueryParams {
-        let teamId: Int
+        let id: Int
     }
 
     // https://developer.github.com/v3/orgs/teams/
     @discardableResult
     static func query(params: Api.Team.QueryParams, completion: @escaping Completion) -> Request? {
-        let path = Api.Path.Team(id: params.teamId)
+        let path = Api.Path.Team(id: params.id)
         return api.request(method: .get, urlString: path) { (result) in
             Mapper<Team>().map(result: result, type: .object, completion: { (result) in
                 DispatchQueue.main.async {

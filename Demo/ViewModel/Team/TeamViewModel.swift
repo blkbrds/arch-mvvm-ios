@@ -13,6 +13,7 @@ import MVVM
 
 final class TeamViewModel: MVVM.ViewModel {
     let teamId: Int
+
     var teamDetailViewModel: TeamDetailViewModel? {
         let team = RealmS().object(ofType: Team.self, forPrimaryKey: teamId)
         return TeamDetailViewModel(team: team)
@@ -30,7 +31,7 @@ final class TeamViewModel: MVVM.ViewModel {
     typealias GetTeamCompletion = (GetTeamResult) -> Void
 
     func getTeamDetail(completion: @escaping GetTeamCompletion) {
-        let params = Api.Team.QueryParams(teamId: teamId)
+        let params = Api.Team.QueryParams(id: teamId)
         Api.Team.query(params: params) { (result) in
             RealmS().refresh()
             switch result {

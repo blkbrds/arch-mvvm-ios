@@ -11,7 +11,7 @@
         <!--Git Team-->
         <scene sceneID="nWr-GS-Yho">
             <objects>
-                <viewController id="SmV-6g-gcA" customClass="GitTeamViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="SmV-6g-gcA" customClass="TeamViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5mW-Cd-sgX"/>
                         <viewControllerLayoutGuide type="bottom" id="7Yb-M8-Cuy"/>

@@ -14,7 +14,7 @@
 		D4541BAB1ED6DD2200686A27 /* NotifCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4541BAA1ED6DD2200686A27 /* NotifCellViewModelTests.swift */; };
 		D4541BAD1ED6E03C00686A27 /* NotifListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4541BAC1ED6E03C00686A27 /* NotifListViewModelTests.swift */; };
 		D4541BBA1EDBBCAF00686A27 /* GitTeam.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4541BB91EDBBCAF00686A27 /* GitTeam.storyboard */; };
-		D4541BBC1EDBBCC300686A27 /* GitTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4541BBB1EDBBCC300686A27 /* GitTeamViewController.swift */; };
+		D4541BBC1EDBBCC300686A27 /* TeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4541BBB1EDBBCC300686A27 /* TeamViewController.swift */; };
 		D4541BBF1EDBBCCE00686A27 /* TeamViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4541BBE1EDBBCCE00686A27 /* TeamViewModel.swift */; };
 		D4541BC11EDBBCE900686A27 /* API.Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4541BC01EDBBCE900686A27 /* API.Team.swift */; };
 		D4541BC31EDBBCF300686A27 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4541BC21EDBBCF300686A27 /* Team.swift */; };
@@ -110,7 +110,7 @@
 		D4541BAA1ED6DD2200686A27 /* NotifCellViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotifCellViewModelTests.swift; sourceTree = "<group>"; };
 		D4541BAC1ED6E03C00686A27 /* NotifListViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotifListViewModelTests.swift; sourceTree = "<group>"; };
 		D4541BB91EDBBCAF00686A27 /* GitTeam.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GitTeam.storyboard; sourceTree = "<group>"; };
-		D4541BBB1EDBBCC300686A27 /* GitTeamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitTeamViewController.swift; sourceTree = "<group>"; };
+		D4541BBB1EDBBCC300686A27 /* TeamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamViewController.swift; sourceTree = "<group>"; };
 		D4541BBE1EDBBCCE00686A27 /* TeamViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamViewModel.swift; sourceTree = "<group>"; };
 		D4541BC01EDBBCE900686A27 /* API.Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.Team.swift; sourceTree = "<group>"; };
 		D4541BC21EDBBCF300686A27 /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
@@ -272,7 +272,7 @@
 		EC0105431E8F8ADF00CE013D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				D4541BBB1EDBBCC300686A27 /* GitTeamViewController.swift */,
+				D4541BBB1EDBBCC300686A27 /* TeamViewController.swift */,
 				EC757EE31E939C58009FC9E5 /* Storyboard */,
 				EC757EDE1E939C3B009FC9E5 /* Cell */,
 				EC0105441E8F8ADF00CE013D /* AppDelegate.swift */,
@@ -739,7 +739,7 @@
 				EC0105541E8F8AE000CE013D /* AppDelegate.swift in Sources */,
 				EC332A481EA0A8CB0011DF1E /* Api.swift in Sources */,
 				ECD1C29B1EA725B1000EC989 /* InputView.swift in Sources */,
-				D4541BBC1EDBBCC300686A27 /* GitTeamViewController.swift in Sources */,
+				D4541BBC1EDBBCC300686A27 /* TeamViewController.swift in Sources */,
 				ECF23AB41E9B869B008C23C1 /* ApiManager.swift in Sources */,
 				ECF23AC71E9B9328008C23C1 /* Dictionary.swift in Sources */,
 				ECEC0C5A1ED44D4100F6760A /* UIViewController.swift in Sources */,

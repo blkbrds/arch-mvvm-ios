@@ -18,6 +18,7 @@ final class Team: Object, StaticMappable {
     dynamic var desc: String?
     dynamic var memberCount = 0
     dynamic var repoCount = 0
+    
     override static func primaryKey() -> String? {
         return "id"
     }

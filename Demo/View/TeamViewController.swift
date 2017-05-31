@@ -1,5 +1,5 @@
 //
-//  GitTeamViewController.swift
+//  TeamViewController.swift
 //  Demo
 //
 //  Created by Huynh Quang Tien on 5/26/17.
@@ -9,7 +9,7 @@
 import UIKit
 import MVVM
 
-class GitTeamViewController: UIViewController, MVVM.View {
+final class TeamViewController: UIViewController, MVVM.View {
     var viewModel = TeamViewModel(teamId: 0) {
         didSet {
             updateView()
