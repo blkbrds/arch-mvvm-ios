@@ -13,12 +13,15 @@
 		D4541BA91ED6C7B500686A27 /* NotifListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4541BA81ED6C7B500686A27 /* NotifListViewControllerTests.swift */; };
 		D4541BAB1ED6DD2200686A27 /* NotifCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4541BAA1ED6DD2200686A27 /* NotifCellViewModelTests.swift */; };
 		D4541BAD1ED6E03C00686A27 /* NotifListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4541BAC1ED6E03C00686A27 /* NotifListViewModelTests.swift */; };
-		D4541BBA1EDBBCAF00686A27 /* GitTeam.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4541BB91EDBBCAF00686A27 /* GitTeam.storyboard */; };
+		D4541BBA1EDBBCAF00686A27 /* Team.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4541BB91EDBBCAF00686A27 /* Team.storyboard */; };
 		D4541BBC1EDBBCC300686A27 /* TeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4541BBB1EDBBCC300686A27 /* TeamViewController.swift */; };
 		D4541BBF1EDBBCCE00686A27 /* TeamViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4541BBE1EDBBCCE00686A27 /* TeamViewModel.swift */; };
 		D4541BC11EDBBCE900686A27 /* API.Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4541BC01EDBBCE900686A27 /* API.Team.swift */; };
 		D4541BC31EDBBCF300686A27 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4541BC21EDBBCF300686A27 /* Team.swift */; };
 		D4541BC51EDBC36600686A27 /* TeamDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4541BC41EDBC36600686A27 /* TeamDetailViewModel.swift */; };
+		D4541BC81EDFBF1100686A27 /* TeamDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4541BC71EDFBF1100686A27 /* TeamDetailViewModelTests.swift */; };
+		D4541BCA1EDFC9B600686A27 /* TeamViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4541BC91EDFC9B600686A27 /* TeamViewModelTests.swift */; };
+		D4541BCC1EDFD18400686A27 /* TeamViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4541BCB1EDFD18400686A27 /* TeamViewControllerTests.swift */; };
 		EC0105511E8F8AE000CE013D /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC01053E1E8F8ADF00CE013D /* Config.swift */; };
 		EC0105521E8F8AE000CE013D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC0105401E8F8ADF00CE013D /* Assets.xcassets */; };
 		EC0105541E8F8AE000CE013D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0105441E8F8ADF00CE013D /* AppDelegate.swift */; };
@@ -109,12 +112,15 @@
 		D4541BA81ED6C7B500686A27 /* NotifListViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotifListViewControllerTests.swift; sourceTree = "<group>"; };
 		D4541BAA1ED6DD2200686A27 /* NotifCellViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotifCellViewModelTests.swift; sourceTree = "<group>"; };
 		D4541BAC1ED6E03C00686A27 /* NotifListViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotifListViewModelTests.swift; sourceTree = "<group>"; };
-		D4541BB91EDBBCAF00686A27 /* GitTeam.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GitTeam.storyboard; sourceTree = "<group>"; };
+		D4541BB91EDBBCAF00686A27 /* Team.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Team.storyboard; sourceTree = "<group>"; };
 		D4541BBB1EDBBCC300686A27 /* TeamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamViewController.swift; sourceTree = "<group>"; };
 		D4541BBE1EDBBCCE00686A27 /* TeamViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamViewModel.swift; sourceTree = "<group>"; };
 		D4541BC01EDBBCE900686A27 /* API.Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.Team.swift; sourceTree = "<group>"; };
 		D4541BC21EDBBCF300686A27 /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		D4541BC41EDBC36600686A27 /* TeamDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamDetailViewModel.swift; sourceTree = "<group>"; };
+		D4541BC71EDFBF1100686A27 /* TeamDetailViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamDetailViewModelTests.swift; sourceTree = "<group>"; };
+		D4541BC91EDFC9B600686A27 /* TeamViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamViewModelTests.swift; sourceTree = "<group>"; };
+		D4541BCB1EDFD18400686A27 /* TeamViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamViewControllerTests.swift; sourceTree = "<group>"; };
 		E69362EE6E1335F90F68225F /* Pods-Demo.staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.staging.xcconfig"; path = "Pods/Target Support Files/Pods-Demo/Pods-Demo.staging.xcconfig"; sourceTree = "<group>"; };
 		EC01053E1E8F8ADF00CE013D /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		EC0105401E8F8ADF00CE013D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -345,7 +351,7 @@
 		EC757EE31E939C58009FC9E5 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
-				D4541BB91EDBBCAF00686A27 /* GitTeam.storyboard */,
+				D4541BB91EDBBCAF00686A27 /* Team.storyboard */,
 				EC757EE41E939C58009FC9E5 /* LaunchScreen.storyboard */,
 				EC757EE61E939C58009FC9E5 /* Auth.storyboard */,
 				EC0BC7BA1EAE0A10009A738C /* Repo.storyboard */,
@@ -361,6 +367,7 @@
 				ECC3B1B71EC1701A001345C6 /* LoginViewControllerTests.swift */,
 				ECC3B1B81EC1701A001345C6 /* RepoListViewControllerTests.swift */,
 				D4541BA81ED6C7B500686A27 /* NotifListViewControllerTests.swift */,
+				D4541BCB1EDFD18400686A27 /* TeamViewControllerTests.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -370,6 +377,7 @@
 			children = (
 				ECC3B1C61EC17066001345C6 /* RepoCellTests.swift */,
 				D4541BA61ED6C1E900686A27 /* NotifCellTests.swift */,
+				D4541BC71EDFBF1100686A27 /* TeamDetailViewModelTests.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -382,6 +390,7 @@
 				ECC3B1BE1EC17025001345C6 /* UserViewModelTests.swift */,
 				D4541BAA1ED6DD2200686A27 /* NotifCellViewModelTests.swift */,
 				D4541BAC1ED6E03C00686A27 /* NotifListViewModelTests.swift */,
+				D4541BC91EDFC9B600686A27 /* TeamViewModelTests.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -586,7 +595,7 @@
 			files = (
 				EC0BC7BC1EAE0A10009A738C /* Repo.storyboard in Resources */,
 				EC757EE91E939C58009FC9E5 /* Auth.storyboard in Resources */,
-				D4541BBA1EDBBCAF00686A27 /* GitTeam.storyboard in Resources */,
+				D4541BBA1EDBBCAF00686A27 /* Team.storyboard in Resources */,
 				EC757EE81E939C58009FC9E5 /* LaunchScreen.storyboard in Resources */,
 				EC0105521E8F8AE000CE013D /* Assets.xcassets in Resources */,
 				EC0518C61ED1923300189D64 /* Notif.storyboard in Resources */,
@@ -762,6 +771,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECC3B1B91EC1701A001345C6 /* LoginViewControllerTests.swift in Sources */,
+				D4541BCC1EDFD18400686A27 /* TeamViewControllerTests.swift in Sources */,
 				ECC3B1C11EC17025001345C6 /* UserViewModelTests.swift in Sources */,
 				ECC3B1BF1EC17025001345C6 /* RepoCellViewModelTests.swift in Sources */,
 				D4541BA91ED6C7B500686A27 /* NotifListViewControllerTests.swift in Sources */,
@@ -769,6 +779,8 @@
 				ECC3B1C51EC17044001345C6 /* StringTests.swift in Sources */,
 				ECC3B1CB1EC1B196001345C6 /* DictionayTests.swift in Sources */,
 				D4541BAD1ED6E03C00686A27 /* NotifListViewModelTests.swift in Sources */,
+				D4541BC81EDFBF1100686A27 /* TeamDetailViewModelTests.swift in Sources */,
+				D4541BCA1EDFC9B600686A27 /* TeamViewModelTests.swift in Sources */,
 				ECC3B1C01EC17025001345C6 /* RepoListViewModelTests.swift in Sources */,
 				ECC3B1C91EC1A2EA001345C6 /* NSURLTests.swift in Sources */,
 				D4541BA71ED6C1E900686A27 /* NotifCellTests.swift in Sources */,
