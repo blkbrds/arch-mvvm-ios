@@ -21,6 +21,8 @@ extension Request {
             return .failure(NSError(status: .noResponse))
         }
 
+        print("\n response -> \(response)") // URL response
+
         if let error = error {
             return .failure(error)
         }
@@ -53,6 +55,7 @@ extension Request {
             return Result.failure(Api.Error.json)
         }
 
+        print("\n -------------data -> \(json)")
         return .success(json)
     }
 }
