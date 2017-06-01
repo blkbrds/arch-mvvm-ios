@@ -21,7 +21,7 @@ final class TeamDetailViewModel: MVVM.ViewModel {
         name = team.name
         slug = team.slug
         desc = team.desc
-        memberCount = "\(team.memberCount)会員"
+        memberCount = "\(team.memberCount) members"
         repoCount = "[\(team.repoCount)]"
     }
 }
