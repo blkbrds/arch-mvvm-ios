@@ -27,6 +27,10 @@ final class Api {
     struct Notif {
         let id: String
     }
+
+    struct Team {
+        var id: Int
+    }
 }
 
 extension Api.Path {
@@ -46,6 +50,12 @@ extension Api.Path {
         static var path: String { return Api.Path.baseURL / "notifications" }
         let id: String
         var urlString: String { return Notif.path / id }
+    }
+
+    struct Team: URLStringConvertible {
+        static var path: String { return Api.Path.baseURL / "teams" }
+        var id: Int
+        var urlString: String { return Team.path / id }
     }
 }
 

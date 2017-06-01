@@ -13,6 +13,12 @@
 		D4541BA91ED6C7B500686A27 /* NotifListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4541BA81ED6C7B500686A27 /* NotifListViewControllerTests.swift */; };
 		D4541BAB1ED6DD2200686A27 /* NotifCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4541BAA1ED6DD2200686A27 /* NotifCellViewModelTests.swift */; };
 		D4541BAD1ED6E03C00686A27 /* NotifListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4541BAC1ED6E03C00686A27 /* NotifListViewModelTests.swift */; };
+		D4541BBA1EDBBCAF00686A27 /* GitTeam.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4541BB91EDBBCAF00686A27 /* GitTeam.storyboard */; };
+		D4541BBC1EDBBCC300686A27 /* TeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4541BBB1EDBBCC300686A27 /* TeamViewController.swift */; };
+		D4541BBF1EDBBCCE00686A27 /* TeamViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4541BBE1EDBBCCE00686A27 /* TeamViewModel.swift */; };
+		D4541BC11EDBBCE900686A27 /* API.Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4541BC01EDBBCE900686A27 /* API.Team.swift */; };
+		D4541BC31EDBBCF300686A27 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4541BC21EDBBCF300686A27 /* Team.swift */; };
+		D4541BC51EDBC36600686A27 /* TeamDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4541BC41EDBC36600686A27 /* TeamDetailViewModel.swift */; };
 		EC0105511E8F8AE000CE013D /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC01053E1E8F8ADF00CE013D /* Config.swift */; };
 		EC0105521E8F8AE000CE013D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC0105401E8F8ADF00CE013D /* Assets.xcassets */; };
 		EC0105541E8F8AE000CE013D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0105441E8F8ADF00CE013D /* AppDelegate.swift */; };
@@ -103,6 +109,12 @@
 		D4541BA81ED6C7B500686A27 /* NotifListViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotifListViewControllerTests.swift; sourceTree = "<group>"; };
 		D4541BAA1ED6DD2200686A27 /* NotifCellViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotifCellViewModelTests.swift; sourceTree = "<group>"; };
 		D4541BAC1ED6E03C00686A27 /* NotifListViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotifListViewModelTests.swift; sourceTree = "<group>"; };
+		D4541BB91EDBBCAF00686A27 /* GitTeam.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GitTeam.storyboard; sourceTree = "<group>"; };
+		D4541BBB1EDBBCC300686A27 /* TeamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamViewController.swift; sourceTree = "<group>"; };
+		D4541BBE1EDBBCCE00686A27 /* TeamViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamViewModel.swift; sourceTree = "<group>"; };
+		D4541BC01EDBBCE900686A27 /* API.Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.Team.swift; sourceTree = "<group>"; };
+		D4541BC21EDBBCF300686A27 /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		D4541BC41EDBC36600686A27 /* TeamDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamDetailViewModel.swift; sourceTree = "<group>"; };
 		E69362EE6E1335F90F68225F /* Pods-Demo.staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.staging.xcconfig"; path = "Pods/Target Support Files/Pods-Demo/Pods-Demo.staging.xcconfig"; sourceTree = "<group>"; };
 		EC01053E1E8F8ADF00CE013D /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		EC0105401E8F8ADF00CE013D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -196,6 +208,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		D4541BBD1EDBBCCE00686A27 /* Team */ = {
+			isa = PBXGroup;
+			children = (
+				D4541BBE1EDBBCCE00686A27 /* TeamViewModel.swift */,
+				D4541BC41EDBC36600686A27 /* TeamDetailViewModel.swift */,
+			);
+			path = Team;
+			sourceTree = "<group>";
+		};
 		E7A23BB3FDC7E19F0663DF69 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -251,6 +272,7 @@
 		EC0105431E8F8ADF00CE013D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D4541BBB1EDBBCC300686A27 /* TeamViewController.swift */,
 				EC757EE31E939C58009FC9E5 /* Storyboard */,
 				EC757EDE1E939C3B009FC9E5 /* Cell */,
 				EC0105441E8F8ADF00CE013D /* AppDelegate.swift */,
@@ -264,6 +286,7 @@
 		EC01054B1E8F8AE000CE013D /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				D4541BBD1EDBBCCE00686A27 /* Team */,
 				EC297E291ED27FC3004938CE /* Login */,
 				EC297E2B1ED27FC3004938CE /* Notif */,
 				EC297E2F1ED27FC3004938CE /* Repo */,
@@ -322,6 +345,7 @@
 		EC757EE31E939C58009FC9E5 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
+				D4541BB91EDBBCAF00686A27 /* GitTeam.storyboard */,
 				EC757EE41E939C58009FC9E5 /* LaunchScreen.storyboard */,
 				EC757EE61E939C58009FC9E5 /* Auth.storyboard */,
 				EC0BC7BA1EAE0A10009A738C /* Repo.storyboard */,
@@ -412,6 +436,7 @@
 		ECF23AA31E9B8586008C23C1 /* Schema */ = {
 			isa = PBXGroup;
 			children = (
+				D4541BC21EDBBCF300686A27 /* Team.swift */,
 				ECF23AA91E9B85AB008C23C1 /* User.swift */,
 				ECF23AA41E9B8586008C23C1 /* Repo.swift */,
 				EC297E381ED27FF5004938CE /* Notif.swift */,
@@ -422,6 +447,7 @@
 		ECF23AAF1E9B869B008C23C1 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				D4541BC01EDBBCE900686A27 /* API.Team.swift */,
 				ECF23AB01E9B869B008C23C1 /* Core */,
 				EC297E401ED280F9004938CE /* API.Me.swift */,
 				EC297E411ED280F9004938CE /* API.Notif.swift */,
@@ -560,6 +586,7 @@
 			files = (
 				EC0BC7BC1EAE0A10009A738C /* Repo.storyboard in Resources */,
 				EC757EE91E939C58009FC9E5 /* Auth.storyboard in Resources */,
+				D4541BBA1EDBBCAF00686A27 /* GitTeam.storyboard in Resources */,
 				EC757EE81E939C58009FC9E5 /* LaunchScreen.storyboard in Resources */,
 				EC0105521E8F8AE000CE013D /* Assets.xcassets in Resources */,
 				EC0518C61ED1923300189D64 /* Notif.storyboard in Resources */,
@@ -702,6 +729,7 @@
 				EC0105571E8F8AE000CE013D /* RepoListViewController.swift in Sources */,
 				EC297E491ED2D52D004938CE /* NotifCell.swift in Sources */,
 				ECF23ABC1E9B89B2008C23C1 /* Session.swift in Sources */,
+				D4541BC31EDBBCF300686A27 /* Team.swift in Sources */,
 				EC297E341ED27FC3004938CE /* NotifListViewModel.swift in Sources */,
 				ECF23AC91E9B982D008C23C1 /* NSURL.swift in Sources */,
 				EC297E441ED280F9004938CE /* API.Notif.swift in Sources */,
@@ -711,12 +739,16 @@
 				EC0105541E8F8AE000CE013D /* AppDelegate.swift in Sources */,
 				EC332A481EA0A8CB0011DF1E /* Api.swift in Sources */,
 				ECD1C29B1EA725B1000EC989 /* InputView.swift in Sources */,
+				D4541BBC1EDBBCC300686A27 /* TeamViewController.swift in Sources */,
 				ECF23AB41E9B869B008C23C1 /* ApiManager.swift in Sources */,
 				ECF23AC71E9B9328008C23C1 /* Dictionary.swift in Sources */,
 				ECEC0C5A1ED44D4100F6760A /* UIViewController.swift in Sources */,
+				D4541BC11EDBBCE900686A27 /* API.Team.swift in Sources */,
 				ECEC0C581ED44C5D00F6760A /* Strings.swift in Sources */,
+				D4541BBF1EDBBCCE00686A27 /* TeamViewModel.swift in Sources */,
 				EC297E321ED27FC3004938CE /* LoginViewModel.swift in Sources */,
 				EC297E451ED280F9004938CE /* API.Repo.swift in Sources */,
+				D4541BC51EDBC36600686A27 /* TeamDetailViewModel.swift in Sources */,
 				EC297E361ED27FC3004938CE /* RepoCellViewModel.swift in Sources */,
 				ECF23ABB1E9B89B2008C23C1 /* ResponseSerializer.swift in Sources */,
 				EC297E431ED280F9004938CE /* API.Me.swift in Sources */,
