@@ -10,7 +10,7 @@ import UIKit
 import MVVM
 
 final class TeamViewController: UIViewController, MVVM.View {
-    var viewModel = TeamViewModel(teamId: 0) {
+    var viewModel = TeamViewModel(teamId: 2_378_661) {
         didSet {
             updateView()
         }

@@ -14,9 +14,18 @@ import RealmS
 @testable import Demo
 
 class TeamViewModelTests: XCTestCase {
-    func testReturnFromTeamViewModel() {
+    override func setUp() {
+        super.setUp()
+        let login = LoginViewModel.standard
+        api.session.credential = Session.Credential(
+            name: login.username,
+            pass: login.accessToken
+        )
+    }
+
+    func testGetTeamDetail() {
         let ex = expectation(description: "testReturnFromTeamViewModel")
-        let teamId = 1
+        let teamId = 2_378_661
         let vm = TeamViewModel(teamId: teamId)
         vm.getTeamDetail { (result) in
             switch result {
