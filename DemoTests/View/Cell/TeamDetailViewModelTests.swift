@@ -22,7 +22,7 @@ final class TeamDetailViewModelTests: XCTestCase {
 }
 
 extension TeamDetailViewModel {
-    static var test: TeamDetailViewModel {
+    static var test: TeamDetailViewModel = {
         let team = Team()
         team.name = "Team name"
         team.slug = "This my slug"
@@ -31,5 +31,5 @@ extension TeamDetailViewModel {
         team.repoCount = 10
         let vm = TeamDetailViewModel(team: team)
         return vm
-    }
+    }()
 }

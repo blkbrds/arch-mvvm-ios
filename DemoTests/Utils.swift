@@ -34,7 +34,7 @@ extension LoginViewModel {
 }
 
 extension TeamViewModel {
-    static var test: TeamViewModel {
+    static var test: TeamViewModel = {
         let teamId = 1
         let realm = RealmS()
         realm.write {
@@ -49,5 +49,5 @@ extension TeamViewModel {
         }
         let vm = TeamViewModel(teamId: teamId)
         return vm
-    }
+    }()
 }
