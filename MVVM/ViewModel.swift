@@ -17,7 +17,7 @@ import Foundation
     - Determining when information should be hidden or shown
     - Date and number formatting
     - Localization
- 
+
  However, the view model is not responsible for actually presenting information or handling input — that's the sole 
  domain of the view layer. When the view model needs to communicate something to the view, it does so through a system
  of data binding.

@@ -29,6 +29,7 @@
 		EC0105581E8F8AE000CE013D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC01054A1E8F8AE000CE013D /* LoginViewController.swift */; };
 		EC0518C61ED1923300189D64 /* Notif.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC0518C41ED1923300189D64 /* Notif.storyboard */; };
 		EC0518C81ED1926A00189D64 /* NotifListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0518C71ED1926A00189D64 /* NotifListViewController.swift */; };
+		EC064CDE1EE55CF200B79200 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC064CDD1EE55CF200B79200 /* ViewModel.swift */; };
 		EC0BC7BC1EAE0A10009A738C /* Repo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC0BC7BA1EAE0A10009A738C /* Repo.storyboard */; };
 		EC297E321ED27FC3004938CE /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC297E2A1ED27FC3004938CE /* LoginViewModel.swift */; };
 		EC297E331ED27FC3004938CE /* NotifCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC297E2C1ED27FC3004938CE /* NotifCellViewModel.swift */; };
@@ -59,7 +60,6 @@
 		ECDC355F1EA9BCBD00697E91 /* MVVM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECDC355E1EA9BCBD00697E91 /* MVVM.framework */; };
 		ECEC0C581ED44C5D00F6760A /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEC0C571ED44C5D00F6760A /* Strings.swift */; };
 		ECEC0C5A1ED44D4100F6760A /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEC0C591ED44D4100F6760A /* UIViewController.swift */; };
-		ECEC0C5C1ED44D5F00F6760A /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEC0C5B1ED44D5F00F6760A /* ViewModel.swift */; };
 		ECEC0C5E1ED44D7700F6760A /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEC0C5D1ED44D7700F6760A /* Mapper.swift */; };
 		ECEC0C601ED44DB100F6760A /* API.ParamTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEC0C5F1ED44DB100F6760A /* API.ParamTypes.swift */; };
 		ECF23AA71E9B8586008C23C1 /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF23AA41E9B8586008C23C1 /* Repo.swift */; };
@@ -131,6 +131,7 @@
 		EC01055C1E8F8AF000CE013D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC0518C51ED1923300189D64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Notif.storyboard; sourceTree = "<group>"; };
 		EC0518C71ED1926A00189D64 /* NotifListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotifListViewController.swift; sourceTree = "<group>"; };
+		EC064CDD1EE55CF200B79200 /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		EC0BC7BB1EAE0A10009A738C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Repo.storyboard; sourceTree = "<group>"; };
 		EC297E2A1ED27FC3004938CE /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		EC297E2C1ED27FC3004938CE /* NotifCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotifCellViewModel.swift; sourceTree = "<group>"; };
@@ -164,7 +165,6 @@
 		ECDC355E1EA9BCBD00697E91 /* MVVM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MVVM.framework; path = "../../../Library/Developer/Xcode/DerivedData/MVVM-fojmkruklfepnegqcdofyxbwoxxm/Build/Products/Debug-iphonesimulator/MVVM.framework"; sourceTree = "<group>"; };
 		ECEC0C571ED44C5D00F6760A /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		ECEC0C591ED44D4100F6760A /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
-		ECEC0C5B1ED44D5F00F6760A /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		ECEC0C5D1ED44D7700F6760A /* Mapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mapper.swift; sourceTree = "<group>"; };
 		ECEC0C5F1ED44DB100F6760A /* API.ParamTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.ParamTypes.swift; sourceTree = "<group>"; };
 		ECF23AA41E9B8586008C23C1 /* Repo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repo.swift; sourceTree = "<group>"; };
@@ -456,8 +456,8 @@
 		ECF23AAF1E9B869B008C23C1 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				D4541BC01EDBBCE900686A27 /* API.Team.swift */,
 				ECF23AB01E9B869B008C23C1 /* Core */,
+				D4541BC01EDBBCE900686A27 /* API.Team.swift */,
 				EC297E401ED280F9004938CE /* API.Me.swift */,
 				EC297E411ED280F9004938CE /* API.Notif.swift */,
 				EC297E421ED280F9004938CE /* API.Repo.swift */,
@@ -497,7 +497,7 @@
 				ECF23AC81E9B982D008C23C1 /* NSURL.swift */,
 				ECF23AC21E9B9264008C23C1 /* String.swift */,
 				ECEC0C591ED44D4100F6760A /* UIViewController.swift */,
-				ECEC0C5B1ED44D5F00F6760A /* ViewModel.swift */,
+				EC064CDD1EE55CF200B79200 /* ViewModel.swift */,
 			);
 			path = Ext;
 			sourceTree = "<group>";
@@ -742,7 +742,6 @@
 				EC297E341ED27FC3004938CE /* NotifListViewModel.swift in Sources */,
 				ECF23AC91E9B982D008C23C1 /* NSURL.swift in Sources */,
 				EC297E441ED280F9004938CE /* API.Notif.swift in Sources */,
-				ECEC0C5C1ED44D5F00F6760A /* ViewModel.swift in Sources */,
 				ECF23AA71E9B8586008C23C1 /* Repo.swift in Sources */,
 				EC297E351ED27FC3004938CE /* NotifRepoCellViewModel.swift in Sources */,
 				EC0105541E8F8AE000CE013D /* AppDelegate.swift in Sources */,
@@ -754,6 +753,7 @@
 				ECEC0C5A1ED44D4100F6760A /* UIViewController.swift in Sources */,
 				D4541BC11EDBBCE900686A27 /* API.Team.swift in Sources */,
 				ECEC0C581ED44C5D00F6760A /* Strings.swift in Sources */,
+				EC064CDE1EE55CF200B79200 /* ViewModel.swift in Sources */,
 				D4541BBF1EDBBCCE00686A27 /* TeamViewModel.swift in Sources */,
 				EC297E321ED27FC3004938CE /* LoginViewModel.swift in Sources */,
 				EC297E451ED280F9004938CE /* API.Repo.swift in Sources */,
