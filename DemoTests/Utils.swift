@@ -45,6 +45,7 @@ extension TeamViewModel {
             team.desc = "This your first team"
             team.memberCount = 20
             team.repoCount = 10
+            realm.add(team)
         }
         let vm = TeamViewModel(teamId: teamId)
         return vm

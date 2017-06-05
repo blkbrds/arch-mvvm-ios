@@ -13,8 +13,8 @@ import ObjectMapper
 import RealmS
 @testable import Demo
 
-class TeamDetailViewModelTests: XCTestCase {
-    func testPresentTeamDetail() {
+final class TeamDetailViewModelTests: XCTestCase {
+    func testTeamDetailViewModel() {
         let vm = TeamDetailViewModel.test
         XCTAssertEqual(vm.memberCount, "20 members")
         XCTAssertEqual(vm.repoCount, "[10]")

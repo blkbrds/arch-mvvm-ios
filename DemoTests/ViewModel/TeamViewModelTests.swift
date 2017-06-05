@@ -13,7 +13,7 @@ import ObjectMapper
 import RealmS
 @testable import Demo
 
-class TeamViewModelTests: XCTestCase {
+final class TeamViewModelTests: XCTestCase {
     override func setUp() {
         super.setUp()
         let login = LoginViewModel.standard

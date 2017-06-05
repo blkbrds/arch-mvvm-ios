@@ -13,12 +13,11 @@ import ObjectMapper
 import RealmS
 @testable import Demo
 
-class TeamViewControllerTests: XCTestCase {
+final class TeamViewControllerTests: XCTestCase {
 
     func testLoad() {
         let vc = teamViewController()
         vc.viewModel = TeamViewModel.test
-        vc.updateView()
         guard let vmDetail = vc.viewModel.teamDetailViewModel else { return }
         XCTAssertEqual(vc.nameLabel.text, vmDetail.name)
         XCTAssertEqual(vc.slugLabel.text, vmDetail.slug)
