@@ -10,7 +10,7 @@ import UIKit
 import MVVM
 
 final class TeamViewController: UIViewController, MVVM.View {
-    var viewModel = TeamViewModel(teamId: 0) {
+    var viewModel = TeamViewModel(teamId: 2_378_661) {
         didSet {
             updateView()
         }
@@ -19,7 +19,7 @@ final class TeamViewController: UIViewController, MVVM.View {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var slugLabel: UILabel!
     @IBOutlet weak var descLabel: UILabel!
-    @IBOutlet weak var nemberCountLabel: UILabel!
+    @IBOutlet weak var memberCountLabel: UILabel!
     @IBOutlet weak var repoCountLabel: UILabel!
 
     override func viewDidAppear(_ animated: Bool) {
@@ -44,7 +44,7 @@ final class TeamViewController: UIViewController, MVVM.View {
         nameLabel.text = teamDetailViewModel.name
         slugLabel.text = teamDetailViewModel.slug
         descLabel.text = teamDetailViewModel.desc
-        nemberCountLabel.text = teamDetailViewModel.memberCount
+        memberCountLabel.text = teamDetailViewModel.memberCount
         repoCountLabel.text = teamDetailViewModel.repoCount
         viewDidUpdated()
     }

@@ -32,3 +32,22 @@ extension LoginViewModel {
         return user
     }
 }
+
+extension TeamViewModel {
+    static var test: TeamViewModel = {
+        let teamId = 1
+        let realm = RealmS()
+        realm.write {
+            let team = Team()
+            team.id = teamId
+            team.name = "Team name"
+            team.slug = "This my slug"
+            team.desc = "This your first team"
+            team.memberCount = 20
+            team.repoCount = 10
+            realm.add(team)
+        }
+        let vm = TeamViewModel(teamId: teamId)
+        return vm
+    }()
+}

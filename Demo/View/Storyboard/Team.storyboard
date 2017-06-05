@@ -11,7 +11,7 @@
         <!--Git Team-->
         <scene sceneID="nWr-GS-Yho">
             <objects>
-                <viewController id="SmV-6g-gcA" customClass="TeamViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TeamDetail" id="SmV-6g-gcA" customClass="TeamViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5mW-Cd-sgX"/>
                         <viewControllerLayoutGuide type="bottom" id="7Yb-M8-Cuy"/>
@@ -110,8 +110,8 @@
                     <navigationItem key="navigationItem" title="Git Team" id="4M8-JW-sLU"/>
                     <connections>
                         <outlet property="descLabel" destination="6wX-TA-ZG4" id="aMm-fR-9th"/>
+                        <outlet property="memberCountLabel" destination="bBM-ut-Uec" id="CdH-Fj-FEP"/>
                         <outlet property="nameLabel" destination="JmR-jS-eJ3" id="eeG-hX-w3A"/>
-                        <outlet property="nemberCountLabel" destination="bBM-ut-Uec" id="w5G-T7-XoH"/>
                         <outlet property="repoCountLabel" destination="7uV-8Q-MBO" id="9g9-cR-jBr"/>
                         <outlet property="slugLabel" destination="VSQ-IV-tal" id="Fig-OZ-VXW"/>
                     </connections>

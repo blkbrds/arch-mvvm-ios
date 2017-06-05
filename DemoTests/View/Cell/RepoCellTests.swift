@@ -23,10 +23,10 @@ final class RepoCellTests: XCTestCase {
 }
 
 extension RepoCellViewModel {
-    static var test: RepoCellViewModel {
+    static var test: RepoCellViewModel = {
         let vm = RepoCellViewModel(repo: nil)
         vm.name = "repo name"
         vm.desc = "repo desc"
         return vm
-    }
+    }()
 }

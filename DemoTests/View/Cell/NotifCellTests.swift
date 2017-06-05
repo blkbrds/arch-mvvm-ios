@@ -23,11 +23,11 @@ class NotifCellTests: XCTestCase {
 }
 
 extension NotifCellViewModel {
-    static var test: NotifCellViewModel {
+    static var test: NotifCellViewModel = {
         let notifObj = Notif()
         notifObj.name = "notif name"
         notifObj.desc = "This your first repo"
         let vm = NotifCellViewModel(notif: notifObj)
         return vm
-    }
+    }()
 }
