@@ -12,6 +12,7 @@ target 'Demo' do
     pod 'Alamofire', '~> 4.3.0'
     pod 'SwiftLint', '~> 0.16.1'
     pod 'RealmS', '~> 2.3.1'
+    pod 'ObjectMapper', '2.2.6' # please fix this version
     pod 'SwiftyJSON', '~> 3.1.4'
     pod 'SwiftDate', '~> 4.1.2'
     pod 'MVVM-Swift', :path => './'
