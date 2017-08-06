@@ -13,4 +13,5 @@ import Foundation
  and validation logic. Examples of model objects include repositories, business objects, data transfer objects (DTOs), 
  Plain Old CLR Objects (POCOs), and generated entity and proxy objects.
  */
-@objc public protocol Model: class { }
+@objc public protocol Model: class {
+}
