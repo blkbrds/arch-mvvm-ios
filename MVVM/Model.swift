@@ -13,5 +13,22 @@ import Foundation
  and validation logic. Examples of model objects include repositories, business objects, data transfer objects (DTOs), 
  Plain Old CLR Objects (POCOs), and generated entity and proxy objects.
  */
-@objc public protocol Model: class {
+public protocol Model {
+    static func all() -> [Self]
+    static func find(id: Any) -> Self?
+    func save() -> Self
+}
+
+extension Model {
+    static func all() -> [Self] {
+        return []
+    }
+
+    static func find(id: Any) -> Self? {
+        return nil
+    }
+
+    func save() -> Self {
+        fatalError("Not Implement")
+    }
 }
