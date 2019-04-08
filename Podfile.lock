@@ -2,17 +2,17 @@ PODS:
   - Alamofire (4.3.0)
   - MVVM-Swift (1.1.0)
   - ObjectMapper (2.2.6)
-  - Realm (2.7.0):
-    - Realm/Headers (= 2.7.0)
-  - Realm/Headers (2.7.0)
-  - RealmS (2.3.1):
+  - Realm (2.10.2):
+    - Realm/Headers (= 2.10.2)
+  - Realm/Headers (2.10.2)
+  - RealmS (2.3.2):
     - ObjectMapper (~> 2.2)
     - RealmSwift (~> 2.2)
-  - RealmSwift (2.7.0):
-    - Realm (= 2.7.0)
-  - SAMKeychain (1.5.2)
-  - SwiftDate (4.1.2)
-  - SwiftLint (0.16.1)
+  - RealmSwift (2.10.2):
+    - Realm (= 2.10.2)
+  - SAMKeychain (1.5.3)
+  - SwiftDate (4.1.11)
+  - SwiftLint (0.31.0)
   - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
@@ -22,8 +22,20 @@ DEPENDENCIES:
   - RealmS (~> 2.3.1)
   - SAMKeychain (~> 1.5.1)
   - SwiftDate (~> 4.1.2)
-  - SwiftLint (~> 0.16.1)
+  - SwiftLint (~> 0.31.0)
   - SwiftyJSON (~> 3.1.4)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - ObjectMapper
+    - Realm
+    - RealmS
+    - RealmSwift
+    - SAMKeychain
+    - SwiftDate
+    - SwiftLint
+    - SwiftyJSON
 
 EXTERNAL SOURCES:
   MVVM-Swift:
@@ -32,15 +44,15 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
   MVVM-Swift: 724fc493e3be2c60841c5b91e9aba67cc1d25829
-  ObjectMapper: '042708195cc46c20871cbcbec0453826398273fd'
-  Realm: 07e5d3a9e0e41d65fd5f9f05150ed6295d0f093b
-  RealmS: 939afb24205b83c0af75770bcf06347b6e5df0da
-  RealmSwift: 6d06425d3900c86473c4f323bf6949b43fca22bc
-  SAMKeychain: 1865333198217411f35327e8da61b43de79b635b
-  SwiftDate: 2dfdebd4f67ae71c9c3e2413ee3c56947f302858
-  SwiftLint: b8b683208cc09640898f16318a7a452274e91f61
+  ObjectMapper: 042708195cc46c20871cbcbec0453826398273fd
+  Realm: 0ef72b837fb67e9f4b098bac771ddd72c7fdbb69
+  RealmS: cc6db85d964db9f0e93429cf484403c403d1d814
+  RealmSwift: 07a9ae0505091eda6b2ee7c190c3786d6e90a7b0
+  SAMKeychain: 483e1c9f32984d50ca961e26818a534283b4cd5c
+  SwiftDate: ab63a5f0299dbb57fc088c1a2e5314b4bc9c90bb
+  SwiftLint: 7a0227733d786395817373b2d0ca799fd0093ff3
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 4f43929878e17802b4c3984c62e555373fa0ae37
+PODFILE CHECKSUM: 15584d513c06358b11e55749dba63a3867cef67c
 
-COCOAPODS: 1.7.0
+COCOAPODS: 1.6.1
