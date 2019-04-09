@@ -29,14 +29,14 @@ extension ApiManager {
             encoding = URLEncoding.default
         }
 
-        var _headers = api.defaultHTTPHeaders
-        _headers.updateValues(headers)
+        var newHeaders = api.defaultHTTPHeaders
+        newHeaders.updateValues(headers)
 
         let request = Alamofire.request(urlString.urlString,
                                         method: method,
                                         parameters: parameters,
                                         encoding: encoding,
-                                        headers: _headers
+                                        headers: newHeaders
         ).responseJSON(completion: { (response) in
             completion?(response.result)
         })

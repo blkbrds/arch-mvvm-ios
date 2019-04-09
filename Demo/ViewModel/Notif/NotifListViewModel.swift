@@ -70,7 +70,7 @@ class NotifListViewModel: MVVM.ViewModel {
         Api.Notif.query(params: params) { (result) in
             RealmS().refresh()
             switch result {
-            case .success(_):
+            case .success:
                 completion(.success)
             case .failure(let error):
                 completion(.failure(error))

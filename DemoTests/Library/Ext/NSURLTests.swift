@@ -14,7 +14,7 @@ final class NSURLTests: XCTestCase {
         for code in 100..<600 {
             guard let status = HTTPStatus(code: code) else { continue }
             XCTAssertEqual(status.code, code)
-            XCTAssertGreaterThan(status.description.characters.count, 0)
+            XCTAssertGreaterThan(status.description.count, 0)
             let error = NSError(status: status)
             XCTAssertEqual(error.code, status.code)
             XCTAssertEqual(error.localizedDescription, status.description)
