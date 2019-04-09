@@ -14,7 +14,7 @@ enum Process {
 }
 
 extension String {
-    var len: Int { return characters.count }
+    var len: Int { return count }
     var host: String? { return (try? asURL())?.host }
 
     func base64(_ method: Process) -> String? {

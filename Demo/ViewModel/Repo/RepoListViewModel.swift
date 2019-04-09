@@ -44,7 +44,7 @@ class RepoListViewModel: MVVM.ViewModel {
     func fetch() {
         guard repos == nil else { return }
         repos = RealmS().objects(Repo.self).sorted(byKeyPath: "id", ascending: true)
-        token = repos?.addNotificationBlock({ [weak self] (change) in
+        token = repos?.observe({ [weak self] (change) in
             guard let this = self else { return }
             this.notify(change: change)
         })

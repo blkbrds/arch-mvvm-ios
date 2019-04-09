@@ -11,8 +11,8 @@ target 'Demo' do
     pod 'SAMKeychain', '~> 1.5.1'
     pod 'Alamofire', '~> 4.7.3'
     pod 'SwiftLint', '~> 0.31.0'
-    pod 'RealmS', '~> 2.3.1'
-    pod 'ObjectMapper', '2.2.6' # please fix this version
+    pod 'RealmS', '4.0.1'
+    pod 'ObjectMapper', '3.4.2' # please fix this version
     pod 'SwiftyJSON', '~> 3.1.4'
     pod 'SwiftDate', '~> 4.5.1'
     pod 'MVVM-Swift', :path => './'
