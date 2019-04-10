@@ -60,7 +60,7 @@ import Foundation
     /**
      The object that acts as the delegate of the view model. The delegate is not retained.
      */
-    @objc optional weak var delegate: ViewModelDelegate? { get set }
+    @objc optional var delegate: ViewModelDelegate? { get set }
 }
 
 /**

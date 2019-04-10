@@ -75,7 +75,7 @@ extension Int: URLStringConvertible {
     var urlString: String { return String(describing: self) }
 }
 
-fileprivate func / (lhs: URLStringConvertible, rhs: URLStringConvertible) -> String {
+private func / (lhs: URLStringConvertible, rhs: URLStringConvertible) -> String {
     return lhs.urlString + "/" + rhs.urlString
 }
 

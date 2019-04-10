@@ -18,7 +18,7 @@ class NotifListViewModel: MVVM.ViewModel {
     private var token: NotificationToken?
 
     func numberOfSections() -> Int {
-        guard let _ = notifs else {
+        guard notifs != nil else {
             return 0
         }
         return 1

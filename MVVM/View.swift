@@ -27,7 +27,7 @@ import UIKit
  No matter whether you decide to use a view or a view controller, you'll still have a view model.
  */
 @objc public protocol View: class {
-    @objc optional var viewModel: ViewModel { set get }
+    @objc optional var viewModel: ViewModel { get set }
     @objc optional func updateView()
 }
 

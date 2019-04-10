@@ -23,7 +23,7 @@ final class LoginViewModelTests: XCTestCase {
         let validation = user.validate()
         switch validation {
         case .success: break
-        case .failure(_, _):
+        case .failure:
             XCTFail("`validation` must be `.success`")
         }
     }
