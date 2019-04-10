@@ -20,7 +20,7 @@ DEPENDENCIES:
   - MVVM-Swift (from `./`)
   - ObjectMapper (= 3.4.2)
   - RealmS (= 4.0.1)
-  - SAMKeychain (~> 1.5.1)
+  - SAMKeychain (~> 1.5.3)
   - SwiftDate (~> 4.5.1)
   - SwiftLint (~> 0.31.0)
   - SwiftyJSON (~> 4.3.0)
@@ -53,6 +53,6 @@ SPEC CHECKSUMS:
   SwiftLint: 7a0227733d786395817373b2d0ca799fd0093ff3
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: 3a211a69e459a9c7a0c5b26cd82e398eee489960
+PODFILE CHECKSUM: 6c6c34b8914e35b0408c9aa89f60eb006b3175c6
 
 COCOAPODS: 1.7.0.beta.3

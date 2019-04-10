@@ -8,7 +8,7 @@ workspace 'MVVM.xcworkspace'
 
 target 'Demo' do
     project 'Demo'
-    pod 'SAMKeychain', '~> 1.5.1'
+    pod 'SAMKeychain', '~> 1.5.3'
     pod 'Alamofire', '~> 4.7.3'
     pod 'SwiftLint', '~> 0.31.0'
     pod 'RealmS', '4.0.1'
