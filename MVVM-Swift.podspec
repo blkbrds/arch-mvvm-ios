@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   # Metadata
   s.name         = "MVVM-Swift"
   s.module_name  = "MVVM"
-  s.version      = "1.1.0"
+  s.version      = "5.0.1"
   s.summary      = "MVVM Architect for iOS application."
   s.description  = <<-DESC
     MVVM Architect for iOS application.
@@ -22,13 +22,16 @@ Pod::Spec.new do |s|
   s.author       = { "Dao Nguyen V." => "dao.nguyen@asiantech.vn" }
 
   # Platform Specifics
-  s.platform     = :ios, "9.0"
+  s.platform     = :ios, "10.0"
 
   # Source Location
   s.source       = { :git => "https://github.com/blkbrds/arch-mvvm-ios.git", :tag => "#{s.version}" }
 
+  # Swift version
+  s.swift_version = '5.0'
+
   # Source Code
-  s.source_files = "MVVM/*.swift"
+  s.source_files = "MVVM/Class/*.swift"
 
   # Project Settings
   s.requires_arc = true
